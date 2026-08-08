@@ -1049,9 +1049,36 @@ function loadEmoteImgMapForTree() {
   return emoteImgMapLoading;
 }
 
-// Stage 2で、精霊によらず見た目が同じ汎用報酬（Heart/Blessing各種/染料等）の
-// 実機アイコンをitemNameJaキーでここに追加していく。
-const GENERIC_ITEM_IMG = {};
+// 精霊によらず見た目が同じ汎用報酬（Heart/Blessing各種/染料等）の実機アイコン。
+// itemNameJa（日本語訳が無い場合はitemNameの英語）をキーにする。
+// Wikiで個別ページが見つからない/明確な単一アイコンが無いものは、最も近い代表アイコンで代用している
+// （例: 単なる「祝福」「小さな祝福」は1キャンドルの祝福アイコンで代用、「シーズンハート」は
+//   シーズン非依存の「？」ハートで代用）。
+const GENERIC_ITEM_IMG = {
+  '祝福': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/3c/1CandleSpell.png/revision/latest/scale-to-width-down/51',
+  '小さな祝福': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/3c/1CandleSpell.png/revision/latest/scale-to-width-down/51',
+  '特別な祝福': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/28/Special-event-spell-icon.png/revision/latest/scale-to-width-down/51',
+  'ハート': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/d/d9/Heart.png/revision/latest/scale-to-width-down/51',
+  'シーズンハート': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/38/Question-mark-heart-Ray.png/revision/latest/scale-to-width-down/51',
+  '羽ロック': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/31/Winglight.png/revision/latest/scale-to-width-down/51',
+  '染色の魔法': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/f4/Random-dye-icon-spell.png/revision/latest/scale-to-width-down/51',
+  '黄色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/ad/Yellow-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '白色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/64/White-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '青色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/0/0b/Blue-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '水色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/f5/Cyan-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '赤色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/6c/Red-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '緑色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/c8/Green-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '黒色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/97/Black-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  '紫色染料': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/34/Purple-dye-container-icon.png/revision/latest/scale-to-width-down/51',
+  'カラートレイル': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/4/42/Days_of_Rainbow_-_Green_Trail_spell.png/revision/latest/scale-to-width-down/51',
+  'スペース共有の魔法': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/fd/Shared_Space_Spell_Icon_Credit_Ed.png/revision/latest/scale-to-width-down/51',
+  '思い出共有の魔法': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/b/bd/Shared-memory-spell-Morybel-0146.png/revision/latest/scale-to-width-down/51',
+  'Warp': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/67/Icon_warp.png/revision/latest/scale-to-width-down/51',
+  'Random Trail Spell': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/4/42/Days_of_Rainbow_-_Green_Trail_spell.png/revision/latest/scale-to-width-down/51',
+  'Hug': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/c6/Icon_hug.png/revision/latest/scale-to-width-down/51',
+  'High Five': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/94/Icon_high_five.png/revision/latest/scale-to-width-down/51',
+  'Double-Five': 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8d/Mimi-4117_03_doublefive_light_catcher_emote.png/revision/latest/scale-to-width-down/51',
+};
 
 // ノードに対応する実機画像URLを解決する（優先順: item直接参照 → emote直接参照 → 汎用報酬辞書 → 無ければnull＝絵文字のまま）
 function resolveNodeImg(n) {
@@ -1063,7 +1090,8 @@ function resolveNodeImg(n) {
     const img = emoteImgMap[n.emoteId];
     if (img) return img;
   }
-  if (n.itemNameJa && GENERIC_ITEM_IMG[n.itemNameJa]) return GENERIC_ITEM_IMG[n.itemNameJa];
+  const genericKey = n.itemNameJa || n.itemName;
+  if (genericKey && GENERIC_ITEM_IMG[genericKey]) return GENERIC_ITEM_IMG[genericKey];
   return null;
 }
 
