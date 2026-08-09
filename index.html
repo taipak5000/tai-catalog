@@ -684,7 +684,39 @@ function getUnlockedMap() {
   catch (_) { return {}; }
 }
 function saveUnlockedMap(map) { localStorage.setItem(nsKey(UNLOCK_KEY_RAW), JSON.stringify(map)); }
-function isNodeUnlocked(guid) { return !!getUnlockedMap()[guid]; }
+
+// item（アイテム所持管理）/emote（エモート所持率管理）の所持データを一度だけ
+// 読み込んでキャッシュする（ノードごとに毎回JSON.parseしないための最適化）。
+// item/emote側で先に所持登録した場合でも、精霊ツリー側が自動でチェック済みに
+// なるようにするための「逆方向」の同期に使う（これまではspirit-catalog→item/emote
+// の一方向のみだった）。
+let _externalOwnCache = null;
+function getExternalOwnCache() {
+  if (_externalOwnCache) return _externalOwnCache;
+  const itemOwnedByCat = {};
+  ITEM_CATS_FOR_TREE.forEach(cat => {
+    try {
+      const d = JSON.parse(localStorage.getItem(nsKey('gameItems_' + cat.key)));
+      itemOwnedByCat[cat.key] = (d && d.itemOwned) || {};
+    } catch (_) { itemOwnedByCat[cat.key] = {}; }
+  });
+  let emoteOwned = {};
+  try { emoteOwned = JSON.parse(localStorage.getItem(nsKey('emoteOwned_v1'))) || {}; } catch (_) {}
+  _externalOwnCache = { itemOwnedByCat, emoteOwned };
+  return _externalOwnCache;
+}
+function invalidateExternalOwnCache() { _externalOwnCache = null; }
+
+// ノードが「解放済み」とみなされるかどうかを判定する。
+// spirit-catalog自身の解放記録に加え、item/emote側で該当アイテムを既に
+// 所持済みにしている場合も解放済みとして扱う（item/emote→spirit-catalogの逆方向同期）。
+function isNodeUnlocked(node) {
+  if (getUnlockedMap()[node.guid]) return true;
+  const ext = getExternalOwnCache();
+  if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return true;
+  if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return true;
+  return false;
+}
 
 /* ================================================================
    item（アイテム所持管理）の「所持キャンドル/ハート」と自動同期
@@ -715,7 +747,7 @@ function syncWingBuff(spirit) {
     let tracker;
     try { tracker = JSON.parse(localStorage.getItem(key)) || {}; } catch (_) { tracker = {}; }
     if (!tracker[seasonJa]) tracker[seasonJa] = {};
-    const anyChecked = wingBuffNodes.some(n => isNodeUnlocked(n.guid));
+    const anyChecked = wingBuffNodes.some(n => isNodeUnlocked(n));
     tracker[seasonJa][spirit.nameJa] = anyChecked;
     localStorage.setItem(key, JSON.stringify(tracker));
   } else if (spirit.type === 'Regular') {
@@ -725,7 +757,7 @@ function syncWingBuff(spirit) {
     const entry = {};
     wingBuffNodes.forEach((n, idx) => {
       const tierKey = idx === 0 ? 'tier1' : 'tier2';
-      if (isNodeUnlocked(n.guid)) entry[tierKey] = true;
+      if (isNodeUnlocked(n)) entry[tierKey] = true;
     });
     tracker[spirit.nameJa] = entry;
     localStorage.setItem(key, JSON.stringify(tracker));
@@ -773,16 +805,23 @@ function toggleNode(spiritGuid, nodeGuid) {
   const node = spirit.nodes.find(n => n.guid === nodeGuid);
   if (!node) return;
 
+  // 表示上の解放状態（item/emote側の所持による自動解放も含む）を反転させる
+  const wasDisplayedUnlocked = isNodeUnlocked(node);
+  const nowUnlocked = !wasDisplayedUnlocked;
+
   const unlocked = getUnlockedMap();
-  const wasUnlocked = !!unlocked[nodeGuid];
-  const nowUnlocked = !wasUnlocked;
+  const wasInOwnMap = !!unlocked[nodeGuid]; // spirit-catalog自身の解放記録での状態（コスト計算用）
   if (nowUnlocked) { unlocked[nodeGuid] = true; } else { delete unlocked[nodeGuid]; }
   saveUnlockedMap(unlocked);
 
-  // 解放でコスト分を消費、解除で払い戻す（キャンドル・ハートのみitemと同期）
-  const sign = nowUnlocked ? -1 : 1;
-  const cost = node.cost || {};
-  adjustOwnCurrency(sign * (cost.c || 0), sign * (cost.h || 0));
+  // 解放でコスト分を消費、解除で払い戻す（キャンドル・ハートのみitemと同期）。
+  // item/emote側の所持だけで表示上「解放済み」になっていたノード（＝spirit-catalog
+  // 自身ではコストを払っていない）は、この増減の対象外にする。
+  if (wasInOwnMap !== nowUnlocked) {
+    const sign = nowUnlocked ? -1 : 1;
+    const cost = node.cost || {};
+    adjustOwnCurrency(sign * (cost.c || 0), sign * (cost.h || 0));
+  }
 
   // 羽バフノードならwingsとも同期
   if (node.itemType === 'WingBuff') syncWingBuff(spirit);
@@ -792,6 +831,9 @@ function toggleNode(spiritGuid, nodeGuid) {
 
   // エモートカタログと対応が取れているノードならemoteの所持データとも同期
   syncEmoteOwned(node, nowUnlocked);
+
+  // item/emoteへの書き込みでキャッシュが古くなるため無効化する
+  invalidateExternalOwnCache();
 
   renderDetail(spiritGuid);
   renderGrid();
@@ -854,9 +896,8 @@ const spiritByGuid = {};
 SPIRIT_TREE_DATA.forEach(s => { spiritByGuid[s.guid] = s; });
 
 function spiritProgress(spirit) {
-  const unlocked = getUnlockedMap();
   const total = spirit.nodes.length;
-  const done = spirit.nodes.filter(n => unlocked[n.guid]).length;
+  const done = spirit.nodes.filter(n => isNodeUnlocked(n)).length;
   return { done, total };
 }
 
@@ -933,17 +974,16 @@ function renderGrid() {
 }
 
 function renderStats() {
-  const unlocked = getUnlockedMap();
+  const rawUnlocked = getUnlockedMap(); // 「使用したキャンドル/ハート」用（spirit-catalog自身の解放記録のみ）
   let totalNodes = 0, doneNodes = 0, completeSpirits = 0;
   let candleSpent = 0, heartSpent = 0;
   SPIRIT_TREE_DATA.forEach(s => {
     let spiritDone = 0;
     s.nodes.forEach(n => {
       totalNodes++;
-      if (unlocked[n.guid]) {
-        doneNodes++; spiritDone++;
-        if (n.cost) { candleSpent += (n.cost.c || 0); heartSpent += (n.cost.h || 0); }
-      }
+      if (isNodeUnlocked(n)) { doneNodes++; spiritDone++; }
+      // item/emote側の所持だけで解放扱いになっている分は、ここでは払っていないため含めない
+      if (rawUnlocked[n.guid] && n.cost) { candleSpent += (n.cost.c || 0); heartSpent += (n.cost.h || 0); }
     });
     if (spiritDone === s.nodes.length && s.nodes.length > 0) completeSpirits++;
   });
@@ -1088,6 +1128,34 @@ function resolveNodeImgByName(n) {
   return null;
 }
 
+// データ元（SkyGame-Data）でitemNameJaが未設定のノードについて、item/emoteの
+// 日本語カタログ（既にWiki準拠で翻訳済み）を参照して日本語名を補う。
+// 優先順: item直接参照（itemCatKey+itemCostId）→ emote直接参照（emoteId）→
+// 名前照合（itemNameの英語一致）→ どれも無ければnull（英語のitemNameのまま表示）
+function resolveNodeNameJa(n) {
+  if (n.itemCatKey && n.itemCostId && itemListByCat) {
+    const found = (itemListByCat[n.itemCatKey] || []).find(it => it.id === n.itemCostId);
+    if (found?.name) return found.name;
+  }
+  if (n.emoteId && emoteList) {
+    const found = emoteList.find(e => e.id === n.emoteId);
+    if (found?.name) return found.name;
+  }
+  if (!n.itemName) return null;
+  if (n.itemType === 'Emote' && emoteList) {
+    const found = emoteList.find(e => e.nameEn === n.itemName);
+    if (found?.name) return found.name;
+  }
+  const catKeys = TYPE_TO_CATKEYS[n.itemType];
+  if (catKeys && itemListByCat) {
+    for (const catKey of catKeys) {
+      const found = (itemListByCat[catKey] || []).find(it => it.nameEn === n.itemName);
+      if (found?.name) return found.name;
+    }
+  }
+  return null;
+}
+
 // 精霊によらず見た目が同じ汎用報酬（Heart/Blessing各種/染料等）の実機アイコン。
 // itemNameJa（日本語訳が無い場合はitemNameの英語）をキーにする。
 // Wikiで個別ページが見つからない/明確な単一アイコンが無いものは、最も近い代表アイコンで代用している
@@ -1177,10 +1245,11 @@ Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
 });
 
 function treeNodeHtml(spiritGuid, n, style) {
-  const unlocked = isNodeUnlocked(n.guid);
-  const name = n.itemNameJa || n.itemName || '（アイテム不明）';
-  const noJa = !n.itemNameJa;
-  const icon = NODE_NAME_ICON_OVERRIDE[n.itemNameJa] || NODE_TYPE_ICON[n.itemType] || '✨';
+  const unlocked = isNodeUnlocked(n);
+  const nameJa = n.itemNameJa || resolveNodeNameJa(n);
+  const name = nameJa || n.itemName || '（アイテム不明）';
+  const noJa = !nameJa;
+  const icon = NODE_NAME_ICON_OVERRIDE[nameJa] || NODE_TYPE_ICON[n.itemType] || '✨';
   const nodeImg = resolveNodeImg(n);
   const iconHtml = nodeImg
     ? `<img src="${nodeImg}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${icon}'}))">`
