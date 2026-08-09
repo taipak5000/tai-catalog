@@ -1012,6 +1012,7 @@ function treeExtractArray(html, varName) {
 }
 
 let itemImgMapByCat = null;
+let itemListByCat = null; // Stage 3の名前マッチ用: {catKey: [{id,name,nameEn,img}]}
 let itemImgMapLoading = null;
 function loadItemImgMapForTree() {
   if (itemImgMapByCat) return Promise.resolve(itemImgMapByCat);
@@ -1021,10 +1022,11 @@ function loadItemImgMapForTree() {
       const res = await fetch(`${SPIRIT_SITE_ROOT}/tai-item/${cat.file}`);
       const html = await res.text();
       const data = treeExtractArray(html, 'ITEMS_DATA') || [];
-      return [cat.key, Object.fromEntries(data.filter(it => it.img).map(it => [it.id, it.img]))];
-    } catch (e) { console.error('tree item map', cat.key, e); return [cat.key, {}]; }
+      return [cat.key, data];
+    } catch (e) { console.error('tree item map', cat.key, e); return [cat.key, []]; }
   })).then(entries => {
-    itemImgMapByCat = Object.fromEntries(entries);
+    itemImgMapByCat = Object.fromEntries(entries.map(([k, data]) => [k, Object.fromEntries(data.filter(it => it.img).map(it => [it.id, it.img]))]));
+    itemListByCat = Object.fromEntries(entries);
     itemImgMapLoading = null;
     return itemImgMapByCat;
   });
@@ -1032,6 +1034,7 @@ function loadItemImgMapForTree() {
 }
 
 let emoteImgMap = null;
+let emoteList = null; // Stage 3の名前マッチ用
 let emoteImgMapLoading = null;
 function loadEmoteImgMapForTree() {
   if (emoteImgMap) return Promise.resolve(emoteImgMap);
@@ -1042,11 +1045,38 @@ function loadEmoteImgMapForTree() {
       const html = await res.text();
       const data = treeExtractArray(html, 'EMOTES_DATA') || [];
       emoteImgMap = Object.fromEntries(data.filter(e => e.img).map(e => [e.id, e.img]));
-    } catch (e) { console.error('tree emote map', e); emoteImgMap = {}; }
+      emoteList = data;
+    } catch (e) { console.error('tree emote map', e); emoteImgMap = {}; emoteList = []; }
     emoteImgMapLoading = null;
     return emoteImgMap;
   })();
   return emoteImgMapLoading;
+}
+
+// itemCatKeyが無いノード向け: itemTypeからitemの該当カテゴリキー（複数の可能性がある場合は候補リスト）を推定する
+const TYPE_TO_CATKEYS = {
+  Cape: ['cape'], Mask: ['mask'], Necklace: ['necklace'], Hair: ['hairstyle'],
+  HairAccessory: ['hair_accessory'], HeadAccessory: ['head_accessory'], Outfit: ['outfit'],
+  OutfitShoes: ['shoes'], Shoes: ['shoes'], FaceAccessory: ['face_accessory'],
+  Held: ['portable_item'], Furniture: ['large_placeable', 'small_placeable'],
+  Prop: ['portable_item', 'large_placeable', 'small_placeable'],
+};
+
+// 直接ID参照が無いノードを、fetch済みのitem/emoteカタログに対して名前で照合する（Stage 3）
+function resolveNodeImgByName(n) {
+  if (n.itemType === 'Emote' && emoteList) {
+    const found = emoteList.find(e => (n.itemNameJa && e.name === n.itemNameJa) || (n.itemName && e.nameEn === n.itemName));
+    if (found?.img) return found.img;
+  }
+  const catKeys = TYPE_TO_CATKEYS[n.itemType];
+  if (catKeys && itemListByCat) {
+    for (const catKey of catKeys) {
+      const list = itemListByCat[catKey] || [];
+      const found = list.find(it => (n.itemNameJa && it.name === n.itemNameJa) || (n.itemName && it.nameEn === n.itemName));
+      if (found?.img) return found.img;
+    }
+  }
+  return null;
 }
 
 // 精霊によらず見た目が同じ汎用報酬（Heart/Blessing各種/染料等）の実機アイコン。
@@ -1092,6 +1122,8 @@ function resolveNodeImg(n) {
   }
   const genericKey = n.itemNameJa || n.itemName;
   if (genericKey && GENERIC_ITEM_IMG[genericKey]) return GENERIC_ITEM_IMG[genericKey];
+  const byName = resolveNodeImgByName(n);
+  if (byName) return byName;
   return null;
 }
 
