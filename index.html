@@ -224,6 +224,7 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .tree-node.checked { background: var(--green); border-color: var(--green-d); color: #fff; }
+    .tree-node-excluded { opacity: 0.45; border-style: dashed; cursor: default; box-shadow: none; }
     .tree-node-icon { line-height: 1; }
     .tree-node-icon img { width: calc(28px * var(--tree-scale, 1)); height: calc(28px * var(--tree-scale, 1)); object-fit: contain; }
     .tree-node-wingtag { position: absolute; top: -6px; right: -4px; font-size: calc(13px * var(--tree-scale, 1)); }
@@ -718,6 +719,13 @@ function isNodeUnlocked(node) {
   return false;
 }
 
+// 案内人ツリーの「〇〇 Warp」ノード（案内人の広場へのワープ機能）は、
+// イベント期間中にしか使えない機能でありアイテム所持管理とは無関係なため、
+// チェックリスト（進捗集計・トグル操作）の対象から除外する。
+function isWarpNode(node) {
+  return node.itemType === 'Special' && /Warp$/.test(node.itemName || '');
+}
+
 /* ================================================================
    item（アイテム所持管理）の「所持キャンドル/ハート」と自動同期
    ================================================================ */
@@ -896,8 +904,9 @@ const spiritByGuid = {};
 SPIRIT_TREE_DATA.forEach(s => { spiritByGuid[s.guid] = s; });
 
 function spiritProgress(spirit) {
-  const total = spirit.nodes.length;
-  const done = spirit.nodes.filter(n => isNodeUnlocked(n)).length;
+  const trackable = spirit.nodes.filter(n => !isWarpNode(n));
+  const total = trackable.length;
+  const done = trackable.filter(n => isNodeUnlocked(n)).length;
   return { done, total };
 }
 
@@ -978,14 +987,15 @@ function renderStats() {
   let totalNodes = 0, doneNodes = 0, completeSpirits = 0;
   let candleSpent = 0, heartSpent = 0;
   SPIRIT_TREE_DATA.forEach(s => {
-    let spiritDone = 0;
+    let spiritDone = 0, spiritTotal = 0;
     s.nodes.forEach(n => {
-      totalNodes++;
+      if (isWarpNode(n)) return; // イベント限定のワープ機能はチェックリスト集計の対象外
+      totalNodes++; spiritTotal++;
       if (isNodeUnlocked(n)) { doneNodes++; spiritDone++; }
       // item/emote側の所持だけで解放扱いになっている分は、ここでは払っていないため含めない
       if (rawUnlocked[n.guid] && n.cost) { candleSpent += (n.cost.c || 0); heartSpent += (n.cost.h || 0); }
     });
-    if (spiritDone === s.nodes.length && s.nodes.length > 0) completeSpirits++;
+    if (spiritDone === spiritTotal && spiritTotal > 0) completeSpirits++;
   });
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-box"><div class="stat-num">${doneNodes} / ${totalNodes}</div><div class="stat-label">解放済みノード</div></div>
@@ -1335,7 +1345,7 @@ function resolveNodeImg(n) {
   if (byName) return byName;
   // 「〇〇 Warp」（AURORA Warp / Void Warp 等、名称は精霊ごとに違うが実機アイコンは共通）は
   // 汎用の「Warp」アイコンで代用する
-  if (n.itemType === 'Special' && /Warp$/.test(n.itemName || '')) return GENERIC_ITEM_IMG['Warp'];
+  if (isWarpNode(n)) return GENERIC_ITEM_IMG['Warp'];
   // クエスト（「クエスト1」「Quest 2」等、番号は精霊ごとに違うが実機アイコンは共通）は
   // ゲーム内と同じ「！」マークで表示する（紙の絵文字より実機に近くわかりやすいため）
   if (n.itemType === 'Quest') return 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8b/Exclamation-mark-Ray.png/revision/latest/scale-to-width-down/51';
@@ -1348,7 +1358,6 @@ Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
 });
 
 function treeNodeHtml(spiritGuid, n, style) {
-  const unlocked = isNodeUnlocked(n);
   const nameJa = n.itemNameJa || resolveNodeNameJa(n, spiritByGuid[spiritGuid]);
   const name = nameJa || n.itemName || '（アイテム不明）';
   const noJa = !nameJa;
@@ -1357,6 +1366,22 @@ function treeNodeHtml(spiritGuid, n, style) {
   const iconHtml = nodeImg
     ? `<img src="${nodeImg}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${icon}'}))">`
     : icon;
+
+  // ワープノードはイベント期間限定機能でチェックリスト対象外のため、
+  // トグル不可の情報表示のみとする（進捗集計にも含めない）
+  if (isWarpNode(n)) {
+    return `
+      <div class="tree-node-wrap" style="${style || ''}">
+        <div class="tree-node-circle-holder">
+          <div class="tree-node tree-node-excluded" title="${escapeHtml(name)}（イベント期間限定のワープ機能のため管理対象外）">
+            <span class="tree-node-icon">${iconHtml}</span>
+          </div>
+        </div>
+        <div class="tree-node-label no-ja">${escapeHtml(name)}</div>
+      </div>`;
+  }
+
+  const unlocked = isNodeUnlocked(n);
   const costChips = Object.keys(n.cost || {}).map(k =>
     `<span class="cost-chip cost-${k}">${COST_ICON[k] || ''}${n.cost[k]}</span>`
   ).join('');
