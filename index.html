@@ -1132,7 +1132,7 @@ function resolveNodeImgByName(n) {
 // 日本語カタログ（既にWiki準拠で翻訳済み）を参照して日本語名を補う。
 // 優先順: item直接参照（itemCatKey+itemCostId）→ emote直接参照（emoteId）→
 // 名前照合（itemNameの英語一致）→ どれも無ければnull（英語のitemNameのまま表示）
-function resolveNodeNameJa(n) {
+function resolveNodeNameJa(n, spirit) {
   if (n.itemCatKey && n.itemCostId && itemListByCat) {
     const found = (itemListByCat[n.itemCatKey] || []).find(it => it.id === n.itemCostId);
     if (found?.name) return found.name;
@@ -1153,8 +1153,19 @@ function resolveNodeNameJa(n) {
       if (found?.name) return found.name;
     }
   }
-  return null;
+  // SkyGame-Data内部ラベル（Wikiに個別ページが無い）は機械的に翻訳する
+  if (spirit && spirit.nameJa && /^Accompany /.test(n.itemName)) return `${spirit.nameJa}と連れ歩く`;
+  const challengeMatch = /^Challenge (\d+)$/.exec(n.itemName);
+  if (challengeMatch) return `チャレンジ${challengeMatch[1]}`;
+  if (n.itemName === 'Random Trail Spell') return GENERIC_ITEM_IMG['Random Trail Spell'] ? 'カラートレイル' : null;
+  const questMatch = /^Quest (\d+)/.exec(n.itemName);
+  if (questMatch) return `クエスト${questMatch[1]}`;
+  return GENERIC_ITEM_NAME_JA[n.itemName] || null;
 }
+
+// Wiki調査で確認した、Wikiに個別ページが無い/カタログ照合できない汎用報酬名の日本語訳
+// （Stage 2/4のGENERIC_ITEM_IMGと同じ考え方。itemNameの英語をキーにする）
+const GENERIC_ITEM_NAME_JA = {};
 
 // 精霊によらず見た目が同じ汎用報酬（Heart/Blessing各種/染料等）の実機アイコン。
 // itemNameJa（日本語訳が無い場合はitemNameの英語）をキーにする。
@@ -1246,7 +1257,7 @@ Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
 
 function treeNodeHtml(spiritGuid, n, style) {
   const unlocked = isNodeUnlocked(n);
-  const nameJa = n.itemNameJa || resolveNodeNameJa(n);
+  const nameJa = n.itemNameJa || resolveNodeNameJa(n, spiritByGuid[spiritGuid]);
   const name = nameJa || n.itemName || '（アイテム不明）';
   const noJa = !nameJa;
   const icon = NODE_NAME_ICON_OVERRIDE[nameJa] || NODE_TYPE_ICON[n.itemType] || '✨';
