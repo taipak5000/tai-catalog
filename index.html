@@ -1156,6 +1156,9 @@ function resolveNodeImg(n) {
   // 「〇〇 Warp」（AURORA Warp / Void Warp 等、名称は精霊ごとに違うが実機アイコンは共通）は
   // 汎用の「Warp」アイコンで代用する
   if (n.itemType === 'Special' && /Warp$/.test(n.itemName || '')) return GENERIC_ITEM_IMG['Warp'];
+  // クエスト（「クエスト1」「Quest 2」等、番号は精霊ごとに違うが実機アイコンは共通）は
+  // ゲーム内と同じ「！」マークで表示する（紙の絵文字より実機に近くわかりやすいため）
+  if (n.itemType === 'Quest') return 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8b/Exclamation-mark-Ray.png/revision/latest/scale-to-width-down/51';
   return null;
 }
 
