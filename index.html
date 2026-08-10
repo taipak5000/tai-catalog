@@ -785,6 +785,20 @@ function syncItemOwned(node, nowUnlocked) {
   if (nowUnlocked) { data.itemOwned[node.itemCostId] = true; }
   else { delete data.itemOwned[node.itemCostId]; }
   localStorage.setItem(key, JSON.stringify(data));
+
+  // 入手済みになったアイテムは、item側のウィッシュリストに残っている意味が無いため自動で外す
+  // （item/profiles.js の removeWishItem と同じキー形式・ロジック）
+  if (nowUnlocked) {
+    const wishKey = nsKey('wish_' + node.itemCatKey);
+    try {
+      const wishes = JSON.parse(localStorage.getItem(wishKey)) || [];
+      const idx = wishes.indexOf(String(node.itemCostId));
+      if (idx !== -1) {
+        wishes.splice(idx, 1);
+        localStorage.setItem(wishKey, JSON.stringify(wishes));
+      }
+    } catch (_) { /* noop */ }
+  }
 }
 
 /* ================================================================
