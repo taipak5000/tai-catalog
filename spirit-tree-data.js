@@ -11098,7 +11098,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  2
                       }
                   ],
-        "nameJa":  "音と舞う幼子",
+        "nameJa":  "紙ふぶき好きのいとこ",
         "rootNodeGuid":  "GRu4BRtjHZ"
     },
     {
@@ -11260,7 +11260,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  2
                       }
                   ],
-        "nameJa":  "紙ふぶき好きのいとこ",
+        "nameJa":  "音と舞う幼子",
         "rootNodeGuid":  "z5oUNmiK-N"
     },
     {
@@ -11422,7 +11422,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  2
                       }
                   ],
-        "nameJa":  "ぽんぽんする若者",
+        "nameJa":  "煌きを放つ親",
         "rootNodeGuid":  "OLZ0CipXv0"
     },
     {
@@ -11492,13 +11492,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "huLyzyJN5_",
                           "itemName":  "Wise Grandparent Mask",
-                          "itemNameJa":  "煌きを放つ親　マスク",
+                          "itemNameJa":  "祖たる賢者　マスク",
                           "itemType":  "Mask",
                           "nw":  "_xPiLiudmh",
                           "n":  "808YhgszBA",
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_020"
+                          "itemCostId":  "mask_018"
                       },
                       {
                           "guid":  "808YhgszBA",
@@ -11591,7 +11591,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "煌きを放つ親",
+        "nameJa":  "祖たる賢者",
         "rootNodeGuid":  "N5kAA32DUp"
     },
     {
@@ -11926,7 +11926,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "祖たる賢者",
+        "nameJa":  "ぽんぽんする若者",
         "rootNodeGuid":  "EkBbVkJtl8"
     },
     {
