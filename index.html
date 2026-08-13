@@ -735,16 +735,52 @@ function getExternalOwnCache() {
 }
 function invalidateExternalOwnCache() { _externalOwnCache = null; }
 
+// ツリーは根から順番にしか解放できないため、「祝福」ノードから見て
+// その先（根から遠い側）にあるWing Buff（羽ロック）ノードの一覧を
+// 事前計算しておく。羽ロックが（手動操作・wings同期のどちらであれ）
+// 解放済みなら、そこに至るまでに必ず通過しているはずの祝福ノードも
+// 解放済みとして表示するために使う。
+let _blessingWingBuffCache = null;
+function getBlessingWingBuffMap() {
+  if (_blessingWingBuffCache) return _blessingWingBuffCache;
+  const map = {};
+  SPIRIT_TREE_DATA.forEach(s => {
+    const layout = computeTreeLayout(s);
+    if (!layout) return;
+    const { nodeMap, parentOf } = layout;
+    s.nodes.forEach(n => {
+      if (n.itemType !== 'WingBuff') return;
+      let cur = parentOf[n.guid];
+      while (cur) {
+        const ancestor = nodeMap[cur];
+        if (ancestor && ancestor.itemNameJa === '祝福') {
+          (map[cur] = map[cur] || []).push(n);
+        }
+        cur = parentOf[cur];
+      }
+    });
+  });
+  _blessingWingBuffCache = map;
+  return map;
+}
+
 // ノードが「解放済み」とみなされるかどうかを判定する。
 // spirit-catalog自身の解放記録に加え、item/emote側で該当アイテムを既に
 // 所持済みにしている場合や、wings側で再訪の光の翼を入手済みにしている場合も
 // 解放済みとして扱う（item/emote・wings→spirit-catalogの逆方向同期）。
+// また、祝福ノードはその先の羽ロックが解放済みなら自動で解放済み扱いにする
+// （ツリーは根から順番にしか進めないため、羽ロックまで到達済みなら祝福も
+// 必ず通過済みのはず）。
 function isNodeUnlocked(node) {
   if (getUnlockedMap()[node.guid]) return true;
   const ext = getExternalOwnCache();
   if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return true;
   if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return true;
   if (node.itemType === 'WingBuff' && ext.wingUnlockedGuids.has(node.guid)) return true;
+  if (node.itemNameJa === '祝福') {
+    const wingNodes = getBlessingWingBuffMap()[node.guid];
+    if (wingNodes && wingNodes.some(wn => isNodeUnlocked(wn))) return true;
+  }
   return false;
 }
 
