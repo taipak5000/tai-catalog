@@ -13960,10 +13960,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "gEYmO-_f9i",
                           "itemName":  "Carnival Puzzle Director Outfit",
-                          "itemNameJa":  "カーニバルの旅役者　服",
+                          "itemNameJa":  "カーニバルの謎解き座長",
                           "itemType":  "Outfit",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_102"
+                          "itemCostId":  "outfit_044"
                       },
                       {
                           "guid":  "fpLYw7GYu6",
@@ -13975,10 +13975,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "8njNqN93Tz",
                           "itemName":  "Carnival Puzzle Director Hair Accessory",
-                          "itemNameJa":  "カーニバルの旅役者 ヘアアクセサリー",
+                          "itemNameJa":  "カーニバルの謎解き座長 ヘアアクセサリー",
                           "itemType":  "HairAccessory",
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_030"
+                          "itemCostId":  "hair_accessory_031"
                       },
                       {
                           "guid":  "6NjuVh1BBF",
@@ -14007,10 +14007,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "Lh-GtlP5L-",
                           "itemName":  "Carnival Puzzle Director Hair",
-                          "itemNameJa":  "カーニバルの旅役者 ヘアスタイル",
+                          "itemNameJa":  "カーニバルの謎解き座長 ヘアスタイル",
                           "itemType":  "Hair",
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_141"
+                          "itemCostId":  "hairstyle_140"
                       },
                       {
                           "guid":  "3gCHHGkiJw",
@@ -14028,7 +14028,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "カーニバルの旅役者"
+        "nameJa":  "カーニバルの謎解き座長"
     },
     {
         "guid":  "BuejYIbW1r",
@@ -14181,10 +14181,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "q5MIPBUDu6",
                           "itemName":  "Carnival Stunt Actor Outfit",
-                          "itemNameJa":  "カーニバルの謎解き座長",
+                          "itemNameJa":  "カーニバルの旅役者　服",
                           "itemType":  "OutfitShoes",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_044"
+                          "itemCostId":  "outfit_102"
                       },
                       {
                           "guid":  "RXwnGQ3oVv",
@@ -14196,10 +14196,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "eJXt3-aUsV",
                           "itemName":  "Carnival Stunt Actor Hair",
-                          "itemNameJa":  "カーニバルの謎解き座長 ヘアスタイル",
+                          "itemNameJa":  "カーニバルの旅役者 ヘアスタイル",
                           "itemType":  "Hair",
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_140"
+                          "itemCostId":  "hairstyle_141"
                       },
                       {
                           "guid":  "fwlhQvBqyx",
@@ -14228,10 +14228,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "BEFoomKp1-",
                           "itemName":  "Carnival Stunt Actor Hair Accessory",
-                          "itemNameJa":  "カーニバルの謎解き座長 ヘアアクセサリー",
+                          "itemNameJa":  "カーニバルの旅役者 ヘアアクセサリー",
                           "itemType":  "HairAccessory",
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_031"
+                          "itemCostId":  "hair_accessory_030"
                       },
                       {
                           "guid":  "Q4ymklncQy",
@@ -14249,7 +14249,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "カーニバルの謎解き座長"
+        "nameJa":  "カーニバルの旅役者"
     },
     {
         "guid":  "qLy-B0hLER",
@@ -15766,13 +15766,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "C1z7gdAqFH",
                           "itemName":  "Bearhug Hermit Hair",
-                          "itemNameJa":  "舞い踊る表現者 ヘアスタイル",
+                          "itemNameJa":  "ハグ好きの隠者 ヘアスタイル",
                           "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_069"
+                          "itemCostId":  "hairstyle_068"
                       },
                       {
                           "guid":  "z_vOcKI327",
@@ -15837,7 +15837,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "舞い踊る表現者",
+        "nameJa":  "ハグ好きの隠者",
         "rootNodeGuid":  "MYGxrRz1dX"
     },
     {
@@ -15926,13 +15926,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "hmWCBGAmfU",
                           "itemName":  "Dancing Performer Cape",
-                          "itemNameJa":  "旋舞の師匠 ケープ",
+                          "itemNameJa":  "舞い踊る表現者 ケープ",
                           "itemType":  "Cape",
                           "nw":  "rFjHbixUoX",
                           "n":  "Uc6FJxwFeC",
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_047"
+                          "itemCostId":  "cape_046"
                       },
                       {
                           "guid":  "Uc6FJxwFeC",
@@ -15971,13 +15971,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "4Hk-52OgPb",
                           "itemName":  "Dancing Performer Mask",
-                          "itemNameJa":  "旋舞の師匠　マスク",
+                          "itemNameJa":  "舞い踊る表現者　マスク",
                           "itemType":  "Mask",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_038"
+                          "itemCostId":  "mask_037"
                       },
                       {
                           "guid":  "vZOevdyudj",
@@ -16003,13 +16003,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "fasyzIliRV",
                           "itemName":  "Dancing Performer Hair",
-                          "itemNameJa":  "旋舞の師匠 ヘアスタイル",
+                          "itemNameJa":  "舞い踊る表現者 ヘアスタイル",
                           "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_070"
+                          "itemCostId":  "hairstyle_069"
                       },
                       {
                           "guid":  "RtqFpi_hFX",
@@ -16029,7 +16029,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  2
                       }
                   ],
-        "nameJa":  "旋舞の師匠",
+        "nameJa":  "舞い踊る表現者",
         "rootNodeGuid":  "6i1ljkdw6g"
     },
     {
@@ -16293,13 +16293,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "J9R4HX-ZHf",
                           "itemName":  "Spinning Mentor Hair",
-                          "itemNameJa":  "ハグ好きの隠者 ヘアスタイル",
+                          "itemNameJa":  "旋舞の師匠 ヘアスタイル",
                           "itemType":  "Hair",
                           "nw":  "IdhxAwjyiU",
                           "n":  "uxG32HFoPi",
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_068"
+                          "itemCostId":  "hairstyle_070"
                       },
                       {
                           "guid":  "uxG32HFoPi",
@@ -16443,7 +16443,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  2
                       }
                   ],
-        "nameJa":  "ハグ好きの隠者",
+        "nameJa":  "旋舞の師匠",
         "rootNodeGuid":  "3OmVOrRC43"
     },
     {
@@ -21357,10 +21357,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "17lku63DsW",
                           "itemName":  "Lightmending Light Scholar Mask",
-                          "itemNameJa":  "光修繕する優勝者　マスク",
+                          "itemNameJa":  "光修繕する光学者　マスク",
                           "itemType":  "Mask",
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_086"
+                          "itemCostId":  "mask_087"
                       },
                       {
                           "guid":  "pDNhApH6kw",
@@ -21404,10 +21404,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "1FsEawa0kl",
                           "itemName":  "Lightmending Light Scholar Outfit",
-                          "itemNameJa":  "光修繕する優勝者　服",
+                          "itemNameJa":  "光修繕する光学者　服",
                           "itemType":  "OutfitShoes",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_099"
+                          "itemCostId":  "outfit_100"
                       },
                       {
                           "guid":  "jF-1nYFfnq",
@@ -21425,7 +21425,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "光修繕する優勝者"
+        "nameJa":  "光修繕する光学者"
     },
     {
         "guid":  "haE7sC8lPX",
@@ -21705,10 +21705,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "_5pq4lv01o",
                           "itemName":  "Lightmending Champion Mask",
-                          "itemNameJa":  "光修繕する光学者　マスク",
+                          "itemNameJa":  "光修繕する優勝者　マスク",
                           "itemType":  "Mask",
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_087"
+                          "itemCostId":  "mask_086"
                       },
                       {
                           "guid":  "BuHQ-GU6kk",
@@ -21831,10 +21831,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "1JSMUuGg_s",
                           "itemName":  "Lightmending Champion Outfit",
-                          "itemNameJa":  "光修繕する光学者　服",
+                          "itemNameJa":  "光修繕する優勝者　服",
                           "itemType":  "OutfitShoes",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_100"
+                          "itemCostId":  "outfit_099"
                       },
                       {
                           "guid":  "6ID-ExeP7-",
@@ -21852,7 +21852,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "光修繕する光学者"
+        "nameJa":  "光修繕する優勝者"
     },
     {
         "guid":  "a4cDauac0X",
@@ -23481,10 +23481,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "PiNwpw_7HR",
                           "itemName":  "Migrating Jelly Whisperer Outfit",
-                          "itemNameJa":  "渡りの鳥の語り部　服",
+                          "itemNameJa":  "渡りの海月の語り部　服",
                           "itemType":  "Outfit",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_040"
+                          "itemCostId":  "outfit_042"
                       },
                       {
                           "guid":  "hFX-kX0TQJ",
@@ -23549,7 +23549,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "渡りの鳥の語り部"
+        "nameJa":  "渡りの海月の語り部"
     },
     {
         "guid":  "Mxs_zZGt7y",
@@ -23672,10 +23672,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "glsm_bea_c",
                           "itemName":  "Migrating Butterfly Charmer Cape",
-                          "itemNameJa":  "渡りのマンタの語り部 ケープ",
+                          "itemNameJa":  "渡りの蝶々使い ケープ",
                           "itemType":  "Cape",
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_115"
+                          "itemCostId":  "cape_112"
                       },
                       {
                           "guid":  "-5DUIlEk9V",
@@ -23755,7 +23755,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "渡りのマンタの語り部"
+        "nameJa":  "渡りの蝶々使い"
     },
     {
         "guid":  "k9ZI3GoyPE",
@@ -23908,10 +23908,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "qK5oNm8O4B",
                           "itemName":  "Migrating Manta Whisperer Cape",
-                          "itemNameJa":  "渡りの蝶々使い ケープ",
+                          "itemNameJa":  "渡りのマンタの語り部 ケープ",
                           "itemType":  "Cape",
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_112"
+                          "itemCostId":  "cape_115"
                       },
                       {
                           "guid":  "pcCgTFjnAT",
@@ -23976,7 +23976,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "渡りの蝶々使い"
+        "nameJa":  "渡りのマンタの語り部"
     },
     {
         "guid":  "yfmzfJGyRp",
@@ -24099,10 +24099,10 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "AGF8Zfp24F",
                           "itemName":  "Migrating Bird Whisperer Outfit",
-                          "itemNameJa":  "渡りの海月の語り部　服",
+                          "itemNameJa":  "渡りの鳥の語り部　服",
                           "itemType":  "Outfit",
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_042"
+                          "itemCostId":  "outfit_040"
                       },
                       {
                           "guid":  "xjH3yFtpMy",
@@ -24182,7 +24182,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "渡りの海月の語り部"
+        "nameJa":  "渡りの鳥の語り部"
     },
     {
         "guid":  "gHhy04B7r9",
@@ -26765,7 +26765,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "巣づくりのサンルーム",
+        "nameJa":  "巣づくりの小部屋",
         "rootNodeGuid":  "4MAeqqNXqF"
     },
     {
@@ -26919,7 +26919,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "巣づくりのロフト",
+        "nameJa":  "巣づくりのサンルーム",
         "rootNodeGuid":  "8U5lKBsEz0"
     },
     {
@@ -27227,7 +27227,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "巣づくりの小部屋",
+        "nameJa":  "巣づくりのロフト",
         "rootNodeGuid":  "79knrpLvHO"
     },
     {
@@ -34211,13 +34211,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "oVI6Qp4U_2",
                           "itemName":  "Vestige of a Deserted Oasis Cape",
-                          "itemNameJa":  "見捨てられた隠れ家の残響 ケープ",
+                          "itemNameJa":  "寂れたオアシスの面影 ケープ",
                           "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_087"
+                          "itemCostId":  "cape_086"
                       },
                       {
                           "guid":  "rPtUyxqjkR",
@@ -34226,13 +34226,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "c8bmChuIm9",
                           "itemName":  "Vestige of a Deserted Oasis Shoes",
-                          "itemNameJa":  "見捨てられた隠れ家の残響　靴",
+                          "itemNameJa":  "寂れたオアシスの面影　靴",
                           "itemType":  "Shoes",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "shoes",
-                          "itemCostId":  "shoes_006"
+                          "itemCostId":  "shoes_005"
                       },
                       {
                           "guid":  "QMhKSdzRTj",
@@ -34250,7 +34250,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "見捨てられた隠れ家の残響",
+        "nameJa":  "寂れたオアシスの面影",
         "rootNodeGuid":  "f_-qHiCoCL"
     },
     {
@@ -34320,13 +34320,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "0RcW7pTxDH",
                           "itemName":  "Memory of a Lost Village Cape",
-                          "itemNameJa":  "忘れ去られた楽園のなごり ケープ",
+                          "itemNameJa":  "失われし村の記憶 ケープ",
                           "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_088"
+                          "itemCostId":  "cape_089"
                       },
                       {
                           "guid":  "lOfV5hfh7z",
@@ -34359,7 +34359,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "忘れ去られた楽園のなごり",
+        "nameJa":  "失われし村の記憶",
         "rootNodeGuid":  "El_GluDy7d"
     },
     {
@@ -34474,13 +34474,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "bXIUFu8eZ3",
                           "itemName":  "Echo of an Abandoned Refuge Cape",
-                          "itemNameJa":  "寂れたオアシスの面影 ケープ",
+                          "itemNameJa":  "見捨てられた隠れ家の残響 ケープ",
                           "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_086"
+                          "itemCostId":  "cape_087"
                       },
                       {
                           "guid":  "FcH_PprXno",
@@ -34489,16 +34489,16 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "Yf9KTdBF0m",
                           "itemName":  "Echo of an Abandoned Refuge Shoes",
-                          "itemNameJa":  "寂れたオアシスの面影　靴",
+                          "itemNameJa":  "見捨てられた隠れ家の残響　靴",
                           "itemType":  "Shoes",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "shoes",
-                          "itemCostId":  "shoes_005"
+                          "itemCostId":  "shoes_006"
                       }
                   ],
-        "nameJa":  "寂れたオアシスの面影",
+        "nameJa":  "見捨てられた隠れ家の残響",
         "rootNodeGuid":  "RUZ9WJaoyF"
     },
     {
@@ -34583,13 +34583,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "BudEUoZ6ZC",
                           "itemName":  "Remnant of a Forgotten Haven Cape",
-                          "itemNameJa":  "失われし村の記憶 ケープ",
+                          "itemNameJa":  "忘れ去られた楽園のなごり ケープ",
                           "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_089"
+                          "itemCostId":  "cape_088"
                       },
                       {
                           "guid":  "9PiMk3fjwQ",
@@ -34607,7 +34607,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "失われし村の記憶",
+        "nameJa":  "忘れ去られた楽園のなごり",
         "rootNodeGuid":  "GeXq9uapdT"
     },
     {
@@ -39732,13 +39732,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "ttkFqSp8B4",
                           "itemName":  "Stern Shepherd Outfit",
-                          "itemNameJa":  "手負いの巡回兵　服",
+                          "itemNameJa":  "厳格なマナティ飼い　服",
                           "itemType":  "OutfitShoes",
                           "nw":  "jCew8MjPtR",
                           "n":  "MHGgZXUsF4",
                           "ne":  null,
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_038"
+                          "itemCostId":  "outfit_095"
                       },
                       {
                           "guid":  "MHGgZXUsF4",
@@ -39846,7 +39846,7 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       }
                   ],
-        "nameJa":  "手負いの巡回兵",
+        "nameJa":  "厳格なマナティ飼い",
         "rootNodeGuid":  "BxVl336GE7"
     },
     {
@@ -40040,13 +40040,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "afxsZPgxN7",
                           "itemName":  "Scarred Sentry Cracked Helmet",
-                          "itemNameJa":  "厳格なマナティ飼い ヘアスタイル",
+                          "itemNameJa":  "手負いの巡回兵ひび割れたヘルメット ヘアスタイル",
                           "itemType":  "Hair",
                           "nw":  "ZjrF-HEgom",
                           "n":  "gMTFXM1neA",
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_133"
+                          "itemCostId":  "hairstyle_131"
                       },
                       {
                           "guid":  "gMTFXM1neA",
@@ -40070,13 +40070,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "Ll_e9Bsdl_",
                           "itemName":  "Scarred Sentry Outfit",
-                          "itemNameJa":  "厳格なマナティ飼い　服",
+                          "itemNameJa":  "手負いの巡回兵　服",
                           "itemType":  "Outfit",
                           "nw":  "TjA-N9ZX74",
                           "n":  "8v9tn-OWUB",
                           "ne":  null,
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_095"
+                          "itemCostId":  "outfit_038"
                       },
                       {
                           "guid":  "8v9tn-OWUB",
@@ -40190,16 +40190,16 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "UvRqz7iRMq",
                           "itemName":  "Scarred Sentry Helmet",
-                          "itemNameJa":  "厳格なマナティ飼い ヘアスタイル",
+                          "itemNameJa":  "手負いの巡回兵羽飾りのヘルメット ヘアスタイル",
                           "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_133"
+                          "itemCostId":  "hairstyle_130"
                       }
                   ],
-        "nameJa":  "厳格なマナティ飼い",
+        "nameJa":  "手負いの巡回兵",
         "rootNodeGuid":  "oZL55_0hI5"
     },
     {
