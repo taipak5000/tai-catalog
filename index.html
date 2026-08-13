@@ -703,19 +703,48 @@ function getExternalOwnCache() {
   });
   let emoteOwned = {};
   try { emoteOwned = JSON.parse(localStorage.getItem(nsKey('emoteOwned_v1'))) || {}; } catch (_) {}
-  _externalOwnCache = { itemOwnedByCat, emoteOwned };
+
+  // wings（羽トラッカー）側で再訪の光の翼を入手済みにしている精霊のWingBuff
+  // （羽ロック）ノードguidを集める（wings→spirit-catalogの逆方向同期）。
+  const wingUnlockedGuids = new Set();
+  let seasonWingTracker = {}, permWingTracker = {};
+  try { seasonWingTracker = JSON.parse(localStorage.getItem(nsKey('wingTracker_v1'))) || {}; } catch (_) {}
+  try { permWingTracker = JSON.parse(localStorage.getItem(nsKey('permWingTracker_v1'))) || {}; } catch (_) {}
+  SPIRIT_TREE_DATA.forEach(spirit => {
+    if (!spirit.nameJa) return;
+    const wingBuffNodes = (spirit.nodes || []).filter(n => n.itemType === 'WingBuff');
+    if (wingBuffNodes.length === 0) return;
+    if (spirit.type === 'Season') {
+      const seasonJa = spirit.season ? SEASON_JA_MAP[spirit.season] : null;
+      if (!seasonJa) return;
+      if (seasonWingTracker[seasonJa]?.[spirit.nameJa]) {
+        wingBuffNodes.forEach(n => wingUnlockedGuids.add(n.guid));
+      }
+    } else if (spirit.type === 'Regular') {
+      const entry = permWingTracker[spirit.nameJa];
+      if (!entry) return;
+      wingBuffNodes.forEach((n, idx) => {
+        const tierKey = idx === 0 ? 'tier1' : 'tier2';
+        if (entry[tierKey]) wingUnlockedGuids.add(n.guid);
+      });
+    }
+  });
+
+  _externalOwnCache = { itemOwnedByCat, emoteOwned, wingUnlockedGuids };
   return _externalOwnCache;
 }
 function invalidateExternalOwnCache() { _externalOwnCache = null; }
 
 // ノードが「解放済み」とみなされるかどうかを判定する。
 // spirit-catalog自身の解放記録に加え、item/emote側で該当アイテムを既に
-// 所持済みにしている場合も解放済みとして扱う（item/emote→spirit-catalogの逆方向同期）。
+// 所持済みにしている場合や、wings側で再訪の光の翼を入手済みにしている場合も
+// 解放済みとして扱う（item/emote・wings→spirit-catalogの逆方向同期）。
 function isNodeUnlocked(node) {
   if (getUnlockedMap()[node.guid]) return true;
   const ext = getExternalOwnCache();
   if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return true;
   if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return true;
+  if (node.itemType === 'WingBuff' && ext.wingUnlockedGuids.has(node.guid)) return true;
   return false;
 }
 
@@ -747,6 +776,11 @@ function syncWingBuff(spirit) {
   if (!spirit.nameJa) return;
   const wingBuffNodes = spirit.nodes.filter(n => n.itemType === 'WingBuff');
   if (wingBuffNodes.length === 0) return;
+  // isNodeUnlocked()はwings側の値も参照するようになったため、ここでそれを使うと
+  // 「push（spirit-catalog→wings）」と「pull（wings→spirit-catalog）」が循環してしまい、
+  // wings側で既にチェック済みのノードをspirit-catalog側でOFFにできなくなる。
+  // そのためここではspirit-catalog自身の解放記録（ownMap）のみを見る。
+  const ownMap = getUnlockedMap();
 
   if (spirit.type === 'Season') {
     const seasonJa = spirit.season ? SEASON_JA_MAP[spirit.season] : null;
@@ -755,7 +789,7 @@ function syncWingBuff(spirit) {
     let tracker;
     try { tracker = JSON.parse(localStorage.getItem(key)) || {}; } catch (_) { tracker = {}; }
     if (!tracker[seasonJa]) tracker[seasonJa] = {};
-    const anyChecked = wingBuffNodes.some(n => isNodeUnlocked(n));
+    const anyChecked = wingBuffNodes.some(n => !!ownMap[n.guid]);
     tracker[seasonJa][spirit.nameJa] = anyChecked;
     localStorage.setItem(key, JSON.stringify(tracker));
   } else if (spirit.type === 'Regular') {
@@ -765,7 +799,7 @@ function syncWingBuff(spirit) {
     const entry = {};
     wingBuffNodes.forEach((n, idx) => {
       const tierKey = idx === 0 ? 'tier1' : 'tier2';
-      if (isNodeUnlocked(n)) entry[tierKey] = true;
+      if (ownMap[n.guid]) entry[tierKey] = true;
     });
     tracker[spirit.nameJa] = entry;
     localStorage.setItem(key, JSON.stringify(tracker));
