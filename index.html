@@ -1066,18 +1066,53 @@ function renderGrid() {
   renderStats();
 }
 
+// item_cost.html（アイテム別コスト）が使う「季節中に獲得」の選択を、spirit-catalog側でも
+// そのまま読み取って使う（同じキーを共有。二重管理を避けるためspirit-catalog独自の
+// トグルは持たず、item側で既に選んである内容をそのまま反映する）。
+function loadSeasonAcquireMap() {
+  try { return JSON.parse(localStorage.getItem(nsKey('seasonAcquireMode_v1'))) || {}; }
+  catch (_) { return {}; }
+}
+
+// 季節のペンダント（ネックレスの季節アルティメットギフト）を所持している季節の集合を求める。
+// item側のnecklaceカタログ（itemListByCat、名前に「ペンダント」を含みeventが季節名のもの）と
+// 所持データ（getExternalOwnCache）を突き合わせる。カタログ未読込中はnullを返す。
+function getPendantOwnedSeasons() {
+  if (!itemListByCat || !itemListByCat.necklace) return null;
+  const necklaceOwned = getExternalOwnCache().itemOwnedByCat.necklace || {};
+  const seasons = new Set();
+  itemListByCat.necklace.forEach(it => {
+    if (it.name && it.name.includes('ペンダント') && it.event && necklaceOwned[it.id]) seasons.add(it.event);
+  });
+  return seasons;
+}
+
 function renderStats() {
   const rawUnlocked = getUnlockedMap(); // 「使用したキャンドル/ハート」用（spirit-catalog自身の解放記録のみ）
   let totalNodes = 0, doneNodes = 0, completeSpirits = 0;
-  let candleSpent = 0, heartSpent = 0;
+  let candleSpent = 0, heartSpent = 0, seasonCandleSpent = 0, seasonHeartSpent = 0;
+  const pendantOwnedSeasons = getPendantOwnedSeasons();
+  const seasonAcquireMap = loadSeasonAcquireMap();
   SPIRIT_TREE_DATA.forEach(s => {
     let spiritDone = 0, spiritTotal = 0;
+    const seasonJa = s.season ? SEASON_JA_MAP[s.season] : null;
+    const pendantOwned = !!(seasonJa && pendantOwnedSeasons && pendantOwnedSeasons.has(seasonJa));
     s.nodes.forEach(n => {
       if (isWarpNode(n)) return; // イベント限定のワープ機能はチェックリスト集計の対象外
       totalNodes++; spiritTotal++;
       if (isNodeUnlocked(n)) { doneNodes++; spiritDone++; }
       // item/emote側の所持だけで解放扱いになっている分は、ここでは払っていないため含めない
-      if (rawUnlocked[n.guid] && n.cost) { candleSpent += (n.cost.c || 0); heartSpent += (n.cost.h || 0); }
+      if (rawUnlocked[n.guid] && n.cost) {
+        candleSpent += (n.cost.c || 0);
+        heartSpent += (n.cost.h || 0);
+        // 季節のペンダントを所持していて、かつアイテム別コストで「季節中に入手（0扱い）」を
+        // 選択済みのアイテムに対応するノードは、シーズンキャンドル/ハートの集計から除外する
+        const freeViaPendant = pendantOwned && n.itemCatKey && n.itemCostId && seasonAcquireMap[n.itemCostId] === 'inSeason';
+        if (!freeViaPendant) {
+          seasonCandleSpent += (n.cost.sc || 0);
+          seasonHeartSpent += (n.cost.sh || 0);
+        }
+      }
     });
     if (spiritDone === spiritTotal && spiritTotal > 0) completeSpirits++;
   });
@@ -1085,6 +1120,7 @@ function renderStats() {
     <div class="stat-box"><div class="stat-num">${doneNodes} / ${totalNodes}</div><div class="stat-label">解放済みノード</div></div>
     <div class="stat-box"><div class="stat-num">${completeSpirits} / ${SPIRIT_TREE_DATA.length}</div><div class="stat-label">コンプリート済み精霊</div></div>
     <div class="stat-box"><div class="stat-num">🕯️${candleSpent} 💗${heartSpent}</div><div class="stat-label">このツリーで使用したキャンドル/ハート</div></div>
+    <div class="stat-box"><div class="stat-num">🕯️🍂${seasonCandleSpent} 💗🍂${seasonHeartSpent}</div><div class="stat-label">このツリーで使用したシーズンキャンドル/ハート</div></div>
   `;
 }
 
@@ -1436,9 +1472,12 @@ function resolveNodeImg(n) {
   return null;
 }
 
-// item/emoteの画像マップを読み込み、完了したら現在開いている詳細画面があれば再描画する
+// item/emoteの画像マップを読み込み、完了したら現在開いている詳細画面があれば再描画する。
+// 季節のペンダント所持判定（renderStats内）もitemのnecklaceカタログ読込に依存しているため、
+// 統計欄も合わせて再描画する。
 Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
   if (currentDetailGuid) renderDetail(currentDetailGuid);
+  renderStats();
 });
 
 function treeNodeHtml(spiritGuid, n, style) {
