@@ -1,4 +1,4 @@
-﻿// spirit-tree-data.js
+// spirit-tree-data.js
 //
 // All Sky: Children of the Light spirits with an unlockable spirit tree,
 // extracted from the community-maintained SkyGame-Data project
@@ -7485,15 +7485,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Treasure Reef",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/99/Abyss-Spirit-Ceasing-Commodore.png",
-        "treeGuid":  "63I7854lB-",
+        "treeGuid":  "bO7uzxfm9E",
         "treeSource":  "revisit",
-        "revisitDate":  "2024-03-04",
-        "revisitName":  "Special Visit #5",
+        "revisitDate":  "2026-03-26",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "動じない提督",
+        "rootNodeGuid":  "hIGQWmuIvv",
         "nodes":  [
                       {
-                          "guid":  "BkKELtjaxF",
+                          "guid":  "hIGQWmuIvv",
                           "cost":  {
 
                                    },
@@ -7501,8 +7503,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Calm Down",
                           "itemNameJa":  "落ち着いて",
                           "itemType":  "Emote",
-                          "nw":  "9g4hY1pqo8",
-                          "n":  "1XHkKL4Bkq",
+                          "nw":  "LsE-vE9wpS",
+                          "n":  "sAQdupoc5B",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -7510,7 +7512,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "1XHkKL4Bkq",
+                          "guid":  "LsE-vE9wpS",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "FETTumn6J-",
+                          "itemName":  "Calm Down",
+                          "itemNameJa":  "落ち着いて",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_077",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "sAQdupoc5B",
                           "cost":  {
                                        "c":  5
                                    },
@@ -7518,14 +7537,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "_CqXlQmb6y",
-                          "n":  "w-Ta7kdatk",
-                          "ne":  "6bKHj9WLDk",
+                          "nw":  "syowdbxpSi",
+                          "n":  "WTCe4o4Khp",
+                          "ne":  "KEhn1impr_",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "6bKHj9WLDk",
+                          "guid":  "syowdbxpSi",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "WwuCeXn8wy",
+                          "itemName":  "Ceasing Commodore Hair",
+                          "itemNameJa":  "動じない提督 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_088",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "WTCe4o4Khp",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "hFsueN5kVb",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "BgBRKE-V9W",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "KEhn1impr_",
                           "cost":  {
                                        "c":  3
                                    },
@@ -7537,25 +7592,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "w-Ta7kdatk",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "hFsueN5kVb",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "yhrNgJpdXA",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "yhrNgJpdXA",
+                          "guid":  "BgBRKE-V9W",
                           "cost":  {
                                        "h":  3
                                    },
@@ -7563,8 +7605,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Calm Down",
                           "itemNameJa":  "落ち着いて",
                           "itemType":  "Emote",
-                          "nw":  "TnPJ6BRogS",
-                          "n":  "lCOwXBBIQm",
+                          "nw":  "CQm2APMFZ6",
+                          "n":  "FuECurPVG2",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -7572,52 +7614,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "lCOwXBBIQm",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "3QYgeQvXXu",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "kDmq7slWfV",
-                          "n":  "SU98m8IQE2",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "SU98m8IQE2",
-                          "cost":  {
-                                       "c":  70
-                                   },
-                          "itemGuid":  "_qGl7VRl35",
-                          "itemName":  "Ceasing Commodore Cape",
-                          "itemNameJa":  "動じない提督 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_059"
-                      },
-                      {
-                          "guid":  "kDmq7slWfV",
-                          "cost":  {
-                                       "c":  40
-                                   },
-                          "itemGuid":  "aoo9OjQKpZ",
-                          "itemName":  "Ceasing Commodore Mask",
-                          "itemNameJa":  "動じない提督　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_049"
-                      },
-                      {
-                          "guid":  "TnPJ6BRogS",
+                          "guid":  "CQm2APMFZ6",
                           "cost":  {
                                        "h":  6
                                    },
@@ -7634,40 +7631,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "_CqXlQmb6y",
+                          "guid":  "FuECurPVG2",
                           "cost":  {
-                                       "c":  45
+                                       "c":  5
                                    },
-                          "itemGuid":  "WwuCeXn8wy",
-                          "itemName":  "Ceasing Commodore Hair",
-                          "itemNameJa":  "動じない提督 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_088"
-                      },
-                      {
-                          "guid":  "9g4hY1pqo8",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "FETTumn6J-",
-                          "itemName":  "Calm Down",
-                          "itemNameJa":  "落ち着いて",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "3QYgeQvXXu",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "K88Easrn7J",
+                          "n":  "c_fLL6B0-U",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_077",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "K88Easrn7J",
+                          "cost":  {
+                                       "c":  40
+                                   },
+                          "itemGuid":  "aoo9OjQKpZ",
+                          "itemName":  "Ceasing Commodore Mask",
+                          "itemNameJa":  "動じない提督　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_049",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "c_fLL6B0-U",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "_qGl7VRl35",
+                          "itemName":  "Ceasing Commodore Cape",
+                          "itemNameJa":  "動じない提督 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_059",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "動じない提督",
-        "rootNodeGuid":  "BkKELtjaxF"
+                  ]
     },
     {
         "guid":  "zVs_gAo_wy",
@@ -7884,15 +7898,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Treasure Reef",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/4/48/Abyss-Spirit-Cackling-Cannoneer.png",
-        "treeGuid":  "-dB5Tod28p",
+        "treeGuid":  "bj5E01JihN",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-08-07",
-        "revisitName":  "Special Visit #4",
+        "revisitDate":  "2025-11-20",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  12,
+        "nameJa":  "豪快に笑う砲手",
+        "rootNodeGuid":  "ZqasKBx0ah",
         "nodes":  [
                       {
-                          "guid":  "tqaWjBRyj4",
+                          "guid":  "ZqasKBx0ah",
                           "cost":  {
 
                                    },
@@ -7900,8 +7916,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Evil Laugh",
                           "itemNameJa":  "邪悪な笑い",
                           "itemType":  "Emote",
-                          "nw":  "Gw-_rKjg-0",
-                          "n":  "ipWgIyhfvJ",
+                          "nw":  "3kZ2egztRT",
+                          "n":  "CTwSIE5QX9",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -7909,7 +7925,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "ipWgIyhfvJ",
+                          "guid":  "3kZ2egztRT",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "0iyXmNvh_C",
+                          "itemName":  "Evil Laugh",
+                          "itemNameJa":  "邪悪な笑い",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_078",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "CTwSIE5QX9",
                           "cost":  {
                                        "c":  5
                                    },
@@ -7917,14 +7950,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "lTD1SdkFnL",
-                          "n":  "k3N5JYOOD0",
-                          "ne":  "xNo8MO2xNn",
+                          "nw":  "WEbD3wMd7y",
+                          "n":  "8o1zLc8U2z",
+                          "ne":  "ItWWHV3xOv",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "xNo8MO2xNn",
+                          "guid":  "WEbD3wMd7y",
+                          "cost":  {
+                                       "c":  40
+                                   },
+                          "itemGuid":  "1qIdoVpmEe",
+                          "itemName":  "Cackling Cannoneer Mask",
+                          "itemNameJa":  "豪快に笑う砲手　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_050",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "8o1zLc8U2z",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "A0ldX-rd76",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "HyoGtVJfKM",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "ItWWHV3xOv",
                           "cost":  {
                                        "c":  3
                                    },
@@ -7936,25 +8005,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "k3N5JYOOD0",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "A0ldX-rd76",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "SoZuEOSC2w",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "SoZuEOSC2w",
+                          "guid":  "HyoGtVJfKM",
                           "cost":  {
                                        "h":  3
                                    },
@@ -7962,76 +8018,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Evil Laugh",
                           "itemNameJa":  "邪悪な笑い",
                           "itemType":  "Emote",
-                          "nw":  "901JKY2WYT",
-                          "n":  "5XT98pJaH-",
-                          "ne":  "yAQp1Zq8Gp",
+                          "nw":  "yJag0WpD_C",
+                          "n":  "YaRHynq_zo",
+                          "ne":  "YW5H9SVuJL",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_078",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "yAQp1Zq8Gp",
-                          "cost":  {
-                                       "c":  50
-                                   },
-                          "itemGuid":  "OuUFDFFKlQ",
-                          "itemName":  "Cackling Cannoneer Hair",
-                          "itemNameJa":  "豪快に笑う砲手 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_087"
-                      },
-                      {
-                          "guid":  "5XT98pJaH-",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "BZEJEX6j57",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "qZDDZzyVsl",
-                          "n":  "-4nIup0gl4",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "-4nIup0gl4",
-                          "cost":  {
-                                       "c":  15
-                                   },
-                          "itemGuid":  "a4LXqflNKy",
-                          "itemName":  "Sowing Mischief",
-                          "itemNameJa":  "いたずらの種まき",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "qZDDZzyVsl",
-                          "cost":  {
-                                       "c":  70
-                                   },
-                          "itemGuid":  "J4wT0OrTrf",
-                          "itemName":  "Cackling Cannoneer Cape",
-                          "itemNameJa":  "豪快に笑う砲手 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_060"
-                      },
-                      {
-                          "guid":  "901JKY2WYT",
+                          "guid":  "yJag0WpD_C",
                           "cost":  {
                                        "h":  6
                                    },
@@ -8048,40 +8044,74 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "lTD1SdkFnL",
+                          "guid":  "YaRHynq_zo",
                           "cost":  {
-                                       "c":  40
+                                       "c":  5
                                    },
-                          "itemGuid":  "1qIdoVpmEe",
-                          "itemName":  "Cackling Cannoneer Mask",
-                          "itemNameJa":  "豪快に笑う砲手　マスク",
-                          "itemType":  "Mask",
+                          "itemGuid":  "BZEJEX6j57",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "DbIAid-jWJ",
+                          "n":  "V6ZfKJBvO-",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "YW5H9SVuJL",
+                          "cost":  {
+                                       "c":  50
+                                   },
+                          "itemGuid":  "OuUFDFFKlQ",
+                          "itemName":  "Cackling Cannoneer Hair",
+                          "itemNameJa":  "豪快に笑う砲手 ヘアスタイル",
+                          "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_050"
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_087",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Gw-_rKjg-0",
+                          "guid":  "DbIAid-jWJ",
                           "cost":  {
-                                       "h":  4
+                                       "c":  70
                                    },
-                          "itemGuid":  "0iyXmNvh_C",
-                          "itemName":  "Evil Laugh",
-                          "itemNameJa":  "邪悪な笑い",
-                          "itemType":  "Emote",
+                          "itemGuid":  "J4wT0OrTrf",
+                          "itemName":  "Cackling Cannoneer Cape",
+                          "itemNameJa":  "豪快に笑う砲手 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_060",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "V6ZfKJBvO-",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "a4LXqflNKy",
+                          "itemName":  "Sowing Mischief",
+                          "itemNameJa":  "いたずらの種まき",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_078",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "豪快に笑う砲手",
-        "rootNodeGuid":  "tqaWjBRyj4"
+                  ]
     },
     {
         "guid":  "cpwvdVEzKN",
@@ -10947,15 +10977,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Butterfly Fields",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/0/06/Belonging-Spirit-Confetti-Cousin.png",
-        "treeGuid":  "Fqwmr7P65R",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "ZMmqcLhdB4",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-07-30",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "紙ふぶき好きのいとこ",
+        "rootNodeGuid":  "Bz4eWTqmHP",
         "nodes":  [
                       {
-                          "guid":  "GRu4BRtjHZ",
+                          "guid":  "Bz4eWTqmHP",
                           "cost":  {
 
                                    },
@@ -10963,8 +10995,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Confetti",
                           "itemNameJa":  "おめでとう",
                           "itemType":  "Emote",
-                          "nw":  "TH780LUx4f",
-                          "n":  "Xl5g8XcvUL",
+                          "nw":  "edSXjUF5xG",
+                          "n":  "WU51FTank3",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -10972,31 +11004,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "Xl5g8XcvUL",
+                          "guid":  "edSXjUF5xG",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
                                    },
-                          "itemGuid":  "6XXpBOqRQg",
-                          "itemName":  "Small Blessing",
-                          "itemNameJa":  "小さな祝福",
-                          "itemType":  "Special",
-                          "nw":  "7yDgE-ZaYf",
-                          "n":  "Fd3kZ4L0tQ",
+                          "itemGuid":  "_KkFXT0brp",
+                          "itemName":  "Confetti",
+                          "itemNameJa":  "おめでとう",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  "emote_038",
+                          "emoteLevel":  2
                       },
                       {
-                          "guid":  "Fd3kZ4L0tQ",
+                          "guid":  "WU51FTank3",
                           "cost":  {
-                                       "sc":  10
+                                       "c":  5
+                                   },
+                          "itemGuid":  "3Nz4lttfEb",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "H3gXVQZb9f",
+                          "n":  "B8ruuzr5ti",
+                          "ne":  "EXNGvB7NMW",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "H3gXVQZb9f",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "4NjsRif40c",
+                          "itemName":  "Confetti Cousin Hair",
+                          "itemNameJa":  "紙ふぶき好きのいとこ ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_046",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "B8ruuzr5ti",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "ygMdfJClM7",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "Uqv6yIh8qe",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "EXNGvB7NMW",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "zO2Dc3mn5_",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Uqv6yIh8qe",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "0nUupQHHcx",
                           "itemName":  "Confetti",
                           "itemNameJa":  "おめでとう",
                           "itemType":  "Emote",
-                          "nw":  "ssYWbOmlXA",
-                          "n":  "401aTkTgvR",
+                          "nw":  "a97eZTwUGk",
+                          "n":  "0v24uZeHKd",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11004,54 +11106,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "401aTkTgvR",
+                          "guid":  "a97eZTwUGk",
                           "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "86vG43eb7E",
-                          "itemName":  "Confetti Cousin Cape",
-                          "itemNameJa":  null,
-                          "itemType":  "Cape",
-                          "nw":  "T9B-3b5MG9",
-                          "n":  "IhyZQjEm3D",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "IhyZQjEm3D",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "prawwGcU-k",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "T9B-3b5MG9",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "4NjsRif40c",
-                          "itemName":  "Confetti Cousin Hair",
-                          "itemNameJa":  null,
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ssYWbOmlXA",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "u2qrLrrl7v",
                           "itemName":  "Confetti",
@@ -11066,40 +11123,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "7yDgE-ZaYf",
+                          "guid":  "0v24uZeHKd",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "3Nz4lttfEb",
+                          "itemGuid":  "EcCAR69gcW",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "TH780LUx4f",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "_KkFXT0brp",
-                          "itemName":  "Confetti",
-                          "itemNameJa":  "おめでとう",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "h7CosgQi1c",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_038",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "h7CosgQi1c",
+                          "cost":  {
+                                       "c":  60
+                                   },
+                          "itemGuid":  "86vG43eb7E",
+                          "itemName":  "Confetti Cousin Cape",
+                          "itemNameJa":  "紙ふぶき好きのいとこ ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_029",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "紙ふぶき好きのいとこ",
-        "rootNodeGuid":  "GRu4BRtjHZ"
+                  ]
     },
     {
         "guid":  "f3AD39Q2Il",
@@ -11109,15 +11166,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Dawn Overlook",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/3c/Belonging-Spirit-Boogie-Kid.png",
-        "treeGuid":  "IeFmlorSVS",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "SKqwmahcxz",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-06-19",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "音と舞う幼子",
+        "rootNodeGuid":  "4vQMQtPIuP",
         "nodes":  [
                       {
-                          "guid":  "z5oUNmiK-N",
+                          "guid":  "4vQMQtPIuP",
                           "cost":  {
 
                                    },
@@ -11125,8 +11184,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Boogie Dance",
                           "itemNameJa":  "ブギーダンス",
                           "itemType":  "Emote",
-                          "nw":  "JjSEFfzBLZ",
-                          "n":  "69VvLUz4az",
+                          "nw":  "FZ0BvOXim0",
+                          "n":  "DgXTARJ5Xx",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11134,31 +11193,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "69VvLUz4az",
+                          "guid":  "FZ0BvOXim0",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
                                    },
-                          "itemGuid":  "e6O-OC9gqr",
-                          "itemName":  "Small Blessing",
-                          "itemNameJa":  "小さな祝福",
-                          "itemType":  "Special",
-                          "nw":  "qYYEFBTKLx",
-                          "n":  "z_v6qgPR-x",
+                          "itemGuid":  "jn9V5Dc56I",
+                          "itemName":  "Boogie Dance",
+                          "itemNameJa":  "ブギーダンス",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  "emote_039",
+                          "emoteLevel":  2
                       },
                       {
-                          "guid":  "z_v6qgPR-x",
+                          "guid":  "DgXTARJ5Xx",
                           "cost":  {
-                                       "sc":  10
+                                       "c":  5
+                                   },
+                          "itemGuid":  "WDRmw94dkS",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "hzTMlowMVz",
+                          "n":  "5-jpAYAu5j",
+                          "ne":  "9w_J6WpBlj",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "hzTMlowMVz",
+                          "cost":  {
+                                       "c":  30
+                                   },
+                          "itemGuid":  "yoEqaQiYU-",
+                          "itemName":  "Boogie Kid Mask",
+                          "itemNameJa":  "音と舞う幼子　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_017",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "5-jpAYAu5j",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "z7pwTLLnQg",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "0rl07z41_r",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "9w_J6WpBlj",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "CBICwZAmcI",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0rl07z41_r",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "AnOX8p-Z5f",
                           "itemName":  "Boogie Dance",
                           "itemNameJa":  "ブギーダンス",
                           "itemType":  "Emote",
-                          "nw":  "k5UjX79gyS",
-                          "n":  "lWnQ_33zmQ",
+                          "nw":  "Ipsf4_q6zz",
+                          "n":  "uO4ONRgb5C",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11166,54 +11295,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "lWnQ_33zmQ",
+                          "guid":  "Ipsf4_q6zz",
                           "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "yoEqaQiYU-",
-                          "itemName":  "Boogie Kid Mask",
-                          "itemNameJa":  null,
-                          "itemType":  "Mask",
-                          "nw":  "8c7SnHGPeG",
-                          "n":  "_mpkWYtO84",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "_mpkWYtO84",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "C0sPzUPUwR",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "8c7SnHGPeG",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "qrP9vZPLlk",
-                          "itemName":  "Boogie Kid Outfit",
-                          "itemNameJa":  null,
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "k5UjX79gyS",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "ThC1rC0jC4",
                           "itemName":  "Boogie Dance",
@@ -11228,40 +11312,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "qYYEFBTKLx",
+                          "guid":  "uO4ONRgb5C",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "WDRmw94dkS",
+                          "itemGuid":  "9xE4f1SUd_",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "JjSEFfzBLZ",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "jn9V5Dc56I",
-                          "itemName":  "Boogie Dance",
-                          "itemNameJa":  "ブギーダンス",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "-95N5W0BZW",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_039",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-95N5W0BZW",
+                          "cost":  {
+                                       "c":  60
+                                   },
+                          "itemGuid":  "qrP9vZPLlk",
+                          "itemName":  "Boogie Kid Outfit",
+                          "itemNameJa":  "音と舞う幼子　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_068",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "音と舞う幼子",
-        "rootNodeGuid":  "z5oUNmiK-N"
+                  ]
     },
     {
         "guid":  "CcOE42N9Mc",
@@ -11271,15 +11355,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Temple of the Valley",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/f6/Belonging-Spirit-Sparkler-Parent.png",
-        "treeGuid":  "sM-gGfmBb9",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "iANsda77gJ",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-01-15",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  11,
+        "nameJa":  "煌きを放つ親",
+        "rootNodeGuid":  "VKF6KM-fMY",
         "nodes":  [
                       {
-                          "guid":  "OLZ0CipXv0",
+                          "guid":  "VKF6KM-fMY",
                           "cost":  {
 
                                    },
@@ -11287,8 +11373,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Sparkler",
                           "itemNameJa":  "スパークル",
                           "itemType":  "Emote",
-                          "nw":  "y2flrfDfix",
-                          "n":  "kBkp5IqaXk",
+                          "nw":  "i8SWTPXHTi",
+                          "n":  "LIaTLLviVD",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11296,31 +11382,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "kBkp5IqaXk",
+                          "guid":  "i8SWTPXHTi",
                           "cost":  {
-                                       "sc":  10
+                                       "h":  4
                                    },
-                          "itemGuid":  "Sn97dM5q4N",
-                          "itemName":  "Small Blessing",
-                          "itemNameJa":  "小さな祝福",
-                          "itemType":  "Special",
-                          "nw":  "eq4_50nXIl",
-                          "n":  "n1W1_wDEcM",
+                          "itemGuid":  "sSgceH7emy",
+                          "itemName":  "Sparkler",
+                          "itemNameJa":  "スパークル",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  "emote_063",
+                          "emoteLevel":  2
                       },
                       {
-                          "guid":  "n1W1_wDEcM",
+                          "guid":  "LIaTLLviVD",
                           "cost":  {
-                                       "sc":  12
+                                       "c":  5
+                                   },
+                          "itemGuid":  "M97mhUyiZZ",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "UyUf_Xymjo",
+                          "n":  "SIjI2H1yKV",
+                          "ne":  "YKfW2V_Af1",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "UyUf_Xymjo",
+                          "cost":  {
+                                       "c":  36
+                                   },
+                          "itemGuid":  "5i57DI6cGK",
+                          "itemName":  "Sparkler Parent Mask",
+                          "itemNameJa":  "煌きを放つ親　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_020",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "SIjI2H1yKV",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "ig7MtymJ-I",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "7VZug1R5jG",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "YKfW2V_Af1",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "Wcse-or-FC",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "7VZug1R5jG",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "l663HjIDEd",
                           "itemName":  "Sparkler",
                           "itemNameJa":  "スパークル",
                           "itemType":  "Emote",
-                          "nw":  "XF3SDO8EES",
-                          "n":  "Z5In13pomZ",
+                          "nw":  "glLxk9QhLq",
+                          "n":  "gX5h0cte5-",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11328,54 +11484,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "Z5In13pomZ",
+                          "guid":  "glLxk9QhLq",
                           "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "hySf4FUV-w",
-                          "itemName":  "Sparkler Parent Hair",
-                          "itemNameJa":  null,
-                          "itemType":  "Hair",
-                          "nw":  "tlWgsJW0AM",
-                          "n":  "tbFTIK-vr6",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "tbFTIK-vr6",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "vbf2ST93iK",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "tlWgsJW0AM",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "M97mhUyiZZ",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "XF3SDO8EES",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "X81UhfMlB2",
                           "itemName":  "Sparkler",
@@ -11390,40 +11501,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "eq4_50nXIl",
+                          "guid":  "gX5h0cte5-",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "5i57DI6cGK",
-                          "itemName":  "Sparkler Parent Mask",
-                          "itemNameJa":  null,
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "y2flrfDfix",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "sSgceH7emy",
-                          "itemName":  "Sparkler",
-                          "itemNameJa":  "スパークル",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "3EhqC6gdQV",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "yHwg78SUMn",
+                          "n":  "Y_njm6RT5Q",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_063",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "yHwg78SUMn",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "hySf4FUV-w",
+                          "itemName":  "Sparkler Parent Hair",
+                          "itemNameJa":  "煌きを放つ親 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_047",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Y_njm6RT5Q",
+                          "cost":  {
+                                       "c":  33
+                                   },
+                          "itemGuid":  "3KTXA81fSx",
+                          "itemName":  "Sparkler Parent Pinwheel Prop",
+                          "itemNameJa":  "煌きを放つ親 設置アイテム",
+                          "itemType":  "Prop",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "small_placeable",
+                          "itemCostId":  "small_placeable_041",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "煌きを放つ親",
-        "rootNodeGuid":  "OLZ0CipXv0"
+                  ]
     },
     {
         "guid":  "7EzWoLR1w4",
@@ -11433,15 +11561,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Vault Archive",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/2e/Belonging-Spirit-Wise-Grandpa.png",
-        "treeGuid":  "zNWw5D3we3",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "BrQr2cRMRk",
+        "treeSource":  "revisit",
+        "revisitDate":  "2023-11-09",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  9,
+        "nameJa":  "祖たる賢者",
+        "rootNodeGuid":  "sJunlR7aN7",
         "nodes":  [
                       {
-                          "guid":  "N5kAA32DUp",
+                          "guid":  "sJunlR7aN7",
                           "cost":  {
 
                                    },
@@ -11449,136 +11579,18 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Wise Stance",
                           "itemNameJa":  "賢明なポーズ",
                           "itemType":  "Stance",
-                          "nw":  null,
-                          "n":  "kwaU0hDNZC",
-                          "ne":  null,
+                          "nw":  "FUN0KPpSbL",
+                          "n":  "JEySpaMbMc",
+                          "ne":  "qlqcc_xvUF",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "kwaU0hDNZC",
+                          "guid":  "FUN0KPpSbL",
                           "cost":  {
-                                       "sc":  10
-                                   },
-                          "itemGuid":  "IH3RuM1Ze3",
-                          "itemName":  "Small Blessing",
-                          "itemNameJa":  "小さな祝福",
-                          "itemType":  "Special",
-                          "nw":  "abKWRkSjrN",
-                          "n":  "7eU8F9lL3f",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "7eU8F9lL3f",
-                          "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "lLKKdQz_He",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "NxieVrPs3B",
-                          "n":  "CFPfzac1Mh",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "CFPfzac1Mh",
-                          "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "huLyzyJN5_",
-                          "itemName":  "Wise Grandparent Mask",
-                          "itemNameJa":  "祖たる賢者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  "_xPiLiudmh",
-                          "n":  "808YhgszBA",
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_018"
-                      },
-                      {
-                          "guid":  "808YhgszBA",
-                          "cost":  {
-                                       "sc":  16
-                                   },
-                          "itemGuid":  "YF_dvs5rGr",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "wjkkWx7CrG",
-                          "n":  "SEuLgg0aEP",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "SEuLgg0aEP",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "F2_k73blau",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "wjkkWx7CrG",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "WCPTi8XYZy",
-                          "itemName":  "Wise Grandparent Cape",
-                          "itemNameJa":  null,
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "_xPiLiudmh",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "bBWdMDYc1G",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "NxieVrPs3B",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "r1pKcM3jiU",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "abKWRkSjrN",
-                          "cost":  {
-
+                                       "c":  15
                                    },
                           "itemGuid":  "eXcIcaFA0k",
                           "itemName":  "Support From Above",
@@ -11588,11 +11600,130 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "JEySpaMbMc",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "lLKKdQz_He",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "-37U8jG7gV",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "qlqcc_xvUF",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "gAPhpTaLvI",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-37U8jG7gV",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "6nLnP1NR8J",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "7alCTxYRQM",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "7alCTxYRQM",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "r1pKcM3jiU",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "g29vx9LosX",
+                          "n":  "R0kTRxLAdV",
+                          "ne":  "6AJ3ASNSF1",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "g29vx9LosX",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "WCPTi8XYZy",
+                          "itemName":  "Wise Grandparent Cape",
+                          "itemNameJa":  "祖たる賢者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_031",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "R0kTRxLAdV",
+                          "cost":  {
+                                       "c":  48
+                                   },
+                          "itemGuid":  "huLyzyJN5_",
+                          "itemName":  "Wise Grandparent Mask",
+                          "itemNameJa":  "祖たる賢者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_018",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "6AJ3ASNSF1",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "1OPToAPwEU",
+                          "itemName":  "Wise Grandparent Prop",
+                          "itemNameJa":  "祖たる賢者 設置アイテム",
+                          "itemType":  "Prop",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "small_placeable",
+                          "itemCostId":  "small_placeable_001",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "祖たる賢者",
-        "rootNodeGuid":  "N5kAA32DUp"
+                  ]
     },
     {
         "guid":  "LO75aDy9Zc",
@@ -11602,56 +11733,94 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  5,
         "area":  "The Graveyard",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/6c/Belonging-Spirit-Pleaful-Parent.png",
-        "treeGuid":  "wDOnrwqC2i",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "_p0GbOhxmv",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-10-24",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  11,
+        "nameJa":  "訴えかける親",
+        "rootNodeGuid":  "1a-0ime1iG",
         "nodes":  [
                       {
-                          "guid":  "nz1968HiKq",
+                          "guid":  "1a-0ime1iG",
                           "cost":  {
 
                                    },
                           "itemGuid":  "CtEU0Osb2E",
                           "itemName":  "Don\u0027t Go!",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "行かないで",
                           "itemType":  "Emote",
-                          "nw":  "z5t_61gCHV",
-                          "n":  "UABHUtl23_",
+                          "nw":  "JePqhLfS20",
+                          "n":  "jyL8r7gphX",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
+                          "emoteId":  "emote_053",
+                          "emoteLevel":  1
                       },
                       {
-                          "guid":  "UABHUtl23_",
+                          "guid":  "JePqhLfS20",
                           "cost":  {
-                                       "sc":  14
+                                       "h":  4
+                                   },
+                          "itemGuid":  "oqndH_vtJJ",
+                          "itemName":  "Don\u0027t Go!",
+                          "itemNameJa":  "行かないで",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_053",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "jyL8r7gphX",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "7UiHJRDHqW",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "nR9kma-b3o",
-                          "n":  "xvqTS7rmPG",
-                          "ne":  null,
+                          "nw":  "TsgVmZJovQ",
+                          "n":  "D_PD_PTbZG",
+                          "ne":  "ZOcOnutyxa",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "xvqTS7rmPG",
+                          "guid":  "TsgVmZJovQ",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  42
                                    },
-                          "itemGuid":  "sTSrAZzgqU",
-                          "itemName":  "Don\u0027t Go!",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  "JQ4uCPBD_L",
-                          "n":  "V35ap9LXqW",
+                          "itemGuid":  "qOLmnCFyh6",
+                          "itemName":  "Pleaful Parent Mask",
+                          "itemNameJa":  "訴えかける親　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_019",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "D_PD_PTbZG",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "bJQo41PHdC",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "OGcsVxN6pn",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11659,39 +11828,77 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "V35ap9LXqW",
+                          "guid":  "ZOcOnutyxa",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  3
                                    },
-                          "itemGuid":  "qOLmnCFyh6",
-                          "itemName":  "Pleaful Parent Mask",
-                          "itemNameJa":  "訴えかける親　マスク",
-                          "itemType":  "Mask",
-                          "nw":  "dBbAq3LJ7i",
-                          "n":  "XXXQ2V2m7A",
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_019"
-                      },
-                      {
-                          "guid":  "XXXQ2V2m7A",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "N6IzrxN7yL",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "IcFD26XkI9",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "dBbAq3LJ7i",
+                          "guid":  "OGcsVxN6pn",
                           "cost":  {
-
+                                       "h":  3
+                                   },
+                          "itemGuid":  "sTSrAZzgqU",
+                          "itemName":  "Don\u0027t Go!",
+                          "itemNameJa":  "行かないで",
+                          "itemType":  "Emote",
+                          "nw":  "tGeSE3Y-IL",
+                          "n":  "Fy5uRuDe4M",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_053",
+                          "emoteLevel":  3
+                      },
+                      {
+                          "guid":  "tGeSE3Y-IL",
+                          "cost":  {
+                                       "h":  6
+                                   },
+                          "itemGuid":  "D5hLl-_xZd",
+                          "itemName":  "Don\u0027t Go!",
+                          "itemNameJa":  "行かないで",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_053",
+                          "emoteLevel":  4
+                      },
+                      {
+                          "guid":  "Fy5uRuDe4M",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "kNUvnIGq1b",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "WeOlg2E6pI",
+                          "n":  "k1hclqSzv0",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "WeOlg2E6pI",
+                          "cost":  {
+                                       "c":  65
                                    },
                           "itemGuid":  "mH0YjUsODC",
                           "itemName":  "Pleaful Parent Cape",
@@ -11701,29 +11908,14 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_030"
-                      },
-                      {
-                          "guid":  "JQ4uCPBD_L",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "D5hLl-_xZd",
-                          "itemName":  "Don\u0027t Go!",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
+                          "itemCostId":  "cape_030",
                           "emoteId":  null,
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "nR9kma-b3o",
+                          "guid":  "k1hclqSzv0",
                           "cost":  {
-
+                                       "c":  75
                                    },
                           "itemGuid":  "Zvi-5bPtxs",
                           "itemName":  "Guitar",
@@ -11733,28 +11925,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "z5t_61gCHV",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "oqndH_vtJJ",
-                          "itemName":  "Don\u0027t Go!",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  null,
                           "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "訴えかける親",
-        "rootNodeGuid":  "nz1968HiKq"
+                  ]
     },
     {
         "guid":  "gcEV41jg3U",
@@ -11764,24 +11939,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Forest Cavern",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/9f/Belonging-Spirit-Hairtousle-Teen.png",
-        "treeGuid":  "pDzxAL2j5O",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "ZQB0qtYaJu",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-03-28",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  9,
+        "nameJa":  "ぽんぽんする若者",
+        "rootNodeGuid":  "knRWbcHjfg",
         "nodes":  [
                       {
-                          "guid":  "EkBbVkJtl8",
+                          "guid":  "knRWbcHjfg",
                           "cost":  {
 
                                    },
                           "itemGuid":  "YUAzM6p_2j",
                           "itemName":  "Hair Tousle",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "なでなで",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "YVdlQYd3v2",
+                          "n":  "e-a8xvM3Sq",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -11789,145 +11966,142 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "YVdlQYd3v2",
+                          "guid":  "e-a8xvM3Sq",
                           "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "guVzYkoOF-",
-                          "itemName":  "Small Blessing",
-                          "itemNameJa":  "小さな祝福",
-                          "itemType":  "Special",
-                          "nw":  "6ZTmTtOOjY",
-                          "n":  "uiCemHTGW-",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "uiCemHTGW-",
-                          "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "7Ul11Zqefz",
-                          "itemName":  "Wavy Hair",
-                          "itemNameJa":  "ウェーブヘア",
-                          "itemType":  "Music",
-                          "nw":  "Xdu_tkydHQ",
-                          "n":  "bYxyqWvP4L",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "bYxyqWvP4L",
-                          "cost":  {
-                                       "sc":  16
-                                   },
-                          "itemGuid":  "n2TnJPoi1J",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "cDyVWlDa3V",
-                          "n":  "FYRpaqm5wL",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "FYRpaqm5wL",
-                          "cost":  {
-                                       "sc":  18
-                                   },
-                          "itemGuid":  "Ph__M3uulY",
-                          "itemName":  "Ukulele",
-                          "itemNameJa":  "ウクレレ",
-                          "itemType":  "Held",
-                          "nw":  "pO0LK5m0cx",
-                          "n":  "OMYTdeq3GD",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "OMYTdeq3GD",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "r_JERY8CWa",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "pO0LK5m0cx",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "HnQU571BtR",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "cDyVWlDa3V",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "bBQbGQh1PU",
-                          "itemName":  "Hairtousle Teen Earmuffs",
-                          "itemNameJa":  null,
-                          "itemType":  "HeadAccessory",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Xdu_tkydHQ",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "0f9auBppfc",
-                          "itemName":  "Hair Tousle",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
-                      },
-                      {
-                          "guid":  "6ZTmTtOOjY",
-                          "cost":  {
-
+                                       "c":  5
                                    },
                           "itemGuid":  "GL1iz0Ybx0",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
+                          "nw":  "idAsnsnRLT",
+                          "n":  "vQI8oQaOIh",
+                          "ne":  "EvKRwXjX5r",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "idAsnsnRLT",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "7Ul11Zqefz",
+                          "itemName":  "Wavy Hair",
+                          "itemNameJa":  "ウェーブヘア",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "vQI8oQaOIh",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "v1TQ9ZX3q5",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "8BEv_DiwLu",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "EvKRwXjX5r",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "XMk1ifj2qw",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "8BEv_DiwLu",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "n2TnJPoi1J",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "eCUCzNyuJ2",
+                          "n":  "Yq5f9PTXiI",
+                          "ne":  "m1is55OEMH",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "eCUCzNyuJ2",
+                          "cost":  {
+                                       "h":  9
+                                   },
+                          "itemGuid":  "0f9auBppfc",
+                          "itemName":  "Hair Tousle",
+                          "itemNameJa":  "なでなで",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Yq5f9PTXiI",
+                          "cost":  {
+                                       "c":  50
+                                   },
+                          "itemGuid":  "bBQbGQh1PU",
+                          "itemName":  "Hairtousle Teen Earmuffs",
+                          "itemNameJa":  "ぽんぽんする若者 ヘッドアクセサリー",
+                          "itemType":  "HeadAccessory",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "head_accessory",
+                          "itemCostId":  "head_accessory_001",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "m1is55OEMH",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "Ph__M3uulY",
+                          "itemName":  "Ukulele",
+                          "itemNameJa":  "ウクレレ",
+                          "itemType":  "Held",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "ぽんぽんする若者",
-        "rootNodeGuid":  "EkBbVkJtl8"
+                  ]
     },
     {
         "guid":  "hbXkkZbBsk",
@@ -15848,15 +16022,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Village of Dreams",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/9a/Dreams-Spirit-Dancing-Performer.png",
-        "treeGuid":  "zUy1Dlkzbl",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "QF6kJr3Yxk",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-04-25",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  12,
+        "nameJa":  "舞い踊る表現者",
+        "rootNodeGuid":  "4ajXwV62Gv",
         "nodes":  [
                       {
-                          "guid":  "6i1ljkdw6g",
+                          "guid":  "4ajXwV62Gv",
                           "cost":  {
 
                                    },
@@ -15864,8 +16040,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Show Dance",
                           "itemNameJa":  "ショーダンス",
                           "itemType":  "Emote",
-                          "nw":  "RtqFpi_hFX",
-                          "n":  "4jPhG-WDu-",
+                          "nw":  "LikmI_Ew6k",
+                          "n":  "SXo4ngCcja",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -15873,116 +16049,111 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "4jPhG-WDu-",
+                          "guid":  "LikmI_Ew6k",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
                                    },
-                          "itemGuid":  "ycMWhJR5iE",
+                          "itemGuid":  "VR8uQXAzzZ",
+                          "itemName":  "Show Dance",
+                          "itemNameJa":  "ショーダンス",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_045",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "SXo4ngCcja",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "ps-4z41o-j",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "87X64LZyO4",
-                          "n":  "Nc1QICgbHC",
-                          "ne":  null,
+                          "nw":  "nc4SCW_eMK",
+                          "n":  "mnOGG53Ppf",
+                          "ne":  "cY4yY03pEV",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Nc1QICgbHC",
+                          "guid":  "nc4SCW_eMK",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  45
+                                   },
+                          "itemGuid":  "fasyzIliRV",
+                          "itemName":  "Dancing Performer Hair",
+                          "itemNameJa":  "舞い踊る表現者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_069",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "mnOGG53Ppf",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "bRxr-9K_yg",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "f0-X2M5CWU",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "cY4yY03pEV",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "qDn4kvcLYK",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "f0-X2M5CWU",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "IWzRV-xeez",
                           "itemName":  "Show Dance",
                           "itemNameJa":  "ショーダンス",
                           "itemType":  "Emote",
-                          "nw":  "vZOevdyudj",
-                          "n":  "7KoJNQ-it8",
-                          "ne":  null,
+                          "nw":  "4NViviEgC4",
+                          "n":  "QlIA7OM6vi",
+                          "ne":  "c6GHzdhFOO",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_045",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "7KoJNQ-it8",
+                          "guid":  "4NViviEgC4",
                           "cost":  {
-                                       "sc":  21
-                                   },
-                          "itemGuid":  "k_zF2v-lqe",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "CSYMItHyJ7",
-                          "n":  "ZRRggYwn2E",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ZRRggYwn2E",
-                          "cost":  {
-                                       "sc":  27
-                                   },
-                          "itemGuid":  "hmWCBGAmfU",
-                          "itemName":  "Dancing Performer Cape",
-                          "itemNameJa":  "舞い踊る表現者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "rFjHbixUoX",
-                          "n":  "Uc6FJxwFeC",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_046"
-                      },
-                      {
-                          "guid":  "Uc6FJxwFeC",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "hyoIaD__sx",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "rFjHbixUoX",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "xpq4O_F_Md",
-                          "itemName":  "Lute",
-                          "itemNameJa":  "リュート",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "CSYMItHyJ7",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "4Hk-52OgPb",
-                          "itemName":  "Dancing Performer Mask",
-                          "itemNameJa":  "舞い踊る表現者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_037"
-                      },
-                      {
-                          "guid":  "vZOevdyudj",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "kabDjVwtC9",
                           "itemName":  "Show Dance",
@@ -15997,40 +16168,74 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "87X64LZyO4",
+                          "guid":  "QlIA7OM6vi",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "fasyzIliRV",
-                          "itemName":  "Dancing Performer Hair",
-                          "itemNameJa":  "舞い踊る表現者 ヘアスタイル",
-                          "itemType":  "Hair",
+                          "itemGuid":  "k_zF2v-lqe",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "RrimLTjzqe",
+                          "n":  "th5MxQQo87",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "c6GHzdhFOO",
+                          "cost":  {
+                                       "c":  48
+                                   },
+                          "itemGuid":  "4Hk-52OgPb",
+                          "itemName":  "Dancing Performer Mask",
+                          "itemNameJa":  "舞い踊る表現者　マスク",
+                          "itemType":  "Mask",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_069"
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_037",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "RtqFpi_hFX",
+                          "guid":  "RrimLTjzqe",
                           "cost":  {
-
+                                       "c":  70
                                    },
-                          "itemGuid":  "VR8uQXAzzZ",
-                          "itemName":  "Show Dance",
-                          "itemNameJa":  "ショーダンス",
-                          "itemType":  "Emote",
+                          "itemGuid":  "xpq4O_F_Md",
+                          "itemName":  "Lute",
+                          "itemNameJa":  "リュート",
+                          "itemType":  "Held",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_045",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "th5MxQQo87",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "hmWCBGAmfU",
+                          "itemName":  "Dancing Performer Cape",
+                          "itemNameJa":  "舞い踊る表現者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_046",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "舞い踊る表現者",
-        "rootNodeGuid":  "6i1ljkdw6g"
+                  ]
     },
     {
         "guid":  "Jd8rEzWHVg",
@@ -16262,15 +16467,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Village of Dreams",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/2b/Dreams-Spirit-Spinning-Mentor.png",
-        "treeGuid":  "duRfvp3IvK",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "zQj7fZtmc9",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-08-13",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "旋舞の師匠",
+        "rootNodeGuid":  "WAXkIk3hwI",
         "nodes":  [
                       {
-                          "guid":  "3OmVOrRC43",
+                          "guid":  "WAXkIk3hwI",
                           "cost":  {
 
                                    },
@@ -16278,8 +16485,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Spin Trick",
                           "itemNameJa":  "旋舞スピン",
                           "itemType":  "Emote",
-                          "nw":  "UBfuaB2HAh",
-                          "n":  "oRsSn4tuWY",
+                          "nw":  "1Kq6cqDOLS",
+                          "n":  "sr2vnVLSv6",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -16287,116 +16494,111 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "oRsSn4tuWY",
+                          "guid":  "1Kq6cqDOLS",
                           "cost":  {
-                                       "sc":  13
+                                       "h":  4
+                                   },
+                          "itemGuid":  "tp172HbBKC",
+                          "itemName":  "Spin Trick",
+                          "itemNameJa":  "旋舞スピン",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_044",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "sr2vnVLSv6",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "PdvK8FPKcD",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "hITBHK-Mye",
+                          "n":  "lmux5aavaE",
+                          "ne":  "RfFkDZDtjL",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "hITBHK-Mye",
+                          "cost":  {
+                                       "c":  44
                                    },
                           "itemGuid":  "J9R4HX-ZHf",
                           "itemName":  "Spinning Mentor Hair",
                           "itemNameJa":  "旋舞の師匠 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "IdhxAwjyiU",
-                          "n":  "uxG32HFoPi",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_070"
+                          "itemCostId":  "hairstyle_070",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "uxG32HFoPi",
+                          "guid":  "lmux5aavaE",
                           "cost":  {
-                                       "sc":  18
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "1xmzB8zsYs",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "wYUcxYGFjm",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "RfFkDZDtjL",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "gpC-MX1PGn",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "wYUcxYGFjm",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "CCeCnDEyRM",
                           "itemName":  "Spin Trick",
                           "itemNameJa":  "旋舞スピン",
                           "itemType":  "Emote",
-                          "nw":  "l9kBP_Rwmg",
-                          "n":  "-MWLVfdTk0",
-                          "ne":  null,
+                          "nw":  "Zy3VqF0LEj",
+                          "n":  "Gucdck-79y",
+                          "ne":  "oft6AQgP4D",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_044",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "-MWLVfdTk0",
+                          "guid":  "Zy3VqF0LEj",
                           "cost":  {
-                                       "sc":  23
-                                   },
-                          "itemGuid":  "V5TIjYorQs",
-                          "itemName":  "Spinning Mentor Mask",
-                          "itemNameJa":  null,
-                          "itemType":  "Mask",
-                          "nw":  "OJf5oAWfnQ",
-                          "n":  "C-anmQdPdK",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "C-anmQdPdK",
-                          "cost":  {
-                                       "sc":  29
-                                   },
-                          "itemGuid":  "YV9IWJyX3u",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "-Wj2i0Ymvt",
-                          "n":  "R1LiU1LWUD",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "R1LiU1LWUD",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "88bStTJrBZ",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "-Wj2i0Ymvt",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "oyvK6kO527",
-                          "itemName":  "Spinning Mentor Cape",
-                          "itemNameJa":  null,
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "OJf5oAWfnQ",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "wisiiK9diZ",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "l9kBP_Rwmg",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "SUGO6FwRX8",
                           "itemName":  "Spin Trick",
@@ -16411,40 +16613,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "IdhxAwjyiU",
+                          "guid":  "Gucdck-79y",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "PdvK8FPKcD",
+                          "itemGuid":  "wisiiK9diZ",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "UBfuaB2HAh",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "tp172HbBKC",
-                          "itemName":  "Spin Trick",
-                          "itemNameJa":  "旋舞スピン",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "wh10hrC7QG",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_044",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "oft6AQgP4D",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "V5TIjYorQs",
+                          "itemName":  "Spinning Mentor Mask",
+                          "itemNameJa":  "旋舞の師匠　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_038",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "wh10hrC7QG",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "oyvK6kO527",
+                          "itemName":  "Spinning Mentor Cape",
+                          "itemNameJa":  "旋舞の師匠 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_047",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "旋舞の師匠",
-        "rootNodeGuid":  "3OmVOrRC43"
+                  ]
     },
     {
         "guid":  "iCVOo-FNbd",
@@ -18074,15 +18293,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Forgotten Ark",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/54/Enchantment-Spirit-Crab-Walker.png",
-        "treeGuid":  "_IpcZ_U6zY",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "n6HMdzXHDF",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-01-16",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "蟹歩きの名人",
+        "rootNodeGuid":  "G9LqeXD3gf",
         "nodes":  [
                       {
-                          "guid":  "P3b21yQSwC",
+                          "guid":  "G9LqeXD3gf",
                           "cost":  {
 
                                    },
@@ -18090,8 +18311,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Crab Walk",
                           "itemNameJa":  "蟹歩き",
                           "itemType":  "Emote",
-                          "nw":  "j_BbjuH4jC",
-                          "n":  "9dv2rIFzKb",
+                          "nw":  "jsjbs-ILDU",
+                          "n":  "88Wsk-WXaY",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18099,31 +18320,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "9dv2rIFzKb",
+                          "guid":  "jsjbs-ILDU",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
+                                   },
+                          "itemGuid":  "PcsXYI_YLj",
+                          "itemName":  "Crab Walk",
+                          "itemNameJa":  "蟹歩き",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_042",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "88Wsk-WXaY",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "q1ZDkQme8T",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "NklhDRR5PM",
+                          "n":  "KeaCLERgTY",
+                          "ne":  "lPwTNKHEUi",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "NklhDRR5PM",
+                          "cost":  {
+                                       "c":  42
                                    },
                           "itemGuid":  "TyRibJeEa5",
                           "itemName":  "Crab Walker Hair",
                           "itemNameJa":  "蟹歩きの名人 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "f6w8GBTG_R",
-                          "n":  "bk4eC5fVgo",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_055"
+                          "itemCostId":  "hairstyle_055",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "bk4eC5fVgo",
+                          "guid":  "KeaCLERgTY",
                           "cost":  {
-                                       "sc":  14
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "BLMJwHXgS2",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "wRtObuAspQ",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lPwTNKHEUi",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "yYG9VvtyGe",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "wRtObuAspQ",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "lw-A9eS1gx",
                           "itemName":  "Crab Walk",
                           "itemNameJa":  "蟹歩き",
                           "itemType":  "Emote",
-                          "nw":  "EM_evwr3qq",
-                          "n":  "Ci0-1t5e7c",
+                          "nw":  "LQOxxYIq5l",
+                          "n":  "UOi97_66pD",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18131,54 +18422,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "Ci0-1t5e7c",
+                          "guid":  "LQOxxYIq5l",
                           "cost":  {
-                                       "sc":  16
-                                   },
-                          "itemGuid":  "xOifrwunmm",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "GfwStEOCfE",
-                          "n":  "qNEeyE2CUm",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "qNEeyE2CUm",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "u0wTYjUD5l",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "GfwStEOCfE",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "FyM7E9zFoH",
-                          "itemName":  "Crab Walker Cape",
-                          "itemNameJa":  "蟹歩きの名人 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_034"
-                      },
-                      {
-                          "guid":  "EM_evwr3qq",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "48_BopWKQ5",
                           "itemName":  "Crab Walk",
@@ -18193,40 +18439,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "f6w8GBTG_R",
+                          "guid":  "UOi97_66pD",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "q1ZDkQme8T",
+                          "itemGuid":  "xOifrwunmm",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "j_BbjuH4jC",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "PcsXYI_YLj",
-                          "itemName":  "Crab Walk",
-                          "itemNameJa":  "蟹歩き",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "k7fiJs-JeZ",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_042",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "k7fiJs-JeZ",
+                          "cost":  {
+                                       "c":  60
+                                   },
+                          "itemGuid":  "FyM7E9zFoH",
+                          "itemName":  "Crab Walker Cape",
+                          "itemNameJa":  "蟹歩きの名人 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_034",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "蟹歩きの名人",
-        "rootNodeGuid":  "P3b21yQSwC"
+                  ]
     },
     {
         "guid":  "UJVa4nb2nn",
@@ -18236,15 +18482,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Forgotten Ark",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/a1/Enchantment-Spirit-Scarecrow-Farmer.png",
-        "treeGuid":  "jRTuid-Y21",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "8IXOg_fmSb",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-07-18",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "こけおどしの農家",
+        "rootNodeGuid":  "zH-3S-kC0a",
         "nodes":  [
                       {
-                          "guid":  "jztFaDx20s",
+                          "guid":  "zH-3S-kC0a",
                           "cost":  {
 
                                    },
@@ -18252,8 +18500,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Boo",
                           "itemNameJa":  "ばあ！！",
                           "itemType":  "Emote",
-                          "nw":  "RqxWnCwc7i",
-                          "n":  "eD3uA0eVYo",
+                          "nw":  "Xyd07vXWIx",
+                          "n":  "frBeIAHxIp",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18261,31 +18509,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "eD3uA0eVYo",
+                          "guid":  "Xyd07vXWIx",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
+                                   },
+                          "itemGuid":  "DGC8JcQK5y",
+                          "itemName":  "Boo",
+                          "itemNameJa":  "ばあ！！",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_054",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "frBeIAHxIp",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "ki7gyniwOJ",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "f6k36cK2bc",
-                          "n":  "x8aTfMU2sg",
-                          "ne":  null,
+                          "nw":  "-OMzCP1Zbr",
+                          "n":  "ppCXHvhXNB",
+                          "ne":  "F6skO44PBv",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "x8aTfMU2sg",
+                          "guid":  "-OMzCP1Zbr",
                           "cost":  {
-                                       "sc":  10
+                                       "c":  42
+                                   },
+                          "itemGuid":  "r1UK3P6AGy",
+                          "itemName":  "Scarecrow Farmer Mask",
+                          "itemNameJa":  "こけおどしの農家　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_029",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "ppCXHvhXNB",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "384F_Scv3-",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "j0P9NRDm9w",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "F6skO44PBv",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "SKK2p7G5nf",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "j0P9NRDm9w",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "ixFFdCm9cG",
                           "itemName":  "Boo",
                           "itemNameJa":  "ばあ！！",
                           "itemType":  "Emote",
-                          "nw":  "hlDXEMyH66",
-                          "n":  "A3ZfdpXZ8V",
+                          "nw":  "-yVt2bL1SF",
+                          "n":  "5qpRa0ETgC",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18293,54 +18611,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "A3ZfdpXZ8V",
+                          "guid":  "-yVt2bL1SF",
                           "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "PxvVMovhCo",
-                          "itemName":  "Scarecrow Farmer Hair",
-                          "itemNameJa":  "こけおどしの農家 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "6dnCVPPH6a",
-                          "n":  "B1QIX_uEsx",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_053"
-                      },
-                      {
-                          "guid":  "B1QIX_uEsx",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "9N_fvcEh5f",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "6dnCVPPH6a",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "wRsxoaUmkd",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "hlDXEMyH66",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "sNJx3GgOLF",
                           "itemName":  "Boo",
@@ -18355,40 +18628,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "f6k36cK2bc",
+                          "guid":  "5qpRa0ETgC",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "r1UK3P6AGy",
-                          "itemName":  "Scarecrow Farmer Mask",
-                          "itemNameJa":  "こけおどしの農家　マスク",
-                          "itemType":  "Mask",
+                          "itemGuid":  "wRsxoaUmkd",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_029"
-                      },
-                      {
-                          "guid":  "RqxWnCwc7i",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "DGC8JcQK5y",
-                          "itemName":  "Boo",
-                          "itemNameJa":  "ばあ！！",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "QdgqH57WOP",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_054",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "QdgqH57WOP",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "PxvVMovhCo",
+                          "itemName":  "Scarecrow Farmer Hair",
+                          "itemNameJa":  "こけおどしの農家 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_053",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "こけおどしの農家",
-        "rootNodeGuid":  "jztFaDx20s"
+                  ]
     },
     {
         "guid":  "Be41CnHkEI",
@@ -18398,15 +18671,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  5,
         "area":  "Forgotten Ark",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/c4/Enchantment-Spirit-Snoozing-Carpenter.png",
-        "treeGuid":  "jJoNEIUqgP",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "0hjYoCN6cF",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-02-26",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "居眠りする大工",
+        "rootNodeGuid":  "X53WE7mTq1",
         "nodes":  [
                       {
-                          "guid":  "YkM_tSjB34",
+                          "guid":  "X53WE7mTq1",
                           "cost":  {
 
                                    },
@@ -18414,8 +18689,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Doze",
                           "itemNameJa":  "居眠り",
                           "itemType":  "Emote",
-                          "nw":  "98OouYU5YG",
-                          "n":  "Wb9KsxWM-q",
+                          "nw":  "0ZnRKjX6b7",
+                          "n":  "UWcJSPwPX2",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18423,31 +18698,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "Wb9KsxWM-q",
+                          "guid":  "0ZnRKjX6b7",
                           "cost":  {
-                                       "sc":  10
+                                       "h":  4
+                                   },
+                          "itemGuid":  "o9Wt1MLcrz",
+                          "itemName":  "Doze",
+                          "itemNameJa":  "居眠り",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_065",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "UWcJSPwPX2",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "6Iufn25pjn",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "OQMnD3sSDy",
-                          "n":  "603riE2ihF",
-                          "ne":  null,
+                          "nw":  "lFMt8_8Acv",
+                          "n":  "bsjKlKP7eV",
+                          "ne":  "VUBs9JznmU",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "603riE2ihF",
+                          "guid":  "lFMt8_8Acv",
                           "cost":  {
-                                       "sc":  12
+                                       "c":  34
+                                   },
+                          "itemGuid":  "1pSVV2aJ5S",
+                          "itemName":  "Snoozing Carpenter Hair",
+                          "itemNameJa":  "居眠りする大工 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_054",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "bsjKlKP7eV",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "f4K2zz9mXc",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "5dSi09OZIZ",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "VUBs9JznmU",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "tP6qPGAogz",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "5dSi09OZIZ",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "xfv-AbRiCY",
                           "itemName":  "Doze",
                           "itemNameJa":  "居眠り",
                           "itemType":  "Emote",
-                          "nw":  "ywMRcyoldu",
-                          "n":  "wRfaa5HvsN",
+                          "nw":  "NFCqt2esYN",
+                          "n":  "JpazOorTrX",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18455,54 +18800,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "wRfaa5HvsN",
+                          "guid":  "NFCqt2esYN",
                           "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "9KhfuEDkFe",
-                          "itemName":  "Snoozing Carpenter Cape",
-                          "itemNameJa":  "居眠りする大工 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "IoNPVwy87h",
-                          "n":  "7zIJAKhy-D",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_035"
-                      },
-                      {
-                          "guid":  "7zIJAKhy-D",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "IBEr4ORQcY",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "IoNPVwy87h",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "l8RClua3lo",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ywMRcyoldu",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "IL31Z--01u",
                           "itemName":  "Doze",
@@ -18517,40 +18817,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "OQMnD3sSDy",
+                          "guid":  "JpazOorTrX",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "1pSVV2aJ5S",
-                          "itemName":  "Snoozing Carpenter Hair",
-                          "itemNameJa":  "居眠りする大工 ヘアスタイル",
-                          "itemType":  "Hair",
+                          "itemGuid":  "l8RClua3lo",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_054"
-                      },
-                      {
-                          "guid":  "98OouYU5YG",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "o9Wt1MLcrz",
-                          "itemName":  "Doze",
-                          "itemNameJa":  "居眠り",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "Cw25gW0sqR",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_065",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Cw25gW0sqR",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "9KhfuEDkFe",
+                          "itemName":  "Snoozing Carpenter Cape",
+                          "itemNameJa":  "居眠りする大工 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_035",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "居眠りする大工",
-        "rootNodeGuid":  "YkM_tSjB34"
+                  ]
     },
     {
         "guid":  "hgjklF3nQI",
@@ -18560,24 +18860,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Forgotten Ark",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/1/11/Enchantment-Spirit-Playfighting-Herbalist.png",
-        "treeGuid":  "CJRxYWXojv",
+        "treeGuid":  "_Tu-lJ4KNV",
         "treeSource":  "revisit",
         "revisitDate":  "2026-06-18",
         "revisitName":  "TS Error",
         "isTiered":  false,
-        "nodeCount":  14,
+        "nodeCount":  11,
+        "nameJa":  "けんかごっこ好きの植物採集者",
+        "rootNodeGuid":  "KJLxNpWn0Y",
         "nodes":  [
                       {
-                          "guid":  "A6WEpsNOqn",
+                          "guid":  "KJLxNpWn0Y",
                           "cost":  {
 
                                    },
                           "itemGuid":  "aBFJssIm0e",
                           "itemName":  "Play Fight",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "けんかごっこ",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "RCsi7aHeOp",
+                          "n":  "lJcaXT3sDk",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -18585,7 +18887,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "RCsi7aHeOp",
+                          "guid":  "lJcaXT3sDk",
                           "cost":  {
                                        "c":  5
                                    },
@@ -18593,185 +18895,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "rOLHJjfv8u",
-                          "n":  "2XL4R1KcQo",
-                          "ne":  "rg03wwL-nZ",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "rg03wwL-nZ",
-                          "cost":  {
-                                       "c":  3
-                                   },
-                          "itemGuid":  "nmX_OnaWdY",
-                          "itemName":  "Heart",
-                          "itemNameJa":  "ハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "2XL4R1KcQo",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "VD-eWqartt",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "86oc0mGlb8",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "86oc0mGlb8",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "6rWMw26PJt",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "sgVc9PbiKG",
-                          "n":  "DgAJjNkKNj",
-                          "ne":  "J10SQ5em0w",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "J10SQ5em0w",
-                          "cost":  {
-                                       "c":  15
-                                   },
-                          "itemGuid":  "G6L9jA7zsg",
-                          "itemName":  "Drifting Over Sand",
-                          "itemNameJa":  "砂の上を漂う",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "DgAJjNkKNj",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "EOIKe7Ya--",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "4XFb4Qvt45",
-                          "n":  "6p-SEiVak2",
-                          "ne":  "k4-sMKK5_E",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "k4-sMKK5_E",
-                          "cost":  {
-                                       "c":  20
-                                   },
-                          "itemGuid":  "X7b5yfYXA_",
-                          "itemName":  "Playfighting Herbalist Prop",
-                          "itemNameJa":  "けんかごっこ好きの植物採集者 設置アイテム",
-                          "itemType":  "Furniture",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "large_placeable",
-                          "itemCostId":  "large_placeable_004"
-                      },
-                      {
-                          "guid":  "6p-SEiVak2",
-                          "cost":  {
-                                       "c":  70
-                                   },
-                          "itemGuid":  "RBXxOaKIyg",
-                          "itemName":  "Playfighting Herbalist Cape",
-                          "itemNameJa":  "けんかごっこ好きの植物採集者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "IJlo8MvkH2",
-                          "n":  "G-xRkChQ1A",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_037"
-                      },
-                      {
-                          "guid":  "G-xRkChQ1A",
-                          "cost":  {
-                                       "h":  8
-                                   },
-                          "itemGuid":  "XH9iJLNF4F",
-                          "itemName":  "Play Fight",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
+                          "nw":  "5-SkrHzgAJ",
+                          "n":  "6mBaNTcKiV",
+                          "ne":  "u28tz1vtvi",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  null,
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "IJlo8MvkH2",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "U3YshimiUo",
-                          "itemName":  "Play Fight",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
-                      },
-                      {
-                          "guid":  "4XFb4Qvt45",
-                          "cost":  {
-                                       "c":  42
-                                   },
-                          "itemGuid":  "8vNIpRiWxo",
-                          "itemName":  "Playfighting Herbalist Hair",
-                          "itemNameJa":  "けんかごっこ好きの植物採集者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_057"
-                      },
-                      {
-                          "guid":  "sgVc9PbiKG",
-                          "cost":  {
-                                       "h":  10
-                                   },
-                          "itemGuid":  "PkKzcwatL6",
-                          "itemName":  "Play Fight",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
-                      },
-                      {
-                          "guid":  "rOLHJjfv8u",
+                          "guid":  "5-SkrHzgAJ",
                           "cost":  {
                                        "c":  30
                                    },
@@ -18783,11 +18916,147 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_027"
+                          "itemCostId":  "mask_027",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "6mBaNTcKiV",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "VD-eWqartt",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "xwzPW2VhpB",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "u28tz1vtvi",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "nmX_OnaWdY",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "xwzPW2VhpB",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "6rWMw26PJt",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "dSD4_7RKQW",
+                          "n":  "QFnO1i0GCw",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "dSD4_7RKQW",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "G6L9jA7zsg",
+                          "itemName":  "Drifting Over Sand",
+                          "itemNameJa":  "砂の上を漂う",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "QFnO1i0GCw",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "EOIKe7Ya--",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "iyuvhj2L2z",
+                          "n":  "0fWbHu6dIq",
+                          "ne":  "DLy4Sc4ybU",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "iyuvhj2L2z",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "8vNIpRiWxo",
+                          "itemName":  "Playfighting Herbalist Hair",
+                          "itemNameJa":  "けんかごっこ好きの植物採集者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_057",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0fWbHu6dIq",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "RBXxOaKIyg",
+                          "itemName":  "Playfighting Herbalist Cape",
+                          "itemNameJa":  "けんかごっこ好きの植物採集者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_037",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "DLy4Sc4ybU",
+                          "cost":  {
+                                       "c":  20
+                                   },
+                          "itemGuid":  "X7b5yfYXA_",
+                          "itemName":  "Playfighting Herbalist Prop",
+                          "itemNameJa":  "けんかごっこ好きの植物採集者 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_004",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "けんかごっこ好きの植物採集者",
-        "rootNodeGuid":  "A6WEpsNOqn"
+                  ]
     },
     {
         "guid":  "FF8u1g9XI_",
@@ -19041,15 +19310,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "The Wind Paths",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/9a/Flight-Spirit-Lively-Navigator.png",
-        "treeGuid":  "8XT3GDeonb",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "H4P1PDRMQa",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-05-08",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  13,
+        "nodeCount":  12,
+        "nameJa":  "快活な誘導手",
+        "rootNodeGuid":  "FRhBcTNbYT",
         "nodes":  [
                       {
-                          "guid":  "C04G6KylaW",
+                          "guid":  "FRhBcTNbYT",
                           "cost":  {
 
                                    },
@@ -19057,8 +19328,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Navigate",
                           "itemNameJa":  "誘導",
                           "itemType":  "Emote",
-                          "nw":  "DqCHV7GmZe",
-                          "n":  "fzoVHZjkGH",
+                          "nw":  "yHsiTkKDaZ",
+                          "n":  "Rqkz2MnPz2",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -19066,131 +19337,111 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "fzoVHZjkGH",
+                          "guid":  "yHsiTkKDaZ",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
+                                   },
+                          "itemGuid":  "H6h0oeRVom",
+                          "itemName":  "Navigate",
+                          "itemNameJa":  "誘導",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_076",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "Rqkz2MnPz2",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "-UA09DYaKh",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "wFSqFnjmNd",
-                          "n":  "U4Y6tO1WK9",
-                          "ne":  null,
+                          "nw":  "bcicoE3_nD",
+                          "n":  "jV4nbdENiy",
+                          "ne":  "WZELKPh2-V",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "U4Y6tO1WK9",
+                          "guid":  "bcicoE3_nD",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  45
                                    },
                           "itemGuid":  "DeouBCkpib",
                           "itemName":  "Lively Navigator Hair Accessory",
                           "itemNameJa":  "快活な誘導手 ヘアアクセサリー",
                           "itemType":  "HairAccessory",
-                          "nw":  "JxydMFtc5M",
-                          "n":  "qQUzLeVX3E",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_004"
+                          "itemCostId":  "hair_accessory_004",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "qQUzLeVX3E",
+                          "guid":  "jV4nbdENiy",
                           "cost":  {
-                                       "sc":  18
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "JmcNphV2vc",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "sXf5vv6_nK",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "WZELKPh2-V",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "Y2M5HKFn62",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "sXf5vv6_nK",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "kkRo6gnuo9",
                           "itemName":  "Navigate",
                           "itemNameJa":  "誘導",
                           "itemType":  "Emote",
-                          "nw":  "Sn2IA2SFk4",
-                          "n":  "vT9GL0PvY9",
-                          "ne":  null,
+                          "nw":  "gT14rH6Jqr",
+                          "n":  "-q6aiq-w9N",
+                          "ne":  "hUC64psmFc",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_076",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "vT9GL0PvY9",
+                          "guid":  "gT14rH6Jqr",
                           "cost":  {
-                                       "sc":  24
-                                   },
-                          "itemGuid":  "zB6NpyvK6q",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  "dCZKp8jzMY",
-                          "n":  "DqLTBlmwI8",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "DqLTBlmwI8",
-                          "cost":  {
-                                       "sc":  28
-                                   },
-                          "itemGuid":  "ygAEEh8bZ5",
-                          "itemName":  "Everything Around Us",
-                          "itemNameJa":  "私たちを取り巻くすべて",
-                          "itemType":  "Music",
-                          "nw":  "GBslC4E8wD",
-                          "n":  "Vj9DhauQwu",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Vj9DhauQwu",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "aiuFUiqZnB",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "GBslC4E8wD",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "qDekV1a6yP",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "dCZKp8jzMY",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "UjA8CZwZ9i",
-                          "itemName":  "Lively Navigator Cape",
-                          "itemNameJa":  "快活な誘導手 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_058"
-                      },
-                      {
-                          "guid":  "Sn2IA2SFk4",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "VC9yqYv8O9",
                           "itemName":  "Navigate",
@@ -19205,24 +19456,43 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "JxydMFtc5M",
+                          "guid":  "-q6aiq-w9N",
                           "cost":  {
-
+                                       "c":  5
                                    },
                           "itemGuid":  "cOMtRe-wEZ",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
+                          "nw":  "gXDEz59TcX",
+                          "n":  "4EtG2YZaJQ",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "hUC64psmFc",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "ygAEEh8bZ5",
+                          "itemName":  "Everything Around Us",
+                          "itemNameJa":  "私たちを取り巻くすべて",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "wFSqFnjmNd",
+                          "guid":  "gXDEz59TcX",
                           "cost":  {
-
+                                       "c":  55
                                    },
                           "itemGuid":  "QiLz0mb3x4",
                           "itemName":  "Lively Navigator Hair",
@@ -19232,28 +19502,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_086"
+                          "itemCostId":  "hairstyle_086",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "DqCHV7GmZe",
+                          "guid":  "4EtG2YZaJQ",
                           "cost":  {
-
+                                       "c":  70
                                    },
-                          "itemGuid":  "H6h0oeRVom",
-                          "itemName":  "Navigate",
-                          "itemNameJa":  "誘導",
-                          "itemType":  "Emote",
+                          "itemGuid":  "UjA8CZwZ9i",
+                          "itemName":  "Lively Navigator Cape",
+                          "itemNameJa":  "快活な誘導手 ケープ",
+                          "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_076",
-                          "emoteLevel":  2
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_058",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "快活な誘導手",
-        "rootNodeGuid":  "C04G6KylaW"
+                  ]
     },
     {
         "guid":  "VQadeqBPEO",
@@ -19263,15 +19533,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "The Wind Paths",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/d/db/Flight-Spirit-Light-Whisperer.png",
-        "treeGuid":  "DHbvqLtLCU",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "f9706SF8rH",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-07-16",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  9,
+        "nameJa":  "光の語り部",
+        "rootNodeGuid":  "BMYGVg8LJT",
         "nodes":  [
                       {
-                          "guid":  "zI5GRFCBhX",
+                          "guid":  "BMYGVg8LJT",
                           "cost":  {
 
                                    },
@@ -19280,135 +19552,34 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "赤ちゃんマンタの鳴き声",
                           "itemType":  "Call",
                           "nw":  null,
-                          "n":  "Ca5GmG1gRO",
+                          "n":  "M5E2mtxllE",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Ca5GmG1gRO",
+                          "guid":  "M5E2mtxllE",
                           "cost":  {
-                                       "sc":  14
+                                       "c":  5
                                    },
                           "itemGuid":  "Ld2u4cjPes",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "F5xibdFbUx",
-                          "n":  "a97pF-R6P4",
-                          "ne":  null,
+                          "nw":  "0r7F0KrOTp",
+                          "n":  "3v3W-3cJYJ",
+                          "ne":  "I-pkx7y8YI",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "a97pF-R6P4",
+                          "guid":  "0r7F0KrOTp",
                           "cost":  {
-                                       "sc":  22
-                                   },
-                          "itemGuid":  "k_dtQhg8Ii",
-                          "itemName":  "Light Whisperer Hair",
-                          "itemNameJa":  "光の語り部 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "sWWWTAsjSI",
-                          "n":  "NjMaGUmUkT",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_085"
-                      },
-                      {
-                          "guid":  "NjMaGUmUkT",
-                          "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "5D_d1xwmfQ",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  "W-of53JJ4N",
-                          "n":  "PVA3IKW-Ht",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "PVA3IKW-Ht",
-                          "cost":  {
-                                       "sc":  28
-                                   },
-                          "itemGuid":  "Y7j3ljNdYp",
-                          "itemName":  "Light Whisperer Outfit",
-                          "itemNameJa":  "光の語り部　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  "7_vYFsPIdA",
-                          "n":  "TAOZsz5xmL",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_082"
-                      },
-                      {
-                          "guid":  "TAOZsz5xmL",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "CJLgEjb1TE",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "7_vYFsPIdA",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "LPkTfhyyNP",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "W-of53JJ4N",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "1IwU-ZZu1g",
-                          "itemName":  "Light Whisperer Cape",
-                          "itemNameJa":  "光の語り部 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_057"
-                      },
-                      {
-                          "guid":  "sWWWTAsjSI",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "T_syKqfzht",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "F5xibdFbUx",
-                          "cost":  {
-
+                                       "c":  45
                                    },
                           "itemGuid":  "Dt5aDX9Osc",
                           "itemName":  "Light Whisperer Hat",
@@ -19418,11 +19589,113 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_002"
+                          "itemCostId":  "hair_accessory_002",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "3v3W-3cJYJ",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "kwgBrM-KbA",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "jY1Z6qAuiI",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "I-pkx7y8YI",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "oF1ZpY_EyV",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "jY1Z6qAuiI",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "T_syKqfzht",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "dJox7hPuKG",
+                          "n":  "lYQmZXDpCw",
+                          "ne":  "IMQ_OW-Nxu",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "dJox7hPuKG",
+                          "cost":  {
+                                       "c":  50
+                                   },
+                          "itemGuid":  "k_dtQhg8Ii",
+                          "itemName":  "Light Whisperer Hair",
+                          "itemNameJa":  "光の語り部 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_085",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lYQmZXDpCw",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "1IwU-ZZu1g",
+                          "itemName":  "Light Whisperer Cape",
+                          "itemNameJa":  "光の語り部 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_057",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "IMQ_OW-Nxu",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "Y7j3ljNdYp",
+                          "itemName":  "Light Whisperer Outfit",
+                          "itemNameJa":  "光の語り部　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_082",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "光の語り部",
-        "rootNodeGuid":  "zI5GRFCBhX"
+                  ]
     },
     {
         "guid":  "_7-rIO21Ea",
@@ -19432,15 +19705,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "The Wind Paths",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/51/Flight-Spirit-Tinkering-Chimesmith.png",
-        "treeGuid":  "66idlQe3mK",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "CEzPLl5Qq2",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-08-14",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  9,
+        "nameJa":  "工夫好きの風鈴職人",
+        "rootNodeGuid":  "hdn9q9Iv4g",
         "nodes":  [
                       {
-                          "guid":  "wcUvdoaglf",
+                          "guid":  "hdn9q9Iv4g",
                           "cost":  {
 
                                    },
@@ -19449,105 +19724,119 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "修理好きなポーズ",
                           "itemType":  "Stance",
                           "nw":  null,
-                          "n":  "8YT3kpt0_o",
+                          "n":  "45-3s55hNB",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "8YT3kpt0_o",
+                          "guid":  "45-3s55hNB",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  5
                                    },
                           "itemGuid":  "DquDtwH3Jy",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "IRJY2laZdP",
-                          "n":  "tNdpB4sYP6",
-                          "ne":  null,
+                          "nw":  "iTF-gwVwjS",
+                          "n":  "SNRwGCG1Km",
+                          "ne":  "aBD33SzhKQ",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "tNdpB4sYP6",
+                          "guid":  "iTF-gwVwjS",
                           "cost":  {
-                                       "sc":  22
-                                   },
-                          "itemGuid":  "dkLuIrNJyl",
-                          "itemName":  "Tinkering Chimesmith Hair Accessory",
-                          "itemNameJa":  "工夫好きの風鈴職人 ヘアアクセサリー",
-                          "itemType":  "HairAccessory",
-                          "nw":  "xpwmZwCyL2",
-                          "n":  "Wc3l175uTU",
-                          "ne":  null,
-                          "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_003"
-                      },
-                      {
-                          "guid":  "Wc3l175uTU",
-                          "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "EaKDVLQYcH",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  "3nGh3vjL0d",
-                          "n":  "fuDY_v2LTA",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "fuDY_v2LTA",
-                          "cost":  {
-                                       "sc":  28
+                                       "c":  45
                                    },
                           "itemGuid":  "ARYCvmatxR",
                           "itemName":  "Tinkering Chimesmith Hair",
                           "itemNameJa":  "工夫好きの風鈴職人 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "fT3Wh5Qyc7",
-                          "n":  "jTzKe4ceZY",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_084"
+                          "itemCostId":  "hairstyle_084",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "jTzKe4ceZY",
+                          "guid":  "SNRwGCG1Km",
                           "cost":  {
-                                       "sc":  3
+                                       "ac":  2
                                    },
-                          "itemGuid":  "NhS59J9jxl",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "3yhb7QqakI",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "H3SuwZlcob",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "aBD33SzhKQ",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "aoeuPfrcxy",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "fT3Wh5Qyc7",
+                          "guid":  "H3SuwZlcob",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "mL4hbLcaT_",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
+                          "itemGuid":  "S4y9T9zWU1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "z4ZZzvzPGZ",
+                          "n":  "-djuOIop8j",
+                          "ne":  "pW6LUw--PO",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "z4ZZzvzPGZ",
+                          "cost":  {
+                                       "c":  35
+                                   },
+                          "itemGuid":  "dkLuIrNJyl",
+                          "itemName":  "Tinkering Chimesmith Hair Accessory",
+                          "itemNameJa":  "工夫好きの風鈴職人 ヘアアクセサリー",
+                          "itemType":  "HairAccessory",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "hair_accessory",
+                          "itemCostId":  "hair_accessory_003",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "3nGh3vjL0d",
+                          "guid":  "-djuOIop8j",
                           "cost":  {
-
+                                       "c":  75
                                    },
                           "itemGuid":  "t3hOiGsS79",
                           "itemName":  "Kalimba",
@@ -19557,27 +19846,14 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "xpwmZwCyL2",
+                          "guid":  "pW6LUw--PO",
                           "cost":  {
-
-                                   },
-                          "itemGuid":  "S4y9T9zWU1",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "IRJY2laZdP",
-                          "cost":  {
-
+                                       "c":  70
                                    },
                           "itemGuid":  "5Z5JqDkAtl",
                           "itemName":  "Tinkering Chimesmith Outfit",
@@ -19587,11 +19863,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_081"
+                          "itemCostId":  "outfit_081",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "工夫好きの風鈴職人",
-        "rootNodeGuid":  "wcUvdoaglf"
+                  ]
     },
     {
         "guid":  "hovmkrquOR",
@@ -19601,71 +19877,94 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "The Wind Paths",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/ac/Flight-Spirit-Talented-Builder.png",
-        "treeGuid":  "4Zj4C2RUj1",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "VvzWtE5G3g",
+        "treeSource":  "revisit",
+        "revisitDate":  "2023-11-23",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  13,
+        "nodeCount":  12,
+        "nameJa":  "腕利きの工匠",
+        "rootNodeGuid":  "GLJrehEjLo",
         "nodes":  [
                       {
-                          "guid":  "et9DvsI31i",
+                          "guid":  "GLJrehEjLo",
                           "cost":  {
 
                                    },
                           "itemGuid":  "b_qHNPnLGc",
-                          "itemName":  "Voilﾃ",
-                          "itemNameJa":  null,
+                          "itemName":  "Voilà",
+                          "itemNameJa":  "ジャジャーン",
                           "itemType":  "Emote",
-                          "nw":  "B4KRSbRDO7",
-                          "n":  "GF20e2yheu",
+                          "nw":  "LP-qjxPGUI",
+                          "n":  "Fe4zk4YdtA",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
+                          "emoteId":  "emote_075",
+                          "emoteLevel":  1
                       },
                       {
-                          "guid":  "GF20e2yheu",
+                          "guid":  "LP-qjxPGUI",
                           "cost":  {
-                                       "sc":  10
+                                       "h":  4
+                                   },
+                          "itemGuid":  "zRFUMdaCAK",
+                          "itemName":  "Voilà",
+                          "itemNameJa":  "ジャジャーン",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_075",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "Fe4zk4YdtA",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "x-oGRq6rNu",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "erLWe3NZhv",
-                          "n":  "Ir4ybgGnol",
-                          "ne":  null,
+                          "nw":  "6UNhWB4BfT",
+                          "n":  "9oAtlz_1oB",
+                          "ne":  "Gtk6AXj0YE",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Ir4ybgGnol",
+                          "guid":  "6UNhWB4BfT",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  40
                                    },
                           "itemGuid":  "RcLkR7XRbn",
                           "itemName":  "Talented Builder Neckpiece",
                           "itemNameJa":  "腕利きの工匠 ネックレス",
                           "itemType":  "Necklace",
-                          "nw":  "YUWotnJRgW",
-                          "n":  "nI80jh5ze6",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "necklace",
-                          "itemCostId":  "necklace_032"
+                          "itemCostId":  "necklace_032",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "nI80jh5ze6",
+                          "guid":  "9oAtlz_1oB",
                           "cost":  {
-                                       "sc":  22
+                                       "ac":  2
                                    },
-                          "itemGuid":  "AlBQo1ngBi",
-                          "itemName":  "Voilﾃ",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  "9df-JFKZ1O",
-                          "n":  "BN7VKDpf5J",
+                          "itemGuid":  "enzmBJRXnG",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "0SIoq0X8DO",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -19673,116 +19972,77 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "BN7VKDpf5J",
+                          "guid":  "Gtk6AXj0YE",
                           "cost":  {
-                                       "sc":  24
+                                       "c":  3
                                    },
-                          "itemGuid":  "W8zu7vGKUU",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  "XvkJinBEZi",
-                          "n":  "1T613tldvB",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "1T613tldvB",
-                          "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "cZfBtj_CYb",
-                          "itemName":  "Talented Builder Hair",
-                          "itemNameJa":  "腕利きの工匠 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "_CF_coi6UC",
-                          "n":  "PTe9XdknuO",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_083"
-                      },
-                      {
-                          "guid":  "PTe9XdknuO",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "LZEuZ8aSr1",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "ywCvppfTaZ",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "_CF_coi6UC",
+                          "guid":  "0SIoq0X8DO",
                           "cost":  {
-
+                                       "h":  3
                                    },
-                          "itemGuid":  "_2q2mdk_1h",
-                          "itemName":  "Color Trail",
-                          "itemNameJa":  "カラートレイル",
-                          "itemType":  "Spell",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
+                          "itemGuid":  "AlBQo1ngBi",
+                          "itemName":  "Voilà",
+                          "itemNameJa":  "ジャジャーン",
+                          "itemType":  "Emote",
+                          "nw":  "qpmHigIi4S",
+                          "n":  "GQjnWCRTCf",
+                          "ne":  "Ur6armvORX",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  "emote_075",
+                          "emoteLevel":  3
                       },
                       {
-                          "guid":  "XvkJinBEZi",
+                          "guid":  "qpmHigIi4S",
                           "cost":  {
-
-                                   },
-                          "itemGuid":  "g-vZeE8cmg",
-                          "itemName":  "Talented Builder Outfit",
-                          "itemNameJa":  "腕利きの工匠　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_080"
-                      },
-                      {
-                          "guid":  "9df-JFKZ1O",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "0bY0v6h4ci",
-                          "itemName":  "Voilﾃ",
-                          "itemNameJa":  null,
+                          "itemName":  "Voilà",
+                          "itemNameJa":  "ジャジャーン",
                           "itemType":  "Emote",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
+                          "emoteId":  "emote_075",
+                          "emoteLevel":  4
                       },
                       {
-                          "guid":  "YUWotnJRgW",
+                          "guid":  "GQjnWCRTCf",
                           "cost":  {
-
+                                       "c":  5
                                    },
                           "itemGuid":  "YPTs9XT_4y",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
+                          "nw":  "tggWYkfg81",
+                          "n":  "lz6awNBtYX",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "erLWe3NZhv",
+                          "guid":  "Ur6armvORX",
                           "cost":  {
-
+                                       "c":  15
                                    },
                           "itemGuid":  "sTi8F25qWL",
                           "itemName":  "Flying Among the Stars",
@@ -19792,28 +20052,45 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "B4KRSbRDO7",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "zRFUMdaCAK",
-                          "itemName":  "Voilﾃ",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  null,
                           "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "tggWYkfg81",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "g-vZeE8cmg",
+                          "itemName":  "Talented Builder Outfit",
+                          "itemNameJa":  "腕利きの工匠　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_080",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lz6awNBtYX",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "cZfBtj_CYb",
+                          "itemName":  "Talented Builder Hair",
+                          "itemNameJa":  "腕利きの工匠 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_083",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "腕利きの工匠",
-        "rootNodeGuid":  "et9DvsI31i"
+                  ]
     },
     {
         "guid":  "jM6IlC8yk8",
@@ -19872,15 +20149,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Passage Rock",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/5d/Gratitude-Spirit-Sassy-Drifter.png",
-        "treeGuid":  "emS7DU5ndh",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "8RKO8fkj0n",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-04-11",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  5,
+        "nodeCount":  7,
+        "nameJa":  "おませな漂流者",
+        "rootNodeGuid":  "HWzaJiejA-",
         "nodes":  [
                       {
-                          "guid":  "v8X3R8lQih",
+                          "guid":  "HWzaJiejA-",
                           "cost":  {
 
                                    },
@@ -19889,45 +20168,102 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "生意気なポーズ",
                           "itemType":  "Stance",
                           "nw":  null,
-                          "n":  "uRmcplmzik",
+                          "n":  "LSX4ON1kIg",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "uRmcplmzik",
+                          "guid":  "LSX4ON1kIg",
                           "cost":  {
-                                       "sc":  6
+                                       "c":  5
+                                   },
+                          "itemGuid":  "ifJ-lyNM8J",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "IX_alMqsHM",
+                          "n":  "sm1u7g9C-J",
+                          "ne":  "fqidp4avvm",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "IX_alMqsHM",
+                          "cost":  {
+                                       "c":  26
                                    },
                           "itemGuid":  "VIQ3DJwLpu",
                           "itemName":  "Sassy Drifter Hair",
                           "itemNameJa":  "おませな漂流者 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "lVYQ_MKTtd",
-                          "n":  "P_oUy4RHzb",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_038"
+                          "itemCostId":  "hairstyle_038",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "P_oUy4RHzb",
+                          "guid":  "sm1u7g9C-J",
                           "cost":  {
-                                       "sc":  8
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "8PUHxsxGKL",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "6_4p8jCNF7",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "fqidp4avvm",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "eqQzpRMNPk",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "6_4p8jCNF7",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "Bo8Xc6gcCn",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  "juCGyjvHdK",
+                          "n":  "Km6mJHm7tA",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "juCGyjvHdK",
+                          "guid":  "Km6mJHm7tA",
                           "cost":  {
-
+                                       "c":  48
                                    },
                           "itemGuid":  "xROh6OVPnJ",
                           "itemName":  "Sassy Drifter Mask",
@@ -19937,26 +20273,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_010"
-                      },
-                      {
-                          "guid":  "lVYQ_MKTtd",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "ifJ-lyNM8J",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  "mask_010",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "おませな漂流者",
-        "rootNodeGuid":  "v8X3R8lQih"
+                  ]
     },
     {
         "guid":  "Q-N8n-0b8O",
@@ -19966,15 +20287,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Prairie Cave",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/4/46/Gratitude-Spirit-Stretching-Guru.png",
-        "treeGuid":  "s4j4vrnNCR",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "RrHlQoFBih",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-04-10",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  10,
+        "nameJa":  "屈伸する導師",
+        "rootNodeGuid":  "iMZbZifxtj",
         "nodes":  [
                       {
-                          "guid":  "jlY1bt_XXs",
+                          "guid":  "iMZbZifxtj",
                           "cost":  {
 
                                    },
@@ -19982,8 +20305,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Yoga",
                           "itemNameJa":  "太陽礼拝",
                           "itemType":  "Emote",
-                          "nw":  "ae_loq-a2P",
-                          "n":  "jxeHcPYjY0",
+                          "nw":  "Jq7RJOpWw8",
+                          "n":  "mNJcRzrB9o",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -19991,31 +20314,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "jxeHcPYjY0",
+                          "guid":  "Jq7RJOpWw8",
                           "cost":  {
-                                       "sc":  6
+                                       "h":  4
+                                   },
+                          "itemGuid":  "hFbdz8Wvye",
+                          "itemName":  "Yoga",
+                          "itemNameJa":  "太陽礼拝",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_061",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "mNJcRzrB9o",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "FK3tNWjyTF",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "pk0hK3kIM1",
+                          "n":  "orUWBRpiy7",
+                          "ne":  "eT66SXqe6z",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "pk0hK3kIM1",
+                          "cost":  {
+                                       "c":  26
                                    },
                           "itemGuid":  "L5rpNhBlkt",
                           "itemName":  "Stretching Guru Hair",
                           "itemNameJa":  "屈伸する導師 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "-pGSJXDwp4",
-                          "n":  "99OwzHVdWh",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_040"
+                          "itemCostId":  "hairstyle_040",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "99OwzHVdWh",
+                          "guid":  "orUWBRpiy7",
                           "cost":  {
-                                       "sc":  8
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "tCx3SpS6Do",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "yhWKEH6e00",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "eT66SXqe6z",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "03JHyNx8wL",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "yhWKEH6e00",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "j6B0Gx5Bra",
                           "itemName":  "Yoga",
                           "itemNameJa":  "太陽礼拝",
                           "itemType":  "Emote",
-                          "nw":  "o2aN4CcJdc",
-                          "n":  "dC_YiXQfL7",
+                          "nw":  "ckY52bOUpW",
+                          "n":  "zSNtUO14jh",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20023,39 +20416,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "dC_YiXQfL7",
+                          "guid":  "ckY52bOUpW",
                           "cost":  {
-                                       "sc":  10
-                                   },
-                          "itemGuid":  "mhaC8geOXk",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "B-xElanoJo",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "B-xElanoJo",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "k9UvQv3vi0",
-                          "itemName":  "Stretching Guru Cape",
-                          "itemNameJa":  "屈伸する導師 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_025"
-                      },
-                      {
-                          "guid":  "o2aN4CcJdc",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "JuLs_5VIyb",
                           "itemName":  "Yoga",
@@ -20070,40 +20433,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "-pGSJXDwp4",
+                          "guid":  "zSNtUO14jh",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "FK3tNWjyTF",
+                          "itemGuid":  "mhaC8geOXk",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ae_loq-a2P",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "hFbdz8Wvye",
-                          "itemName":  "Yoga",
-                          "itemNameJa":  "太陽礼拝",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "0s-Iot-yi-",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_061",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0s-Iot-yi-",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "k9UvQv3vi0",
+                          "itemName":  "Stretching Guru Cape",
+                          "itemNameJa":  "屈伸する導師 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_025",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "屈伸する導師",
-        "rootNodeGuid":  "jlY1bt_XXs"
+                  ]
     },
     {
         "guid":  "lmydkMDQeP",
@@ -20113,15 +20476,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Forest Brook",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/25/Gratitude-Spirit-Provoking-Performer.png",
-        "treeGuid":  "KcxP_uWRx_",
+        "treeGuid":  "T6wagFF_ls",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-04-13",
-        "revisitName":  "TS Error",
+        "revisitDate":  "2025-09-11",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "挑戦的な表現者",
+        "rootNodeGuid":  "TfqS8fRZYJ",
         "nodes":  [
                       {
-                          "guid":  "O8QA3nIMbC",
+                          "guid":  "TfqS8fRZYJ",
                           "cost":  {
 
                                    },
@@ -20129,8 +20494,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Kabuki",
                           "itemNameJa":  "歌舞伎風",
                           "itemType":  "Emote",
-                          "nw":  "rgiQqZO6aU",
-                          "n":  "vRo8L9GdZ_",
+                          "nw":  "ooOJqrV35E",
+                          "n":  "SzHMJJjlOk",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20138,7 +20503,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "vRo8L9GdZ_",
+                          "guid":  "ooOJqrV35E",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "LPnwWeKlf0",
+                          "itemName":  "Kabuki",
+                          "itemNameJa":  "歌舞伎風",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_026",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "SzHMJJjlOk",
                           "cost":  {
                                        "c":  5
                                    },
@@ -20146,14 +20528,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "sOnWNvfLdO",
-                          "n":  "RcxHMJcuAK",
-                          "ne":  "5x6WqBXVIf",
+                          "nw":  "HdDnNN5OI5",
+                          "n":  "babNXPAKV1",
+                          "ne":  "E-uMoU4U2d",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "5x6WqBXVIf",
+                          "guid":  "HdDnNN5OI5",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "kWs-MLO3ZE",
+                          "itemName":  "Wide Stance",
+                          "itemNameJa":  "幅広なポーズ",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "babNXPAKV1",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "Foy_7SpHIY",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "w7_GXcvPqL",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "E-uMoU4U2d",
                           "cost":  {
                                        "c":  3
                                    },
@@ -20165,25 +20583,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "RcxHMJcuAK",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "Foy_7SpHIY",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "nuNlzT_sDu",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "nuNlzT_sDu",
+                          "guid":  "w7_GXcvPqL",
                           "cost":  {
                                        "h":  3
                                    },
@@ -20191,8 +20596,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Kabuki",
                           "itemNameJa":  "歌舞伎風",
                           "itemType":  "Emote",
-                          "nw":  "wSusMbjv5A",
-                          "n":  "qJF6NgROpf",
+                          "nw":  "9orAeUdmKx",
+                          "n":  "UHserqDGOw",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20200,52 +20605,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "qJF6NgROpf",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "usBrZiK7JN",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "wPDLW-eV1K",
-                          "n":  "a2oeDGD78w",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "a2oeDGD78w",
-                          "cost":  {
-                                       "c":  34
-                                   },
-                          "itemGuid":  "HzMNk4W-bM",
-                          "itemName":  "Provoking Performer Hair",
-                          "itemNameJa":  "挑戦的な表現者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_039"
-                      },
-                      {
-                          "guid":  "wPDLW-eV1K",
-                          "cost":  {
-                                       "c":  42
-                                   },
-                          "itemGuid":  "wSjNwu664c",
-                          "itemName":  "Provoking Performer Mask",
-                          "itemNameJa":  "挑戦的な表現者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_005"
-                      },
-                      {
-                          "guid":  "wSusMbjv5A",
+                          "guid":  "9orAeUdmKx",
                           "cost":  {
                                        "h":  6
                                    },
@@ -20262,40 +20622,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "sOnWNvfLdO",
+                          "guid":  "UHserqDGOw",
                           "cost":  {
-                                       "c":  15
+                                       "c":  5
                                    },
-                          "itemGuid":  "kWs-MLO3ZE",
-                          "itemName":  "Wide Stance",
-                          "itemNameJa":  "幅広なポーズ",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "rgiQqZO6aU",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "LPnwWeKlf0",
-                          "itemName":  "Kabuki",
-                          "itemNameJa":  "歌舞伎風",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "usBrZiK7JN",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "n1Dk3TdGa3",
+                          "n":  "EQyeMAHgBK",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_026",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "n1Dk3TdGa3",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "wSjNwu664c",
+                          "itemName":  "Provoking Performer Mask",
+                          "itemNameJa":  "挑戦的な表現者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_005",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "EQyeMAHgBK",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "HzMNk4W-bM",
+                          "itemName":  "Provoking Performer Hair",
+                          "itemNameJa":  "挑戦的な表現者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_039",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "挑戦的な表現者",
-        "rootNodeGuid":  "O8QA3nIMbC"
+                  ]
     },
     {
         "guid":  "JROKFatVLC",
@@ -20305,15 +20682,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Frozen Lake",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/ae/Gratitude-Spirit-Leaping-Dancer.png",
-        "treeGuid":  "cCYK6HibTp",
+        "treeGuid":  "B0TGTSyX3-",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-07-03",
-        "revisitName":  "Special Visit #3",
+        "revisitDate":  "2024-06-06",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  10,
+        "nameJa":  "飛び跳ねる舞踏家",
+        "rootNodeGuid":  "65V44C6t5G",
         "nodes":  [
                       {
-                          "guid":  "UMIJMK6KSN",
+                          "guid":  "65V44C6t5G",
                           "cost":  {
 
                                    },
@@ -20321,8 +20700,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Leap",
                           "itemNameJa":  "わーい",
                           "itemType":  "Emote",
-                          "nw":  "GZf2kQJvkU",
-                          "n":  "xXlRRtVGcA",
+                          "nw":  "3HyU06XNOD",
+                          "n":  "qtpbrvl0M_",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20330,7 +20709,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "xXlRRtVGcA",
+                          "guid":  "3HyU06XNOD",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "Q5LhJRWFiF",
+                          "itemName":  "Leap",
+                          "itemNameJa":  "わーい",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_036",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "qtpbrvl0M_",
                           "cost":  {
                                        "c":  5
                                    },
@@ -20338,14 +20734,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "CckgWQWh6g",
-                          "n":  "ra1NSznMhv",
-                          "ne":  "InMyCGaRqj",
+                          "nw":  "AUUrNj8cE5",
+                          "n":  "uUnWZ6GS_N",
+                          "ne":  "RCv3eokKVr",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "InMyCGaRqj",
+                          "guid":  "AUUrNj8cE5",
+                          "cost":  {
+                                       "c":  40
+                                   },
+                          "itemGuid":  "eL5WjOsMrx",
+                          "itemName":  "Small Bell",
+                          "itemNameJa":  "小さな鐘",
+                          "itemType":  "Held",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "uUnWZ6GS_N",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "6AIXGyi9jl",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "gWQeAck3fx",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "RCv3eokKVr",
                           "cost":  {
                                        "c":  3
                                    },
@@ -20357,25 +20789,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "ra1NSznMhv",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "6AIXGyi9jl",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "QP3T0EO4pV",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "QP3T0EO4pV",
+                          "guid":  "gWQeAck3fx",
                           "cost":  {
                                        "h":  3
                                    },
@@ -20383,8 +20802,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Leap",
                           "itemNameJa":  "わーい",
                           "itemType":  "Emote",
-                          "nw":  "1R20RgAdO1",
-                          "n":  "JuntDWw171",
+                          "nw":  "BT25AH1a56",
+                          "n":  "LPUytQ9cJ9",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20392,37 +20811,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "JuntDWw171",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "upDiBXJC_V",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "UAgz76Y_gL",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "UAgz76Y_gL",
-                          "cost":  {
-                                       "c":  54
-                                   },
-                          "itemGuid":  "RX-66s3KFD",
-                          "itemName":  "Leaping Dancer Mask",
-                          "itemNameJa":  "飛び跳ねる舞踏家　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_006"
-                      },
-                      {
-                          "guid":  "1R20RgAdO1",
+                          "guid":  "BT25AH1a56",
                           "cost":  {
                                        "h":  6
                                    },
@@ -20439,40 +20828,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "CckgWQWh6g",
+                          "guid":  "LPUytQ9cJ9",
                           "cost":  {
-                                       "c":  40
+                                       "c":  5
                                    },
-                          "itemGuid":  "eL5WjOsMrx",
-                          "itemName":  "Small Bell",
-                          "itemNameJa":  "小さな鐘",
-                          "itemType":  "Held",
+                          "itemGuid":  "upDiBXJC_V",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "GZf2kQJvkU",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "Q5LhJRWFiF",
-                          "itemName":  "Leap",
-                          "itemNameJa":  "わーい",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "c39Zk-UjlN",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_036",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "c39Zk-UjlN",
+                          "cost":  {
+                                       "c":  54
+                                   },
+                          "itemGuid":  "RX-66s3KFD",
+                          "itemName":  "Leaping Dancer Mask",
+                          "itemNameJa":  "飛び跳ねる舞踏家　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_006",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "飛び跳ねる舞踏家",
-        "rootNodeGuid":  "UMIJMK6KSN"
+                  ]
     },
     {
         "guid":  "eToUA1mSjz",
@@ -20674,15 +21063,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Upper Vault",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/3e/Gratitude-Spirit-Greeting-Shaman.png",
-        "treeGuid":  "iznzX-F_eT",
+        "treeGuid":  "8fFKiwzxyW",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-07-03",
-        "revisitName":  "Special Visit #3",
+        "revisitDate":  "2026-07-02",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  10,
+        "nameJa":  "礼を尽くす祈祷師",
+        "rootNodeGuid":  "mOigPGPakU",
         "nodes":  [
                       {
-                          "guid":  "Fxq3bK7lhC",
+                          "guid":  "mOigPGPakU",
                           "cost":  {
 
                                    },
@@ -20690,8 +21081,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Kung Fu",
                           "itemNameJa":  "カンフー",
                           "itemType":  "Emote",
-                          "nw":  "AGdnjNIAnM",
-                          "n":  "U4cbOtklI7",
+                          "nw":  "qbqueb0u0q",
+                          "n":  "EMxN3QXOF3",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20699,7 +21090,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "U4cbOtklI7",
+                          "guid":  "qbqueb0u0q",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "5QWjZVAA-9",
+                          "itemName":  "Kung Fu",
+                          "itemNameJa":  "カンフー",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_052",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "EMxN3QXOF3",
                           "cost":  {
                                        "c":  5
                                    },
@@ -20707,14 +21115,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "Gb69eEddzM",
-                          "n":  "wM81bqkYeL",
-                          "ne":  "D0RKE9Quh1",
+                          "nw":  "HZBDH2xjYo",
+                          "n":  "Fte4gxy6fC",
+                          "ne":  "XDNKnOslEC",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "D0RKE9Quh1",
+                          "guid":  "HZBDH2xjYo",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "aFozSzjdTL",
+                          "itemName":  "Large Bell",
+                          "itemNameJa":  "大きな鐘",
+                          "itemType":  "Held",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Fte4gxy6fC",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "y7P0HNe1o0",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "dXM8cpI3b3",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "XDNKnOslEC",
                           "cost":  {
                                        "c":  3
                                    },
@@ -20726,25 +21170,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "wM81bqkYeL",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "y7P0HNe1o0",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "eO83EnQPZf",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "eO83EnQPZf",
+                          "guid":  "dXM8cpI3b3",
                           "cost":  {
                                        "h":  3
                                    },
@@ -20752,8 +21183,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Kung Fu",
                           "itemNameJa":  "カンフー",
                           "itemType":  "Emote",
-                          "nw":  "c-wq0Oxq3h",
-                          "n":  "kz_Uu8Kf4o",
+                          "nw":  "gmTeyUlqmL",
+                          "n":  "eE0JwK7OSX",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -20761,37 +21192,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "kz_Uu8Kf4o",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "ThuqWhRFev",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "uASylhVFKH",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "uASylhVFKH",
-                          "cost":  {
-                                       "c":  54
-                                   },
-                          "itemGuid":  "O_E6Y4gBQ8",
-                          "itemName":  "Greeting Shaman Mask",
-                          "itemNameJa":  "礼を尽くす祈祷師　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_008"
-                      },
-                      {
-                          "guid":  "c-wq0Oxq3h",
+                          "guid":  "gmTeyUlqmL",
                           "cost":  {
                                        "h":  6
                                    },
@@ -20808,40 +21209,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "Gb69eEddzM",
+                          "guid":  "eE0JwK7OSX",
                           "cost":  {
-                                       "c":  45
+                                       "c":  5
                                    },
-                          "itemGuid":  "aFozSzjdTL",
-                          "itemName":  "Large Bell",
-                          "itemNameJa":  "大きな鐘",
-                          "itemType":  "Held",
+                          "itemGuid":  "ThuqWhRFev",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "AGdnjNIAnM",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "5QWjZVAA-9",
-                          "itemName":  "Kung Fu",
-                          "itemNameJa":  "カンフー",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "d5WwG9huOa",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_052",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "d5WwG9huOa",
+                          "cost":  {
+                                       "c":  54
+                                   },
+                          "itemGuid":  "O_E6Y4gBQ8",
+                          "itemName":  "Greeting Shaman Mask",
+                          "itemNameJa":  "礼を尽くす祈祷師　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_008",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "礼を尽くす祈祷師",
-        "rootNodeGuid":  "Fxq3bK7lhC"
+                  ]
     },
     {
         "guid":  "XEv6O28-r7",
@@ -22117,24 +22518,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Dawn Circle",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/a7/Lightseeker-Spirit-Piggyback-Lightseeker.png",
-        "treeGuid":  "tKkz-7Fmh_",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "6YXj1foDCG",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-02-13",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  7,
+        "nodeCount":  9,
+        "nameJa":  "おんぶする光探求者",
+        "rootNodeGuid":  "Sr8FjyT0GC",
         "nodes":  [
                       {
-                          "guid":  "iLwPqKU2ea",
+                          "guid":  "Sr8FjyT0GC",
                           "cost":  {
 
                                    },
                           "itemGuid":  "G9wVSFG6I_",
                           "itemName":  "Piggyback",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "おんぶ",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "ODxxK4SEMI",
+                          "n":  "8jBIaptp13",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22142,54 +22545,111 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "ODxxK4SEMI",
+                          "guid":  "8jBIaptp13",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  5
+                                   },
+                          "itemGuid":  "2jrLzRaf6h",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "JgKMjjcQCQ",
+                          "n":  "mAcaseXXNs",
+                          "ne":  "5o0O0C8eiH",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "JgKMjjcQCQ",
+                          "cost":  {
+                                       "c":  24
                                    },
                           "itemGuid":  "lw79vLwEkP",
                           "itemName":  "Piggyback Lightseeker Mask",
                           "itemNameJa":  "おんぶする光探求者　マスク",
                           "itemType":  "Mask",
-                          "nw":  "3TCw5D287c",
-                          "n":  "H2KT4ezyaV",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_011"
+                          "itemCostId":  "mask_011",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "H2KT4ezyaV",
+                          "guid":  "mAcaseXXNs",
                           "cost":  {
-                                       "sc":  18
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "ihS0cOlgFz",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "nYjpOBsYi6",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "5o0O0C8eiH",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "bmCPTysPOr",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "nYjpOBsYi6",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "oEMhNzGfdl",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "4nOaj4wXLo",
-                          "n":  "GHGdC8qLGb",
+                          "nw":  "Lg-S0JyYN9",
+                          "n":  "vXuFcKE7dF",
+                          "ne":  "_Rl4d7J6ir",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Lg-S0JyYN9",
+                          "cost":  {
+                                       "h":  8
+                                   },
+                          "itemGuid":  "HtVnkK980q",
+                          "itemName":  "Piggyback",
+                          "itemNameJa":  "おんぶ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "GHGdC8qLGb",
+                          "guid":  "vXuFcKE7dF",
                           "cost":  {
-                                       "sc":  20
-                                   },
-                          "itemGuid":  "BGoYhVYvBZ",
-                          "itemName":  "Piggyback Lightseeker Hair",
-                          "itemNameJa":  "おんぶする光探求者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  "a-Rcd9zYIa",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_043"
-                      },
-                      {
-                          "guid":  "a-Rcd9zYIa",
-                          "cost":  {
-
+                                       "c":  60
                                    },
                           "itemGuid":  "ILUnt_OrWQ",
                           "itemName":  "Piggyback Lightseeker Cape",
@@ -22199,43 +22659,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_027"
-                      },
-                      {
-                          "guid":  "4nOaj4wXLo",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "HtVnkK980q",
-                          "itemName":  "Piggyback",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
+                          "itemCostId":  "cape_027",
                           "emoteId":  null,
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "3TCw5D287c",
+                          "guid":  "_Rl4d7J6ir",
                           "cost":  {
-
+                                       "c":  26
                                    },
-                          "itemGuid":  "2jrLzRaf6h",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "BGoYhVYvBZ",
+                          "itemName":  "Piggyback Lightseeker Hair",
+                          "itemNameJa":  "おんぶする光探求者 ヘアスタイル",
+                          "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_043",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "おんぶする光探求者",
-        "rootNodeGuid":  "iLwPqKU2ea"
+                  ]
     },
     {
         "guid":  "jncJKA4IaM",
@@ -22245,24 +22690,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Bird Nest",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/9/97/Lightseekers-Spirit-Doublefive-Light-Catcher.png",
-        "treeGuid":  "DCA--qiCxD",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "0ZCwFWIvbw",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-05-23",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  7,
+        "nodeCount":  9,
+        "nameJa":  "ダブルタッチの光採取者",
+        "rootNodeGuid":  "5DYU10mMcx",
         "nodes":  [
                       {
-                          "guid":  "wwxSGrYetC",
+                          "guid":  "5DYU10mMcx",
                           "cost":  {
 
                                    },
                           "itemGuid":  "9sYCtuZch3",
                           "itemName":  "Double-Five",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "ダブルタッチ",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "pdmmr3uAZM",
+                          "n":  "cufFtkSnzH",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22270,54 +22717,128 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "pdmmr3uAZM",
+                          "guid":  "cufFtkSnzH",
                           "cost":  {
-                                       "sc":  4
+                                       "c":  5
                                    },
                           "itemGuid":  "GbSWbAV_W1",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "t8utQHFcst",
-                          "n":  "HhBEMNXe1v",
-                          "ne":  null,
+                          "nw":  "pvN11S_HXi",
+                          "n":  "RB59ATVpTe",
+                          "ne":  "HcFk--nLeF",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "HhBEMNXe1v",
+                          "guid":  "pvN11S_HXi",
                           "cost":  {
-                                       "sc":  6
+                                       "c":  24
                                    },
                           "itemGuid":  "lz89xViG6m",
                           "itemName":  "Doublefive Light Catcher Mask",
                           "itemNameJa":  "ダブルタッチの光採取者　マスク",
                           "itemType":  "Mask",
-                          "nw":  "i4oGY7F9EU",
-                          "n":  "jno7YwR3Sv",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_012"
+                          "itemCostId":  "mask_012",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "jno7YwR3Sv",
+                          "guid":  "RB59ATVpTe",
                           "cost":  {
-                                       "sc":  8
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "NHkpPS7ryo",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "sHQHN2c1F0",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "HcFk--nLeF",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "17rzgAzvhl",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "sHQHN2c1F0",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "YgxtYX7GjD",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "LevfRC1zCw",
-                          "ne":  null,
+                          "nw":  "4DR832zuEO",
+                          "n":  "Py9NACSo53",
+                          "ne":  "d-DHWK3W6R",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "LevfRC1zCw",
+                          "guid":  "4DR832zuEO",
                           "cost":  {
-
+                                       "h":  7
+                                   },
+                          "itemGuid":  "nfeBnolyEY",
+                          "itemName":  "Double-Five",
+                          "itemNameJa":  "ダブルタッチ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Py9NACSo53",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "Ur7gRzB_VK",
+                          "itemName":  "Doublefive Light Catcher Hair",
+                          "itemNameJa":  "ダブルタッチの光探求者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_045",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "d-DHWK3W6R",
+                          "cost":  {
+                                       "c":  55
                                    },
                           "itemGuid":  "qR79V6fLUy",
                           "itemName":  "Flute",
@@ -22327,43 +22848,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "i4oGY7F9EU",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "nfeBnolyEY",
-                          "itemName":  "Double-Five",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  null,
                           "emoteLevel":  null
-                      },
-                      {
-                          "guid":  "t8utQHFcst",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Ur7gRzB_VK",
-                          "itemName":  "Doublefive Light Catcher Hair",
-                          "itemNameJa":  null,
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
                       }
-                  ],
-        "nameJa":  "ダブルタッチの光採取者",
-        "rootNodeGuid":  "wwxSGrYetC"
+                  ]
     },
     {
         "guid":  "8OYabqG_jZ",
@@ -22373,15 +22862,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Forest Brook",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/a6/Lightseekers-Spirit-Laidback-Pioneer.png",
-        "treeGuid":  "ry-1r9mcwO",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "AnFlriIA1l",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-06-05",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  9,
+        "nameJa":  "くつろぐ開拓者",
+        "rootNodeGuid":  "joPE_k2pDQ",
         "nodes":  [
                       {
-                          "guid":  "u7doiPY1Nv",
+                          "guid":  "joPE_k2pDQ",
                           "cost":  {
 
                                    },
@@ -22390,105 +22881,102 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "くつろいだポーズ",
                           "itemType":  "Stance",
                           "nw":  null,
-                          "n":  "qbwqKq15oV",
+                          "n":  "B7IDADFsI4",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "qbwqKq15oV",
+                          "guid":  "B7IDADFsI4",
                           "cost":  {
-                                       "sc":  6
+                                       "c":  5
+                                   },
+                          "itemGuid":  "_HKt5SUf0w",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "KSZ-PU8HYe",
+                          "n":  "ARHK3pLMkD",
+                          "ne":  "yLfp0TiQnZ",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "KSZ-PU8HYe",
+                          "cost":  {
+                                       "c":  30
                                    },
                           "itemGuid":  "rj8Dzz64e9",
                           "itemName":  "Laidback Pioneer Mask",
                           "itemNameJa":  "くつろぐ開拓者　マスク",
                           "itemType":  "Mask",
-                          "nw":  "yRIX_sORv7",
-                          "n":  "o8k897IQsj",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_013"
+                          "itemCostId":  "mask_013",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "o8k897IQsj",
+                          "guid":  "ARHK3pLMkD",
                           "cost":  {
-                                       "sc":  8
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "DFHjlCXHoD",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "delwLsut_g",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "yLfp0TiQnZ",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "bb9Od8wEmp",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "delwLsut_g",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "fg5RXP9p-W",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "8dPZ0u7pXp",
-                          "n":  "AU0hKry2ME",
-                          "ne":  null,
+                          "nw":  "ZtnLElnyin",
+                          "n":  "NDZhwaXc8h",
+                          "ne":  "_s7ZAAYX87",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "AU0hKry2ME",
+                          "guid":  "ZtnLElnyin",
                           "cost":  {
-                                       "sc":  10
-                                   },
-                          "itemGuid":  "qPAqxHGUVI",
-                          "itemName":  "Laidback Pioneer Hair",
-                          "itemNameJa":  "くつろぐ開拓者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "i2QDdsrsI6",
-                          "n":  "r6QD5RumHE",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_044"
-                      },
-                      {
-                          "guid":  "r6QD5RumHE",
-                          "cost":  {
-                                       "sc":  20
-                                   },
-                          "itemGuid":  "Sf9uzy0A0A",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "zexdTt2N8r",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "zexdTt2N8r",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Hi8NBjG271",
-                          "itemName":  "Laidback Pioneer Umbrella",
-                          "itemNameJa":  "くつろぐ開拓者 持ち物アイテム",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "portable_item",
-                          "itemCostId":  "portable_item_036"
-                      },
-                      {
-                          "guid":  "i2QDdsrsI6",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "7CHTap5JN4",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "8dPZ0u7pXp",
-                          "cost":  {
-
+                                       "c":  15
                                    },
                           "itemGuid":  "4sdZPgk41b",
                           "itemName":  "Finding the Horizon",
@@ -22498,26 +22986,45 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "portable_item",
-                          "itemCostId":  "portable_item_036"
+                          "itemCostId":  "portable_item_036",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "yRIX_sORv7",
+                          "guid":  "NDZhwaXc8h",
                           "cost":  {
-
+                                       "c":  75
                                    },
-                          "itemGuid":  "_HKt5SUf0w",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "Hi8NBjG271",
+                          "itemName":  "Laidback Pioneer Umbrella",
+                          "itemNameJa":  "くつろぐ開拓者 持ち物アイテム",
+                          "itemType":  "Held",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "portable_item",
+                          "itemCostId":  "portable_item_036",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "_s7ZAAYX87",
+                          "cost":  {
+                                       "c":  18
+                                   },
+                          "itemGuid":  "qPAqxHGUVI",
+                          "itemName":  "Laidback Pioneer Hair",
+                          "itemNameJa":  "くつろぐ開拓者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_044",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "くつろぐ開拓者",
-        "rootNodeGuid":  "u7doiPY1Nv"
+                  ]
     },
     {
         "guid":  "bHCSyFQ4u-",
@@ -22527,15 +23034,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Frozen Lake",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/d/de/Lightseekers-Spirit-Twirling-Champion.png",
-        "treeGuid":  "9lQ4T3H65f",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "oJ4oIoSJ1a",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-06-04",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  11,
+        "nameJa":  "くるりと舞う優勝者",
+        "rootNodeGuid":  "XeuhUBP6Kz",
         "nodes":  [
                       {
-                          "guid":  "-4dScFEOsV",
+                          "guid":  "XeuhUBP6Kz",
                           "cost":  {
 
                                    },
@@ -22543,8 +23052,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Triple Axel",
                           "itemNameJa":  "トリプルアクセル",
                           "itemType":  "Emote",
-                          "nw":  "9s0p-kQWkH",
-                          "n":  "ncgdVwfIBO",
+                          "nw":  "e1DvgvsfUg",
+                          "n":  "4iZliZ-SaG",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22552,31 +23061,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "ncgdVwfIBO",
+                          "guid":  "e1DvgvsfUg",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
+                                   },
+                          "itemGuid":  "zjAeiE3x_t",
+                          "itemName":  "Triple Axel",
+                          "itemNameJa":  "トリプルアクセル",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_037",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "4iZliZ-SaG",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "10pNNxAeD8",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "l2sFHiW3q9",
-                          "n":  "lwVLl4fDUt",
-                          "ne":  null,
+                          "nw":  "tZxyM4N3T8",
+                          "n":  "vyc5pdTVdT",
+                          "ne":  "v7xrsKsxO4",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "lwVLl4fDUt",
+                          "guid":  "tZxyM4N3T8",
                           "cost":  {
-                                       "sc":  14
+                                       "c":  24
+                                   },
+                          "itemGuid":  "0L89TCDEtN",
+                          "itemName":  "Twirling Champion Mask",
+                          "itemNameJa":  "くるりと舞う優勝者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_014",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "vyc5pdTVdT",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "_2Q4y97jsM",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "K5KgZM_VKe",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "v7xrsKsxO4",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "-wPyZeJ1nD",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "K5KgZM_VKe",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "zhwG9yJ2mi",
                           "itemName":  "Triple Axel",
                           "itemNameJa":  "トリプルアクセル",
                           "itemType":  "Emote",
-                          "nw":  "PxCXBb4yoO",
-                          "n":  "xuf6lUuTxt",
+                          "nw":  "IFnghbqaFB",
+                          "n":  "tO4DR0_zsI",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22584,39 +23163,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "xuf6lUuTxt",
+                          "guid":  "IFnghbqaFB",
                           "cost":  {
-                                       "sc":  16
-                                   },
-                          "itemGuid":  "EjjybJGcTN",
-                          "itemName":  "Twirling Champion Hair",
-                          "itemNameJa":  "くるりと舞う優勝者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  "npnC0-80iL",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_042"
-                      },
-                      {
-                          "guid":  "npnC0-80iL",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "PIRW3pt_BE",
-                          "itemName":  "Panflute",
-                          "itemNameJa":  "パンフルート",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "PxCXBb4yoO",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "touhpuoYRG",
                           "itemName":  "Triple Axel",
@@ -22631,40 +23180,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "l2sFHiW3q9",
+                          "guid":  "tO4DR0_zsI",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "0L89TCDEtN",
-                          "itemName":  "Twirling Champion Mask",
-                          "itemNameJa":  "くるりと舞う優勝者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "myvAPXLC4n",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "Q_U9N1t1ar",
+                          "n":  "Fd0KJnZ8ux",
                           "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_014"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "9s0p-kQWkH",
+                          "guid":  "Q_U9N1t1ar",
                           "cost":  {
-
+                                       "c":  60
                                    },
-                          "itemGuid":  "zjAeiE3x_t",
-                          "itemName":  "Triple Axel",
-                          "itemNameJa":  "トリプルアクセル",
-                          "itemType":  "Emote",
+                          "itemGuid":  "PIRW3pt_BE",
+                          "itemName":  "Panflute",
+                          "itemNameJa":  "パンフルート",
+                          "itemType":  "Held",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_037",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Fd0KJnZ8ux",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "EjjybJGcTN",
+                          "itemName":  "Twirling Champion Hair",
+                          "itemNameJa":  "くるりと舞う優勝者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_042",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "くるりと舞う優勝者",
-        "rootNodeGuid":  "-4dScFEOsV"
+                  ]
     },
     {
         "guid":  "tZG5hNcINX",
@@ -22674,15 +23240,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  5,
         "area":  "Crab Fields",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/1/10/Lightseekers-Spirit-Crab-Whisperer.png",
-        "treeGuid":  "Iej9LFKqlb",
+        "treeGuid":  "JH_nMv1JJX",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-08-07",
-        "revisitName":  "Special Visit #4",
+        "revisitDate":  "2025-12-18",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  10,
+        "nameJa":  "蟹の語り部",
+        "rootNodeGuid":  "FnUS7qE5Ln",
         "nodes":  [
                       {
-                          "guid":  "CQcGqx0roE",
+                          "guid":  "FnUS7qE5Ln",
                           "cost":  {
 
                                    },
@@ -22690,134 +23258,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Crab Call",
                           "itemNameJa":  "蟹の鳴き声",
                           "itemType":  "Call",
-                          "nw":  "cOvaodKirb",
-                          "n":  "ZeVymI00bm",
+                          "nw":  "c01scJlucx",
+                          "n":  "zQTVbo3wDU",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "ZeVymI00bm",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "Whp-r1yq-s",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "ZK5ugPf4U-",
-                          "n":  "xvL9PAoS7-",
-                          "ne":  "dHOrJZGcRM",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "dHOrJZGcRM",
-                          "cost":  {
-                                       "c":  3
-                                   },
-                          "itemGuid":  "t70cADZFZh",
-                          "itemName":  "Heart",
-                          "itemNameJa":  "ハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "xvL9PAoS7-",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "FE2ZZ9OIVd",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "7S5FM7MHMo",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "7S5FM7MHMo",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "wcb5UMzT9u",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "twMublSOWO",
-                          "n":  "emHZ95wPIY",
-                          "ne":  "hRBe1Dmnid",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "hRBe1Dmnid",
-                          "cost":  {
-                                       "c":  42
-                                   },
-                          "itemGuid":  "A3jFFEXAKu",
-                          "itemName":  "Crab Whisperer Hair",
-                          "itemNameJa":  "蟹の語り部 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_041"
-                      },
-                      {
-                          "guid":  "emHZ95wPIY",
-                          "cost":  {
-                                       "c":  70
-                                   },
-                          "itemGuid":  "dotE5ejKYP",
-                          "itemName":  "Crab Whisperer Cape",
-                          "itemNameJa":  "蟹の語り部 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_026"
-                      },
-                      {
-                          "guid":  "twMublSOWO",
-                          "cost":  {
-                                       "c":  15
-                                   },
-                          "itemGuid":  "NqdFQpeUSh",
-                          "itemName":  "Relaxed Steps",
-                          "itemNameJa":  "くつろいだ足取り",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ZK5ugPf4U-",
-                          "cost":  {
-                                       "c":  30
-                                   },
-                          "itemGuid":  "wTgGX3U9yp",
-                          "itemName":  "Crab Whisperer Mask",
-                          "itemNameJa":  "蟹の語り部　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_015"
-                      },
-                      {
-                          "guid":  "cOvaodKirb",
+                          "guid":  "c01scJlucx",
                           "cost":  {
                                        "c":  20
                                    },
@@ -22829,11 +23279,147 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "large_placeable",
-                          "itemCostId":  "large_placeable_005"
+                          "itemCostId":  "large_placeable_005",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "zQTVbo3wDU",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "Whp-r1yq-s",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "Z1YELXG1C8",
+                          "n":  "u5EH_dg3i2",
+                          "ne":  "p2-oUeiUVY",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Z1YELXG1C8",
+                          "cost":  {
+                                       "c":  30
+                                   },
+                          "itemGuid":  "wTgGX3U9yp",
+                          "itemName":  "Crab Whisperer Mask",
+                          "itemNameJa":  "蟹の語り部　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_015",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "u5EH_dg3i2",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "FE2ZZ9OIVd",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "feXsGQW9zR",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "p2-oUeiUVY",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "t70cADZFZh",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "feXsGQW9zR",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "wcb5UMzT9u",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "yIG42-UUfG",
+                          "n":  "VwWreATqFG",
+                          "ne":  "m0mw3ncpt2",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "yIG42-UUfG",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "NqdFQpeUSh",
+                          "itemName":  "Relaxed Steps",
+                          "itemNameJa":  "くつろいだ足取り",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "VwWreATqFG",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "dotE5ejKYP",
+                          "itemName":  "Crab Whisperer Cape",
+                          "itemNameJa":  "蟹の語り部 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_026",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "m0mw3ncpt2",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "A3jFFEXAKu",
+                          "itemName":  "Crab Whisperer Hair",
+                          "itemNameJa":  "蟹の語り部 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_041",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "蟹の語り部",
-        "rootNodeGuid":  "CQcGqx0roE"
+                  ]
     },
     {
         "guid":  "mZZ-MkZJ1x",
@@ -22843,15 +23429,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Upper Vault",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/a0/Lightseekers-Spirit-Shushing-Light-Scholar.png",
-        "treeGuid":  "hHNCjL8SHU",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "AC6EM0_rns",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-09-12",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  10,
+        "nameJa":  "静けさを望む光学者",
+        "rootNodeGuid":  "HcCUgEkLw-",
         "nodes":  [
                       {
-                          "guid":  "TzQj7y6KIj",
+                          "guid":  "HcCUgEkLw-",
                           "cost":  {
 
                                    },
@@ -22859,8 +23447,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Shush",
                           "itemNameJa":  "しーっ",
                           "itemType":  "Emote",
-                          "nw":  "_1FnPUPjlW",
-                          "n":  "GZAvBUR0HX",
+                          "nw":  "3_UMUuHf0J",
+                          "n":  "MJd4bwfxh8",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22868,31 +23456,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "GZAvBUR0HX",
+                          "guid":  "3_UMUuHf0J",
                           "cost":  {
-                                       "sc":  16
+                                       "h":  4
+                                   },
+                          "itemGuid":  "TqyXKGohBg",
+                          "itemName":  "Shush",
+                          "itemNameJa":  "しーっ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_062",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "MJd4bwfxh8",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "zHdPCsbdpI",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "e33WYNczNB",
-                          "n":  "aeZIMSf0jW",
-                          "ne":  null,
+                          "nw":  "unZdF7S9Gt",
+                          "n":  "Km7HtaMa8W",
+                          "ne":  "aDBuo1JUMl",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "aeZIMSf0jW",
+                          "guid":  "unZdF7S9Gt",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  30
+                                   },
+                          "itemGuid":  "rGAnOKoXlu",
+                          "itemName":  "Shushing Light Scholar Mask",
+                          "itemNameJa":  "静けさを望む光学者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_016",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Km7HtaMa8W",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "OLN8fLoqVT",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "-UdgmhtLNK",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "aDBuo1JUMl",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "G5MF6MpvH3",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-UdgmhtLNK",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "kYxJuHr1mX",
                           "itemName":  "Shush",
                           "itemNameJa":  "しーっ",
                           "itemType":  "Emote",
-                          "nw":  "CDdxR-RssN",
-                          "n":  "RLPg0L8Q_h",
+                          "nw":  "0W5mn35Htk",
+                          "n":  "1FcSbtapGP",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -22900,39 +23558,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "RLPg0L8Q_h",
+                          "guid":  "0W5mn35Htk",
                           "cost":  {
-                                       "sc":  20
-                                   },
-                          "itemGuid":  "03HWIT9WGG",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "cq8b2YySb0",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "cq8b2YySb0",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "bj5HUEsP0R",
-                          "itemName":  "Shushing Light Scholar Cape",
-                          "itemNameJa":  "静けさを望む光学者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_028"
-                      },
-                      {
-                          "guid":  "CDdxR-RssN",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "MtnosL0i54",
                           "itemName":  "Shush",
@@ -22947,40 +23575,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "e33WYNczNB",
+                          "guid":  "1FcSbtapGP",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "rGAnOKoXlu",
-                          "itemName":  "Shushing Light Scholar Mask",
-                          "itemNameJa":  "静けさを望む光学者　マスク",
-                          "itemType":  "Mask",
+                          "itemGuid":  "03HWIT9WGG",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_016"
-                      },
-                      {
-                          "guid":  "_1FnPUPjlW",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "TqyXKGohBg",
-                          "itemName":  "Shush",
-                          "itemNameJa":  "しーっ",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "_o2WxsHCoS",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_062",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "_o2WxsHCoS",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "bj5HUEsP0R",
+                          "itemName":  "Shushing Light Scholar Cape",
+                          "itemNameJa":  "静けさを望む光学者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_028",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "静けさを望む光学者",
-        "rootNodeGuid":  "TzQj7y6KIj"
+                  ]
     },
     {
         "guid":  "rpBWF2PFJc",
@@ -24664,24 +25292,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Prairie Peaks",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/6b/Moments-Spirit-Reassuring-Ranger.png",
-        "treeGuid":  "AfSb4eiW7H",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "m5TJpZmRgn",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-05-21",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  9,
+        "nameJa":  "頼もしい自然保護官",
+        "rootNodeGuid":  "J8QjM4HeQm",
         "nodes":  [
                       {
-                          "guid":  "9oV5mmsmWT",
+                          "guid":  "J8QjM4HeQm",
                           "cost":  {
 
                                    },
                           "itemGuid":  "DLJd5rdOFB",
                           "itemName":  "Side Hug",
-                          "itemNameJa":  null,
+                          "itemNameJa":  "肩組み",
                           "itemType":  "Emote",
-                          "nw":  "NXiZm5Jk6l",
-                          "n":  "0PHcnV_j-G",
+                          "nw":  null,
+                          "n":  "kct8xauKtI",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -24689,99 +25319,128 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "0PHcnV_j-G",
+                          "guid":  "kct8xauKtI",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  5
                                    },
                           "itemGuid":  "YCHk6Fvi12",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "fS-dZ609qx",
-                          "n":  "rWAmz2UQzG",
-                          "ne":  null,
+                          "nw":  "I34lMpd-8c",
+                          "n":  "7BDpuENs4J",
+                          "ne":  "0v38EptgWs",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "rWAmz2UQzG",
+                          "guid":  "I34lMpd-8c",
                           "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "3m-6xEWbtg",
-                          "itemName":  "Reassuring Ranger Mask",
-                          "itemNameJa":  "頼もしい自然保護官　マスク",
-                          "itemType":  "Mask",
-                          "nw":  "FyoWZtp9Nr",
-                          "n":  "tw-Zz-a51Y",
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_073"
-                      },
-                      {
-                          "guid":  "tw-Zz-a51Y",
-                          "cost":  {
-                                       "sc":  30
-                                   },
-                          "itemGuid":  "CvnVKxfWdq",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "O1M-Znedi9",
-                          "n":  "LxOQhLgcBg",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "LxOQhLgcBg",
-                          "cost":  {
-                                       "sc":  36
+                                       "c":  36
                                    },
                           "itemGuid":  "ldRJqNu7QX",
                           "itemName":  "Reassuring Ranger Hat",
                           "itemNameJa":  "頼もしい自然保護官 ヘアアクセサリー",
                           "itemType":  "HairAccessory",
-                          "nw":  "uwHawqWL9a",
-                          "n":  "MIoG47BbGJ",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_009"
+                          "itemCostId":  "hair_accessory_009",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "MIoG47BbGJ",
+                          "guid":  "7BDpuENs4J",
                           "cost":  {
-                                       "sc":  3
+                                       "ac":  2
                                    },
-                          "itemGuid":  "GzNoAzbA_0",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "zwtjstMFWx",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "PBs0nTsJdg",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0v38EptgWs",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "y4NZjYE0Mp",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "uwHawqWL9a",
+                          "guid":  "PBs0nTsJdg",
                           "cost":  {
-
+                                       "c":  45
                                    },
-                          "itemGuid":  "W42gdCa79_",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "LFU_2aPHk8",
+                          "itemName":  "Reassuring Ranger Wheat Stalk",
+                          "itemNameJa":  "頼もしい自然保護官　フェイスアクセサリー",
+                          "itemType":  "FaceAccessory",
+                          "nw":  "8HWTaBAyPe",
+                          "n":  "8ff5hI_O65",
+                          "ne":  "hgKgJpiV-k",
+                          "itemCatKey":  "face_accessory",
+                          "itemCostId":  "face_accessory_015",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "8HWTaBAyPe",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "qwdvtBnaPL",
+                          "itemName":  "Side Hug",
+                          "itemNameJa":  "肩組み",
+                          "itemType":  "Emote",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "O1M-Znedi9",
+                          "guid":  "8ff5hI_O65",
                           "cost":  {
-
+                                       "c":  35
+                                   },
+                          "itemGuid":  "3m-6xEWbtg",
+                          "itemName":  "Reassuring Ranger Mask",
+                          "itemNameJa":  "頼もしい自然保護官　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_073",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "hgKgJpiV-k",
+                          "cost":  {
+                                       "c":  75
                                    },
                           "itemGuid":  "JSnhIHtrE5",
                           "itemName":  "Reassuring Ranger Cape",
@@ -24791,58 +25450,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "cape",
-                          "itemCostId":  "cape_085"
-                      },
-                      {
-                          "guid":  "FyoWZtp9Nr",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "g_PxUjAXIJ",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "fS-dZ609qx",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "LFU_2aPHk8",
-                          "itemName":  "Reassuring Ranger Wheat Stalk",
-                          "itemNameJa":  "頼もしい自然保護官　フェイスアクセサリー",
-                          "itemType":  "FaceAccessory",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "face_accessory",
-                          "itemCostId":  "face_accessory_015"
-                      },
-                      {
-                          "guid":  "NXiZm5Jk6l",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "qwdvtBnaPL",
-                          "itemName":  "Side Hug",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
+                          "itemCostId":  "cape_085",
                           "emoteId":  null,
                           "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "頼もしい自然保護官",
-        "rootNodeGuid":  "9oV5mmsmWT"
+                  ]
     },
     {
         "guid":  "6EywAKsW_z",
@@ -24852,15 +25464,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Prairie Peaks",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/55/Moments-Spirit-Jolly-Geologist.png",
-        "treeGuid":  "C6mpLeVi_m",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "q5KTr1IKfB",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-07-17",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  12,
+        "nameJa":  "上機嫌な地質学者",
+        "rootNodeGuid":  "Q-mUmZEFFP",
         "nodes":  [
                       {
-                          "guid":  "o4BiBgXh33",
+                          "guid":  "Q-mUmZEFFP",
                           "cost":  {
 
                                    },
@@ -24868,8 +25482,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Jolly Dance",
                           "itemNameJa":  "上機嫌",
                           "itemType":  "Emote",
-                          "nw":  "FQ7qu-F-Ie",
-                          "n":  "nPlBrW84qt",
+                          "nw":  "r1At8Ym0To",
+                          "n":  "UoFvfuEmxi",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -24877,86 +25491,43 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "nPlBrW84qt",
+                          "guid":  "r1At8Ym0To",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
                                    },
-                          "itemGuid":  "eesH4ixwlq",
-                          "itemName":  "Jolly Geologist Face Accessory",
-                          "itemNameJa":  "上機嫌な地質学者　フェイスアクセサリー",
-                          "itemType":  "FaceAccessory",
-                          "nw":  "H-YVKJwuMK",
-                          "n":  "G3Uyqwg-41",
-                          "ne":  null,
-                          "itemCatKey":  "face_accessory",
-                          "itemCostId":  "face_accessory_016"
-                      },
-                      {
-                          "guid":  "G3Uyqwg-41",
-                          "cost":  {
-                                       "sc":  20
-                                   },
-                          "itemGuid":  "5_eEcizGMw",
+                          "itemGuid":  "zPG9h4NM2q",
                           "itemName":  "Jolly Dance",
                           "itemNameJa":  "上機嫌",
                           "itemType":  "Emote",
-                          "nw":  "bZlgoUjzYr",
-                          "n":  "K_rVAvT6-U",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_097",
-                          "emoteLevel":  3
+                          "emoteLevel":  2
                       },
                       {
-                          "guid":  "K_rVAvT6-U",
+                          "guid":  "UoFvfuEmxi",
                           "cost":  {
-                                       "sc":  28
+                                       "c":  5
                                    },
                           "itemGuid":  "t8vsyexQQz",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "2OoMEagNva",
-                          "n":  "NbOstIgvmK",
-                          "ne":  null,
+                          "nw":  "Di5scXRqrc",
+                          "n":  "cKyNwKPwkb",
+                          "ne":  "6j-scjq3V7",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "NbOstIgvmK",
+                          "guid":  "Di5scXRqrc",
                           "cost":  {
-                                       "sc":  34
-                                   },
-                          "itemGuid":  "1T0D06zFUX",
-                          "itemName":  "Waltz of the Plains",
-                          "itemNameJa":  "平原のワルツ",
-                          "itemType":  "Music",
-                          "nw":  "K36g_5MoE9",
-                          "n":  "Bb-9MVW6Zt",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Bb-9MVW6Zt",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "VsraqNSiML",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "K36g_5MoE9",
-                          "cost":  {
-
+                                       "c":  36
                                    },
                           "itemGuid":  "hE65fn-mBH",
                           "itemName":  "Jolly Geologist Prop",
@@ -24966,27 +25537,65 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "small_placeable",
-                          "itemCostId":  "small_placeable_021"
+                          "itemCostId":  "small_placeable_021",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "2OoMEagNva",
+                          "guid":  "cKyNwKPwkb",
                           "cost":  {
-
+                                       "ac":  2
                                    },
-                          "itemGuid":  "BmakKYb2wG",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
+                          "itemGuid":  "rouWH32mmG",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "_G6s1grGeS",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "6j-scjq3V7",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "iEu_CHxWUt",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "bZlgoUjzYr",
+                          "guid":  "_G6s1grGeS",
                           "cost":  {
-
+                                       "h":  3
+                                   },
+                          "itemGuid":  "5_eEcizGMw",
+                          "itemName":  "Jolly Dance",
+                          "itemNameJa":  "上機嫌",
+                          "itemType":  "Emote",
+                          "nw":  "4XLYJ1WBgX",
+                          "n":  "GgJFag7DMI",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_097",
+                          "emoteLevel":  3
+                      },
+                      {
+                          "guid":  "4XLYJ1WBgX",
+                          "cost":  {
+                                       "h":  6
                                    },
                           "itemGuid":  "xlEzjV6XFr",
                           "itemName":  "Jolly Dance",
@@ -25001,9 +25610,43 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "H-YVKJwuMK",
+                          "guid":  "GgJFag7DMI",
                           "cost":  {
-
+                                       "c":  5
+                                   },
+                          "itemGuid":  "BmakKYb2wG",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "teZGnt6e67",
+                          "n":  "oFhHxrZo6b",
+                          "ne":  "oOGuQmVSQU",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "teZGnt6e67",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "eesH4ixwlq",
+                          "itemName":  "Jolly Geologist Face Accessory",
+                          "itemNameJa":  "上機嫌な地質学者　フェイスアクセサリー",
+                          "itemType":  "FaceAccessory",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "face_accessory",
+                          "itemCostId":  "face_accessory_016",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "oFhHxrZo6b",
+                          "cost":  {
+                                       "c":  48
                                    },
                           "itemGuid":  "cXuwp1MnHZ",
                           "itemName":  "Jolly Geologist Hair",
@@ -25013,28 +25656,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_113"
+                          "itemCostId":  "hairstyle_113",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "FQ7qu-F-Ie",
+                          "guid":  "oOGuQmVSQU",
                           "cost":  {
-
+                                       "c":  15
                                    },
-                          "itemGuid":  "zPG9h4NM2q",
-                          "itemName":  "Jolly Dance",
-                          "itemNameJa":  "上機嫌",
-                          "itemType":  "Emote",
+                          "itemGuid":  "1T0D06zFUX",
+                          "itemName":  "Waltz of the Plains",
+                          "itemNameJa":  "平原のワルツ",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_097",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "上機嫌な地質学者",
-        "rootNodeGuid":  "o4BiBgXh33"
+                  ]
     },
     {
         "guid":  "EMMZ8KSCjP",
@@ -25044,15 +25687,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Prairie Peaks",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/5c/Moments-Spirit-Ascetic-Monk.png",
-        "treeGuid":  "QxacM-TYol",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "D0WazSJ6Mx",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-01-01",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "節制の修行者",
+        "rootNodeGuid":  "TTGZT7RTuG",
         "nodes":  [
                       {
-                          "guid":  "BiYQCvfbCi",
+                          "guid":  "TTGZT7RTuG",
                           "cost":  {
 
                                    },
@@ -25060,8 +25705,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blindfold Balance Pose",
                           "itemNameJa":  "目隠しバランスポーズ",
                           "itemType":  "Emote",
-                          "nw":  "XFdTm_SNX9",
-                          "n":  "yLL5TgdWma",
+                          "nw":  "CyFV2mivf_",
+                          "n":  "Lepy2ZN1nF",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -25069,46 +25714,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "yLL5TgdWma",
+                          "guid":  "CyFV2mivf_",
                           "cost":  {
-                                       "sc":  6
+                                       "h":  4
+                                   },
+                          "itemGuid":  "PkVcGrnkjj",
+                          "itemName":  "Blindfold Balance Pose",
+                          "itemNameJa":  "目隠しバランスポーズ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_098",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "Lepy2ZN1nF",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "SRiKVsKG8i",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "Q2i3DDjrJ_",
-                          "n":  "Ct1bCNldM4",
+                          "nw":  "-m4Cz0P9pW",
+                          "n":  "WL6hIyqc-a",
+                          "ne":  "7IL2JaNsgy",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-m4Cz0P9pW",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "aU8YW34Cau",
+                          "itemName":  "Ascetic Monk Mask",
+                          "itemNameJa":  "節制の修行者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_074",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "WL6hIyqc-a",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "87cmyNbT-i",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "dylb9-HbkF",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Ct1bCNldM4",
+                          "guid":  "7IL2JaNsgy",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  3
                                    },
-                          "itemGuid":  "3Kwn4gx5Sw",
-                          "itemName":  "Ascetic Monk Tattoo",
-                          "itemNameJa":  "節制の修行者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "CkGWQjiM7G",
-                          "n":  "Frls00Mrx6",
+                          "itemGuid":  "Mm-MV6h2OD",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_112"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Frls00Mrx6",
+                          "guid":  "dylb9-HbkF",
                           "cost":  {
-                                       "sc":  26
+                                       "h":  3
                                    },
                           "itemGuid":  "jC14SXIUVC",
                           "itemName":  "Blindfold Balance Pose",
                           "itemNameJa":  "目隠しバランスポーズ",
                           "itemType":  "Emote",
-                          "nw":  "8n_SNiqgTh",
-                          "n":  "n_z6MLECA6",
+                          "nw":  "1wn8mSp2ED",
+                          "n":  "IX8ErHIRG6",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -25116,54 +25816,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "n_z6MLECA6",
+                          "guid":  "1wn8mSp2ED",
                           "cost":  {
-                                       "sc":  32
-                                   },
-                          "itemGuid":  "6OKxFB9NFg",
-                          "itemName":  "Ascetic Monk Outfit",
-                          "itemNameJa":  "節制の修行者　服",
-                          "itemType":  "Outfit",
-                          "nw":  "KWMynKMNRn",
-                          "n":  "05LgfKpSLL",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_020"
-                      },
-                      {
-                          "guid":  "05LgfKpSLL",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "AylwqeZPDJ",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "KWMynKMNRn",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "VNMvBdmw24",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "8n_SNiqgTh",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "fy4bnUxzOX",
                           "itemName":  "Blindfold Balance Pose",
@@ -25178,55 +25833,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "CkGWQjiM7G",
+                          "guid":  "IX8ErHIRG6",
                           "cost":  {
-
+                                       "c":  5
                                    },
                           "itemGuid":  "bZBOWw8mZD",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Q2i3DDjrJ_",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "aU8YW34Cau",
-                          "itemName":  "Ascetic Monk Mask",
-                          "itemNameJa":  "節制の修行者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_074"
-                      },
-                      {
-                          "guid":  "XFdTm_SNX9",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "PkVcGrnkjj",
-                          "itemName":  "Blindfold Balance Pose",
-                          "itemNameJa":  "目隠しバランスポーズ",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "nw":  "3_MuxgBtW6",
+                          "n":  "4GBImkQKnt",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_098",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "3_MuxgBtW6",
+                          "cost":  {
+                                       "c":  32
+                                   },
+                          "itemGuid":  "3Kwn4gx5Sw",
+                          "itemName":  "Ascetic Monk Tattoo",
+                          "itemNameJa":  "節制の修行者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_112",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "4GBImkQKnt",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "6OKxFB9NFg",
+                          "itemName":  "Ascetic Monk Outfit",
+                          "itemNameJa":  "節制の修行者　服",
+                          "itemType":  "Outfit",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_020",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "節制の修行者",
-        "rootNodeGuid":  "BiYQCvfbCi"
+                  ]
     },
     {
         "guid":  "vdv3KApSxB",
@@ -25236,15 +25893,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Prairie Peaks",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/6/6f/Moments-Spirit-Nightbird-Whisperer.png",
-        "treeGuid":  "jj9mjfGi30",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "QdLvIDChI8",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-10-23",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  9,
+        "nameJa":  "夜鳥の語り部",
+        "rootNodeGuid":  "wb3LVVQETb",
         "nodes":  [
                       {
-                          "guid":  "m08hmEsLt4",
+                          "guid":  "wb3LVVQETb",
                           "cost":  {
 
                                    },
@@ -25253,90 +25912,102 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "夜の鳥の鳴き声",
                           "itemType":  "Call",
                           "nw":  null,
-                          "n":  "x0EFx1BiqD",
+                          "n":  "HqKQNJ3C8u",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "x0EFx1BiqD",
+                          "guid":  "HqKQNJ3C8u",
                           "cost":  {
-                                       "sc":  12
+                                       "c":  5
+                                   },
+                          "itemGuid":  "yT9McjxgAb",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "QTLOEzajoJ",
+                          "n":  "4FZl7y_9ae",
+                          "ne":  "3wONsFWHrJ",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "QTLOEzajoJ",
+                          "cost":  {
+                                       "c":  48
                                    },
                           "itemGuid":  "ygFxGKMla2",
                           "itemName":  "Nightbird Whisperer Hair",
                           "itemNameJa":  "夜鳥の語り部 ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "r2KQ9lLUaj",
-                          "n":  "uJG7U2FFYf",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_111"
+                          "itemCostId":  "hairstyle_111",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "uJG7U2FFYf",
+                          "guid":  "4FZl7y_9ae",
                           "cost":  {
-                                       "sc":  24
+                                       "ac":  2
                                    },
-                          "itemGuid":  "R3MB6a6ATI",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "0-Itmsp_gF",
-                          "n":  "a6U0IaxtXi",
+                          "itemGuid":  "QTswVTW5ZI",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "QidxeQdtsh",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "a6U0IaxtXi",
+                          "guid":  "3wONsFWHrJ",
                           "cost":  {
-                                       "sc":  28
+                                       "c":  3
                                    },
-                          "itemGuid":  "InwVEtmmcp",
-                          "itemName":  "Nightbird Whisperer Outfit",
-                          "itemNameJa":  "夜鳥の語り部　服",
-                          "itemType":  "Outfit",
-                          "nw":  "Uxi7ugWClS",
-                          "n":  "rbworvhgX6",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_021"
-                      },
-                      {
-                          "guid":  "rbworvhgX6",
-                          "cost":  {
-                                       "sc":  36
-                                   },
-                          "itemGuid":  "H3tjnno3A8",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "i6F-hfKsyn",
-                          "n":  "mJCTs19whf",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "mJCTs19whf",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "4iahXDrqQd",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "K-CuHIzbLW",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "i6F-hfKsyn",
+                          "guid":  "QidxeQdtsh",
                           "cost":  {
-
+                                       "c":  5
+                                   },
+                          "itemGuid":  "R3MB6a6ATI",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "hy5-Ppv3HY",
+                          "n":  "UsojnKm1FE",
+                          "ne":  "K__YNWue0Z",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "hy5-Ppv3HY",
+                          "cost":  {
+                                       "c":  24
                                    },
                           "itemGuid":  "yFMhqJAJL5",
                           "itemName":  "Nightbird Whisperer Shoes",
@@ -25346,27 +26017,31 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "shoes",
-                          "itemCostId":  "shoes_004"
+                          "itemCostId":  "shoes_004",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Uxi7ugWClS",
+                          "guid":  "UsojnKm1FE",
                           "cost":  {
-
+                                       "c":  46
                                    },
-                          "itemGuid":  "5J7MR1HC1a",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "InwVEtmmcp",
+                          "itemName":  "Nightbird Whisperer Outfit",
+                          "itemNameJa":  "夜鳥の語り部　服",
+                          "itemType":  "Outfit",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_021",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "0-Itmsp_gF",
+                          "guid":  "K__YNWue0Z",
                           "cost":  {
-
+                                       "c":  44
                                    },
                           "itemGuid":  "uh-hCG0TaB",
                           "itemName":  "Nightbird Whisperer Hat",
@@ -25376,26 +26051,11 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_010"
-                      },
-                      {
-                          "guid":  "r2KQ9lLUaj",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "yT9McjxgAb",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  "hair_accessory_010",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "夜鳥の語り部",
-        "rootNodeGuid":  "m08hmEsLt4"
+                  ]
     },
     {
         "guid":  "vW9xp55w6t",
@@ -28757,24 +29417,26 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Passage Rock",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/e/ee/Passage-Tumbling-Troublemaker-Cutout.png",
-        "treeGuid":  "6QPtn4qXTG",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "ebxbORzHUg",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-04-24",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "ぐるぐる回るいたずらっ子",
+        "rootNodeGuid":  "3b5NwFfmkd",
         "nodes":  [
                       {
-                          "guid":  "R1hBDJIu16",
+                          "guid":  "3b5NwFfmkd",
                           "cost":  {
-
+                                       "c":  0
                                    },
                           "itemGuid":  "FEzWv1XXku",
                           "itemName":  "Somersault",
                           "itemNameJa":  "でんぐり返し",
                           "itemType":  "Emote",
-                          "nw":  "cIfMgIqH9x",
-                          "n":  "u2psXUE0cn",
+                          "nw":  "A2UV78uwKw",
+                          "n":  "UgJ8rs1kPd",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28782,31 +29444,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "u2psXUE0cn",
+                          "guid":  "A2UV78uwKw",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
+                                   },
+                          "itemGuid":  "DjPVeBb0wn",
+                          "itemName":  "Somersault",
+                          "itemNameJa":  "でんぐり返し",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_094",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "UgJ8rs1kPd",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "jPw-NMJBwY",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "RW0omjIQLq",
-                          "n":  "pJb1Nr3khE",
-                          "ne":  null,
+                          "nw":  "_DKCTvNMhI",
+                          "n":  "Gqwo2fwPiY",
+                          "ne":  "-2q0vzWjoz",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "pJb1Nr3khE",
+                          "guid":  "_DKCTvNMhI",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  40
+                                   },
+                          "itemGuid":  "rbV0FWIENC",
+                          "itemName":  "Tumbling Troublemaker Hair",
+                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_107",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Gqwo2fwPiY",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "jb-YsR_5jY",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "39SESqzzyr",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-2q0vzWjoz",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "KOGq8xEq8c",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "39SESqzzyr",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "IxNpykF933",
                           "itemName":  "Somersault",
                           "itemNameJa":  "でんぐり返し",
                           "itemType":  "Emote",
-                          "nw":  "9DFjBFM9e8",
-                          "n":  "3GbtED2nJe",
+                          "nw":  "FsCE-k3x8k",
+                          "n":  "5WJynYABrC",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28814,84 +29546,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "3GbtED2nJe",
+                          "guid":  "FsCE-k3x8k",
                           "cost":  {
-                                       "sc":  28
-                                   },
-                          "itemGuid":  "_FpZ5LnbhK",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "J8lchvifPb",
-                          "n":  "E5buEn19Yl",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "E5buEn19Yl",
-                          "cost":  {
-                                       "sc":  32
-                                   },
-                          "itemGuid":  "0K5eWw2_Tq",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "_1tAp0B45P",
-                          "n":  "48y1nj5IV1",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "48y1nj5IV1",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "23CqDqp6fd",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "_1tAp0B45P",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Gz6U0Ahkg5",
-                          "itemName":  "Tumbling Troublemaker Face Accessory",
-                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ヘッドアクセサリー",
-                          "itemType":  "HeadAccessory",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "head_accessory",
-                          "itemCostId":  "head_accessory_007"
-                      },
-                      {
-                          "guid":  "J8lchvifPb",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "mfA3I1hs5x",
-                          "itemName":  "Tumbling Troublemaker Cape",
-                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_082"
-                      },
-                      {
-                          "guid":  "9DFjBFM9e8",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "Gnl7Kf2xWO",
                           "itemName":  "Somersault",
@@ -28906,40 +29563,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "RW0omjIQLq",
+                          "guid":  "5WJynYABrC",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "rbV0FWIENC",
-                          "itemName":  "Tumbling Troublemaker Hair",
-                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_107"
-                      },
-                      {
-                          "guid":  "cIfMgIqH9x",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "DjPVeBb0wn",
-                          "itemName":  "Somersault",
-                          "itemNameJa":  "でんぐり返し",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "_FpZ5LnbhK",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "prdINppr1r",
+                          "n":  "GW_BNZSA70",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_094",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "prdINppr1r",
+                          "cost":  {
+                                       "c":  55
+                                   },
+                          "itemGuid":  "Gz6U0Ahkg5",
+                          "itemName":  "Tumbling Troublemaker Face Accessory",
+                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ヘッドアクセサリー",
+                          "itemType":  "HeadAccessory",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "head_accessory",
+                          "itemCostId":  "head_accessory_007",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "GW_BNZSA70",
+                          "cost":  {
+                                       "c":  80
+                                   },
+                          "itemGuid":  "mfA3I1hs5x",
+                          "itemName":  "Tumbling Troublemaker Cape",
+                          "itemNameJa":  "ぐるぐる回るいたずらっ子 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_082",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "ぐるぐる回るいたずらっ子",
-        "rootNodeGuid":  "R1hBDJIu16"
+                  ]
     },
     {
         "guid":  "-BIU0YAs1Q",
@@ -28949,15 +29623,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Passage Rock",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/7/7a/Passage-Melancholy-Mope-Cutout.png",
-        "treeGuid":  "bZU_1hDxB9",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "IvBSBPcPj9",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-01-29",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "物憂げなとぼとぼ歩き",
+        "rootNodeGuid":  "B4YKDoCU6Q",
         "nodes":  [
                       {
-                          "guid":  "wjswIwiyKF",
+                          "guid":  "B4YKDoCU6Q",
                           "cost":  {
 
                                    },
@@ -28965,8 +29641,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Moping",
                           "itemNameJa":  "とぼとぼ歩き",
                           "itemType":  "Emote",
-                          "nw":  "qkncbPXeNv",
-                          "n":  "Wgvn-yvP06",
+                          "nw":  "BridtOFxZG",
+                          "n":  "PX3AZOfuDO",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28974,46 +29650,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "Wgvn-yvP06",
+                          "guid":  "BridtOFxZG",
                           "cost":  {
-                                       "sc":  6
+                                       "h":  4
+                                   },
+                          "itemGuid":  "ozw69gqvhQ",
+                          "itemName":  "Moping",
+                          "itemNameJa":  "とぼとぼ歩き",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_095",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "PX3AZOfuDO",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "leQJ72gAGH",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "z7FR5KJYmB",
+                          "n":  "-AKEbPpfXX",
+                          "ne":  "DWBD0RXhpV",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "z7FR5KJYmB",
+                          "cost":  {
+                                       "c":  35
                                    },
                           "itemGuid":  "LNt-MN76Pf",
                           "itemName":  "Melancholy Mope Face Accessory",
                           "itemNameJa":  "物憂げなとぼとぼ歩き ヘッドアクセサリー",
                           "itemType":  "HeadAccessory",
-                          "nw":  "8yE_-XcvG7",
-                          "n":  "U-aVBVuvsq",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "head_accessory",
-                          "itemCostId":  "head_accessory_006"
+                          "itemCostId":  "head_accessory_006",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "U-aVBVuvsq",
+                          "guid":  "-AKEbPpfXX",
                           "cost":  {
-                                       "sc":  18
+                                       "ac":  2
                                    },
-                          "itemGuid":  "gCyH_EJYEW",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "YALq6maM6b",
-                          "n":  "3k6hN7fMjl",
+                          "itemGuid":  "Bz_b3RANLX",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "KU90wd_hjl",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "3k6hN7fMjl",
+                          "guid":  "DWBD0RXhpV",
                           "cost":  {
-                                       "sc":  26
+                                       "c":  3
+                                   },
+                          "itemGuid":  "G65xOc6b46",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "KU90wd_hjl",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "AZb8ZxAeDb",
                           "itemName":  "Moping",
                           "itemNameJa":  "とぼとぼ歩き",
                           "itemType":  "Emote",
-                          "nw":  "F9gHUsr4LF",
-                          "n":  "Dz6H0yRGVT",
+                          "nw":  "Hli0Z3CPI-",
+                          "n":  "cPuS8EXbZv",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -29021,54 +29752,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "Dz6H0yRGVT",
+                          "guid":  "Hli0Z3CPI-",
                           "cost":  {
-                                       "sc":  28
-                                   },
-                          "itemGuid":  "aaYJbWm6oV",
-                          "itemName":  "Melancholy Mope Outfit",
-                          "itemNameJa":  "物憂げなとぼとぼ歩き　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  "I-xyPPj7Iv",
-                          "n":  "DCprobzBUp",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_089"
-                      },
-                      {
-                          "guid":  "DCprobzBUp",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "3JT5fm0Cy2",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "I-xyPPj7Iv",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "_gwNMhGG0C",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "F9gHUsr4LF",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "9v4_Si1oJn",
                           "itemName":  "Moping",
@@ -29083,9 +29769,26 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "YALq6maM6b",
+                          "guid":  "cPuS8EXbZv",
                           "cost":  {
-
+                                       "c":  5
+                                   },
+                          "itemGuid":  "gCyH_EJYEW",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "797Af_SAMH",
+                          "n":  "sYrUq2LT9K",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "797Af_SAMH",
+                          "cost":  {
+                                       "c":  55
                                    },
                           "itemGuid":  "Mz9HHVc0_f",
                           "itemName":  "Melancholy Mope Hair",
@@ -29095,43 +29798,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_108"
+                          "itemCostId":  "hairstyle_108",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "8yE_-XcvG7",
+                          "guid":  "sYrUq2LT9K",
                           "cost":  {
-
+                                       "c":  70
                                    },
-                          "itemGuid":  "leQJ72gAGH",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "aaYJbWm6oV",
+                          "itemName":  "Melancholy Mope Outfit",
+                          "itemNameJa":  "物憂げなとぼとぼ歩き　服",
+                          "itemType":  "OutfitShoes",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "qkncbPXeNv",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "ozw69gqvhQ",
-                          "itemName":  "Moping",
-                          "itemNameJa":  "とぼとぼ歩き",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_095",
-                          "emoteLevel":  2
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_089",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "物憂げなとぼとぼ歩き",
-        "rootNodeGuid":  "wjswIwiyKF"
+                  ]
     },
     {
         "guid":  "IKkPcAF07c",
@@ -29141,15 +29829,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Passage Rock",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/a5/Passage-Overactive-Overachiever-Cutout.png",
-        "treeGuid":  "qdWXiEhm46",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "P1cPYv6PO6",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-04-23",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "活発すぎる頑張り屋",
+        "rootNodeGuid":  "6JEjrBtZoX",
         "nodes":  [
                       {
-                          "guid":  "caUGXMJb3Z",
+                          "guid":  "6JEjrBtZoX",
                           "cost":  {
 
                                    },
@@ -29157,8 +29847,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Pull-up",
                           "itemNameJa":  "懸垂",
                           "itemType":  "Emote",
-                          "nw":  "Czc9aNddzX",
-                          "n":  "jcEka4RBcR",
+                          "nw":  "ZCuz8M5UyO",
+                          "n":  "N8wJ_etEXf",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -29166,31 +29856,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "jcEka4RBcR",
+                          "guid":  "ZCuz8M5UyO",
                           "cost":  {
-                                       "sc":  14
+                                       "h":  4
+                                   },
+                          "itemGuid":  "nRbYecsrpX",
+                          "itemName":  "Pull-up",
+                          "itemNameJa":  "懸垂",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_096",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "N8wJ_etEXf",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "34YUB3swNm",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "g2OQrkHibV",
-                          "n":  "hX31WFiuHY",
-                          "ne":  null,
+                          "nw":  "0BqF0BI13h",
+                          "n":  "D4UjfbfpmZ",
+                          "ne":  "EfT8GyNl5a",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "hX31WFiuHY",
+                          "guid":  "0BqF0BI13h",
                           "cost":  {
-                                       "sc":  22
+                                       "c":  55
+                                   },
+                          "itemGuid":  "kk4P3a0tb_",
+                          "itemName":  "Manta Ocarina",
+                          "itemNameJa":  "マンタのオカリナ",
+                          "itemType":  "Held",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "D4UjfbfpmZ",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "0DKIgsueTS",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "dMs9XuKZrv",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "EfT8GyNl5a",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "WmzUGJ1D3a",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "dMs9XuKZrv",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "BwA9_RCi47",
                           "itemName":  "Pull-up",
                           "itemNameJa":  "懸垂",
                           "itemType":  "Emote",
-                          "nw":  "8pOQ5gvUub",
-                          "n":  "pOjomtU0J4",
+                          "nw":  "TQx4pOUQT9",
+                          "n":  "ubN86SWiVk",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -29198,84 +29958,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "pOjomtU0J4",
+                          "guid":  "TQx4pOUQT9",
                           "cost":  {
-                                       "sc":  30
-                                   },
-                          "itemGuid":  "GaLyg5WMaC",
-                          "itemName":  "Overactive Overachiever Cape",
-                          "itemNameJa":  "活発すぎる頑張り屋 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "mRr8ny5mtY",
-                          "n":  "QY5reHbqLq",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_083"
-                      },
-                      {
-                          "guid":  "QY5reHbqLq",
-                          "cost":  {
-                                       "sc":  32
-                                   },
-                          "itemGuid":  "tJWzqr-uXs",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "eFZtP_Q2cR",
-                          "n":  "KhXUu-c2Os",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "KhXUu-c2Os",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "-Xg9VMYldT",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "eFZtP_Q2cR",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "k90TESSTBg",
-                          "itemName":  "Overactive Overachiever Hair",
-                          "itemNameJa":  "活発すぎる頑張り屋 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_109"
-                      },
-                      {
-                          "guid":  "mRr8ny5mtY",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "wrDJpYzeKo",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "8pOQ5gvUub",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "bs7ZBPqzge",
                           "itemName":  "Pull-up",
@@ -29290,40 +29975,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "g2OQrkHibV",
+                          "guid":  "ubN86SWiVk",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "kk4P3a0tb_",
-                          "itemName":  "Manta Ocarina",
-                          "itemNameJa":  "マンタのオカリナ",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Czc9aNddzX",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "nRbYecsrpX",
-                          "itemName":  "Pull-up",
-                          "itemNameJa":  "懸垂",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "tJWzqr-uXs",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "xwijRKDInU",
+                          "n":  "uWPE9upsyf",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_096",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "xwijRKDInU",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "k90TESSTBg",
+                          "itemName":  "Overactive Overachiever Hair",
+                          "itemNameJa":  "活発すぎる頑張り屋 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_109",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "uWPE9upsyf",
+                          "cost":  {
+                                       "c":  80
+                                   },
+                          "itemGuid":  "GaLyg5WMaC",
+                          "itemName":  "Overactive Overachiever Cape",
+                          "itemNameJa":  "活発すぎる頑張り屋 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_083",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "活発すぎる頑張り屋",
-        "rootNodeGuid":  "caUGXMJb3Z"
+                  ]
     },
     {
         "guid":  "qSggZYj_x3",
@@ -29885,15 +30587,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Village Theatre",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/1/1e/Performance-Spirit-Forgetful-Storyteller.png",
-        "treeGuid":  "UEf6UQn_yl",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "9uqDB_wSlb",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-01-30",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  13,
+        "nodeCount":  12,
+        "nameJa":  "忘れっぽい劇作家",
+        "rootNodeGuid":  "KDYc9oxiCw",
         "nodes":  [
                       {
-                          "guid":  "DAX89eU3v8",
+                          "guid":  "KDYc9oxiCw",
                           "cost":  {
 
                                    },
@@ -29901,8 +30605,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Awww",
                           "itemNameJa":  "うわー！",
                           "itemType":  "Emote",
-                          "nw":  "8HZFTN4bEz",
-                          "n":  "sBiNEw-JCf",
+                          "nw":  "_oD480LWnn",
+                          "n":  "Ewg_8_jF6p",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -29910,131 +30614,111 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "sBiNEw-JCf",
+                          "guid":  "_oD480LWnn",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
+                                   },
+                          "itemGuid":  "7tsa9wtqVi",
+                          "itemName":  "Awww",
+                          "itemNameJa":  "うわー！",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_082",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "Ewg_8_jF6p",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "cz2_Sc10Fk",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  "A-Ob1-En5j",
-                          "n":  "MT_fXO3ByJ",
+                          "nw":  "u5N7KgqiCC",
+                          "n":  "YfGxwoPXMD",
+                          "ne":  "ks2Y4f0twv",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "u5N7KgqiCC",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "wOewFkj_yn",
+                          "itemName":  "Forgetful Storyteller Mask",
+                          "itemNameJa":  "忘れっぽい劇作家　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_058",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "YfGxwoPXMD",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "6H5QcmGYLE",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "uGI18_KfyM",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "MT_fXO3ByJ",
+                          "guid":  "ks2Y4f0twv",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  3
                                    },
-                          "itemGuid":  "Z53G2IN-L3",
-                          "itemName":  "Forgetful Storyteller Hair",
-                          "itemNameJa":  "忘れっぽい劇作家 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "Qh2KrfM7g_",
-                          "n":  "M6HaVF38eh",
+                          "itemGuid":  "RoQZ183WN8",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_093"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "M6HaVF38eh",
+                          "guid":  "uGI18_KfyM",
                           "cost":  {
-                                       "sc":  20
+                                       "h":  3
                                    },
                           "itemGuid":  "yiWOuxxWgB",
                           "itemName":  "Awww",
                           "itemNameJa":  "うわー！",
                           "itemType":  "Emote",
-                          "nw":  "w5Fe5BI5sE",
-                          "n":  "s_VvBmaGz5",
-                          "ne":  null,
+                          "nw":  "xzdLmC4UV6",
+                          "n":  "0G_ip5nYnA",
+                          "ne":  "vKWIWHbqDy",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_082",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "s_VvBmaGz5",
+                          "guid":  "xzdLmC4UV6",
                           "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "BN_dI_y6Fu",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "IZLiaTDPyp",
-                          "n":  "Qp1cpJPns-",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Qp1cpJPns-",
-                          "cost":  {
-                                       "sc":  34
-                                   },
-                          "itemGuid":  "KoLgRv-HIL",
-                          "itemName":  "Forgetful Storyteller Cape",
-                          "itemNameJa":  "忘れっぽい劇作家 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "6jFrUAu8wi",
-                          "n":  "PCAADktFUl",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_065"
-                      },
-                      {
-                          "guid":  "PCAADktFUl",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "Qs0ZC_7YTz",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "6jFrUAu8wi",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "PcFVY_0aGF",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "IZLiaTDPyp",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "no0xArAFGq",
-                          "itemName":  "Forgetful Storyteller Outfit",
-                          "itemNameJa":  "忘れっぽい劇作家　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_086"
-                      },
-                      {
-                          "guid":  "w5Fe5BI5sE",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "r6dNyY-aBP",
                           "itemName":  "Awww",
@@ -30049,55 +30733,74 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "Qh2KrfM7g_",
+                          "guid":  "0G_ip5nYnA",
                           "cost":  {
-
+                                       "c":  5
                                    },
                           "itemGuid":  "P736zjG-Qh",
                           "itemName":  "Special Blessing",
                           "itemNameJa":  "特別な祝福",
                           "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "A-Ob1-En5j",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "wOewFkj_yn",
-                          "itemName":  "Forgetful Storyteller Mask",
-                          "itemNameJa":  "忘れっぽい劇作家　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_058"
-                      },
-                      {
-                          "guid":  "8HZFTN4bEz",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "7tsa9wtqVi",
-                          "itemName":  "Awww",
-                          "itemNameJa":  "うわー！",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "nw":  "oRZI-pQ7et",
+                          "n":  "az_Cws-SAw",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_082",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "vKWIWHbqDy",
+                          "cost":  {
+                                       "c":  44
+                                   },
+                          "itemGuid":  "Z53G2IN-L3",
+                          "itemName":  "Forgetful Storyteller Hair",
+                          "itemNameJa":  "忘れっぽい劇作家 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_093",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "oRZI-pQ7et",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "no0xArAFGq",
+                          "itemName":  "Forgetful Storyteller Outfit",
+                          "itemNameJa":  "忘れっぽい劇作家　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_086",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "az_Cws-SAw",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "KoLgRv-HIL",
+                          "itemName":  "Forgetful Storyteller Cape",
+                          "itemNameJa":  "忘れっぽい劇作家 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_065",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "忘れっぽい劇作家",
-        "rootNodeGuid":  "DAX89eU3v8"
+                  ]
     },
     {
         "guid":  "KYhwsjTkp-",
@@ -30671,15 +31374,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Cave of Prophecies",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/cf/Prophecy-Spirit-Prophet-of-Water.png",
-        "treeGuid":  "6vAMrTPmU-",
+        "treeGuid":  "t62qYu-TAj",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-05-15",
-        "revisitName":  "Special Visit #2",
+        "revisitDate":  "2024-12-19",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  12,
+        "nameJa":  "水の預言者",
+        "rootNodeGuid":  "UFRKNWm8B0",
         "nodes":  [
                       {
-                          "guid":  "9GhluZ7XjZ",
+                          "guid":  "UFRKNWm8B0",
                           "cost":  {
 
                                    },
@@ -30687,16 +31392,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Deep Breath",
                           "itemNameJa":  "深呼吸",
                           "itemType":  "Emote",
-                          "nw":  "F8LNqevmqn",
-                          "n":  "dQ0U0EKmG0",
-                          "ne":  "HhcP-Ie2-B",
+                          "nw":  "9cXb8J0QHx",
+                          "n":  "pLOJu4fdFq",
+                          "ne":  "f6Nkd54DUO",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_067",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "HhcP-Ie2-B",
+                          "guid":  "9cXb8J0QHx",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "a1mWcW4Pll",
+                          "itemName":  "Deep Breath",
+                          "itemNameJa":  "深呼吸",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_067",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "pLOJu4fdFq",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "mY3HmHBokS",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "qnJvo3-K7n",
+                          "n":  "zGv1ugz_iy",
+                          "ne":  "JL9AjP4pCA",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "f6Nkd54DUO",
                           "cost":  {
                                        "c":  15
                                    },
@@ -30708,25 +31447,46 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "small_placeable",
-                          "itemCostId":  "small_placeable_002"
+                          "itemCostId":  "small_placeable_002",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "dQ0U0EKmG0",
+                          "guid":  "qnJvo3-K7n",
                           "cost":  {
-                                       "c":  5
+                                       "c":  44
                                    },
-                          "itemGuid":  "mY3HmHBokS",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "UqbwwqyleJ",
-                          "n":  "mKb1daH7gX",
-                          "ne":  "0wqr5Qt9ks",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemGuid":  "JeLUbTDjy3",
+                          "itemName":  "Prophet of Water Hair",
+                          "itemNameJa":  "水の預言者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_064",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "0wqr5Qt9ks",
+                          "guid":  "zGv1ugz_iy",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "bdJ0TZ1V3e",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "zsDT40T34c",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "JL9AjP4pCA",
                           "cost":  {
                                        "c":  3
                                    },
@@ -30738,25 +31498,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "mKb1daH7gX",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "bdJ0TZ1V3e",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "S7-BF8WQWx",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "S7-BF8WQWx",
+                          "guid":  "zsDT40T34c",
                           "cost":  {
                                        "h":  3
                                    },
@@ -30764,61 +31511,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Deep Breath",
                           "itemNameJa":  "深呼吸",
                           "itemType":  "Emote",
-                          "nw":  "OH9-Kyg9N8",
-                          "n":  "aExWaifHkZ",
-                          "ne":  "uEjvyPdwr_",
+                          "nw":  "rPOdagTaqj",
+                          "n":  "ZsNjPm0YS8",
+                          "ne":  "YbaBYGobSN",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_067",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "uEjvyPdwr_",
-                          "cost":  {
-                                       "c":  54
-                                   },
-                          "itemGuid":  "Gu5Pw8cvcR",
-                          "itemName":  "Prophet of Water Mask",
-                          "itemNameJa":  "水の預言者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_031"
-                      },
-                      {
-                          "guid":  "aExWaifHkZ",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "sQcUGrjRP2",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "HLD9K_xEa0",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "HLD9K_xEa0",
-                          "cost":  {
-                                       "c":  75
-                                   },
-                          "itemGuid":  "OMRQQpGTCh",
-                          "itemName":  "Prophet of Water Cape",
-                          "itemNameJa":  "水の預言者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_043"
-                      },
-                      {
-                          "guid":  "OH9-Kyg9N8",
+                          "guid":  "rPOdagTaqj",
                           "cost":  {
                                        "h":  6
                                    },
@@ -30835,40 +31537,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "UqbwwqyleJ",
+                          "guid":  "ZsNjPm0YS8",
                           "cost":  {
-                                       "c":  44
+                                       "c":  5
                                    },
-                          "itemGuid":  "JeLUbTDjy3",
-                          "itemName":  "Prophet of Water Hair",
-                          "itemNameJa":  "水の預言者 ヘアスタイル",
-                          "itemType":  "Hair",
+                          "itemGuid":  "sQcUGrjRP2",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_064"
-                      },
-                      {
-                          "guid":  "F8LNqevmqn",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "a1mWcW4Pll",
-                          "itemName":  "Deep Breath",
-                          "itemNameJa":  "深呼吸",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "X2mTcKddrc",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_067",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "YbaBYGobSN",
+                          "cost":  {
+                                       "c":  54
+                                   },
+                          "itemGuid":  "Gu5Pw8cvcR",
+                          "itemName":  "Prophet of Water Mask",
+                          "itemNameJa":  "水の預言者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_031",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "X2mTcKddrc",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "OMRQQpGTCh",
+                          "itemName":  "Prophet of Water Cape",
+                          "itemNameJa":  "水の預言者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_043",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "水の預言者",
-        "rootNodeGuid":  "9GhluZ7XjZ"
+                  ]
     },
     {
         "guid":  "oIeqSdqyWu",
@@ -30878,15 +31597,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Cave of Prophecies",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8a/Prophecy-Spirit-Prophet-of-Earth.png",
-        "treeGuid":  "5IfMzJYMAs",
+        "treeGuid":  "-lshQtF-0t",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-05-15",
-        "revisitName":  "Special Visit #2",
+        "revisitDate":  "2025-07-31",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  13,
+        "nameJa":  "地の預言者",
+        "rootNodeGuid":  "y3eJJ6CsFn",
         "nodes":  [
                       {
-                          "guid":  "NkHq0TPo1n",
+                          "guid":  "y3eJJ6CsFn",
                           "cost":  {
 
                                    },
@@ -30894,16 +31615,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Dust Off",
                           "itemNameJa":  "ほこり払い",
                           "itemType":  "Emote",
-                          "nw":  "3AmAUwNFj1",
-                          "n":  "OrV0IGBr_7",
-                          "ne":  "OQstsD--3N",
+                          "nw":  "BppgW4cBja",
+                          "n":  "_b-uxCLL3T",
+                          "ne":  "kTIH9pmbYs",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_055",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "OQstsD--3N",
+                          "guid":  "BppgW4cBja",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "VWQdrhMcwH",
+                          "itemName":  "Dust Off",
+                          "itemNameJa":  "ほこり払い",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_055",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "_b-uxCLL3T",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "LeCZYinpa1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "Z-2awtAeme",
+                          "n":  "Ip5oIxfrSf",
+                          "ne":  "429svpPDRZ",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "kTIH9pmbYs",
                           "cost":  {
                                        "c":  15
                                    },
@@ -30915,25 +31670,46 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "small_placeable",
-                          "itemCostId":  "small_placeable_003"
+                          "itemCostId":  "small_placeable_003",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "OrV0IGBr_7",
+                          "guid":  "Z-2awtAeme",
                           "cost":  {
-                                       "c":  5
+                                       "c":  44
                                    },
-                          "itemGuid":  "LeCZYinpa1",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "WN3vFmdFXn",
-                          "n":  "AJxwkKN889",
-                          "ne":  "cgWz1XzsMJ",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemGuid":  "kQMCuUAOtU",
+                          "itemName":  "Prophet of Earth Hair",
+                          "itemNameJa":  "地の預言者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_065",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "cgWz1XzsMJ",
+                          "guid":  "Ip5oIxfrSf",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "oPDDsasR3N",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "-FXJ-B-GuI",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "429svpPDRZ",
                           "cost":  {
                                        "c":  3
                                    },
@@ -30945,25 +31721,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "AJxwkKN889",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "oPDDsasR3N",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "pZMIiBe6Mq",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "pZMIiBe6Mq",
+                          "guid":  "-FXJ-B-GuI",
                           "cost":  {
                                        "h":  3
                                    },
@@ -30971,76 +31734,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Dust Off",
                           "itemNameJa":  "ほこり払い",
                           "itemType":  "Emote",
-                          "nw":  "rdpkcpogco",
-                          "n":  "D_Jq-_wcAB",
-                          "ne":  "Cav6TOePkE",
+                          "nw":  "VGJfn3BQSc",
+                          "n":  "CIOOvM3DFE",
+                          "ne":  "wLaC8i4h-8",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_055",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "Cav6TOePkE",
-                          "cost":  {
-                                       "c":  15
-                                   },
-                          "itemGuid":  "cCVggJ8g_b",
-                          "itemName":  "Soft Blanket",
-                          "itemNameJa":  "柔らかな毛布",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "D_Jq-_wcAB",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "kCfooUCOgs",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "d0BZ5foKPF",
-                          "n":  "2q-1EeClg_",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "2q-1EeClg_",
-                          "cost":  {
-                                       "c":  44
-                                   },
-                          "itemGuid":  "JTPr5NiPEz",
-                          "itemName":  "Prophet of Earth Mask",
-                          "itemNameJa":  "地の預言者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_032"
-                      },
-                      {
-                          "guid":  "d0BZ5foKPF",
-                          "cost":  {
-                                       "c":  75
-                                   },
-                          "itemGuid":  "K1EZHVX9Sb",
-                          "itemName":  "Prophet of Earth Cape",
-                          "itemNameJa":  "地の預言者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_044"
-                      },
-                      {
-                          "guid":  "rdpkcpogco",
+                          "guid":  "VGJfn3BQSc",
                           "cost":  {
                                        "h":  6
                                    },
@@ -31057,40 +31760,74 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "WN3vFmdFXn",
+                          "guid":  "CIOOvM3DFE",
                           "cost":  {
-                                       "c":  44
+                                       "c":  5
                                    },
-                          "itemGuid":  "kQMCuUAOtU",
-                          "itemName":  "Prophet of Earth Hair",
-                          "itemNameJa":  "地の預言者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "kCfooUCOgs",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "C1NpG-DZIf",
+                          "n":  "SfdNTwPqiA",
                           "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_065"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "3AmAUwNFj1",
+                          "guid":  "wLaC8i4h-8",
                           "cost":  {
-                                       "h":  4
+                                       "c":  15
                                    },
-                          "itemGuid":  "VWQdrhMcwH",
-                          "itemName":  "Dust Off",
-                          "itemNameJa":  "ほこり払い",
-                          "itemType":  "Emote",
+                          "itemGuid":  "cCVggJ8g_b",
+                          "itemName":  "Soft Blanket",
+                          "itemNameJa":  "柔らかな毛布",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_055",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "C1NpG-DZIf",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "K1EZHVX9Sb",
+                          "itemName":  "Prophet of Earth Cape",
+                          "itemNameJa":  "地の預言者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_044",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "SfdNTwPqiA",
+                          "cost":  {
+                                       "c":  44
+                                   },
+                          "itemGuid":  "JTPr5NiPEz",
+                          "itemName":  "Prophet of Earth Mask",
+                          "itemNameJa":  "地の預言者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_032",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "地の預言者",
-        "rootNodeGuid":  "NkHq0TPo1n"
+                  ]
     },
     {
         "guid":  "5DD07qmTqQ",
@@ -31100,15 +31837,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Cave of Prophecies",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/f5/Prophecy-Spirit-Prophet-of-Air.png",
-        "treeGuid":  "_l09Yw8HoO",
+        "treeGuid":  "GpYYTOc43d",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-05-15",
-        "revisitName":  "Special Visit #2",
+        "revisitDate":  "2025-09-25",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  12,
+        "nameJa":  "風の預言者",
+        "rootNodeGuid":  "WKWTdL8PrE",
         "nodes":  [
                       {
-                          "guid":  "5q6cX7B5Dv",
+                          "guid":  "WKWTdL8PrE",
                           "cost":  {
 
                                    },
@@ -31116,16 +31855,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Balance",
                           "itemNameJa":  "バランス",
                           "itemType":  "Emote",
-                          "nw":  "3n9Q3AO6Dd",
-                          "n":  "Pc7FIKanez",
-                          "ne":  "BE7DFyDfTR",
+                          "nw":  "px35OpkMiI",
+                          "n":  "ARutN0x0zW",
+                          "ne":  "QBQblgwqQg",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_066",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "BE7DFyDfTR",
+                          "guid":  "px35OpkMiI",
+                          "cost":  {
+                                       "h":  3
+                                   },
+                          "itemGuid":  "1COJ0_lu9H",
+                          "itemName":  "Balance",
+                          "itemNameJa":  "バランス",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_066",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "ARutN0x0zW",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "dAxR-om8Q8",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "sqCMZNr5BV",
+                          "n":  "2fzRHlfKWY",
+                          "ne":  "8PIX25RNsu",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "QBQblgwqQg",
                           "cost":  {
                                        "c":  15
                                    },
@@ -31137,25 +31910,46 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "small_placeable",
-                          "itemCostId":  "small_placeable_004"
+                          "itemCostId":  "small_placeable_004",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Pc7FIKanez",
+                          "guid":  "sqCMZNr5BV",
                           "cost":  {
-                                       "c":  5
+                                       "c":  44
                                    },
-                          "itemGuid":  "dAxR-om8Q8",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "5TE_9i_tai",
-                          "n":  "6_ebl5Stk6",
-                          "ne":  "t8KAXCj23i",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemGuid":  "PN1kAtqtky",
+                          "itemName":  "Prophet of Air Hair",
+                          "itemNameJa":  "風の預言者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_066",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "t8KAXCj23i",
+                          "guid":  "2fzRHlfKWY",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "80vjlRu4nQ",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "rxmfYSzrWq",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "8PIX25RNsu",
                           "cost":  {
                                        "c":  3
                                    },
@@ -31167,25 +31961,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "6_ebl5Stk6",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "80vjlRu4nQ",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "kxKJSKTP1y",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "kxKJSKTP1y",
+                          "guid":  "rxmfYSzrWq",
                           "cost":  {
                                        "h":  3
                                    },
@@ -31193,61 +31974,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Balance",
                           "itemNameJa":  "バランス",
                           "itemType":  "Emote",
-                          "nw":  "7EDv6MbaDK",
-                          "n":  "QmCfR94Xgt",
-                          "ne":  "_ko0aVcyYG",
+                          "nw":  "pSUcCw9q_c",
+                          "n":  "cz9muQRV_Y",
+                          "ne":  "I5JDnjsRvC",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_066",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "_ko0aVcyYG",
-                          "cost":  {
-                                       "c":  54
-                                   },
-                          "itemGuid":  "3j1vIMlhqg",
-                          "itemName":  "Prophet of Air Mask",
-                          "itemNameJa":  "風の預言者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_033"
-                      },
-                      {
-                          "guid":  "QmCfR94Xgt",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "0uuQGhhylI",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "shHZhGcxtT",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "shHZhGcxtT",
-                          "cost":  {
-                                       "c":  75
-                                   },
-                          "itemGuid":  "mfNUas_ov2",
-                          "itemName":  "Prophet of Air Cape",
-                          "itemNameJa":  "風の預言者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_042"
-                      },
-                      {
-                          "guid":  "7EDv6MbaDK",
+                          "guid":  "pSUcCw9q_c",
                           "cost":  {
                                        "h":  6
                                    },
@@ -31264,40 +32000,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "5TE_9i_tai",
+                          "guid":  "cz9muQRV_Y",
                           "cost":  {
-                                       "c":  44
+                                       "c":  5
                                    },
-                          "itemGuid":  "PN1kAtqtky",
-                          "itemName":  "Prophet of Air Hair",
-                          "itemNameJa":  "風の預言者 ヘアスタイル",
-                          "itemType":  "Hair",
+                          "itemGuid":  "0uuQGhhylI",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_066"
-                      },
-                      {
-                          "guid":  "3n9Q3AO6Dd",
-                          "cost":  {
-                                       "h":  3
-                                   },
-                          "itemGuid":  "1COJ0_lu9H",
-                          "itemName":  "Balance",
-                          "itemNameJa":  "バランス",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "Nm9IXI2Scr",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_066",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "I5JDnjsRvC",
+                          "cost":  {
+                                       "c":  54
+                                   },
+                          "itemGuid":  "3j1vIMlhqg",
+                          "itemName":  "Prophet of Air Mask",
+                          "itemNameJa":  "風の預言者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_033",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Nm9IXI2Scr",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "mfNUas_ov2",
+                          "itemName":  "Prophet of Air Cape",
+                          "itemNameJa":  "風の預言者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_042",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "風の預言者",
-        "rootNodeGuid":  "5q6cX7B5Dv"
+                  ]
     },
     {
         "guid":  "kH5B_M20Fl",
@@ -31307,15 +32060,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Cave of Prophecies",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/b/b7/Prophecy-Spirit-Prophet-of-Fire.png",
-        "treeGuid":  "u0qm82zESx",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "Gb_GeDCrwH",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-12-04",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  14,
+        "nameJa":  "火の預言者",
+        "rootNodeGuid":  "KQ2sUk-yjt",
         "nodes":  [
                       {
-                          "guid":  "joPtiDGThJ",
+                          "guid":  "KQ2sUk-yjt",
                           "cost":  {
 
                                    },
@@ -31323,125 +32078,137 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Chest Pound",
                           "itemNameJa":  "胸をたたく",
                           "itemType":  "Emote",
-                          "nw":  "8mCPPfIryt",
-                          "n":  "OjVt26pVum",
-                          "ne":  null,
+                          "nw":  "BBjuYUj3EQ",
+                          "n":  "cNkZ9lC95c",
+                          "ne":  "cUV4w8YrZQ",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_056",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "OjVt26pVum",
+                          "guid":  "BBjuYUj3EQ",
                           "cost":  {
-                                       "sc":  13
+                                       "h":  4
+                                   },
+                          "itemGuid":  "lv8aUui_2g",
+                          "itemName":  "Chest Pound",
+                          "itemNameJa":  "胸をたたく",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_056",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "cNkZ9lC95c",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "g179e4N2B0",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "XQkNvt-otF",
-                          "n":  "2PoG81lNZs",
-                          "ne":  null,
+                          "nw":  "7plo6ngKmH",
+                          "n":  "b8Pf7qcWd4",
+                          "ne":  "dLCkbQnjqf",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "2PoG81lNZs",
+                          "guid":  "cUV4w8YrZQ",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  15
+                                   },
+                          "itemGuid":  "c3sT_itCFa",
+                          "itemName":  "Prophet of Fire Sticker",
+                          "itemNameJa":  "火の預言者 設置アイテム",
+                          "itemType":  "Prop",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "small_placeable",
+                          "itemCostId":  "small_placeable_005",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "7plo6ngKmH",
+                          "cost":  {
+                                       "c":  44
+                                   },
+                          "itemGuid":  "IRhRDSL-8R",
+                          "itemName":  "Prophet of Fire Hair",
+                          "itemNameJa":  "火の預言者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_067",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "b8Pf7qcWd4",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "sgNUEM3cDR",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "-2jcSDCrYO",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "dLCkbQnjqf",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "gUIFoHfDB3",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "-2jcSDCrYO",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "oWEC_F0xLY",
                           "itemName":  "Chest Pound",
                           "itemNameJa":  "胸をたたく",
                           "itemType":  "Emote",
-                          "nw":  "1JwVX0K6f-",
-                          "n":  "WRUldGwJY6",
-                          "ne":  null,
+                          "nw":  "r4-Zrmrt7x",
+                          "n":  "BevrnWuU-3",
+                          "ne":  "vtIGPtce1d",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_056",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "WRUldGwJY6",
+                          "guid":  "r4-Zrmrt7x",
                           "cost":  {
-                                       "sc":  23
-                                   },
-                          "itemGuid":  "MPV7Sn8MqR",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "FjSfi8eZVY",
-                          "n":  "15A-zFMuiQ",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "15A-zFMuiQ",
-                          "cost":  {
-                                       "sc":  29
-                                   },
-                          "itemGuid":  "LMQrrhg9E8",
-                          "itemName":  "Prophet of Fire Mask",
-                          "itemNameJa":  "火の預言者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  "YdHAvnBi5S",
-                          "n":  "PcbojZPdeg",
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_034"
-                      },
-                      {
-                          "guid":  "PcbojZPdeg",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "zVnzmsZF8k",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "YdHAvnBi5S",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "V9HhQcek_9",
-                          "itemName":  "Prophet of Fire Outfit",
-                          "itemNameJa":  "火の預言者　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_075"
-                      },
-                      {
-                          "guid":  "FjSfi8eZVY",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "lKskRU-rAW",
-                          "itemName":  "Disappearing Ashes",
-                          "itemNameJa":  "消えゆく灰",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "1JwVX0K6f-",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "ofbkhI0JKU",
                           "itemName":  "Chest Pound",
@@ -31456,40 +32223,91 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "XQkNvt-otF",
+                          "guid":  "BevrnWuU-3",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "IRhRDSL-8R",
-                          "itemName":  "Prophet of Fire Hair",
-                          "itemNameJa":  "火の預言者 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_067"
+                          "itemGuid":  "MPV7Sn8MqR",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "Sx-F42EM94",
+                          "n":  "v9MmiTTxMo",
+                          "ne":  "agEfyw5ZKl",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "8mCPPfIryt",
+                          "guid":  "vtIGPtce1d",
                           "cost":  {
-
+                                       "c":  15
                                    },
-                          "itemGuid":  "lv8aUui_2g",
-                          "itemName":  "Chest Pound",
-                          "itemNameJa":  "胸をたたく",
-                          "itemType":  "Emote",
+                          "itemGuid":  "lKskRU-rAW",
+                          "itemName":  "Disappearing Ashes",
+                          "itemNameJa":  "消えゆく灰",
+                          "itemType":  "Music",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_056",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "Sx-F42EM94",
+                          "cost":  {
+                                       "c":  54
+                                   },
+                          "itemGuid":  "LMQrrhg9E8",
+                          "itemName":  "Prophet of Fire Mask",
+                          "itemNameJa":  "火の預言者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_034",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "v9MmiTTxMo",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "V9HhQcek_9",
+                          "itemName":  "Prophet of Fire Outfit",
+                          "itemNameJa":  "火の預言者　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_075",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "agEfyw5ZKl",
+                          "cost":  {
+                                       "h":  13
+                                   },
+                          "itemGuid":  "pxqSrkf9NH",
+                          "itemName":  "Prophet of Fire Cauldron",
+                          "itemNameJa":  "火の預言者 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_008",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "火の預言者",
-        "rootNodeGuid":  "joPtiDGThJ"
+                  ]
     },
     {
         "guid":  "JWj113We5R",
@@ -33073,15 +33891,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Repository of Refuge",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/86/Remembrance-Spirit-Bereft-Veteran.png",
-        "treeGuid":  "zWD_AxgIGC",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "sftWo0Dy66",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-05-22",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "喪失の初老",
+        "rootNodeGuid":  "arsiJ_KjPq",
         "nodes":  [
                       {
-                          "guid":  "9bB4SRcAvm",
+                          "guid":  "arsiJ_KjPq",
                           "cost":  {
 
                                    },
@@ -33089,8 +33909,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Grieving",
                           "itemNameJa":  "嘆く",
                           "itemType":  "Emote",
-                          "nw":  "5KZRvL0rW8",
-                          "n":  "D9E3jEaX2r",
+                          "nw":  "gCfC0rgAG5",
+                          "n":  "9HQmeqGPQ3",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -33098,46 +33918,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "D9E3jEaX2r",
+                          "guid":  "gCfC0rgAG5",
                           "cost":  {
-                                       "sc":  6
+                                       "h":  4
+                                   },
+                          "itemGuid":  "ms8gAS7UHk",
+                          "itemName":  "Grieving",
+                          "itemNameJa":  "嘆く",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_092",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "9HQmeqGPQ3",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "P4dn6-tr_h",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "ixtWFlScrJ",
+                          "n":  "YeTmddqW2I",
+                          "ne":  "OCu_hxV0lA",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "ixtWFlScrJ",
+                          "cost":  {
+                                       "c":  35
                                    },
                           "itemGuid":  "woyw0Ddh2s",
                           "itemName":  "Bereft Veteran Mask",
                           "itemNameJa":  "喪失の初老　マスク",
                           "itemType":  "Mask",
-                          "nw":  "3LYsu9qlvV",
-                          "n":  "MpyjR7J9Ve",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "mask",
-                          "itemCostId":  "mask_066"
+                          "itemCostId":  "mask_066",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "MpyjR7J9Ve",
+                          "guid":  "YeTmddqW2I",
                           "cost":  {
-                                       "sc":  18
+                                       "ac":  2
                                    },
-                          "itemGuid":  "ElEP5sqzhv",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  "cHfZ6rUTzC",
-                          "n":  "UhtmiqYiVU",
+                          "itemGuid":  "vW-FqchJ6Z",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "z7SPb1oVLw",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "UhtmiqYiVU",
+                          "guid":  "OCu_hxV0lA",
                           "cost":  {
-                                       "sc":  30
+                                       "c":  3
+                                   },
+                          "itemGuid":  "ZEj-6lPnjo",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "z7SPb1oVLw",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "FIaYs2Unva",
                           "itemName":  "Grieving",
                           "itemNameJa":  "嘆く",
                           "itemType":  "Emote",
-                          "nw":  "3d0Cv6Gktc",
-                          "n":  "JliH0Y6KM2",
+                          "nw":  "sSJmxNeNfk",
+                          "n":  "Uzx8hE62vo",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -33145,54 +34020,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "JliH0Y6KM2",
+                          "guid":  "sSJmxNeNfk",
                           "cost":  {
-                                       "sc":  34
-                                   },
-                          "itemGuid":  "aVXNBBz0Qs",
-                          "itemName":  "Bereft Veteran Cape",
-                          "itemNameJa":  "喪失の初老 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "yXExfyJtn3",
-                          "n":  "9MbT9T5RFB",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_079"
-                      },
-                      {
-                          "guid":  "9MbT9T5RFB",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "ALJDKgSPvx",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "yXExfyJtn3",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "UfkQ77aqyH",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "3d0Cv6Gktc",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "Wu1J2yazsw",
                           "itemName":  "Grieving",
@@ -33207,9 +34037,26 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "cHfZ6rUTzC",
+                          "guid":  "Uzx8hE62vo",
                           "cost":  {
-
+                                       "c":  5
+                                   },
+                          "itemGuid":  "ElEP5sqzhv",
+                          "itemName":  "Special Blessing",
+                          "itemNameJa":  "特別な祝福",
+                          "itemType":  "Special",
+                          "nw":  "lZAOZt2Xpy",
+                          "n":  "9EI9dsktUq",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lZAOZt2Xpy",
+                          "cost":  {
+                                       "c":  60
                                    },
                           "itemGuid":  "3Ja8-MaUke",
                           "itemName":  "Bereft Veteran Hair",
@@ -33219,43 +34066,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_105"
+                          "itemCostId":  "hairstyle_105",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "3LYsu9qlvV",
+                          "guid":  "9EI9dsktUq",
                           "cost":  {
-
+                                       "c":  80
                                    },
-                          "itemGuid":  "P4dn6-tr_h",
-                          "itemName":  "Special Blessing",
-                          "itemNameJa":  "特別な祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "aVXNBBz0Qs",
+                          "itemName":  "Bereft Veteran Cape",
+                          "itemNameJa":  "喪失の初老 ケープ",
+                          "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "5KZRvL0rW8",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "ms8gAS7UHk",
-                          "itemName":  "Grieving",
-                          "itemNameJa":  "嘆く",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_092",
-                          "emoteLevel":  2
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_079",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "喪失の初老",
-        "rootNodeGuid":  "9bB4SRcAvm"
+                  ]
     },
     {
         "guid":  "V43JRVL_QD",
@@ -34682,15 +35514,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Temple of the Isle Entrance",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/56/Rhythm-Spirit-Troupe-Greeter.png",
-        "treeGuid":  "SWBKW2vcEc",
+        "treeGuid":  "WHqjF6F7V4",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-08-07",
-        "revisitName":  "Special Visit #4",
+        "revisitDate":  "2025-01-02",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "一座の進行役",
+        "rootNodeGuid":  "PU_A3V3LeT",
         "nodes":  [
                       {
-                          "guid":  "qoew2jYQLu",
+                          "guid":  "PU_A3V3LeT",
                           "cost":  {
 
                                    },
@@ -34698,8 +35532,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Welcome",
                           "itemNameJa":  "ようこそ",
                           "itemType":  "Emote",
-                          "nw":  "e1U_Uhhyf7",
-                          "n":  "eVSZTd5UOi",
+                          "nw":  "WLvEYauW1W",
+                          "n":  "aZdY-DgguS",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -34707,7 +35541,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "eVSZTd5UOi",
+                          "guid":  "WLvEYauW1W",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "Lpi2B9yp7E",
+                          "itemName":  "Welcome",
+                          "itemNameJa":  "ようこそ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_005",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "aZdY-DgguS",
                           "cost":  {
                                        "c":  5
                                    },
@@ -34715,14 +35566,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "zlZ8PUytxL",
-                          "n":  "rgm9CE6XFB",
-                          "ne":  "His0m6iC_j",
+                          "nw":  "WZaAMUugZf",
+                          "n":  "jY-FG6SoHC",
+                          "ne":  "xN1WxwuhGr",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "His0m6iC_j",
+                          "guid":  "WZaAMUugZf",
+                          "cost":  {
+                                       "c":  15
+                                   },
+                          "itemGuid":  "ixu-bQFMqR",
+                          "itemName":  "Floating Bubbles",
+                          "itemNameJa":  "浮かぶ泡",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "jY-FG6SoHC",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "Pe1Hflmudo",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "06xZYUtHOB",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "xN1WxwuhGr",
                           "cost":  {
                                        "c":  3
                                    },
@@ -34734,25 +35621,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "rgm9CE6XFB",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "Pe1Hflmudo",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "AXD7HzlV2z",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "AXD7HzlV2z",
+                          "guid":  "06xZYUtHOB",
                           "cost":  {
                                        "h":  3
                                    },
@@ -34760,8 +35634,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Welcome",
                           "itemNameJa":  "ようこそ",
                           "itemType":  "Emote",
-                          "nw":  "dpF3nW6NWc",
-                          "n":  "JzSPrUMpet",
+                          "nw":  "uILAa0EYRD",
+                          "n":  "vKTkhCxxFF",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -34769,52 +35643,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "JzSPrUMpet",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "7gjw9rjbK9",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "rzuSTdqEfX",
-                          "n":  "jTQHWinNTp",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "jTQHWinNTp",
-                          "cost":  {
-                                       "c":  48
-                                   },
-                          "itemGuid":  "SekRzXgjfv",
-                          "itemName":  "Troupe Greeter Mask",
-                          "itemNameJa":  "一座の進行役　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_022"
-                      },
-                      {
-                          "guid":  "rzuSTdqEfX",
-                          "cost":  {
-                                       "c":  70
-                                   },
-                          "itemGuid":  "T4suf1MdTj",
-                          "itemName":  "Troupe Greeter Outfit",
-                          "itemNameJa":  "一座の進行役　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_069"
-                      },
-                      {
-                          "guid":  "dpF3nW6NWc",
+                          "guid":  "uILAa0EYRD",
                           "cost":  {
                                        "h":  6
                                    },
@@ -34831,40 +35660,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "zlZ8PUytxL",
+                          "guid":  "vKTkhCxxFF",
                           "cost":  {
-                                       "c":  15
+                                       "c":  5
                                    },
-                          "itemGuid":  "ixu-bQFMqR",
-                          "itemName":  "Floating Bubbles",
-                          "itemNameJa":  "浮かぶ泡",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "e1U_Uhhyf7",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "Lpi2B9yp7E",
-                          "itemName":  "Welcome",
-                          "itemNameJa":  "ようこそ",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "7gjw9rjbK9",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "8eIts8nQ9k",
+                          "n":  "jv-TDDZUQw",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_005",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "8eIts8nQ9k",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "T4suf1MdTj",
+                          "itemName":  "Troupe Greeter Outfit",
+                          "itemNameJa":  "一座の進行役　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_069",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "jv-TDDZUQw",
+                          "cost":  {
+                                       "c":  48
+                                   },
+                          "itemGuid":  "SekRzXgjfv",
+                          "itemName":  "Troupe Greeter Mask",
+                          "itemNameJa":  "一座の進行役　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_022",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "一座の進行役",
-        "rootNodeGuid":  "qoew2jYQLu"
+                  ]
     },
     {
         "guid":  "PYsLThJYPx",
@@ -34874,15 +35720,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Bird Nest",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/3/35/Rhythm-Spirit-Festival-Spin-Dancer.png",
-        "treeGuid":  "61W5eVdFni",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "s_jd23dgts",
+        "treeSource":  "revisit",
+        "revisitDate":  "2023-12-21",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  12,
+        "nameJa":  "祝祭の旋舞家",
+        "rootNodeGuid":  "00SVPQ4X2a",
         "nodes":  [
                       {
-                          "guid":  "QsIyX1p15K",
+                          "guid":  "00SVPQ4X2a",
                           "cost":  {
 
                                    },
@@ -34890,8 +35738,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Spin Dance",
                           "itemNameJa":  "スピンダンス",
                           "itemType":  "Emote",
-                          "nw":  "vm-4ZZVAEE",
-                          "n":  "8WTjr99H6h",
+                          "nw":  "ReZxsJmdSn",
+                          "n":  "WVPNAqhqzJ",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -34899,31 +35747,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "8WTjr99H6h",
+                          "guid":  "ReZxsJmdSn",
                           "cost":  {
-                                       "sc":  10
+                                       "h":  4
+                                   },
+                          "itemGuid":  "Uszoh-ONkR",
+                          "itemName":  "Spin Dance",
+                          "itemNameJa":  "スピンダンス",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_040",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "WVPNAqhqzJ",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "Uo7t1apko6",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "g3QNfhMSJd",
-                          "n":  "P4YBo28dO3",
-                          "ne":  null,
+                          "nw":  "bUU5tzuspW",
+                          "n":  "G7-OcjrMMU",
+                          "ne":  "7W8n47FVtM",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "P4YBo28dO3",
+                          "guid":  "bUU5tzuspW",
                           "cost":  {
-                                       "sc":  12
+                                       "c":  15
+                                   },
+                          "itemGuid":  "4XuHymnqlr",
+                          "itemName":  "Spinning Thoughts",
+                          "itemNameJa":  "巡る想い",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "G7-OcjrMMU",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "EAFp1hfc6-",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "2thXOimb13",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "7W8n47FVtM",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "UiAXJpkHYm",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "2thXOimb13",
+                          "cost":  {
+                                       "h":  5
                                    },
                           "itemGuid":  "ZaNb7p2iqw",
                           "itemName":  "Spin Dance",
                           "itemNameJa":  "スピンダンス",
                           "itemType":  "Emote",
-                          "nw":  "_XObomPXb7",
-                          "n":  "TJyaFQj6PM",
+                          "nw":  "_vUfH57LSw",
+                          "n":  "ckz1WI6pOP",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -34931,54 +35849,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "TJyaFQj6PM",
+                          "guid":  "_vUfH57LSw",
                           "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "stQCebAgsm",
-                          "itemName":  "Festival Spin Dancer Hair",
-                          "itemNameJa":  "祝祭の旋舞家 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "nXYfAxDneR",
-                          "n":  "p4WbwV5nhp",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_048"
-                      },
-                      {
-                          "guid":  "p4WbwV5nhp",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "sM8bW--Gst",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "nXYfAxDneR",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "kmgKsVBs4o",
-                          "itemName":  "Festival Spin Dancer Outfit",
-                          "itemNameJa":  "祝祭の旋舞家　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_071"
-                      },
-                      {
-                          "guid":  "_XObomPXb7",
-                          "cost":  {
-
+                                       "h":  10
                                    },
                           "itemGuid":  "9v5mmfY2I4",
                           "itemName":  "Spin Dance",
@@ -34993,40 +35866,74 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "g3QNfhMSJd",
+                          "guid":  "ckz1WI6pOP",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "4XuHymnqlr",
-                          "itemName":  "Spinning Thoughts",
-                          "itemNameJa":  "巡る想い",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "vm-4ZZVAEE",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Uszoh-ONkR",
-                          "itemName":  "Spin Dance",
-                          "itemNameJa":  "スピンダンス",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
+                          "itemGuid":  "fD5KSC2ILf",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "lLl9y2xVXV",
+                          "n":  "LvAjQS3dvy",
+                          "ne":  "M_xM0rW_7p",
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_040",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lLl9y2xVXV",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "stQCebAgsm",
+                          "itemName":  "Festival Spin Dancer Hair",
+                          "itemNameJa":  "祝祭の旋舞家 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_048",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "LvAjQS3dvy",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "kmgKsVBs4o",
+                          "itemName":  "Festival Spin Dancer Outfit",
+                          "itemNameJa":  "祝祭の旋舞家　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_071",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "M_xM0rW_7p",
+                          "cost":  {
+                                       "c":  30
+                                   },
+                          "itemGuid":  "6PvpUYPLPO",
+                          "itemName":  "Festival Spin Dancer Prop",
+                          "itemNameJa":  "祝祭の旋舞家 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_003",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "祝祭の旋舞家",
-        "rootNodeGuid":  "QsIyX1p15K"
+                  ]
     },
     {
         "guid":  "RUGuLBBPcg",
@@ -35036,15 +35943,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Boneyard",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/2f/Rhythm-Spirit-Admiring-Actor.png",
-        "treeGuid":  "4biI_rOvS2",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "LE5r3qPBkG",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-10-09",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  11,
+        "nameJa":  "うっとりするような旅役者",
+        "rootNodeGuid":  "9cObx0iibd",
         "nodes":  [
                       {
-                          "guid":  "mnR3OjpKYr",
+                          "guid":  "9cObx0iibd",
                           "cost":  {
 
                                    },
@@ -35052,8 +35961,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blow Kiss",
                           "itemNameJa":  "投げキッス",
                           "itemType":  "Emote",
-                          "nw":  "4WjBL4OKZ0",
-                          "n":  "mG92N4wk5I",
+                          "nw":  "U1V0ODj5Uh",
+                          "n":  "KxC5ZrBCQp",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35061,31 +35970,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "mG92N4wk5I",
+                          "guid":  "U1V0ODj5Uh",
                           "cost":  {
-                                       "sc":  12
+                                       "h":  4
+                                   },
+                          "itemGuid":  "DQhS5AkEKu",
+                          "itemName":  "Blow Kiss",
+                          "itemNameJa":  "投げキッス",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_015",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "KxC5ZrBCQp",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "023wYIm0DT",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "Im5frU4TAr",
-                          "n":  "wIdOs-ivaM",
-                          "ne":  null,
+                          "nw":  "lZ9OvAGpg5",
+                          "n":  "MhhyioqySm",
+                          "ne":  "lG6QMIu_ZC",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "wIdOs-ivaM",
+                          "guid":  "lZ9OvAGpg5",
                           "cost":  {
-                                       "sc":  14
+                                       "c":  15
+                                   },
+                          "itemGuid":  "GEC1VNDUG2",
+                          "itemName":  "Lighting the Way",
+                          "itemNameJa":  "道を照らす",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "MhhyioqySm",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "xn4mqXmkpr",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "h8kIfbiLPK",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "lG6QMIu_ZC",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "0wbgRYUeyH",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "h8kIfbiLPK",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "R62rXvPti6",
                           "itemName":  "Blow Kiss",
                           "itemNameJa":  "投げキッス",
                           "itemType":  "Emote",
-                          "nw":  "DYhQ2O7K9s",
-                          "n":  "98ykBCV2y_",
+                          "nw":  "AeX9C1QNXm",
+                          "n":  "6nfruQSY3Y",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35093,54 +36072,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "98ykBCV2y_",
+                          "guid":  "AeX9C1QNXm",
                           "cost":  {
-                                       "sc":  16
-                                   },
-                          "itemGuid":  "uMURxUHDKr",
-                          "itemName":  "Admiring Actor Outfit",
-                          "itemNameJa":  "うっとりするような旅役者　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  "OzoAoNeawh",
-                          "n":  "Xk9ZOQxEfH",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_072"
-                      },
-                      {
-                          "guid":  "Xk9ZOQxEfH",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "aiHkWPkE3L",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "OzoAoNeawh",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "xOj2WwukD8",
-                          "itemName":  "Admiring Actor Mask",
-                          "itemNameJa":  "うっとりするような旅役者　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_023"
-                      },
-                      {
-                          "guid":  "DYhQ2O7K9s",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "X1oM2uVzop",
                           "itemName":  "Blow Kiss",
@@ -35155,40 +36089,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "Im5frU4TAr",
+                          "guid":  "6nfruQSY3Y",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "GEC1VNDUG2",
-                          "itemName":  "Lighting the Way",
-                          "itemNameJa":  "道を照らす",
-                          "itemType":  "Music",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "4WjBL4OKZ0",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "DQhS5AkEKu",
-                          "itemName":  "Blow Kiss",
-                          "itemNameJa":  "投げキッス",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "3KEvIQ3_Z9",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "SrGIzL3pfn",
+                          "n":  "FuZV35tzip",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_015",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "SrGIzL3pfn",
+                          "cost":  {
+                                       "c":  65
+                                   },
+                          "itemGuid":  "uMURxUHDKr",
+                          "itemName":  "Admiring Actor Outfit",
+                          "itemNameJa":  "うっとりするような旅役者　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_072",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "FuZV35tzip",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "xOj2WwukD8",
+                          "itemName":  "Admiring Actor Mask",
+                          "itemNameJa":  "うっとりするような旅役者　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_023",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "うっとりするような旅役者",
-        "rootNodeGuid":  "mnR3OjpKYr"
+                  ]
     },
     {
         "guid":  "9y_5scrYa9",
@@ -35405,15 +36356,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  5,
         "area":  "The Graveyard",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8a/Rhythm-Spirit-Respectful-Pianist.png",
-        "treeGuid":  "Z_9kLMM40B",
+        "treeGuid":  "pSd7bhut9N",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-07-03",
-        "revisitName":  "Special Visit #3",
+        "revisitDate":  "2025-11-06",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "敬意を表す楽師",
+        "rootNodeGuid":  "nxwar7btHn",
         "nodes":  [
                       {
-                          "guid":  "LcfK6L-cii",
+                          "guid":  "nxwar7btHn",
                           "cost":  {
 
                                    },
@@ -35421,8 +36374,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Respect",
                           "itemNameJa":  "リスペクト",
                           "itemType":  "Emote",
-                          "nw":  "Z5Ux8L2VWb",
-                          "n":  "JdneZVaMk4",
+                          "nw":  "3u0gDi2sz6",
+                          "n":  "kzXKuxwjS0",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35430,7 +36383,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "JdneZVaMk4",
+                          "guid":  "3u0gDi2sz6",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "4hiIWJy7qv",
+                          "itemName":  "Respect",
+                          "itemNameJa":  "リスペクト",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_048",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "kzXKuxwjS0",
                           "cost":  {
                                        "c":  5
                                    },
@@ -35438,14 +36408,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "joq2zmumHE",
-                          "n":  "8ymMOQauF0",
-                          "ne":  "J_cdOWolr4",
+                          "nw":  "HIkTFwRUeR",
+                          "n":  "eI6nHAjekZ",
+                          "ne":  "pr5O5iaG_S",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "J_cdOWolr4",
+                          "guid":  "HIkTFwRUeR",
+                          "cost":  {
+                                       "c":  26
+                                   },
+                          "itemGuid":  "mK47aJa3Uy",
+                          "itemName":  "Respectful Pianist Hair",
+                          "itemNameJa":  "敬意を表す楽師 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_050",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "eI6nHAjekZ",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "TbSbFkTkre",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "11DYNXGzsK",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "pr5O5iaG_S",
                           "cost":  {
                                        "c":  3
                                    },
@@ -35457,25 +36463,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "8ymMOQauF0",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "TbSbFkTkre",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "ce7cpPBxcW",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ce7cpPBxcW",
+                          "guid":  "11DYNXGzsK",
                           "cost":  {
                                        "h":  3
                                    },
@@ -35483,8 +36476,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Respect",
                           "itemNameJa":  "リスペクト",
                           "itemType":  "Emote",
-                          "nw":  "Y3TVH8uZQ1",
-                          "n":  "lK1Lkbn25c",
+                          "nw":  "8yMUqczOK9",
+                          "n":  "4SmhNiPE7-",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35492,52 +36485,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "lK1Lkbn25c",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "PlN5rXjRFt",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "QKwcBtLjVA",
-                          "n":  "4arGPbML1O",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "4arGPbML1O",
-                          "cost":  {
-                                       "c":  48
-                                   },
-                          "itemGuid":  "Wr27LIf-FU",
-                          "itemName":  "Respectful Pianist Mask",
-                          "itemNameJa":  "敬意を表す楽師　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_025"
-                      },
-                      {
-                          "guid":  "QKwcBtLjVA",
-                          "cost":  {
-                                       "c":  75
-                                   },
-                          "itemGuid":  "M1MCfh7sVo",
-                          "itemName":  "Winter Piano",
-                          "itemNameJa":  "冬のピアノ",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Y3TVH8uZQ1",
+                          "guid":  "8yMUqczOK9",
                           "cost":  {
                                        "h":  6
                                    },
@@ -35554,40 +36502,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "joq2zmumHE",
+                          "guid":  "4SmhNiPE7-",
                           "cost":  {
-                                       "c":  26
+                                       "c":  5
                                    },
-                          "itemGuid":  "mK47aJa3Uy",
-                          "itemName":  "Respectful Pianist Hair",
-                          "itemNameJa":  "敬意を表す楽師 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "PlN5rXjRFt",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "bmwwsql0PK",
+                          "n":  "QlVf8VoaUZ",
                           "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_050"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Z5Ux8L2VWb",
+                          "guid":  "bmwwsql0PK",
                           "cost":  {
-                                       "h":  4
+                                       "c":  75
                                    },
-                          "itemGuid":  "4hiIWJy7qv",
-                          "itemName":  "Respect",
-                          "itemNameJa":  "リスペクト",
-                          "itemType":  "Emote",
+                          "itemGuid":  "M1MCfh7sVo",
+                          "itemName":  "Winter Piano",
+                          "itemNameJa":  "冬のピアノ",
+                          "itemType":  "Held",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_048",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "QlVf8VoaUZ",
+                          "cost":  {
+                                       "c":  48
+                                   },
+                          "itemGuid":  "Wr27LIf-FU",
+                          "itemName":  "Respectful Pianist Mask",
+                          "itemNameJa":  "敬意を表す楽師　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_025",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "敬意を表す楽師",
-        "rootNodeGuid":  "LcfK6L-cii"
+                  ]
     },
     {
         "guid":  "CH6e-TQz6n",
@@ -35597,15 +36562,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Vault Rest",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/27/Rhythm-Spirit-Thoughtful-Director.png",
-        "treeGuid":  "GLaxu7pDA1",
+        "treeGuid":  "EltaZpoT0y",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-07-03",
-        "revisitName":  "Special Visit #3",
+        "revisitDate":  "2024-06-20",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  11,
+        "nameJa":  "思慮深き座長",
+        "rootNodeGuid":  "PwCM3AMCC5",
         "nodes":  [
                       {
-                          "guid":  "2BnbI8iGU9",
+                          "guid":  "PwCM3AMCC5",
                           "cost":  {
 
                                    },
@@ -35613,8 +36580,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Thinking",
                           "itemNameJa":  "考え中",
                           "itemType":  "Emote",
-                          "nw":  "qCVp6GCF5I",
-                          "n":  "DnISBxmDe7",
+                          "nw":  "BXa_0_25XA",
+                          "n":  "JyyQ2vfW7F",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35622,7 +36589,24 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "DnISBxmDe7",
+                          "guid":  "BXa_0_25XA",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "zPUl7UL87P",
+                          "itemName":  "Thinking",
+                          "itemNameJa":  "考え中",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_064",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "JyyQ2vfW7F",
                           "cost":  {
                                        "c":  5
                                    },
@@ -35630,14 +36614,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "fUKkqgT_5y",
-                          "n":  "_hzcAtdonR",
-                          "ne":  "3MYTn10E3S",
+                          "nw":  "_dsWEF4Fsy",
+                          "n":  "15QBkuXT6b",
+                          "ne":  "KB8NgCsN0d",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "3MYTn10E3S",
+                          "guid":  "_dsWEF4Fsy",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "qlaJxxLwAM",
+                          "itemName":  "Thoughtful Director Mask",
+                          "itemNameJa":  "思慮深き座長　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_024",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "15QBkuXT6b",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "TmI0zjdYQb",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "36OZNYIByu",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "KB8NgCsN0d",
                           "cost":  {
                                        "c":  3
                                    },
@@ -35649,25 +36669,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "_hzcAtdonR",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "TmI0zjdYQb",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "rYMbLZm8KQ",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "rYMbLZm8KQ",
+                          "guid":  "36OZNYIByu",
                           "cost":  {
                                        "h":  3
                                    },
@@ -35675,8 +36682,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Thinking",
                           "itemNameJa":  "考え中",
                           "itemType":  "Emote",
-                          "nw":  "SUMhxkauzE",
-                          "n":  "iBRvOP-wRU",
+                          "nw":  "uTu5utT8bU",
+                          "n":  "10pIc5IBNb",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -35684,52 +36691,7 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "iBRvOP-wRU",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "qyOm1SIyJp",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "4rbPmDDo4b",
-                          "n":  "VjdeQ0OFgu",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "VjdeQ0OFgu",
-                          "cost":  {
-                                       "c":  75
-                                   },
-                          "itemGuid":  "Bm0aFDGHk2",
-                          "itemName":  "Thoughtful Director Cape",
-                          "itemNameJa":  "思慮深き座長 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_033"
-                      },
-                      {
-                          "guid":  "4rbPmDDo4b",
-                          "cost":  {
-                                       "c":  65
-                                   },
-                          "itemGuid":  "DVcrj6XSgH",
-                          "itemName":  "Xylophone",
-                          "itemNameJa":  "シロフォン",
-                          "itemType":  "Held",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "SUMhxkauzE",
+                          "guid":  "uTu5utT8bU",
                           "cost":  {
                                        "h":  6
                                    },
@@ -35746,40 +36708,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "fUKkqgT_5y",
+                          "guid":  "10pIc5IBNb",
                           "cost":  {
-                                       "c":  42
+                                       "c":  5
                                    },
-                          "itemGuid":  "qlaJxxLwAM",
-                          "itemName":  "Thoughtful Director Mask",
-                          "itemNameJa":  "思慮深き座長　マスク",
-                          "itemType":  "Mask",
-                          "nw":  null,
-                          "n":  null,
+                          "itemGuid":  "qyOm1SIyJp",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "cgLI6BIxdQ",
+                          "n":  "UfFRAz-1_L",
                           "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_024"
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "qCVp6GCF5I",
+                          "guid":  "cgLI6BIxdQ",
                           "cost":  {
-                                       "h":  4
+                                       "c":  65
                                    },
-                          "itemGuid":  "zPUl7UL87P",
-                          "itemName":  "Thinking",
-                          "itemNameJa":  "考え中",
-                          "itemType":  "Emote",
+                          "itemGuid":  "DVcrj6XSgH",
+                          "itemName":  "Xylophone",
+                          "itemNameJa":  "シロフォン",
+                          "itemType":  "Held",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_064",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "UfFRAz-1_L",
+                          "cost":  {
+                                       "c":  75
+                                   },
+                          "itemGuid":  "Bm0aFDGHk2",
+                          "itemName":  "Thoughtful Director Cape",
+                          "itemNameJa":  "思慮深き座長 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_033",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "思慮深き座長",
-        "rootNodeGuid":  "2BnbI8iGU9"
+                  ]
     },
     {
         "guid":  "0IoADuWn1P",
@@ -36033,15 +37012,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  1,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/4/43/Sanctuary-Spirit-Jelly-Whisperer.png",
-        "treeGuid":  "GVghUxleba",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "VutDMWpP2c",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-04-09",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  9,
+        "nameJa":  "海月の語り部",
+        "rootNodeGuid":  "w7CRsUfPxg",
         "nodes":  [
                       {
-                          "guid":  "Rl_priwPb9",
+                          "guid":  "w7CRsUfPxg",
                           "cost":  {
 
                                    },
@@ -36050,75 +37031,119 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "クラゲの鳴き声",
                           "itemType":  "Call",
                           "nw":  null,
-                          "n":  "r6j4jVZSS1",
+                          "n":  "ylcnO8nEUr",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "r6j4jVZSS1",
+                          "guid":  "ylcnO8nEUr",
                           "cost":  {
-                                       "sc":  6
+                                       "c":  5
+                                   },
+                          "itemGuid":  "D4-m11eQ83",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "0ucPMSo54Y",
+                          "n":  "rpNoZxrOs3",
+                          "ne":  "AlLOm1fL57",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0ucPMSo54Y",
+                          "cost":  {
+                                       "c":  15
                                    },
                           "itemGuid":  "jx_1R13Z_n",
                           "itemName":  "Uneven Rhythms",
                           "itemNameJa":  "不揃いなリズム",
                           "itemType":  "Music",
-                          "nw":  "Y_a-4vRhCl",
-                          "n":  "VaBe3lclCx",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "VaBe3lclCx",
+                          "guid":  "rpNoZxrOs3",
                           "cost":  {
-                                       "sc":  8
+                                       "ac":  2
                                    },
-                          "itemGuid":  "hC1gh9FWhv",
-                          "itemName":  "Jelly Whisperer Hair",
-                          "itemNameJa":  "海月の語り部 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "28YxnIxGA6",
-                          "n":  "BBDM7k1IXK",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_059"
-                      },
-                      {
-                          "guid":  "BBDM7k1IXK",
-                          "cost":  {
-                                       "sc":  10
-                                   },
-                          "itemGuid":  "uCJ1f-PYRD",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "y5UDMLiaT8",
-                          "n":  "ew2wtKzmQf",
+                          "itemGuid":  "_JrDD-30_-",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "is-ztCVSVo",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "ew2wtKzmQf",
+                          "guid":  "AlLOm1fL57",
                           "cost":  {
-                                       "sc":  3
+                                       "c":  3
                                    },
-                          "itemGuid":  "Bje_pivCRi",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
+                          "itemGuid":  "Pl-VskaTkm",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "y5UDMLiaT8",
+                          "guid":  "is-ztCVSVo",
                           "cost":  {
-
+                                       "c":  5
+                                   },
+                          "itemGuid":  "RO94m-cztD",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "pn2hocAEXd",
+                          "n":  "D1rfJYLnQI",
+                          "ne":  "AB4IoSxY9r",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "pn2hocAEXd",
+                          "cost":  {
+                                       "h":  15
+                                   },
+                          "itemGuid":  "Qx7W5fQows",
+                          "itemName":  "Jelly Whisperer Prop",
+                          "itemNameJa":  "海月の語り部 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_042",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "D1rfJYLnQI",
+                          "cost":  {
+                                       "c":  65
                                    },
                           "itemGuid":  "6PJ8TATvNk",
                           "itemName":  "Jelly Whisperer Outfit",
@@ -36128,41 +37153,28 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_073"
+                          "itemCostId":  "outfit_073",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "28YxnIxGA6",
+                          "guid":  "AB4IoSxY9r",
                           "cost":  {
-
+                                       "c":  42
                                    },
-                          "itemGuid":  "RO94m-cztD",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "hC1gh9FWhv",
+                          "itemName":  "Jelly Whisperer Hair",
+                          "itemNameJa":  "海月の語り部 ヘアスタイル",
+                          "itemType":  "Hair",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Y_a-4vRhCl",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "D4-m11eQ83",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_059",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "海月の語り部",
-        "rootNodeGuid":  "Rl_priwPb9"
+                  ]
     },
     {
         "guid":  "MEw6did3kI",
@@ -36172,15 +37184,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  2,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/5/51/Sanctuary-Spirit-Timid-Bookworm.png",
-        "treeGuid":  "rMbkkmBZQM",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "c2qId2Ec6U",
+        "treeSource":  "revisit",
+        "revisitDate":  "2024-05-09",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  8,
+        "nameJa":  "引っ込み思案な読書家",
+        "rootNodeGuid":  "nG_CWxU4mH",
         "nodes":  [
                       {
-                          "guid":  "B4rizR4xxx",
+                          "guid":  "nG_CWxU4mH",
                           "cost":  {
 
                                    },
@@ -36188,106 +37202,18 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Timid Stance",
                           "itemNameJa":  "内気なポーズ",
                           "itemType":  "Stance",
-                          "nw":  null,
-                          "n":  "-kNd0tZZEb",
+                          "nw":  "-fRKP0Vh6e",
+                          "n":  "yPxomYINqm",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "-kNd0tZZEb",
+                          "guid":  "-fRKP0Vh6e",
                           "cost":  {
-                                       "sc":  8
-                                   },
-                          "itemGuid":  "YIR2Pbzuc0",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "V2lwIVUh2K",
-                          "n":  "ea4PQV0AZy",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "ea4PQV0AZy",
-                          "cost":  {
-                                       "sc":  10
-                                   },
-                          "itemGuid":  "e6JjMLgK2V",
-                          "itemName":  "Timid Bookworm Hair",
-                          "itemNameJa":  "引っ込み思案な読書家 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  "9YQ3ExPKXJ",
-                          "n":  "zNHmTcxb7W",
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_060"
-                      },
-                      {
-                          "guid":  "zNHmTcxb7W",
-                          "cost":  {
-                                       "sc":  12
-                                   },
-                          "itemGuid":  "stOcCU864q",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "caCds0hXqF",
-                          "n":  "9BJR9ASbYZ",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "9BJR9ASbYZ",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "SiVbCUdTSq",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "caCds0hXqF",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "NrFOa0B40l",
-                          "itemName":  "Timid Bookworm Cape",
-                          "itemNameJa":  "引っ込み思案な読書家 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_038"
-                      },
-                      {
-                          "guid":  "9YQ3ExPKXJ",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "7CJwk5hiQ8",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "V2lwIVUh2K",
-                          "cost":  {
-
+                                       "c":  15
                                    },
                           "itemGuid":  "tCq4FrOkVn",
                           "itemName":  "Back and Forth",
@@ -36297,11 +37223,113 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "yPxomYINqm",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "YIR2Pbzuc0",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "2agDKhYYbh",
+                          "n":  "atJ_y3vF0j",
+                          "ne":  "ib5vcYVd-g",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "2agDKhYYbh",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "e6JjMLgK2V",
+                          "itemName":  "Timid Bookworm Hair",
+                          "itemNameJa":  "引っ込み思案な読書家 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_060",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "atJ_y3vF0j",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "a6L-y-8lK3",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "89qp0fH4mZ",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "ib5vcYVd-g",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "0b8zAK9Oxq",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "89qp0fH4mZ",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "7CJwk5hiQ8",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "MOZ9r4MHCC",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "MOZ9r4MHCC",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "NrFOa0B40l",
+                          "itemName":  "Timid Bookworm Cape",
+                          "itemNameJa":  "引っ込み思案な読書家 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_038",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "引っ込み思案な読書家",
-        "rootNodeGuid":  "B4rizR4xxx"
+                  ]
     },
     {
         "guid":  "IDEim-HNOZ",
@@ -36311,15 +37339,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  3,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/c0/Sanctuary-Spirit-Rallying-Thrillseeker.png",
-        "treeGuid":  "MLnvMI_SQf",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "wqnGcrwZiT",
+        "treeSource":  "revisit",
+        "revisitDate":  "2025-03-27",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  10,
+        "nameJa":  "奮い立つ怖いもの知らず",
+        "rootNodeGuid":  "ExFZpa76mA",
         "nodes":  [
                       {
-                          "guid":  "VoHSiNLHP4",
+                          "guid":  "ExFZpa76mA",
                           "cost":  {
 
                                    },
@@ -36327,8 +37357,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Rally Cheer",
                           "itemNameJa":  "ガッツ！",
                           "itemType":  "Emote",
-                          "nw":  "iE01sLQJxw",
-                          "n":  "0d3IGPTtMp",
+                          "nw":  "vLx8cTSnIh",
+                          "n":  "woM2sg7GG_",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -36336,31 +37366,101 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "0d3IGPTtMp",
+                          "guid":  "vLx8cTSnIh",
                           "cost":  {
-                                       "sc":  10
+                                       "h":  4
+                                   },
+                          "itemGuid":  "Q3SUBd3Vbl",
+                          "itemName":  "Rally Cheer",
+                          "itemNameJa":  "ガッツ！",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_043",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "woM2sg7GG_",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "NjfPHc_tyD",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "B3XlUJEtgX",
+                          "n":  "bcDBR3DgPh",
+                          "ne":  "GXxCo0FXmB",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "B3XlUJEtgX",
+                          "cost":  {
+                                       "c":  42
                                    },
                           "itemGuid":  "DH-qXh6CMZ",
                           "itemName":  "Rallying Thrillseeker Hair",
                           "itemNameJa":  "奮い立つ怖いもの知らず ヘアスタイル",
                           "itemType":  "Hair",
-                          "nw":  "I3Txbbp1fr",
-                          "n":  "ymMjSROJlw",
+                          "nw":  null,
+                          "n":  null,
                           "ne":  null,
                           "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_061"
+                          "itemCostId":  "hairstyle_061",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "ymMjSROJlw",
+                          "guid":  "bcDBR3DgPh",
                           "cost":  {
-                                       "sc":  12
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "HDo85V94ad",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "DhrE8eUVPZ",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "GXxCo0FXmB",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "r11vWsf1hQ",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "DhrE8eUVPZ",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "buDIh3u4OX",
                           "itemName":  "Rally Cheer",
                           "itemNameJa":  "ガッツ！",
                           "itemType":  "Emote",
-                          "nw":  "F2pCHs-8EX",
-                          "n":  "c_2VyPXxl3",
+                          "nw":  "FTTTmVTU_d",
+                          "n":  "JkUTrNTHw0",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -36368,54 +37468,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "c_2VyPXxl3",
+                          "guid":  "FTTTmVTU_d",
                           "cost":  {
-                                       "sc":  14
-                                   },
-                          "itemGuid":  "5-gKx3HDnl",
-                          "itemName":  "Rallying Thrillseeker Outfit",
-                          "itemNameJa":  "奮い立つ怖いもの知らず　服",
-                          "itemType":  "OutfitShoes",
-                          "nw":  "8K_KvvxtLa",
-                          "n":  "k56HdDzQmI",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_074"
-                      },
-                      {
-                          "guid":  "k56HdDzQmI",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "XtmoI3itkH",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "8K_KvvxtLa",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "54b2G8bBMD",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "F2pCHs-8EX",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "bPWMijGpDI",
                           "itemName":  "Rally Cheer",
@@ -36430,40 +37485,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "I3Txbbp1fr",
+                          "guid":  "JkUTrNTHw0",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "NjfPHc_tyD",
+                          "itemGuid":  "54b2G8bBMD",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "iE01sLQJxw",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Q3SUBd3Vbl",
-                          "itemName":  "Rally Cheer",
-                          "itemNameJa":  "ガッツ！",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "ZP07tTuPUN",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_043",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "ZP07tTuPUN",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "5-gKx3HDnl",
+                          "itemName":  "Rallying Thrillseeker Outfit",
+                          "itemNameJa":  "奮い立つ怖いもの知らず　服",
+                          "itemType":  "OutfitShoes",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_074",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "奮い立つ怖いもの知らず",
-        "rootNodeGuid":  "VoHSiNLHP4"
+                  ]
     },
     {
         "guid":  "z4xqXUkx_6",
@@ -36473,15 +37528,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  4,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/2/26/Sanctuary-Spirit-Hiking-Grouch.png",
-        "treeGuid":  "9em8s0MS9A",
+        "treeGuid":  "BZx-rUl2r1",
         "treeSource":  "revisit",
-        "revisitDate":  "2023-08-07",
-        "revisitName":  "Special Visit #4",
+        "revisitDate":  "2026-03-12",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
         "nodeCount":  12,
+        "nameJa":  "ハイキングする気むずかし屋",
+        "rootNodeGuid":  "Sg65i5nrDJ",
         "nodes":  [
                       {
-                          "guid":  "2kNPgPfrtO",
+                          "guid":  "Sg65i5nrDJ",
                           "cost":  {
 
                                    },
@@ -36489,16 +37546,50 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Grumpy",
                           "itemNameJa":  "ふきげん",
                           "itemType":  "Emote",
-                          "nw":  "MoC-4dQ-DU",
-                          "n":  "dl52WiuX1P",
-                          "ne":  "QXfBXn8Br4",
+                          "nw":  "H1Q0xrcVSX",
+                          "n":  "UmfTNUXE4y",
+                          "ne":  "0K7LwlyXTd",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_028",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "QXfBXn8Br4",
+                          "guid":  "H1Q0xrcVSX",
+                          "cost":  {
+                                       "h":  4
+                                   },
+                          "itemGuid":  "91x-6KiNlb",
+                          "itemName":  "Grumpy",
+                          "itemNameJa":  "ふきげん",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_028",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "UmfTNUXE4y",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "7C6gIvwkZa",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  "-zbKf6KGvG",
+                          "n":  "V1Xak-pVuI",
+                          "ne":  "pPeMq0bTu2",
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "0K7LwlyXTd",
                           "cost":  {
                                        "h":  16
                                    },
@@ -36510,25 +37601,46 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "large_placeable",
-                          "itemCostId":  "large_placeable_045"
+                          "itemCostId":  "large_placeable_045",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "dl52WiuX1P",
+                          "guid":  "-zbKf6KGvG",
                           "cost":  {
-                                       "c":  5
+                                       "c":  34
                                    },
-                          "itemGuid":  "7C6gIvwkZa",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "Yn5_fEhdVo",
-                          "n":  "B03j6HALPB",
-                          "ne":  "10kWRocvyC",
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemGuid":  "GgNJdLqzxy",
+                          "itemName":  "Hiking Grouch Mask",
+                          "itemNameJa":  "ハイキングする気むずかし屋　マスク",
+                          "itemType":  "Mask",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "mask",
+                          "itemCostId":  "mask_030",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "10kWRocvyC",
+                          "guid":  "V1Xak-pVuI",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "_HEZdAIAU1",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "CwLrwe0e6e",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "pPeMq0bTu2",
                           "cost":  {
                                        "c":  3
                                    },
@@ -36540,25 +37652,12 @@ const SPIRIT_TREE_DATA = [
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "B03j6HALPB",
-                          "cost":  {
-                                       "ac":  2
-                                   },
-                          "itemGuid":  "_HEZdAIAU1",
-                          "itemName":  "Wing Buff",
-                          "itemNameJa":  "羽ロック",
-                          "itemType":  "WingBuff",
-                          "nw":  null,
-                          "n":  "bysR562FBH",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "bysR562FBH",
+                          "guid":  "CwLrwe0e6e",
                           "cost":  {
                                        "h":  3
                                    },
@@ -36566,61 +37665,16 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Grumpy",
                           "itemNameJa":  "ふきげん",
                           "itemType":  "Emote",
-                          "nw":  "XavyKLyQ3f",
-                          "n":  "iHlsffUVPM",
-                          "ne":  "blZ-1PxIRQ",
+                          "nw":  "TMoETRbxaB",
+                          "n":  "Fr7cctA-hb",
+                          "ne":  "w4z0dKSoSu",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_028",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "blZ-1PxIRQ",
-                          "cost":  {
-                                       "c":  42
-                                   },
-                          "itemGuid":  "hGLEh1ula3",
-                          "itemName":  "Hiking Grouch Hair",
-                          "itemNameJa":  "ハイキングする気むずかし屋 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_062"
-                      },
-                      {
-                          "guid":  "iHlsffUVPM",
-                          "cost":  {
-                                       "c":  5
-                                   },
-                          "itemGuid":  "WbAIZr5KdV",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  "owv454TomN",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "owv454TomN",
-                          "cost":  {
-                                       "c":  50
-                                   },
-                          "itemGuid":  "_5IHtakDvf",
-                          "itemName":  "Hiking Grouch Bowtie",
-                          "itemNameJa":  "ハイキングする気むずかし屋　ネックレス",
-                          "itemType":  "Necklace",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "necklace",
-                          "itemCostId":  "necklace_030"
-                      },
-                      {
-                          "guid":  "XavyKLyQ3f",
+                          "guid":  "TMoETRbxaB",
                           "cost":  {
                                        "h":  6
                                    },
@@ -36637,40 +37691,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "Yn5_fEhdVo",
+                          "guid":  "Fr7cctA-hb",
                           "cost":  {
-                                       "c":  34
+                                       "c":  5
                                    },
-                          "itemGuid":  "GgNJdLqzxy",
-                          "itemName":  "Hiking Grouch Mask",
-                          "itemNameJa":  "ハイキングする気むずかし屋　マスク",
-                          "itemType":  "Mask",
+                          "itemGuid":  "WbAIZr5KdV",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "mask",
-                          "itemCostId":  "mask_030"
-                      },
-                      {
-                          "guid":  "MoC-4dQ-DU",
-                          "cost":  {
-                                       "h":  4
-                                   },
-                          "itemGuid":  "91x-6KiNlb",
-                          "itemName":  "Grumpy",
-                          "itemNameJa":  "ふきげん",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "isg74muNLz",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_028",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "w4z0dKSoSu",
+                          "cost":  {
+                                       "c":  42
+                                   },
+                          "itemGuid":  "hGLEh1ula3",
+                          "itemName":  "Hiking Grouch Hair",
+                          "itemNameJa":  "ハイキングする気むずかし屋 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_062",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "isg74muNLz",
+                          "cost":  {
+                                       "c":  50
+                                   },
+                          "itemGuid":  "_5IHtakDvf",
+                          "itemName":  "Hiking Grouch Bowtie",
+                          "itemNameJa":  "ハイキングする気むずかし屋　ネックレス",
+                          "itemType":  "Necklace",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "necklace",
+                          "itemCostId":  "necklace_030",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "ハイキングする気むずかし屋",
-        "rootNodeGuid":  "2kNPgPfrtO"
+                  ]
     },
     {
         "guid":  "uxtR1vVL8c",
@@ -36680,15 +37751,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  5,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/f/fa/Sanctuary-Spirit-Grateful-Shell-Collector.png",
-        "treeGuid":  "a0T7_evTz6",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "sO_TVa87e9",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-02-12",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  11,
+        "nameJa":  "感謝する貝殻収集家",
+        "rootNodeGuid":  "fWYVClvfQJ",
         "nodes":  [
                       {
-                          "guid":  "1fmBVbUjab",
+                          "guid":  "fWYVClvfQJ",
                           "cost":  {
 
                                    },
@@ -36696,40 +37769,127 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Grateful",
                           "itemNameJa":  "感謝",
                           "itemType":  "Emote",
-                          "nw":  "XXcgBGqhz0",
-                          "n":  "3vh-auI7g-",
-                          "ne":  null,
+                          "nw":  "WcqFuI4UtI",
+                          "n":  "IkPJ2yN3MR",
+                          "ne":  "AbmXrG_gOu",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_016",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "3vh-auI7g-",
+                          "guid":  "WcqFuI4UtI",
                           "cost":  {
-                                       "sc":  14
+                                       "h":  4
+                                   },
+                          "itemGuid":  "IDDSw982ER",
+                          "itemName":  "Grateful",
+                          "itemNameJa":  "感謝",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_016",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "IkPJ2yN3MR",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "Tjzcojypzb",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "D9nryq-CZg",
-                          "n":  "Y9yWtvkiS3",
-                          "ne":  null,
+                          "nw":  "jeGzB0NQYB",
+                          "n":  "VkM1P9nrE2",
+                          "ne":  "gqQtB4knn-",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "Y9yWtvkiS3",
+                          "guid":  "AbmXrG_gOu",
                           "cost":  {
-                                       "sc":  16
+                                       "c":  45
+                                   },
+                          "itemGuid":  "HiXJr_6Tz-",
+                          "itemName":  "Grateful Shell Collector Prop",
+                          "itemNameJa":  "感謝する貝殻収集家 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_044",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "jeGzB0NQYB",
+                          "cost":  {
+                                       "c":  34
+                                   },
+                          "itemGuid":  "yiZSilInIg",
+                          "itemName":  "Grateful Shell Collector Hair",
+                          "itemNameJa":  "感謝する貝殻収集家 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_063",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "VkM1P9nrE2",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "A2K4NAA5tg",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "A9lrMyr-wh",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "gqQtB4knn-",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "U6jwP1QUVY",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "A9lrMyr-wh",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "xl7jZqLFwD",
                           "itemName":  "Grateful",
                           "itemNameJa":  "感謝",
                           "itemType":  "Emote",
-                          "nw":  "gKoDC3AvPQ",
-                          "n":  "kEwqDUb1Vd",
+                          "nw":  "E9sWzuuEHB",
+                          "n":  "lCwcpxbggO",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -36737,54 +37897,9 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "kEwqDUb1Vd",
+                          "guid":  "E9sWzuuEHB",
                           "cost":  {
-                                       "sc":  18
-                                   },
-                          "itemGuid":  "ygwSSn-NvK",
-                          "itemName":  "Grateful Shell Collector Cape",
-                          "itemNameJa":  "感謝する貝殻収集家 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "CybUnlGU8O",
-                          "n":  "FeSkgNKRCn",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_040"
-                      },
-                      {
-                          "guid":  "FeSkgNKRCn",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "zoNL9CUK9Y",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "CybUnlGU8O",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Hvo9QMJcsx",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "gKoDC3AvPQ",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "B66Wbe_vYk",
                           "itemName":  "Grateful",
@@ -36799,40 +37914,40 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "D9nryq-CZg",
+                          "guid":  "lCwcpxbggO",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "yiZSilInIg",
-                          "itemName":  "Grateful Shell Collector Hair",
-                          "itemNameJa":  "感謝する貝殻収集家 ヘアスタイル",
-                          "itemType":  "Hair",
+                          "itemGuid":  "Hvo9QMJcsx",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_063"
-                      },
-                      {
-                          "guid":  "XXcgBGqhz0",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "IDDSw982ER",
-                          "itemName":  "Grateful",
-                          "itemNameJa":  "感謝",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "cg1GvjBvdl",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_016",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "cg1GvjBvdl",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "ygwSSn-NvK",
+                          "itemName":  "Grateful Shell Collector Cape",
+                          "itemNameJa":  "感謝する貝殻収集家 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_040",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "感謝する貝殻収集家",
-        "rootNodeGuid":  "1fmBVbUjab"
+                  ]
     },
     {
         "guid":  "8N9cC4SvzM",
@@ -36842,15 +37957,17 @@ const SPIRIT_TREE_DATA = [
         "seasonOrderIndex":  6,
         "area":  "Sanctuary Islands",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/d/d5/Sanctuary-Spirit-Chill-Sunbather.png",
-        "treeGuid":  "MwCPwxfL0B",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeGuid":  "C6a4gM-MjO",
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-05-07",
+        "revisitName":  "Traveling Spirit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  12,
+        "nameJa":  "くつろぐ日光浴者",
+        "rootNodeGuid":  "Y-lPSb9nuG",
         "nodes":  [
                       {
-                          "guid":  "-_0EoMUmXu",
+                          "guid":  "Y-lPSb9nuG",
                           "cost":  {
 
                                    },
@@ -36858,125 +37975,137 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Belly Scratch",
                           "itemNameJa":  "腹つづみ",
                           "itemType":  "Emote",
-                          "nw":  "0olNGbgemb",
-                          "n":  "qLg7hG9y5k",
-                          "ne":  null,
+                          "nw":  "v8ACOOP7Ec",
+                          "n":  "9I7agNVhWa",
+                          "ne":  "E_6c88cfvh",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_017",
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "qLg7hG9y5k",
+                          "guid":  "v8ACOOP7Ec",
                           "cost":  {
-                                       "sc":  16
+                                       "h":  4
+                                   },
+                          "itemGuid":  "LZqy5g4Xpa",
+                          "itemName":  "Belly Scratch",
+                          "itemNameJa":  "腹つづみ",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_017",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "9I7agNVhWa",
+                          "cost":  {
+                                       "c":  5
                                    },
                           "itemGuid":  "xalu7x_Hr5",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "FMEN0Xsvlj",
-                          "n":  "muL22Ypc75",
-                          "ne":  null,
+                          "nw":  "suveFnvVaO",
+                          "n":  "86qhPnay3O",
+                          "ne":  "bprqZ-HGOo",
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       },
                       {
-                          "guid":  "muL22Ypc75",
+                          "guid":  "E_6c88cfvh",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  20
+                                   },
+                          "itemGuid":  "Khjtno2EBW",
+                          "itemName":  "Chill Sunbather Prop",
+                          "itemNameJa":  "くつろぐ日光浴者 設置アイテム",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "large_placeable",
+                          "itemCostId":  "large_placeable_043",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "suveFnvVaO",
+                          "cost":  {
+                                       "c":  66
+                                   },
+                          "itemGuid":  "yHf5YnLXUu",
+                          "itemName":  "Chill Sunbather Sunglasses",
+                          "itemNameJa":  "くつろぐ日光浴者　フェイスアクセサリー",
+                          "itemType":  "FaceAccessory",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "face_accessory",
+                          "itemCostId":  "face_accessory_013",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "86qhPnay3O",
+                          "cost":  {
+                                       "ac":  2
+                                   },
+                          "itemGuid":  "sQAARdQy_7",
+                          "itemName":  "Wing Buff",
+                          "itemNameJa":  "羽ロック",
+                          "itemType":  "WingBuff",
+                          "nw":  null,
+                          "n":  "979YNzfAZo",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "bprqZ-HGOo",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "At5bBzh31u",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "979YNzfAZo",
+                          "cost":  {
+                                       "h":  3
                                    },
                           "itemGuid":  "phajnn85-p",
                           "itemName":  "Belly Scratch",
                           "itemNameJa":  "腹つづみ",
                           "itemType":  "Emote",
-                          "nw":  "Ns6OdVzpQc",
-                          "n":  "hrZ9iranN2",
-                          "ne":  null,
+                          "nw":  "O0gA2ixVHt",
+                          "n":  "HyiUNDkHOn",
+                          "ne":  "UwB5t49XfP",
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_017",
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "hrZ9iranN2",
+                          "guid":  "O0gA2ixVHt",
                           "cost":  {
-                                       "sc":  20
-                                   },
-                          "itemGuid":  "V7FLu_Hn4y",
-                          "itemName":  "Chill Sunbather Hat",
-                          "itemNameJa":  "くつろぐ日光浴者 ヘアアクセサリー",
-                          "itemType":  "HairAccessory",
-                          "nw":  "3O-DpGHjxF",
-                          "n":  "QmdMYpgMje",
-                          "ne":  null,
-                          "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_001"
-                      },
-                      {
-                          "guid":  "QmdMYpgMje",
-                          "cost":  {
-                                       "sc":  22
-                                   },
-                          "itemGuid":  "QdmHwCR2Wk",
-                          "itemName":  "Chill Sunbather Cape",
-                          "itemNameJa":  "くつろぐ日光浴者 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "gp6PZw3L6n",
-                          "n":  "E1InVOtyzJ",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_041"
-                      },
-                      {
-                          "guid":  "E1InVOtyzJ",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "a2ESJzEojM",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "gp6PZw3L6n",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "3Jxn5gYmSk",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "3O-DpGHjxF",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "xgjzgnv6Zt",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Ns6OdVzpQc",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "2LKc2kVIga",
                           "itemName":  "Belly Scratch",
@@ -36991,40 +38120,57 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "FMEN0Xsvlj",
+                          "guid":  "HyiUNDkHOn",
                           "cost":  {
-
+                                       "c":  5
                                    },
-                          "itemGuid":  "yHf5YnLXUu",
-                          "itemName":  "Chill Sunbather Sunglasses",
-                          "itemNameJa":  "くつろぐ日光浴者　フェイスアクセサリー",
-                          "itemType":  "FaceAccessory",
+                          "itemGuid":  "xgjzgnv6Zt",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
                           "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "face_accessory",
-                          "itemCostId":  "face_accessory_013"
-                      },
-                      {
-                          "guid":  "0olNGbgemb",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "LZqy5g4Xpa",
-                          "itemName":  "Belly Scratch",
-                          "itemNameJa":  "腹つづみ",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
+                          "n":  "qF8qaBHQy8",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
-                          "emoteId":  "emote_017",
-                          "emoteLevel":  2
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "UwB5t49XfP",
+                          "cost":  {
+                                       "c":  44
+                                   },
+                          "itemGuid":  "V7FLu_Hn4y",
+                          "itemName":  "Chill Sunbather Hat",
+                          "itemNameJa":  "くつろぐ日光浴者 ヘアアクセサリー",
+                          "itemType":  "HairAccessory",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "hair_accessory",
+                          "itemCostId":  "hair_accessory_001",
+                          "emoteId":  null,
+                          "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "qF8qaBHQy8",
+                          "cost":  {
+                                       "c":  70
+                                   },
+                          "itemGuid":  "QdmHwCR2Wk",
+                          "itemName":  "Chill Sunbather Cape",
+                          "itemNameJa":  "くつろぐ日光浴者 ケープ",
+                          "itemType":  "Cape",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_041",
+                          "emoteId":  null,
+                          "emoteLevel":  null
                       }
-                  ],
-        "nameJa":  "くつろぐ日光浴者",
-        "rootNodeGuid":  "-_0EoMUmXu"
+                  ]
     },
     {
         "guid":  "q8g57aJV8r",
@@ -40266,8 +41412,6 @@ const SPIRIT_TREE_DATA = [
         "nameJa":  "寄り添うお友だち",
         "rootNodeGuid":  "ataTovLcTn"
     }
-]
-;
+];
 
 if (typeof window !== 'undefined') window.SPIRIT_TREE_DATA = SPIRIT_TREE_DATA;
-
