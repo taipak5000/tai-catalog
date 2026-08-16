@@ -2672,6 +2672,16 @@ function renderDetail(guid) {
   `;
 }
 
+// 他サイト（tai-revisitなど）からの「#spirit=精霊の日本語名」形式のディープリンクで、
+// 対象精霊の詳細（ツリー開放状況）を自動で開く。
+function openDetailByNameFromHash() {
+  const m = location.hash.match(/^#spirit=(.+)$/);
+  if (!m) return;
+  const nameJa = decodeURIComponent(m[1]);
+  const target = SPIRIT_TREE_DATA.find(s => s.nameJa === nameJa);
+  if (target) openDetail(target.guid);
+}
+
 /* ================================================================
    初期化
    ================================================================ */
@@ -2679,6 +2689,8 @@ pfInjectModal();
 pfRenderBar();
 initSeasonFilter();
 renderGrid();
+openDetailByNameFromHash();
+window.addEventListener('hashchange', openDetailByNameFromHash);
 </script>
 </body>
 </html>
