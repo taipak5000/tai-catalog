@@ -507,6 +507,7 @@
 </footer>
 
 <script src="spirit-tree-data.js"></script>
+<script src="spirit-yomi-data.js"></script>
 <script>
 /* ================================================================
    サイドバー開閉
@@ -2021,11 +2022,17 @@ function initSeasonFilter() {
   });
 }
 
+// 検索用にひらがなをカタカナへ正規化する（ひらがな入力でもカタカナ表記の精霊名にヒットさせるため）
+// 半角/全角・大文字/小文字はtoLowerCase側で吸収しており、ひらがな/カタカナの表記ゆれのみこちらで吸収する
+function normalizeSearchText(str) {
+  return String(str).toLowerCase().replace(/[ぁ-ゖ]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60));
+}
+
 /* ================================================================
    精霊グリッドの描画
    ================================================================ */
 function renderGrid() {
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const q = normalizeSearchText(document.getElementById('searchInput').value.trim());
   const typeF = document.getElementById('typeFilter').value;
   const seasonF = document.getElementById('seasonFilter').value;
   const progressF = document.getElementById('progressFilter').value;
@@ -2034,9 +2041,10 @@ function renderGrid() {
     if (typeF !== 'all' && s.type !== typeF) return false;
     if (seasonF !== 'all' && s.season !== seasonF) return false;
     if (q) {
-      const nameJa = (s.nameJa || '').toLowerCase();
-      const nameEn = s.name.toLowerCase();
-      if (!nameJa.includes(q) && !nameEn.includes(q)) return false;
+      const nameJa = normalizeSearchText(s.nameJa || '');
+      const nameEn = normalizeSearchText(s.name);
+      const yomi = SPIRIT_YOMI[s.nameJa] ? normalizeSearchText(SPIRIT_YOMI[s.nameJa]) : '';
+      if (!nameJa.includes(q) && !nameEn.includes(q) && !yomi.includes(q)) return false;
     }
     if (progressF !== 'all') {
       const { done, total } = spiritProgress(s);
