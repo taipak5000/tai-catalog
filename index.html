@@ -77,7 +77,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 60px;
+      background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: calc(76px + env(safe-area-inset-bottom));
     }
 
     nav {
@@ -135,6 +135,37 @@
     }
     .sidebar-nav-link:hover { background: var(--bg); }
     .sidebar-nav-link.current-tool { background: var(--green-bg); color: var(--green-d); font-weight: 700; }
+
+    /* ── サイトドック（画面下部固定のクイックアクセスバー。pengram.jp流儀。
+       既存のハンバーガーサイドバーは残したまま、その横に並ぶ補助的なショートカット行として追加。
+       サイドバーと同じ既存トークン（var(--card)/var(--sep)/var(--text-2)）を使うため、
+       ライト/ダークどちらでも既存UIと自然に馴染む。選択中タブの概念はなし（:active時のみ反応）。 ── */
+    /* nav.site-dock（要素+class）にしているのは、既存の [data-theme="dark"] nav {...}
+       （すりガラス用の固定色上書き。トップnav専用のつもりだが、bareなnav要素セレクタなので
+       このnav.site-dockにも詳細度(0,1,1)で衝突する）に、同じ詳細度・後勝ちで確実に勝つため。
+       クラスのみ(.site-dockだけ)だと詳細度(0,1,0)で負けてダークモード時の背景がトップnav用の
+       半透明黒(rgba(0,0,0,0.88))になってしまう（var(--card)の不透明な色にならない）。 */
+    nav.site-dock {
+      /* top: auto は必須。素のnav{top:0}（トップnav用のsticky指定、行84付近）が
+         プロパティ単位でカスケードするため、ここで明示的に打ち消さないと
+         position:fixed; top:0; bottom:0; のまま画面全高に引き伸ばされ、
+         中身は上部に小さく見えるだけの巨大な透明クリック領域になってしまう
+         （下層のグリッドやフィルターへのクリックを丸ごと奪ってしまう）。 */
+      display: flex; position: fixed; left: 0; right: 0; top: auto; bottom: 0; z-index: 90;
+      padding: 6px 10px calc(8px + env(safe-area-inset-bottom));
+      background: var(--card);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-top: 0.5px solid var(--sep);
+      justify-content: space-around; align-items: stretch; gap: 4px;
+    }
+    .site-dock button {
+      flex: 1 1 0; max-width: 110px; border: 0; background: none; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 6px 0; min-height: 52px; border-radius: 12px; font-family: inherit;
+    }
+    .site-dock button:active { background: var(--sep); }
+    .site-dock .site-dock-icon { font-size: 20px; line-height: 1; }
+    .site-dock .site-dock-label { font-size: 10px; font-weight: 700; color: var(--text-2); }
 
     /* ── プロフィールバー ── */
     .pf-bar {
@@ -313,7 +344,7 @@
 
     /* ── トースト通知 ─────────────────────────── */
     .toast {
-      position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%) translateY(10px);
+      position: fixed; left: 50%; bottom: calc(84px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(10px);
       background: rgba(28,28,30,0.92); color: #fff; padding: 12px 20px; border-radius: 999px;
       font-size: 13.5px; font-weight: 600; z-index: 2000; opacity: 0; transition: opacity 0.25s, transform 0.25s;
       pointer-events: none; white-space: nowrap; max-width: 90vw; text-overflow: ellipsis; overflow: hidden;
@@ -557,6 +588,26 @@
   </span>
 </footer>
 
+<!-- ▸ サイトドック（下部固定クイックメニュー。既存のハンバーガーサイドバーはそのまま残す） -->
+<nav class="site-dock" aria-label="クイックメニュー">
+  <button type="button" onclick="pfOpenModal()">
+    <span class="site-dock-icon">🗂️</span>
+    <span class="site-dock-label" data-i18n="dock.profile">プロフィール</span>
+  </button>
+  <button type="button" onclick="pfIconOpenModal()">
+    <span class="site-dock-icon">🎨</span>
+    <span class="site-dock-label" data-i18n="dock.customize">カスタマイズ</span>
+  </button>
+  <button type="button" onclick="toggleSidebar()">
+    <span class="site-dock-icon">☰</span>
+    <span class="site-dock-label" data-i18n="dock.tools">他のツール</span>
+  </button>
+  <button type="button" onclick="settingsOpenModal()">
+    <span class="site-dock-icon">⚙️</span>
+    <span class="site-dock-label" data-i18n="dock.settings">表示設定</span>
+  </button>
+</nav>
+
 <script src="spirit-tree-data.js"></script>
 <script src="spirit-yomi-data.js"></script>
 <script>
@@ -581,6 +632,14 @@ const I18N = {
     homeIcon: { ja: '📱 ホーム画面アイコン', en: '📱 Home Screen Icon' },
     customizeIcon: { ja: '🎨 アイコンを<br>カスタマイズ', en: '🎨 Customize Icon' },
     settings: { ja: '⚙️ 表示設定', en: '⚙️ Display Settings' },
+  },
+  // ── 下部固定クイックメニュー（サイトドック）。sidebar.*と同じ操作を指すが、
+  //    アイコンとラベルを別要素で表示するため絵文字を含まない短いラベル文言にしている。
+  dock: {
+    profile: { ja: 'プロフィール', en: 'Profile' },
+    customize: { ja: 'カスタマイズ', en: 'Customize' },
+    tools: { ja: '他のツール', en: 'Other Tools' },
+    settings: { ja: '表示設定', en: 'Display Settings' },
   },
   tools: {
     item: { ja: '🗂️ アイテム所持管理', en: '🗂️ Item Collection' },
