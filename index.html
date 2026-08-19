@@ -2,6 +2,20 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // 🌓 描画前にテーマを確定させ、ダークモード時に一瞬でも明るい背景が
+    // 表示されてしまう「ちらつき」を防止する（メインスタイルシートの描画より前に同期実行）。
+    // 'sky_app_theme' は taipak5000.github.io 系ツール共通のキー（companion等の既存実装と同じ判定順）。
+    (function () {
+      try {
+        var saved = localStorage.getItem('sky_app_theme');
+        var isDark = saved ? (saved === 'dark') : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/app-icon-192.png">
@@ -30,6 +44,31 @@
       --r:         16px;
       --r-sm:      10px;
     }
+
+    /* ── 🌙 ダークモード配色（:root の値を上書き。色相は変えず明度のみ調整） ── */
+    [data-theme="dark"] {
+      --bg:        #000000;
+      --card:      #1C1C1E;
+      --sep:       rgba(255,255,255,0.14);
+      --green-d:   #30D158;
+      --green-bg:  rgba(52,199,89,0.16);
+      --blue-bg:   rgba(0,122,255,0.14);
+      --orange-bg: rgba(255,149,0,0.16);
+      --text:      #F2F2F7;
+      --text-2:    #98989D;
+      --text-3:    #636366;
+    }
+    /* navの背景はvar(--bg)と別に固定色(#F2F2F7相当)をすりガラス用に直書きしているため、
+       ダークモードでは明るい半透明パネルにならないよう個別に上書きする。 */
+    [data-theme="dark"] nav { background: rgba(0,0,0,0.88); }
+    /* ツリーノードのコスト内訳チップは、白背景向けに固定の濃色テキストを直書きしているため
+       （--orange等のCSS変数を経由していない）、ダーク背景での視認性のため個別に上書きする。
+       色相はそのまま、暗い背景でも読みやすい明度に調整。 */
+    [data-theme="dark"] .cost-c,
+    [data-theme="dark"] .cost-sc { color: var(--orange); }
+    [data-theme="dark"] .cost-h,
+    [data-theme="dark"] .cost-sh { background: rgba(255,55,95,0.16); color: #FF375F; }
+    [data-theme="dark"] .cost-ec { background: rgba(191,90,242,0.16); color: #BF5AF2; }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     a { text-decoration:none; color:inherit; -webkit-tap-highlight-color:transparent; }
@@ -370,6 +409,9 @@
       <div class="sidebar-section-label" style="margin-bottom:8px;" data-i18n="sidebar.homeIcon">📱 ホーム画面アイコン</div>
       <button type="button" class="sidebar-nav-link" style="width:100%; box-sizing:border-box; border:1px solid var(--sep); background:var(--bg); cursor:pointer; justify-content:center;" onclick="pfIconOpenModal()" data-i18n="sidebar.customizeIcon">🎨 アイコンを<br>カスタマイズ</button>
     </div>
+    <div style="margin-top:10px; padding-top:12px; border-top:0.5px solid var(--sep);">
+      <button type="button" class="sidebar-nav-link" style="width:100%; box-sizing:border-box; border:1px solid var(--sep); background:var(--bg); cursor:pointer; justify-content:center;" onclick="settingsOpenModal()" data-i18n="sidebar.settings">⚙️ 表示設定</button>
+    </div>
   </aside>
 
   <div class="wrap">
@@ -538,6 +580,7 @@ const I18N = {
     relatedTools: { ja: '🔗 関連ツール', en: '🔗 Related Tools' },
     homeIcon: { ja: '📱 ホーム画面アイコン', en: '📱 Home Screen Icon' },
     customizeIcon: { ja: '🎨 アイコンを<br>カスタマイズ', en: '🎨 Customize Icon' },
+    settings: { ja: '⚙️ 表示設定', en: '⚙️ Display Settings' },
   },
   tools: {
     item: { ja: '🗂️ アイテム所持管理', en: '🗂️ Item Collection' },
@@ -635,6 +678,20 @@ const I18N = {
   },
   // ── ここから下（iconCustom / profile / currency / dashboard / realm / backup / footer）は
   //    item・wings・star-candle等と共通の「共有UI」で、既存の訳文表記をそのまま踏襲している ──
+  // settings（⚙️ 表示設定モーダル）も taipak5000.github.io 系ツール共通の新機能で、
+  // sky_app_theme / sky_shortcuts_enabled という共通localStorageキーを使う。
+  settings: {
+    modalTitle: { ja: '⚙️ 表示設定', en: '⚙️ Display Settings' },
+    displaySection: { ja: '🌙 表示', en: '🌙 Display' },
+    darkModeLabel: { ja: 'ダークモード', en: 'Dark Mode' },
+    themeBtnDark: { ja: '🌙 ダーク', en: '🌙 Dark' },
+    themeBtnLight: { ja: '☀️ ライト', en: '☀️ Light' },
+    shortcutsSection: { ja: '⌨️ キーボードショートカット', en: '⌨️ Keyboard Shortcuts' },
+    shortcutsEnableLabel: { ja: 'ショートカットを有効にする', en: 'Enable keyboard shortcuts' },
+    shortcutOpen: { ja: 'この設定を開く', en: 'Open this settings panel' },
+    shortcutTheme: { ja: 'ダークモード切替', en: 'Toggle dark mode' },
+    shortcutEscape: { ja: '開いているウィンドウを閉じる', en: 'Close the open window' },
+  },
   iconCustom: {
     modalTitle: { ja: '🎨 ホーム画面アイコンをカスタマイズ', en: '🎨 Customize Home Screen Icon' },
     instructions: { ja: 'スマホの「ホーム画面に追加」をしたときのアイコンを、好きな絵文字や画像に変更できます。<br><b>追加する前に</b>設定してください。追加した後に変更しても、既に追加済みのアイコンは自動更新されません（変更したい場合は一度削除して追加し直してください）。', en: "You can change the icon used when adding this site to your phone's home screen. Set this up before adding it — changing it afterward won't update an icon that's already been added (remove and re-add it if you want to change it later)." },
@@ -803,6 +860,7 @@ function toggleLang() {
   if (dashModal && dashModal.classList.contains('open') && pfDashCache) {
     document.getElementById('dashBody').innerHTML = pfDashBuildHtml(pfDashCache);
   }
+  settingsSyncThemeBtn(); // 設定モーダルのダーク/ライト切替ボタンの文言（data-i18n非対応のJS生成テキスト）
 }
 
 /* ================================================================
@@ -812,6 +870,126 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('sidebar-open');
   document.getElementById('sidebarOverlay').classList.toggle('show');
 }
+
+/* ================================================================
+   ⚙️ 表示設定（ダーク/ライトモード・キーボードショートカット）
+   'sky_app_theme'（'dark'|'light'）と 'sky_shortcuts_enabled'（'1'|'0'、未設定はON）は
+   taipak5000.github.io 系ツール共通のキー（sky_app_langと同様、端末単位の設定のため
+   nsKey()は使わない）。ダークモードの初期適用は<head>内の同期スクリプトで先に行っている。
+   ================================================================ */
+const THEME_KEY = 'sky_app_theme';
+const SHORTCUTS_KEY = 'sky_shortcuts_enabled';
+
+function isDarkMode() {
+  return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+function toggleTheme() {
+  const next = !isDarkMode();
+  document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+  try { localStorage.setItem(THEME_KEY, next ? 'dark' : 'light'); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+  settingsSyncThemeBtn();
+}
+function settingsSyncThemeBtn() {
+  const btn = document.getElementById('settingsThemeBtn');
+  if (btn) btn.textContent = isDarkMode() ? t('settings.themeBtnLight') : t('settings.themeBtnDark');
+}
+
+function skyShortcutsEnabled() {
+  const v = localStorage.getItem(SHORTCUTS_KEY);
+  return v === null ? true : v === '1'; // 未設定はデフォルトON
+}
+function toggleShortcutsEnabled(checked) {
+  try { localStorage.setItem(SHORTCUTS_KEY, checked ? '1' : '0'); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+}
+function settingsSyncShortcutsCheckbox() {
+  const cb = document.getElementById('settingsShortcutsCheckbox');
+  if (cb) cb.checked = skyShortcutsEnabled();
+}
+
+function settingsOpenModal() {
+  settingsSyncThemeBtn();
+  settingsSyncShortcutsCheckbox();
+  document.getElementById('settingsModalOverlay').classList.add('open');
+  if (document.getElementById('sidebar').classList.contains('sidebar-open')) toggleSidebar();
+}
+function settingsCloseModal() {
+  document.getElementById('settingsModalOverlay').classList.remove('open');
+}
+
+function settingsInjectModal() {
+  const overlay = document.createElement('div');
+  overlay.className = 'pf-modal-overlay';
+  overlay.id = 'settingsModalOverlay';
+  overlay.onclick = (e) => { if (e.target === overlay) settingsCloseModal(); };
+  overlay.innerHTML = `
+    <div class="pf-modal-card">
+      <h3 data-i18n="settings.modalTitle">${t('settings.modalTitle')}</h3>
+
+      <div class="customize-section-label" data-i18n="settings.displaySection">${t('settings.displaySection')}</div>
+      <div class="pf-currency-row">
+        <span class="pf-currency-label" data-i18n="settings.darkModeLabel">${t('settings.darkModeLabel')}</span>
+        <button type="button" class="pf-icon-btn" id="settingsThemeBtn" onclick="toggleTheme()"></button>
+      </div>
+
+      <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.shortcutsSection">${t('settings.shortcutsSection')}</div>
+      <div class="pf-currency-row">
+        <span class="pf-currency-label" data-i18n="settings.shortcutsEnableLabel">${t('settings.shortcutsEnableLabel')}</span>
+        <input type="checkbox" id="settingsShortcutsCheckbox" onchange="toggleShortcutsEnabled(this.checked)" style="width:18px; height:18px; accent-color:var(--green); cursor:pointer;">
+      </div>
+      <div class="pf-hint" style="margin-top:12px; line-height:2;">
+        <div><b style="color:var(--text);">?</b> — <span data-i18n="settings.shortcutOpen">${t('settings.shortcutOpen')}</span></div>
+        <div><b style="color:var(--text);">D</b> — <span data-i18n="settings.shortcutTheme">${t('settings.shortcutTheme')}</span></div>
+        <div><b style="color:var(--text);">Esc</b> — <span data-i18n="settings.shortcutEscape">${t('settings.shortcutEscape')}</span></div>
+      </div>
+
+      <button type="button" class="pf-close-btn" onclick="settingsCloseModal()" data-i18n="profile.closeBtn">${t('profile.closeBtn')}</button>
+    </div>`;
+  document.body.appendChild(overlay);
+  settingsSyncThemeBtn();
+  settingsSyncShortcutsCheckbox();
+}
+
+// Escapeで閉じるべき「現在開いているモーダル/パネル」を、重なり順（z-index優先）で判定して閉じる。
+// pf-modal-overlay系(z-index:1000) → 精霊詳細(800) → サイドバー(500) の順に確認する。
+function closeTopmostOpenModal() {
+  const pfOverlayClosers = {
+    settingsModalOverlay: settingsCloseModal,
+    dmModalOverlay: dmCloseModal,
+    dashModalOverlay: pfDashClose,
+    pfModalOverlay: pfCloseModal,
+    imagePreviewModal: closeImagePreviewModal,
+    customizeModal: closeCustomizeModal,
+    iconCustomModal: pfIconCloseModal,
+  };
+  for (const id in pfOverlayClosers) {
+    const el = document.getElementById(id);
+    if (el && el.classList.contains('open')) { pfOverlayClosers[id](); return; }
+  }
+  const detailOverlay = document.getElementById('detailOverlay');
+  if (detailOverlay && detailOverlay.classList.contains('open')) { closeDetail(); return; }
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && sidebar.classList.contains('sidebar-open')) { toggleSidebar(); return; }
+}
+
+// キーボードショートカット: ?（設定を開く）／D（ダークモード切替）／Esc（開いているモーダルを閉じる）。
+// Escapeはショートカットのオン/オフ設定に関わらず常に有効（モーダルの基本UXのため）。
+document.addEventListener('keydown', function (e) {
+  if (e.repeat) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const target = e.target;
+  const isTyping = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable);
+
+  if (e.key === 'Escape') {
+    closeTopmostOpenModal();
+    return;
+  }
+
+  if (isTyping) return; // 検索欄などで'?'や'd'を普通に入力できるようにする
+  if (!skyShortcutsEnabled()) return;
+
+  if (e.key === '?') { e.preventDefault(); settingsOpenModal(); return; }
+  if (e.key === 'd' || e.key === 'D') { e.preventDefault(); toggleTheme(); return; }
+});
 
 /* ================================================================
    ホーム画面アイコンのカスタマイズ
@@ -1460,7 +1638,7 @@ function pfRenderModal() {
       return `
         <div class="pf-row" style="flex-wrap: wrap;">
           <input type="text" class="pf-row-input" id="pfEditInput" value="${nameEsc}" maxlength="30"
-            onkeydown="if(event.key==='Enter') pfConfirmRenameInline('${p.id}'); if(event.key==='Escape') pfCancelRowState();">
+            onkeydown="if(event.key==='Enter') pfConfirmRenameInline('${p.id}'); if(event.key==='Escape'){ event.stopPropagation(); pfCancelRowState(); }">
           <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="pfConfirmRenameInline('${p.id}')">${t('profile.renameSaveBtn')}</button>
           <button type="button" class="pf-icon-btn" onclick="pfCancelRowState()">${t('profile.cancelBtn')}</button>
         </div>`;
@@ -3024,6 +3202,7 @@ function openDetailByNameFromHash() {
    ================================================================ */
 applyI18n();
 pfInjectModal();
+settingsInjectModal();
 pfRenderBar();
 initSeasonFilter();
 renderGrid();
