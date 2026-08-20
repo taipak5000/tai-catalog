@@ -69,6 +69,14 @@
     [data-theme="dark"] .cost-h,
     [data-theme="dark"] .cost-sh { background: rgba(255,55,95,0.16); color: #FF375F; }
     [data-theme="dark"] .cost-ec { background: rgba(191,90,242,0.16); color: #BF5AF2; }
+    /* 「Xで画像を共有」ボタンはブランドカラーの黒背景(#000)を固定で直書きしているため、
+       ダークモード（背景が純黒 var(--bg)）ではボタンが背景に溶けて見えなくなり、
+       存在に気付けなくなってしまう。ライトモードの見た目はそのまま、ダークモードのみ
+       カード背景色＋枠線を当てて境界が視認できるようにする（テキストは既存の白文字のまま）。 */
+    [data-theme="dark"] .share-btn.twitter { background: var(--card); border: 1px solid var(--sep); }
+    /* previewTwitterLink（画像保存プレビューモーダル内の「Xの投稿画面を開く」）も
+       同じ黒背景直書きのXブランドボタンで同じ問題があるため、同様に上書きする。 */
+    [data-theme="dark"] .twitter-link-btn { background: var(--card); border: 1px solid var(--sep); }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     a { text-decoration:none; color:inherit; -webkit-tap-highlight-color:transparent; }
@@ -261,6 +269,7 @@
       padding: 10px 10px; font-size: 13.5px; color: var(--text); outline: none;
     }
     .filter-stats { font-size: 12px; color: var(--text-2); padding: 10px 2px 0; }
+    .filter-remaining-cost { font-size: 12.5px; color: var(--text-2); padding: 6px 2px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 
     /* ── 統計サマリー ── */
     .stats-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
@@ -332,6 +341,14 @@
     .tree-node-icon { line-height: 1; }
     .tree-node-icon img { width: calc(28px * var(--tree-scale, 1)); height: calc(28px * var(--tree-scale, 1)); object-fit: contain; }
     .tree-node-wingtag { position: absolute; top: -6px; right: -4px; font-size: calc(13px * var(--tree-scale, 1)); }
+    /* 同じitemCostId/itemTypeを別コストで複数ノード持つ「コスト違いバリエーション」
+       （本家Skyの仕様。見た目上は同名/同アイテムのノードが複数並ぶため、名前重複の
+       データ不備と誤解されやすい）を区別するための表示専用バッジ。データは変更しない。 */
+    .tree-node-tier-badge {
+      position: absolute; top: -6px; left: -6px; font-size: calc(9px * var(--tree-scale, 1));
+      font-weight: 800; padding: 1px 5px; border-radius: 999px; line-height: 1.4;
+      background: var(--blue); color: #fff; white-space: nowrap;
+    }
     .tree-node-label {
       font-size: calc(10px * var(--tree-scale, 1)); color: var(--text); text-align: center; margin-top: 3px; line-height: 1.25;
       max-width: calc(74px * var(--tree-scale, 1)); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
@@ -366,6 +383,9 @@
     }
     .share-btn.twitter { background: #000; }
     .share-btn.customize { background: var(--green); }
+    /* previewTwitterLink（保存プレビューモーダル内の「Xの投稿画面を開く」）も
+       同じXブランドの黒背景ボタンなので、.share-btn.twitterと同じ扱いにする */
+    .twitter-link-btn { background: #000; }
 
     /* ── シェア画像カード（画面外に生成してhtml2canvasで書き出す） ─── */
     .export-card {
@@ -476,8 +496,13 @@
           <option value="complete" data-i18n="filter.progressComplete">完了済みのみ</option>
           <option value="untouched" data-i18n="filter.progressUntouched">未着手のみ</option>
         </select>
+        <select class="filter-select" id="sortFilter" onchange="renderGrid()">
+          <option value="default" data-i18n="filter.sortDefault">既定の並び順</option>
+          <option value="nearestComplete" data-i18n="filter.sortNearestComplete">達成に近い順</option>
+        </select>
       </div>
       <div class="filter-stats" id="filterStats"></div>
+      <div class="filter-remaining-cost" id="filterRemainingCost"></div>
     </div>
 
     <div class="stats-row" id="statsRow"></div>
@@ -580,7 +605,7 @@
 
     <a id="previewDownloadLink" class="pf-add-btn" style="width:100%; box-sizing:border-box; padding:10px; display:block; text-align:center; text-decoration:none; box-sizing:border-box;" href="" download="" data-i18n="preview.downloadBtn">⬇️ ダウンロード</a>
     <div id="previewTwitterRow" style="display:none; margin-top:8px;">
-      <a id="previewTwitterLink" class="pf-add-btn" style="width:100%; box-sizing:border-box; padding:10px; display:block; text-align:center; text-decoration:none; background:#000;" href="" target="_blank" rel="noopener noreferrer" data-i18n="preview.twitterBtn">📤 Xの投稿画面を開く</a>
+      <a id="previewTwitterLink" class="pf-add-btn twitter-link-btn" style="width:100%; box-sizing:border-box; padding:10px; display:block; text-align:center; text-decoration:none;" href="" target="_blank" rel="noopener noreferrer" data-i18n="preview.twitterBtn">📤 Xの投稿画面を開く</a>
     </div>
     <button type="button" class="pf-close-btn" onclick="closeImagePreviewModal()" data-i18n="profile.closeBtn">閉じる</button>
   </div>
@@ -675,6 +700,10 @@ const I18N = {
     progressComplete: { ja: '完了済みのみ', en: 'Complete Only' },
     progressUntouched: { ja: '未着手のみ', en: 'Not Started Only' },
     statsTemplate: { ja: '{filtered} / {total} 件を表示', en: 'Showing {filtered} / {total}' },
+    sortDefault: { ja: '既定の並び順', en: 'Default order' },
+    sortNearestComplete: { ja: '達成に近い順', en: 'Nearest to completion' },
+    remainingCostLabel: { ja: '残りコスト（現在の絞り込み）', en: 'Remaining cost (current filter)' },
+    remainingCostZero: { ja: '0', en: '0' },
   },
   share: {
     twitterBtn: { ja: '📤🖼️ Xで画像を共有', en: '📤🖼️ Share image on X' },
@@ -699,6 +728,11 @@ const I18N = {
     wingSyncTitle: { ja: '羽トラッカーと同期されます', en: 'Synced with Wing Tracker' },
     emoteSyncTitleTemplate: { ja: 'エモート管理と同期されます（Lv{level}）', en: 'Synced with Emote Collection (Lv{level})' },
     tierLabelTemplate: { ja: '段 {n}', en: 'Tier {n}' },
+    markAllBtn: { ja: '✅ このツリーを全て解放済みにする', en: '✅ Mark entire tree as complete' },
+    markAllConfirmTemplate: { ja: 'このツリーの未解放ノード {count} 件をすべて解放済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} remaining locked nodes in this tree as unlocked? You will need to undo them one by one if this was a mistake. Continue?' },
+    markAllConfirmBtn: { ja: '実行', en: 'Mark Complete' },
+    markAllDoneToast: { ja: '{count}件のノードを解放済みにしました', en: 'Marked {count} nodes as complete' },
+    tierVariantTitleTemplate: { ja: '同じアイテムのコスト違いバリエーション（{n}/{total}）', en: 'Cost-tier variant of the same item ({n} of {total})' },
   },
   theme: {
     green: { ja: 'グリーン', en: 'Green' },
@@ -2552,6 +2586,71 @@ function toggleNode(spiritGuid, nodeGuid) {
 }
 
 /* ================================================================
+   🌳 ツリー一括解放（「このツリーを全て解放済みにする」）
+   既に本家で100%解放済みのツリーを1件ずつタップし直す手間を省くための機能。
+   ノード単位のtoggleNode()と同じ同期処理（item/emote/wings連携・コスト消費）を
+   全ノード分まとめて行い、再描画は最後に1回だけ行う。
+   範囲が広く元に戻す操作が個別タップになる（一括解除は無い）ため、実行前に
+   確認ステップを挟む（backupのインポート/全削除と同じ確認UIパターン）。
+   ================================================================ */
+let markAllConfirming = false;
+
+function markAllArea(spiritGuid, remainingCount) {
+  if (remainingCount <= 0) return ''; // 既に完了しているツリーには出さない
+  if (!markAllConfirming) {
+    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:10px; padding:8px;" onclick="markAllStart()">${t('detail.markAllBtn')}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap; margin-top: 10px;">
+      <span class="pf-row-confirm-text">${t('detail.markAllConfirmTemplate', { count: remainingCount })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="markAllConfirm('${spiritGuid}')">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="markAllCancel()">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+function markAllStart() { markAllConfirming = true; renderDetail(currentDetailGuid); }
+function markAllCancel() { markAllConfirming = false; renderDetail(currentDetailGuid); }
+function markAllConfirm(spiritGuid) {
+  markAllConfirming = false;
+  markTreeComplete(spiritGuid);
+}
+
+function markTreeComplete(spiritGuid) {
+  const spirit = spiritByGuid[spiritGuid];
+  if (!spirit) return;
+
+  const unlocked = getUnlockedMap();
+  let candleDelta = 0, heartDelta = 0, changedCount = 0;
+  spirit.nodes.forEach(node => {
+    if (isWarpNode(node)) return;
+    if (isNodeUnlocked(node)) return; // 既に解放済み（item/emote/wings側の所持による自動解放も含む）
+
+    const wasInOwnMap = !!unlocked[node.guid];
+    unlocked[node.guid] = true;
+    // toggleNode()と同じく、item/emote側の所持だけで表示上「解放済み」だった分は
+    // spirit-catalog側でコストを払っていないため、この増減の対象外にする
+    if (!wasInOwnMap) {
+      const cost = node.cost || {};
+      candleDelta += (cost.c || 0);
+      heartDelta += (cost.h || 0);
+    }
+    syncItemOwned(node, true);
+    syncEmoteOwned(node, true);
+    changedCount++;
+  });
+  saveUnlockedMap(unlocked);
+  if (candleDelta || heartDelta) adjustOwnCurrency(-candleDelta, -heartDelta);
+
+  // 羽バフノードは複数まとめて変わりうるため、全ノード反映後にまとめて1回だけ同期する
+  syncWingBuff(spirit);
+
+  invalidateExternalOwnCache();
+
+  renderDetail(spiritGuid);
+  renderGrid();
+  showToast(t('detail.markAllDoneToast', { count: changedCount }));
+}
+
+/* ================================================================
    精霊データの前処理
    一覧の並び順: ①案内人(季節ガイド、季節の実装順) → ②特殊 → ③長老 →
    ④恒常精霊(リアルム順: 孤島→草原→雨林→峡谷→捨てられた地→書庫) →
@@ -2653,6 +2752,7 @@ function renderGrid() {
   const typeF = document.getElementById('typeFilter').value;
   const seasonF = document.getElementById('seasonFilter').value;
   const progressF = document.getElementById('progressFilter').value;
+  const sortF = document.getElementById('sortFilter').value;
 
   const filtered = SPIRIT_TREE_DATA.filter(s => {
     if (typeF !== 'all' && s.type !== typeF) return false;
@@ -2672,7 +2772,20 @@ function renderGrid() {
     return true;
   });
 
+  // 「達成に近い順」: 進捗フィルターとは独立の並び替えモード。達成率（done/total）の
+  // 降順で並べる（安定ソート前提。tai-catalogの動作環境は全てES2019以降のためArray#sortの
+  // 安定性に依存して問題ない）。進捗率が同じ場合は既定の並び順を保つ。
+  if (sortF === 'nearestComplete') {
+    filtered.sort((a, b) => {
+      const pa = spiritProgress(a), pb = spiritProgress(b);
+      const pctA = pa.total > 0 ? pa.done / pa.total : 0;
+      const pctB = pb.total > 0 ? pb.done / pb.total : 0;
+      return pctB - pctA;
+    });
+  }
+
   document.getElementById('filterStats').textContent = t('filter.statsTemplate', { filtered: filtered.length, total: SPIRIT_TREE_DATA.length });
+  renderFilterRemainingCost(filtered);
 
   const grid = document.getElementById('spiritGrid');
   if (filtered.length === 0) {
@@ -2758,6 +2871,25 @@ function renderStats() {
   `;
 }
 
+// 現在の絞り込み（検索・種別・シーズン・進捗フィルター）に一致している精霊のうち、
+// まだ解放していない全ノードのコストを通貨種別ごとに合算する。
+// 「今の絞り込みで、あと何を消費すれば埋まるか」を一目で分かるようにするための集計で、
+// renderStats()の（全体・使用済みの）集計とは独立してrenderGrid()から都度呼び出す。
+function renderFilterRemainingCost(filtered) {
+  const totals = {};
+  filtered.forEach(s => {
+    s.nodes.forEach(n => {
+      if (isWarpNode(n)) return;
+      if (isNodeUnlocked(n)) return;
+      Object.keys(n.cost || {}).forEach(k => { totals[k] = (totals[k] || 0) + (n.cost[k] || 0); });
+    });
+  });
+  const order = ['c', 'h', 'sc', 'sh', 'ac', 'ec'];
+  const chips = order.filter(k => totals[k]).map(k => `<span class="cost-chip cost-${k}">${COST_ICON[k] || ''}${totals[k]}</span>`).join('');
+  document.getElementById('filterRemainingCost').innerHTML =
+    `<b>${t('filter.remainingCostLabel')}</b>${t('common.labelSep')}${chips || t('filter.remainingCostZero')}`;
+}
+
 /* ================================================================
    精霊詳細（ツリー）モーダル
    ================================================================ */
@@ -2765,12 +2897,14 @@ let currentDetailGuid = null;
 
 function openDetail(guid) {
   currentDetailGuid = guid;
+  markAllConfirming = false; // 別の精霊の一括解放確認状態を持ち越さない
   renderDetail(guid);
   document.getElementById('detailOverlay').classList.add('open');
 }
 function closeDetail() {
   document.getElementById('detailOverlay').classList.remove('open');
   currentDetailGuid = null;
+  markAllConfirming = false;
 }
 
 /* ================================================================
@@ -2791,6 +2925,26 @@ const NODE_NAME_ICON_OVERRIDE = {
   'Heart': '💗',
   'Season Heart': '💗',
 };
+
+// ノードのコスト合計（キー種別を問わず単純合算。同ノード内の複数コストを比較するためだけの値）
+function nodeCostSum(n) {
+  const cost = n.cost || {};
+  return Object.keys(cost).reduce((sum, k) => sum + (cost[k] || 0), 0);
+}
+
+// 「コスト違いバリエーション」判定: 同じitemCostId+itemTypeを持つノードが同一ツリー内に
+// 複数ある場合、それらは名前重複バグではなく、本家の「同じアイテムを異なるコストで
+// 入手できる」仕様（例: 長老ツリーの色違いケープが安い方/高い方の2枠で並ぶ等）。
+// バッジ表示用に、コスト合計の安い順を1始まりの段番号として返す（表示専用、データは変更しない）。
+function getCostTierBadge(spirit, node) {
+  if (!node.itemCostId || !node.itemType || !spirit) return null;
+  const group = spirit.nodes.filter(n => n.itemCostId === node.itemCostId && n.itemType === node.itemType);
+  if (group.length < 2) return null;
+  const sorted = group.slice().sort((a, b) => nodeCostSum(a) - nodeCostSum(b) || (a.guid < b.guid ? -1 : 1));
+  const idx = sorted.findIndex(n => n.guid === node.guid);
+  if (idx === -1) return null;
+  return { n: idx + 1, total: sorted.length };
+}
 
 /* ================================================================
    🖼️ ツリーノードの実機画像（Sky Wikiホットリンク）
@@ -3157,13 +3311,16 @@ function treeNodeHtml(spiritGuid, n, style) {
   const wingTag = n.itemType === 'WingBuff' ? `<span class="tree-node-wingtag" title="${t('detail.wingSyncTitle')}">🪽</span>` : '';
   const emoteTag = (n.itemType === 'Emote' && n.emoteId && n.emoteLevel)
     ? `<span class="tree-node-wingtag" title="${t('detail.emoteSyncTitleTemplate', { level: n.emoteLevel })}">🎭</span>` : '';
+  const tierBadge = getCostTierBadge(spirit, n);
+  const tierBadgeHtml = tierBadge
+    ? `<span class="tree-node-tier-badge" title="${escapeHtml(t('detail.tierVariantTitleTemplate', { n: tierBadge.n, total: tierBadge.total }))}">T${tierBadge.n}</span>` : '';
   return `
     <div class="tree-node-wrap" style="${style || ''}">
       <div class="tree-node-circle-holder">
         <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}">
           <span class="tree-node-icon">${unlocked ? '✓' : iconHtml}</span>
         </button>
-        ${wingTag}${emoteTag}
+        ${wingTag}${emoteTag}${tierBadgeHtml}
       </div>
       <div class="tree-node-label ${noJa ? 'no-ja' : ''}">${escapeHtml(name)}</div>
       <div class="tree-node-cost">${costChips}</div>
@@ -3297,6 +3454,7 @@ function renderDetail(guid) {
         <span>${t('detail.progress')}: <b>${done} / ${total}</b></span>
         ${revisitNote}
       </div>
+      ${markAllArea(guid, total - done)}
       ${bodyHtml}
     </div>
   `;
