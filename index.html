@@ -165,7 +165,14 @@
     }
     .site-dock button:active { background: var(--sep); }
     .site-dock .site-dock-icon { font-size: 20px; line-height: 1; }
-    .site-dock .site-dock-label { font-size: 10px; font-weight: 700; color: var(--text-2); }
+    .site-dock .site-dock-label {
+      font-size: 10px; font-weight: 700; color: var(--text-2);
+      /* プロフィール名（可変長）をラベルに表示するため、はみ出しはドックのレイアウトを
+         崩さず「…」で省略する。align-self:stretchが無いとcolumn方向flexの既定
+         (align-items:center)でspanが内容幅にshrinkし、max-width指定が効かない。 */
+      max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      align-self: stretch; text-align: center;
+    }
 
     /* ── プロフィールバー ── */
     .pf-bar {
@@ -592,7 +599,9 @@
 <nav class="site-dock" aria-label="クイックメニュー">
   <button type="button" onclick="pfOpenModal()">
     <span class="site-dock-icon">🗂️</span>
-    <span class="site-dock-label" data-i18n="dock.profile">プロフィール</span>
+    <!-- 汎用ラベルではなく現在アクティブなプロフィール名を表示する（pfRenderBar()がJSで設定するため
+         data-i18nは付けない。pf-bar本体の表示名と同じ考え方）。 -->
+    <span class="site-dock-label" id="siteDockProfileLabel">プロフィール</span>
   </button>
   <button type="button" onclick="pfDashOpen()">
     <span class="site-dock-icon">🗓️</span>
@@ -745,6 +754,7 @@ const I18N = {
     darkModeLabel: { ja: 'ダークモード', en: 'Dark Mode' },
     themeBtnDark: { ja: '🌙 ダーク', en: '🌙 Dark' },
     themeBtnLight: { ja: '☀️ ライト', en: '☀️ Light' },
+    langSection: { ja: '🌐 言語 / Language', en: '🌐 Language' },
     shortcutsSection: { ja: '⌨️ キーボードショートカット', en: '⌨️ Keyboard Shortcuts' },
     shortcutsEnableLabel: { ja: 'ショートカットを有効にする', en: 'Enable keyboard shortcuts' },
     shortcutOpen: { ja: 'この設定を開く', en: 'Open this settings panel' },
@@ -903,10 +913,13 @@ function refreshSeasonFilterOptions() {
   sel.value = current;
 }
 
-// 言語トグルボタン。LANGを反転して保存し、静的マークアップ＋現在開いている
-// 動的パーツ（一覧・詳細・各種モーダル）をまとめて再描画する。
-function toggleLang() {
-  LANG = LANG === 'ja' ? 'en' : 'ja';
+// 言語を指定の値に切り替えて保存し、静的マークアップ＋現在開いている動的パーツ
+// （一覧・詳細・各種モーダル）をまとめて再描画する。既に同じ言語の場合は何もしない
+// （表示設定モーダルの言語セレクターで、選択中の言語ボタンを押しても無反応にするため）。
+function setLang(lang) {
+  lang = lang === 'en' ? 'en' : 'ja';
+  if (LANG === lang) return;
+  LANG = lang;
   localStorage.setItem(LANG_KEY, LANG);
   applyI18n();
   refreshSeasonFilterOptions();
@@ -922,6 +935,13 @@ function toggleLang() {
     document.getElementById('dashBody').innerHTML = pfDashBuildHtml(pfDashCache);
   }
   settingsSyncThemeBtn(); // 設定モーダルのダーク/ライト切替ボタンの文言（data-i18n非対応のJS生成テキスト）
+  settingsSyncLangBtns(); // 設定モーダルの言語セレクターの選択状態
+}
+
+// ナビ右上の言語トグルボタン（EN/日本語）用。既存の2言語トグル動作はそのまま維持し、
+// 内部的にはsetLang()へ委譲する。
+function toggleLang() {
+  setLang(LANG === 'ja' ? 'en' : 'ja');
 }
 
 /* ================================================================
@@ -955,6 +975,19 @@ function settingsSyncThemeBtn() {
   if (btn) btn.textContent = isDarkMode() ? t('settings.themeBtnLight') : t('settings.themeBtnDark');
 }
 
+// 表示設定モーダルの言語セレクター（日本語／English）の選択状態を、現在のLANGに同期する。
+// アイコンカスタマイズモーダルの😀絵文字/🖼️画像モード切替ボタン（pfIconSetMode）と
+// 同じ「選択中は塗りつぶし」の配色ルールを踏襲する。
+function settingsSyncLangBtns() {
+  const jaBtn = document.getElementById('settingsLangJaBtn');
+  const enBtn = document.getElementById('settingsLangEnBtn');
+  if (!jaBtn || !enBtn) return;
+  jaBtn.style.background = LANG === 'ja' ? 'var(--green)' : 'var(--bg)';
+  jaBtn.style.color = LANG === 'ja' ? '#fff' : 'var(--text-2)';
+  enBtn.style.background = LANG === 'en' ? 'var(--green)' : 'var(--bg)';
+  enBtn.style.color = LANG === 'en' ? '#fff' : 'var(--text-2)';
+}
+
 function skyShortcutsEnabled() {
   const v = localStorage.getItem(SHORTCUTS_KEY);
   return v === null ? true : v === '1'; // 未設定はデフォルトON
@@ -970,6 +1003,7 @@ function settingsSyncShortcutsCheckbox() {
 function settingsOpenModal() {
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
+  settingsSyncLangBtns();
   document.getElementById('settingsModalOverlay').classList.add('open');
   if (document.getElementById('sidebar').classList.contains('sidebar-open')) toggleSidebar();
 }
@@ -998,6 +1032,12 @@ function settingsInjectModal() {
         <button type="button" class="pf-icon-btn" id="settingsThemeBtn" onclick="toggleTheme()"></button>
       </div>
 
+      <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.langSection">${t('settings.langSection')}</div>
+      <div style="display:flex; gap:8px;">
+        <button type="button" class="pf-icon-btn" id="settingsLangJaBtn" style="flex:1; padding:8px;" onclick="setLang('ja')">日本語</button>
+        <button type="button" class="pf-icon-btn" id="settingsLangEnBtn" style="flex:1; padding:8px;" onclick="setLang('en')">English</button>
+      </div>
+
       <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.shortcutsSection">${t('settings.shortcutsSection')}</div>
       <div class="pf-currency-row">
         <span class="pf-currency-label" data-i18n="settings.shortcutsEnableLabel">${t('settings.shortcutsEnableLabel')}</span>
@@ -1017,6 +1057,7 @@ function settingsInjectModal() {
   document.body.appendChild(overlay);
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
+  settingsSyncLangBtns();
 }
 
 // Escapeで閉じるべき「現在開いているモーダル/パネル」を、重なり順（z-index優先）で判定して閉じる。
@@ -1593,6 +1634,10 @@ function escapeHtmlPf(str) {
 function pfRenderBar() {
   const profile = getActiveProfile();
   pfApplyThemeColor(profile.color);
+  // サイトドックの「プロフィール」ボタンのラベルも、アクティブなプロフィール名で同期する
+  // （switchProfile()はreloadするため以後は自動、renameProfile()はreloadしないためここでの同期が必須）。
+  const dockLabel = document.getElementById('siteDockProfileLabel');
+  if (dockLabel) dockLabel.textContent = pfDisplayName(profile);
   const bar = document.getElementById('pfBar');
   if (!bar) return;
   bar.innerHTML = `<span class="pf-bar-text" onclick="pfOpenModal()">🗂️ <b>${escapeHtmlPf(pfDisplayName(profile))}</b> ${t('profile.barActiveSuffix')}</span>
