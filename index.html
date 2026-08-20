@@ -594,9 +594,9 @@
     <span class="site-dock-icon">🗂️</span>
     <span class="site-dock-label" data-i18n="dock.profile">プロフィール</span>
   </button>
-  <button type="button" onclick="pfIconOpenModal()">
-    <span class="site-dock-icon">🎨</span>
-    <span class="site-dock-label" data-i18n="dock.customize">カスタマイズ</span>
+  <button type="button" onclick="pfDashOpen()">
+    <span class="site-dock-icon">🗓️</span>
+    <span class="site-dock-label" data-i18n="dock.dashboard">ダッシュボード</span>
   </button>
   <button type="button" onclick="toggleSidebar()">
     <span class="site-dock-icon">☰</span>
@@ -637,7 +637,7 @@ const I18N = {
   //    アイコンとラベルを別要素で表示するため絵文字を含まない短いラベル文言にしている。
   dock: {
     profile: { ja: 'プロフィール', en: 'Profile' },
-    customize: { ja: 'カスタマイズ', en: 'Customize' },
+    dashboard: { ja: 'ダッシュボード', en: 'Dashboard' },
     tools: { ja: '他のツール', en: 'Other Tools' },
     settings: { ja: '表示設定', en: 'Display Settings' },
   },
@@ -750,6 +750,8 @@ const I18N = {
     shortcutOpen: { ja: 'この設定を開く', en: 'Open this settings panel' },
     shortcutTheme: { ja: 'ダークモード切替', en: 'Toggle dark mode' },
     shortcutEscape: { ja: '開いているウィンドウを閉じる', en: 'Close the open window' },
+    customizeSection: { ja: '🎨 表示のカスタマイズ', en: '🎨 Customize Display' },
+    customizeBtn: { ja: '🎨 カスタマイズ', en: '🎨 Customize' },
   },
   iconCustom: {
     modalTitle: { ja: '🎨 ホーム画面アイコンをカスタマイズ', en: '🎨 Customize Home Screen Icon' },
@@ -974,6 +976,12 @@ function settingsOpenModal() {
 function settingsCloseModal() {
   document.getElementById('settingsModalOverlay').classList.remove('open');
 }
+// 表示設定モーダルから、アイコンカスタマイズモーダルへ橋渡しする
+// （旧・サイトドックの🎨カスタマイズボタンの移設先）。
+function settingsOpenIconCustomize() {
+  settingsCloseModal();
+  pfIconOpenModal();
+}
 
 function settingsInjectModal() {
   const overlay = document.createElement('div');
@@ -1000,6 +1008,9 @@ function settingsInjectModal() {
         <div><b style="color:var(--text);">D</b> — <span data-i18n="settings.shortcutTheme">${t('settings.shortcutTheme')}</span></div>
         <div><b style="color:var(--text);">Esc</b> — <span data-i18n="settings.shortcutEscape">${t('settings.shortcutEscape')}</span></div>
       </div>
+
+      <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.customizeSection">${t('settings.customizeSection')}</div>
+      <button type="button" class="pf-icon-btn" style="width:100%; padding:8px;" onclick="settingsOpenIconCustomize()" data-i18n="settings.customizeBtn">${t('settings.customizeBtn')}</button>
 
       <button type="button" class="pf-close-btn" onclick="settingsCloseModal()" data-i18n="profile.closeBtn">${t('profile.closeBtn')}</button>
     </div>`;
