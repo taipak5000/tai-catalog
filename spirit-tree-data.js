@@ -31249,7 +31249,7 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "GYWFafVVd_",
                           "itemName":  "Prophecy Ultimate Mask",
-                          "itemNameJa":  "水の預言者　マスク",
+                          "itemNameJa":  "預言の究極マスク",
                           "itemType":  "Mask",
                           "nw":  null,
                           "n":  null,
