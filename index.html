@@ -2753,8 +2753,8 @@ function renderStats() {
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-box"><div class="stat-num">${doneNodes} / ${totalNodes}</div><div class="stat-label">${t('stats.unlockedNodes')}</div></div>
     <div class="stat-box"><div class="stat-num">${completeSpirits} / ${SPIRIT_TREE_DATA.length}</div><div class="stat-label">${t('stats.completeSpirits')}</div></div>
-    <div class="stat-box"><div class="stat-num">🕯️${candleSpent} 💗${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
-    <div class="stat-box"><div class="stat-num">🕯️🍂${seasonCandleSpent} 💗🍂${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
+    <div class="stat-box"><div class="stat-num">🕯️${candleSpent}<br>💗${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
+    <div class="stat-box"><div class="stat-num">🕯️🍂${seasonCandleSpent}<br>💗🍂${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
   `;
 }
 
