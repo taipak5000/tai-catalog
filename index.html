@@ -1032,12 +1032,6 @@ function settingsInjectModal() {
         <button type="button" class="pf-icon-btn" id="settingsThemeBtn" onclick="toggleTheme()"></button>
       </div>
 
-      <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.langSection">${t('settings.langSection')}</div>
-      <div style="display:flex; gap:8px;">
-        <button type="button" class="pf-icon-btn" id="settingsLangJaBtn" style="flex:1; padding:8px;" onclick="setLang('ja')">日本語</button>
-        <button type="button" class="pf-icon-btn" id="settingsLangEnBtn" style="flex:1; padding:8px;" onclick="setLang('en')">English</button>
-      </div>
-
       <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.shortcutsSection">${t('settings.shortcutsSection')}</div>
       <div class="pf-currency-row">
         <span class="pf-currency-label" data-i18n="settings.shortcutsEnableLabel">${t('settings.shortcutsEnableLabel')}</span>
@@ -1051,6 +1045,12 @@ function settingsInjectModal() {
 
       <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.customizeSection">${t('settings.customizeSection')}</div>
       <button type="button" class="pf-icon-btn" style="width:100%; padding:8px;" onclick="settingsOpenIconCustomize()" data-i18n="settings.customizeBtn">${t('settings.customizeBtn')}</button>
+
+      <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.langSection">${t('settings.langSection')}</div>
+      <div style="display:flex; gap:8px;">
+        <button type="button" class="pf-icon-btn" id="settingsLangJaBtn" style="flex:1; padding:8px;" onclick="setLang('ja')">日本語</button>
+        <button type="button" class="pf-icon-btn" id="settingsLangEnBtn" style="flex:1; padding:8px;" onclick="setLang('en')">English</button>
+      </div>
 
       <button type="button" class="pf-close-btn" onclick="settingsCloseModal()" data-i18n="profile.closeBtn">${t('profile.closeBtn')}</button>
     </div>`;
