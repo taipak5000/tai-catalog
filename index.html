@@ -3121,9 +3121,9 @@ const GENERIC_ITEM_NAME_JA = {
   'Forest Elder Hair': '究極のヘアスタイル',
   'Forest Elder Ultimate Face Accessory': '究極のシールドフェイスアクセサリー',
   'Valley Elder Hair 2': '2つ目の究極のヘアスタイル',
-  'Valley Ultimate Mask B': '究極のシールドフェイスアクセサリー',
+  'Valley Ultimate Mask B': '2つ目の究極のシールドフェイスアクセサリー',
   'Valley Elder Hair 1': '1つ目の究極のヘアスタイル',
-  'Valley Ultimate Mask A': '究極のシールドフェイスアクセサリー',
+  'Valley Ultimate Mask A': '1つ目の究極のシールドフェイスアクセサリー',
   'Isle Elder Hair': '究極のヘアスタイル（あごひげ）',
   'Isle Elder Ultimate Face Accessory': '究極のシールドフェイスアクセサリー',
   'Wasteland Elder Hair': '究極のヘアスタイル',
@@ -3171,7 +3171,7 @@ const GENERIC_ITEM_NAME_JA = {
   'Whispering': 'ないしょ話',
   'Secret Handshake': 'ひみつの握手',
   'Revolving Dance': 'くるくるダンス',
-  'Vase with Sunflowers': '15本のひまわり',
+  'Vase with Sunflowers': '15本のひまわり（持ち物アイテム）',
   'Vase with Blue Flowers': 'アイリスの花瓶',
   // 直接検証で確認（万古の光〈海月／マンタ〉のケープ・ヘアスタイルは接頭辞つきの個別名がある）
   'Jellyfish Cape': '海月ケープ',
@@ -3317,7 +3317,7 @@ function treeNodeHtml(spiritGuid, n, style) {
   return `
     <div class="tree-node-wrap" style="${style || ''}">
       <div class="tree-node-circle-holder">
-        <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}">
+        <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}" aria-pressed="${unlocked}">
           <span class="tree-node-icon">${unlocked ? '✓' : iconHtml}</span>
         </button>
         ${wingTag}${emoteTag}${tierBadgeHtml}
