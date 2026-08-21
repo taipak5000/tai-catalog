@@ -518,7 +518,7 @@
 </div>
 
 <div class="detail-overlay" id="detailOverlay" onclick="if(event.target===this) closeDetail()">
-  <div class="detail-card" id="detailCard"></div>
+  <div class="detail-card" id="detailCard" tabindex="-1"></div>
 </div>
 
 <!-- ▸ ホーム画面アイコンカスタマイズモーダル -->
@@ -1142,7 +1142,32 @@ document.addEventListener('keydown', function (e) {
    ユーザーが選んだ絵文字＋背景色、またはアップロード画像に差し替える。
    プロフィール（保存枠）に関わらずこの端末・ブラウザ共通の設定のため、nsKeyは使わない。
    ================================================================ */
-const PF_ICON_STORAGE_KEY = 'pfCustomHomeIcon_v1';
+//
+// 🔑 保存キーをサイトごとに名前空間化する（プロフィール単位のnsKey()とは別軸）。
+// taipak5000.github.io系サイトは全サイトが同一オリジンでlocalStorageを共有するため、
+// 固定文字列のままだと、あるサイトで設定したホーム画面アイコンが他サイト（item/emote/
+// companion/share/star-candle/tai-nomacan等）の設定まで上書きしてしまう（実際に競合
+// することを確認済み）。location.pathnameの先頭セグメント（例: '/spirit-catalog/' →
+// 'spirit-catalog'）は各サイトの実際の公開URLパスと一致し、リポジトリ名の変更にも
+// 自動追従するため、これをサイト識別子として使う（wings/tai-infoの同名関数と同じ実装）。
+function pfSiteId() {
+  const seg = location.pathname.split('/').filter(Boolean)[0];
+  return seg || 'root';
+}
+const PF_ICON_STORAGE_KEY_OLD = 'pfCustomHomeIcon_v1';
+const PF_ICON_STORAGE_KEY = 'pfCustomHomeIcon_v1__site_' + pfSiteId();
+
+// 旧: 全サイト共通の固定キーで保存されていたため、既存ユーザーの設定が残っている
+// 場合がある。新（サイト名前空間化）キーにまだ何も保存されていない場合に限り、
+// 旧キーの値を一度だけ新キーへコピーして引き継ぐ（既にカスタマイズ済みのユーザーの
+// 設定が新キー導入によって消えてしまわないようにするため）。
+(function pfMigrateIconStorageKey() {
+  try {
+    if (localStorage.getItem(PF_ICON_STORAGE_KEY) !== null) return;
+    const old = localStorage.getItem(PF_ICON_STORAGE_KEY_OLD);
+    if (old !== null) localStorage.setItem(PF_ICON_STORAGE_KEY, old);
+  } catch (e) { /* ignore */ }
+})();
 const PF_ICON_ORIGINAL_APPLE_HREF = document.querySelector('link[rel="apple-touch-icon"]')?.href || 'icons/app-icon-192.png';
 const PF_ICON_ORIGINAL_MANIFEST_HREF = document.querySelector('link[rel="manifest"]')?.href || 'manifest.json';
 let pfIconMode = 'emoji';
@@ -1314,7 +1339,11 @@ function showToast(msg) {
    📤 達成率をXへ画像で共有
    ================================================================ */
 const SITE_URL = 'https://taipak5000.github.io/tai-catalog/';
-const SHARE_HASHTAG = '#Sky精霊ツリー管理';
+const SHARE_HASHTAG_JA = '#Sky精霊ツリー管理';
+const SHARE_HASHTAG_EN = '#SkySpiritTree';
+// ツイート本文の他の部分と同じくLANGに応じてハッシュタグも切り替える
+// （以前はJP固定のSHARE_HASHTAGをEN本文でもそのまま使っていた）
+function shareHashtag() { return LANG === 'en' ? SHARE_HASHTAG_EN : SHARE_HASHTAG_JA; }
 
 const SHARE_THEMES = {
   green:  { labelKey: 'theme.green',  grad: 'linear-gradient(135deg, var(--green-d) 0%, var(--green) 55%, #8BE28B 100%)' },
@@ -1510,10 +1539,10 @@ function closeImagePreviewModal() {
 }
 
 function buildOverallTweetText(comment) {
-  if (comment) return `${comment}\n\n${SITE_URL}\n${SHARE_HASHTAG}`;
+  if (comment) return `${comment}\n\n${SITE_URL}\n${shareHashtag()}`;
   const { doneNodes, totalNodes, pct } = getSpiritStats();
   const pctTxt = formatPct(pct);
-  return t('tweet.template', { pct: pctTxt, done: doneNodes, total: totalNodes, url: SITE_URL, hashtag: SHARE_HASHTAG });
+  return t('tweet.template', { pct: pctTxt, done: doneNodes, total: totalNodes, url: SITE_URL, hashtag: shareHashtag() });
 }
 
 function shareOverallOnTwitter(fromCustomize) {
@@ -2448,15 +2477,21 @@ function isWarpNode(node) {
 /* ================================================================
    item（アイテム所持管理）の「所持キャンドル/ハート」と自動同期
    ================================================================ */
+// 戻り値は実際に反映された増減額（Math.max(0, ...)によるクランプ後の実額）。
+// 所持通貨が不足している状態で消費（負のdelta）すると、要求額より少ない額しか
+// 実際には引かれないことがあるため、呼び出し側が「実際に何が起きたか」を
+// 追跡できるようにする（toggleNode()の解放/解除の往復での通貨水増し防止に使う）。
 function adjustOwnCurrency(deltaCandle, deltaHeart) {
-  if (!deltaCandle && !deltaHeart) return;
+  if (!deltaCandle && !deltaHeart) return { candle: 0, heart: 0 };
   const key = nsKey('wishOwnCurrency');
   let cur;
   try { cur = JSON.parse(localStorage.getItem(key)) || { candle: 0, heart: 0 }; }
   catch (_) { cur = { candle: 0, heart: 0 }; }
-  cur.candle = Math.max(0, (cur.candle || 0) + (deltaCandle || 0));
-  cur.heart  = Math.max(0, (cur.heart  || 0) + (deltaHeart  || 0));
+  const beforeCandle = cur.candle || 0, beforeHeart = cur.heart || 0;
+  cur.candle = Math.max(0, beforeCandle + (deltaCandle || 0));
+  cur.heart  = Math.max(0, beforeHeart  + (deltaHeart  || 0));
   localStorage.setItem(key, JSON.stringify(cur));
+  return { candle: cur.candle - beforeCandle, heart: cur.heart - beforeHeart };
 }
 
 /* ================================================================
@@ -2556,18 +2591,34 @@ function toggleNode(spiritGuid, nodeGuid) {
   const nowUnlocked = !wasDisplayedUnlocked;
 
   const unlocked = getUnlockedMap();
-  const wasInOwnMap = !!unlocked[nodeGuid]; // spirit-catalog自身の解放記録での状態（コスト計算用）
-  if (nowUnlocked) { unlocked[nodeGuid] = true; } else { delete unlocked[nodeGuid]; }
-  saveUnlockedMap(unlocked);
+  const prevEntry = unlocked[nodeGuid];
+  const wasInOwnMap = !!prevEntry; // spirit-catalog自身の解放記録での状態（コスト計算用）
 
   // 解放でコスト分を消費、解除で払い戻す（キャンドル・ハートのみitemと同期）。
   // item/emote側の所持だけで表示上「解放済み」になっていたノード（＝spirit-catalog
   // 自身ではコストを払っていない）は、この増減の対象外にする。
-  if (wasInOwnMap !== nowUnlocked) {
-    const sign = nowUnlocked ? -1 : 1;
+  //
+  // 🪙 所持通貨が不足していても解放操作自体は許可しており、adjustOwnCurrency()は
+  // Math.max(0, ...)で0未満を自動クランプする。そのため「解放時に実際に引かれた額」が
+  // ノードの名目コストを下回ることがあり、解除時に名目コストをそのまま払い戻すと、
+  // 実際には払っていない分の通貨が生成されてしまう（解放→解除の往復で通貨が増える）。
+  // これを防ぐため、解放時はadjustOwnCurrency()が実際に適用した額をunlocked[guid]に
+  // 記録しておき、解除時はその記録された実額のみを払い戻す。記録の無い旧データ
+  // （boolean trueのみ）の場合に限り、従来通り名目コストで払い戻す。
+  if (nowUnlocked) {
     const cost = node.cost || {};
-    adjustOwnCurrency(sign * (cost.c || 0), sign * (cost.h || 0));
+    const applied = adjustOwnCurrency(-(cost.c || 0), -(cost.h || 0));
+    unlocked[nodeGuid] = { spentC: -applied.candle, spentH: -applied.heart };
+  } else if (wasInOwnMap) {
+    const spent = (prevEntry && typeof prevEntry === 'object')
+      ? { c: prevEntry.spentC || 0, h: prevEntry.spentH || 0 }
+      : { c: node.cost?.c || 0, h: node.cost?.h || 0 };
+    adjustOwnCurrency(spent.c, spent.h);
+    delete unlocked[nodeGuid];
+  } else {
+    delete unlocked[nodeGuid];
   }
+  saveUnlockedMap(unlocked);
 
   // 羽バフノードならwingsとも同期
   if (node.itemType === 'WingBuff') syncWingBuff(spirit);
@@ -2598,13 +2649,13 @@ let markAllConfirming = false;
 function markAllArea(spiritGuid, remainingCount) {
   if (remainingCount <= 0) return ''; // 既に完了しているツリーには出さない
   if (!markAllConfirming) {
-    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:10px; padding:8px;" onclick="markAllStart()">${t('detail.markAllBtn')}</button>`;
+    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:10px; padding:8px;" onclick="markAllStart()" data-focus-key="markAllStart">${t('detail.markAllBtn')}</button>`;
   }
   return `
     <div class="pf-row" style="flex-wrap: wrap; margin-top: 10px;">
       <span class="pf-row-confirm-text">${t('detail.markAllConfirmTemplate', { count: remainingCount })}</span>
-      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="markAllConfirm('${spiritGuid}')">${t('detail.markAllConfirmBtn')}</button>
-      <button type="button" class="pf-icon-btn" onclick="markAllCancel()">${t('profile.cancelBtn')}</button>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="markAllConfirm('${spiritGuid}')" data-focus-key="markAllConfirm">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="markAllCancel()" data-focus-key="markAllCancel">${t('profile.cancelBtn')}</button>
     </div>`;
 }
 function markAllStart() { markAllConfirming = true; renderDetail(currentDetailGuid); }
@@ -2619,26 +2670,34 @@ function markTreeComplete(spiritGuid) {
   if (!spirit) return;
 
   const unlocked = getUnlockedMap();
-  let candleDelta = 0, heartDelta = 0, changedCount = 0;
+  let changedCount = 0;
   spirit.nodes.forEach(node => {
     if (isWarpNode(node)) return;
     if (isNodeUnlocked(node)) return; // 既に解放済み（item/emote/wings側の所持による自動解放も含む）
 
     const wasInOwnMap = !!unlocked[node.guid];
-    unlocked[node.guid] = true;
     // toggleNode()と同じく、item/emote側の所持だけで表示上「解放済み」だった分は
-    // spirit-catalog側でコストを払っていないため、この増減の対象外にする
-    if (!wasInOwnMap) {
+    // spirit-catalog側でコストを払っていないため、この増減の対象外にする。
+    //
+    // 🪙 以前はここで全ノード分のコストを合計してからadjustOwnCurrency()を1回だけ
+    // 呼んでいたが、それだと「実際に何が適用されたか（クランプ後の実額）」が
+    // ノード単位では分からなくなり、unlocked[guid]にboolean trueしか記録できなかった。
+    // その状態で個別のtoggleNode()により1ノードだけ解除すると、常にレガシー扱いされて
+    // 名目コストで払い戻されてしまい、通貨が水増しされる（toggleNode()側の修正と同じ
+    // クラスのバグが一括解放経由でも再現する）。そのためtoggleNode()と同じく、
+    // ノードごとにadjustOwnCurrency()を呼んで実際に適用された額を記録する。
+    if (wasInOwnMap) {
+      unlocked[node.guid] = { spentC: 0, spentH: 0 };
+    } else {
       const cost = node.cost || {};
-      candleDelta += (cost.c || 0);
-      heartDelta += (cost.h || 0);
+      const applied = adjustOwnCurrency(-(cost.c || 0), -(cost.h || 0));
+      unlocked[node.guid] = { spentC: -applied.candle, spentH: -applied.heart };
     }
     syncItemOwned(node, true);
     syncEmoteOwned(node, true);
     changedCount++;
   });
   saveUnlockedMap(unlocked);
-  if (candleDelta || heartDelta) adjustOwnCurrency(-candleDelta, -heartDelta);
 
   // 羽バフノードは複数まとめて変わりうるため、全ノード反映後にまとめて1回だけ同期する
   syncWingBuff(spirit);
@@ -3317,7 +3376,7 @@ function treeNodeHtml(spiritGuid, n, style) {
   return `
     <div class="tree-node-wrap" style="${style || ''}">
       <div class="tree-node-circle-holder">
-        <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}" aria-pressed="${unlocked}">
+        <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}" aria-pressed="${unlocked}" data-node-guid="${n.guid}">
           <span class="tree-node-icon">${unlocked ? '✓' : iconHtml}</span>
         </button>
         ${wingTag}${emoteTag}${tierBadgeHtml}
@@ -3439,6 +3498,22 @@ function renderDetail(guid) {
     : '';
 
   const detailCardEl = document.getElementById('detailCard');
+
+  // ⌨️ フォーカス保持: toggleNode()/markTreeComplete()/markAllStart()等はいずれも
+  // このrenderDetail()を呼んでdetailCardEl.innerHTMLを丸ごと差し替えるため、そのままでは
+  // 操作直前にフォーカスしていたボタン（ツリーノード等）がDOMごと破棄され、フォーカスが
+  // documentBody（何も無い場所）に落ちてキーボード操作が続けられなくなる。ツリーノードの
+  // 解放/解除トグルは本アプリで最も繰り返されるキーボード操作のため、再描画前にフォーカス中の
+  // 要素をdata-node-guid（ツリーノード）／data-focus-key（閉じる・一括解放ボタン等）で
+  // 特定しておき、再描画後に同じ要素へフォーカスを戻す。該当要素が無くなっていた場合は
+  // ツリーを含むdetailCardEl自体（tabindex="-1"でフォーカス可能）にフォールバックする。
+  const prevFocus = document.activeElement;
+  let focusMatch = null;
+  if (prevFocus && detailCardEl.contains(prevFocus) && prevFocus.dataset) {
+    if (prevFocus.dataset.nodeGuid) focusMatch = { attr: 'nodeGuid', value: prevFocus.dataset.nodeGuid };
+    else if (prevFocus.dataset.focusKey) focusMatch = { attr: 'focusKey', value: prevFocus.dataset.focusKey };
+  }
+
   detailCardEl.style.setProperty('--tree-scale', getTreeScale());
   detailCardEl.innerHTML = `
     <div class="detail-head">
@@ -3447,7 +3522,7 @@ function renderDetail(guid) {
         <div class="detail-title">${escapeHtml(name)}</div>
         <div class="detail-sub">${typeLabel(s.type)}${s.season ? ' ・ ' + escapeHtml(seasonLabel(s.season)) : ''}</div>
       </div>
-      <button class="detail-close" onclick="closeDetail()">✕</button>
+      <button class="detail-close" onclick="closeDetail()" data-focus-key="detailClose">✕</button>
     </div>
     <div class="detail-body">
       <div class="detail-summary">
@@ -3458,6 +3533,13 @@ function renderDetail(guid) {
       ${bodyHtml}
     </div>
   `;
+
+  if (focusMatch) {
+    const selector = focusMatch.attr === 'nodeGuid' ? '[data-node-guid]' : '[data-focus-key]';
+    const candidates = detailCardEl.querySelectorAll(selector);
+    const target = Array.from(candidates).find(el => el.dataset[focusMatch.attr] === focusMatch.value);
+    (target || detailCardEl).focus();
+  }
 }
 
 // 他サイト（tai-revisitなど）からの「#spirit=精霊の日本語名」形式のディープリンクで、
