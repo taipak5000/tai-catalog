@@ -26154,13 +26154,13 @@ const SPIRIT_TREE_DATA = [
                                    },
                           "itemGuid":  "Rb06PBDZi5",
                           "itemName":  "Moomin Ultimate Outfit",
-                          "itemNameJa":  "ムーミンの本　服",
+                          "itemNameJa":  "ムーミンの究極　服",
                           "itemType":  "Outfit",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
                           "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_031"
+                          "itemCostId":  "outfit_032"
                       },
                       {
                           "guid":  "Wd9z98lxbo",
