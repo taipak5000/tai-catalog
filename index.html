@@ -6,10 +6,16 @@
     // 🌓 描画前にテーマを確定させ、ダークモード時に一瞬でも明るい背景が
     // 表示されてしまう「ちらつき」を防止する（メインスタイルシートの描画より前に同期実行）。
     // 'sky_app_theme' は taipak5000.github.io 系ツール共通のキー（companion等の既存実装と同じ判定順）。
+    // 'light' / 'dark' / 'system'（キー未設定時も'system'として扱う）の3値を取り得る。
+    // ここでの解決ロジックは本体スクリプト側の resolveEffectiveTheme() と内容を揃えてある
+    // （このスクリプトは他のスクリプトより先に単独で動く必要があるため、そのまま複製している。
+    //  変更する際は両方を同期させること）。
     (function () {
       try {
         var saved = localStorage.getItem('sky_app_theme');
-        var isDark = saved ? (saved === 'dark') : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (saved === 'light' || saved === 'dark')
+          ? (saved === 'dark')
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'light');
@@ -840,6 +846,8 @@ const I18N = {
     darkModeLabel: { ja: 'ダークモード', en: 'Dark Mode' },
     themeBtnDark: { ja: '🌙 ダーク', en: '🌙 Dark' },
     themeBtnLight: { ja: '☀️ ライト', en: '☀️ Light' },
+    themeBtnSystem: { ja: '🖥️ システム', en: '🖥️ System' },
+    themeBtnAriaLabel: { ja: '現在のテーマ: {current}（タップで{next}に切り替え）', en: 'Current theme: {current} (tap to switch to {next})' },
     langSection: { ja: '🌐 言語 / Language', en: '🌐 Language' },
     shortcutsSection: { ja: '⌨️ キーボードショートカット', en: '⌨️ Keyboard Shortcuts' },
     shortcutsEnableLabel: { ja: 'ショートカットを有効にする', en: 'Enable keyboard shortcuts' },
@@ -1039,26 +1047,72 @@ function toggleSidebar() {
 }
 
 /* ================================================================
-   ⚙️ 表示設定（ダーク/ライトモード・キーボードショートカット）
-   'sky_app_theme'（'dark'|'light'）と 'sky_shortcuts_enabled'（'1'|'0'、未設定はON）は
-   taipak5000.github.io 系ツール共通のキー（sky_app_langと同様、端末単位の設定のため
-   nsKey()は使わない）。ダークモードの初期適用は<head>内の同期スクリプトで先に行っている。
+   ⚙️ 表示設定（ダーク/ライト/システム追従モード・キーボードショートカット）
+   'sky_app_theme'（'light'|'dark'|'system'、未設定は'system'扱い）と
+   'sky_shortcuts_enabled'（'1'|'0'、未設定はON）は taipak5000.github.io 系
+   ツール共通のキー（sky_app_langと同様、端末単位の設定のためnsKey()は使わない）。
+   ダークモードの初期適用は<head>内の同期スクリプトで先に行っている。
    ================================================================ */
 const THEME_KEY = 'sky_app_theme';
 const SHORTCUTS_KEY = 'sky_shortcuts_enabled';
 
+// 🌓 sky_app_theme は 'light' / 'dark' / 'system' の3値を取り得る（キー未設定＝初回訪問時も
+// 'system'として扱う）。「今どちらの見た目にすべきか」を決める箇所（<head>内の先読みスクリプト・
+// トグル・他タブからのstorageイベント・OSテーマ変更のライブ追従）は、すべてこの2つのヘルパーに
+// 集約する（<head>内の先読みスクリプトのみ、他スクリプトより先に単独で動く必要があるため
+// 同じロジックをそのまま複製している。変更する際は両方を同期させること）。
+function getStoredThemeMode() {
+  try {
+    const v = localStorage.getItem(THEME_KEY);
+    return (v === 'light' || v === 'dark' || v === 'system') ? v : 'system';
+  } catch (e) { return 'system'; }
+}
+function resolveEffectiveTheme(mode) {
+  if (mode === 'light' || mode === 'dark') return mode;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 function isDarkMode() {
   return document.documentElement.getAttribute('data-theme') === 'dark';
 }
+function applyThemeToDOM(isDark) {
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+}
+// 現在保存されているモード（'light'/'dark'/'system'）から実際の明暗を解決してDOMへ反映する
+function applyStoredThemeToDOM() {
+  applyThemeToDOM(resolveEffectiveTheme(getStoredThemeMode()) === 'dark');
+}
+// 表示設定モーダルのボタン・'d'キーから呼ばれる。ライト→ダーク→システム追従→ライト…の
+// 順で3状態を巡回し、選んだモードをそのまま保存する（実際の明暗はresolveEffectiveTheme()で解決）。
 function toggleTheme() {
-  const next = !isDarkMode();
-  document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
-  try { localStorage.setItem(THEME_KEY, next ? 'dark' : 'light'); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+  const order = ['light', 'dark', 'system'];
+  const next = order[(order.indexOf(getStoredThemeMode()) + 1) % order.length];
+  try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+  applyThemeToDOM(resolveEffectiveTheme(next) === 'dark');
   settingsSyncThemeBtn();
+}
+// 🖥️ OS側のダーク/ライト設定がタブを開いたまま切り替わった場合（サンセット等での自動切替）、
+// 保存モードが'system'（未設定含む）のときだけこのタブの見た目もライブに追従させる
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (getStoredThemeMode() === 'system') {
+    applyStoredThemeToDOM();
+    settingsSyncThemeBtn();
+  }
+});
+function themeModeLabel(mode) {
+  if (mode === 'dark') return t('settings.themeBtnDark');
+  if (mode === 'light') return t('settings.themeBtnLight');
+  return t('settings.themeBtnSystem');
 }
 function settingsSyncThemeBtn() {
   const btn = document.getElementById('settingsThemeBtn');
-  if (btn) btn.textContent = isDarkMode() ? t('settings.themeBtnLight') : t('settings.themeBtnDark');
+  if (!btn) return;
+  const order = ['light', 'dark', 'system'];
+  const mode = getStoredThemeMode();
+  const nextMode = order[(order.indexOf(mode) + 1) % order.length];
+  btn.textContent = themeModeLabel(mode);
+  // aria-pressedは二値専用のため、3状態を巡回するこのボタンには使わない。代わりに
+  // 「今どのモードで、押すと次にどれへ切り替わるか」をaria-labelでそのまま説明する。
+  btn.setAttribute('aria-label', t('settings.themeBtnAriaLabel', { current: themeModeLabel(mode), next: themeModeLabel(nextMode) }));
 }
 
 // 表示設定モーダルの言語セレクター（日本語／English）の選択状態を、現在のLANGに同期する。
@@ -1683,6 +1737,10 @@ function pfApplyThemeColor(hex) {
 }
 window.addEventListener('storage', (e) => {
   if (e.key === PROFILES_KEY) pfApplyThemeColor(getActiveProfile().color);
+  // 🔁 別タブ・別サイト（taipak5000.github.io系ツール共通のsky_app_themeキー）でテーマ設定が
+  // 変更された場合、このタブの見た目・表示設定モーダルの表示も即座に追従させる
+  // （'light'/'dark'/'system'いずれの値でもgetStoredThemeMode()側で正しく解決される）
+  if (e.key === THEME_KEY) { applyStoredThemeToDOM(); settingsSyncThemeBtn(); }
 });
 function pfSetProfileColor(id, color) {
   if (!pfIsSafeColor(color)) return;
