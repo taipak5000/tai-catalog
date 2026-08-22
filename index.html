@@ -290,6 +290,12 @@
       flex: 1 1 120px; background: var(--bg); border: 1.5px solid var(--sep); border-radius: var(--r-sm);
       padding: 10px 10px; font-size: 13.5px; color: var(--text); outline: none;
     }
+    .filter-reset-row { display: flex; justify-content: flex-end; margin-top: 8px; }
+    .filter-reset-btn {
+      background: var(--bg); border: none; padding: 8px 14px; border-radius: var(--r-sm);
+      font-size: 13px; font-weight: 600; color: var(--blue); cursor: pointer; transition: background 0.15s;
+    }
+    .filter-reset-btn:active { background: var(--sep); }
     .filter-stats { font-size: 12px; color: var(--text-2); padding: 10px 2px 0; }
     .filter-remaining-cost { font-size: 12.5px; color: var(--text-2); padding: 6px 2px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 
@@ -535,6 +541,9 @@
           <option value="nearestComplete" data-i18n="filter.sortNearestComplete">達成に近い順</option>
         </select>
       </div>
+      <div class="filter-reset-row">
+        <button type="button" class="filter-reset-btn" id="clearFiltersBtn" onclick="clearAllFilters()" data-i18n="filter.clearAllBtn">🧹 フィルターを全てクリア</button>
+      </div>
       <div class="filter-stats" id="filterStats"></div>
       <div class="filter-remaining-cost" id="filterRemainingCost"></div>
     </div>
@@ -737,6 +746,7 @@ const I18N = {
     statsTemplate: { ja: '{filtered} / {total} 件を表示', en: 'Showing {filtered} / {total}' },
     sortDefault: { ja: '既定の並び順', en: 'Default order' },
     sortNearestComplete: { ja: '達成に近い順', en: 'Nearest to completion' },
+    clearAllBtn: { ja: '🧹 フィルターを全てクリア', en: '🧹 Clear All Filters' },
     remainingCostLabel: { ja: '残りコスト（現在の絞り込み）', en: 'Remaining cost (current filter)' },
     remainingCostZero: { ja: '0', en: '0' },
   },
@@ -2945,6 +2955,18 @@ function normalizeSearchText(str) {
 /* ================================================================
    精霊グリッドの描画
    ================================================================ */
+// 検索・絞り込みパネルの全コントロール（検索欄／種別・シーズン・進捗・並び順の各セレクト）を
+// 初期状態（未入力／「すべて」／既定の並び順）に一括で戻す。フィルター自体はlocalStorage等に
+// 永続化していないため、DOM上の値をリセットしてrenderGrid()を呼び直すだけで反映される。
+function clearAllFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('typeFilter').value = 'all';
+  document.getElementById('seasonFilter').value = 'all';
+  document.getElementById('progressFilter').value = 'all';
+  document.getElementById('sortFilter').value = 'default';
+  renderGrid();
+}
+
 function renderGrid() {
   const q = normalizeSearchText(document.getElementById('searchInput').value.trim());
   const typeF = document.getElementById('typeFilter').value;
