@@ -33,6 +33,13 @@
       --green:     #34C759;
       --green-d:   #248A3D;
       --green-bg:  rgba(52,199,89,0.10);
+      /* 白文字を直接乗せる「塗りつぶしボタン/ノード」専用の濃い緑。
+         --greenそのものだと白文字とのコントラスト比が約2.2:1しか無くWCAG AA(4.5:1)を
+         満たさない。--green-dはダークモードで明度を上げる（ダーク背景上のテキスト用途で
+         視認性を確保するため）ため白文字の背景には使えず、常に一定の濃さが要る用途向けに
+         別トークンとして持つ（ライト/ダーク共通・色相/彩度は--greenを保ったまま明度のみ
+         下げているため「緑」であることは変わらない）。 */
+      --green-fill: #22813A;
       --blue:      #007AFF;
       --blue-bg:   rgba(0,122,255,0.08);
       --orange:    #FF9500;
@@ -234,7 +241,7 @@
     .pf-add-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .pf-input { flex: 1; min-width: 0; background: var(--bg); border: 1px solid var(--sep); border-radius: 6px;
       padding: 8px 10px; font-size: 14px; color: var(--text); font-family: inherit; outline: none; box-sizing: border-box; }
-    .pf-add-btn { background: var(--green); color: #fff; border: none; border-radius: 6px; padding: 8px 14px;
+    .pf-add-btn { background: var(--green-fill); color: #fff; border: none; border-radius: 6px; padding: 8px 14px;
       font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap; }
     .pf-hint { font-size: 11.5px; color: var(--text-2); line-height: 1.5; margin: 12px 0 0; }
     .pf-close-btn { display: block; width: 100%; margin-top: 16px; background: var(--bg); border: 1px solid var(--sep);
@@ -242,7 +249,7 @@
     .pf-row-input { flex: 1; background: var(--bg); border: 1px solid var(--green); border-radius: 6px;
       padding: 6px 8px; font-size: 14px; color: var(--text); font-family: inherit; outline: none; box-sizing: border-box; min-width: 0; }
     .pf-row-confirm-text { flex: 1; font-size: 13px; color: var(--text); line-height: 1.4; }
-    .pf-row-btn-ok { background: var(--green); color: #fff; border: none; }
+    .pf-row-btn-ok { background: var(--green-fill); color: #fff; border: none; }
     .pf-row-btn-danger { background: #ff3b30; color: #fff; border: none; }
 
     .pf-currency-section { margin-top: 14px; padding-top: 14px; border-top: 0.5px solid var(--sep); }
@@ -336,7 +343,7 @@
       display: flex; align-items: center; justify-content: center; font-size: calc(18px * var(--tree-scale, 1)); flex-shrink: 0;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
-    .tree-node.checked { background: var(--green); border-color: var(--green-d); color: #fff; }
+    .tree-node.checked { background: var(--green-fill); border-color: var(--green-d); color: #fff; }
     .tree-node-excluded { opacity: 0.45; border-style: dashed; cursor: default; box-shadow: none; }
     .tree-node-icon { line-height: 1; }
     .tree-node-icon img { width: calc(28px * var(--tree-scale, 1)); height: calc(28px * var(--tree-scale, 1)); object-fit: contain; }
@@ -349,6 +356,9 @@
       font-weight: 800; padding: 1px 5px; border-radius: 999px; line-height: 1.4;
       background: var(--blue); color: #fff; white-space: nowrap;
     }
+    /* 🔄 連携ツール（item/emote/wings）の所持データ経由で自動解放されたノードの印。
+       wingtag/tier-badgeと重ならないよう、円の下側の空いている角（右下）に置く。 */
+    .tree-node-sync-badge { position: absolute; bottom: -4px; right: -4px; font-size: calc(12px * var(--tree-scale, 1)); }
     .tree-node-label {
       font-size: calc(10px * var(--tree-scale, 1)); color: var(--text); text-align: center; margin-top: 3px; line-height: 1.25;
       max-width: calc(74px * var(--tree-scale, 1)); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
@@ -382,7 +392,7 @@
       font-family: inherit; cursor: pointer; border: none; color: #fff;
     }
     .share-btn.twitter { background: #000; }
-    .share-btn.customize { background: var(--green); }
+    .share-btn.customize { background: var(--green-fill); }
     /* previewTwitterLink（保存プレビューモーダル内の「Xの投稿画面を開く」）も
        同じXブランドの黒背景ボタンなので、.share-btn.twitterと同じ扱いにする */
     .twitter-link-btn { background: #000; }
@@ -506,6 +516,7 @@
     </div>
 
     <div class="stats-row" id="statsRow"></div>
+    <div class="filter-remaining-cost" id="grandRemainingCost"></div>
 
     <div class="share-btn-row">
       <button type="button" class="share-btn twitter" onclick="shareOverallOnTwitter()" data-i18n="share.twitterBtn">📤🖼️ Xで画像を共有</button>
@@ -716,8 +727,9 @@ const I18N = {
   stats: {
     unlockedNodes: { ja: '解放済みノード', en: 'Unlocked Nodes' },
     completeSpirits: { ja: 'コンプリート済み精霊', en: 'Completed Spirits' },
-    candleHeartUsed: { ja: 'このツリーで使用したキャンドル/ハート', en: 'Candles/Hearts used on this tree' },
-    seasonCandleHeartUsed: { ja: 'このツリーで使用したシーズンキャンドル/ハート', en: 'Season Candles/Hearts used on this tree' },
+    candleHeartUsed: { ja: '使用したキャンドル/ハート（全ツリー合計）', en: 'Candles/Hearts used (all trees)' },
+    seasonCandleHeartUsed: { ja: '使用したシーズンキャンドル/ハート（全ツリー合計）', en: 'Season Candles/Hearts used (all trees)' },
+    grandRemainingCostLabel: { ja: '残りコスト（現在の絞り込みに関わらず全{total}ツリー合計）', en: 'Remaining cost (all {total} trees, regardless of filter)' },
   },
   detail: {
     progress: { ja: '進捗', en: 'Progress' },
@@ -733,6 +745,12 @@ const I18N = {
     markAllConfirmBtn: { ja: '実行', en: 'Mark Complete' },
     markAllDoneToast: { ja: '{count}件のノードを解放済みにしました', en: 'Marked {count} nodes as complete' },
     tierVariantTitleTemplate: { ja: '同じアイテムのコスト違いバリエーション（{n}/{total}）', en: 'Cost-tier variant of the same item ({n} of {total})' },
+    emoteLevelBadgeTitleTemplate: { ja: '同じエモートのレベル違いバリエーション（Lv{n}・全{total}レベル中）', en: 'Level variant of the same emote (Lv{n} of {total})' },
+    syncBadgeTitle: { ja: '連携ツール（アイテム/エモート/羽トラッカー）の所持データから自動で解放されました', en: 'Auto-unlocked via sync with a connected tool (item/emote/wing tracker)' },
+    resetAllBtn: { ja: '🔒 このツリーを全て未解放に戻す', en: '🔒 Reset entire tree to locked' },
+    resetAllConfirmTemplate: { ja: 'このツリーの解放済みノード {count} 件をすべて未解放に戻します。連携ツール（アイテム/エモート/羽トラッカー）側の所持データもあわせて未所持に戻ります。この操作は個別にやり直す必要があります。よろしいですか？', en: 'Reset all {count} unlocked nodes in this tree back to locked? This also clears ownership on connected tools (item/emote/wing tracker). You will need to redo them one by one if this was a mistake. Continue?' },
+    resetAllConfirmBtn: { ja: 'リセット', en: 'Reset' },
+    resetAllDoneToast: { ja: '{count}件のノードを未解放に戻しました', en: 'Reset {count} nodes to locked' },
   },
   theme: {
     green: { ja: 'グリーン', en: 'Green' },
@@ -1016,9 +1034,9 @@ function settingsSyncLangBtns() {
   const jaBtn = document.getElementById('settingsLangJaBtn');
   const enBtn = document.getElementById('settingsLangEnBtn');
   if (!jaBtn || !enBtn) return;
-  jaBtn.style.background = LANG === 'ja' ? 'var(--green)' : 'var(--bg)';
+  jaBtn.style.background = LANG === 'ja' ? 'var(--green-fill)' : 'var(--bg)';
   jaBtn.style.color = LANG === 'ja' ? '#fff' : 'var(--text-2)';
-  enBtn.style.background = LANG === 'en' ? 'var(--green)' : 'var(--bg)';
+  enBtn.style.background = LANG === 'en' ? 'var(--green-fill)' : 'var(--bg)';
   enBtn.style.color = LANG === 'en' ? '#fff' : 'var(--text-2)';
 }
 
@@ -1185,9 +1203,9 @@ function pfIconSetMode(mode) {
   document.getElementById('iconImagePanel').style.display = mode === 'image' ? '' : 'none';
   const emojiBtn = document.getElementById('iconModeEmojiBtn');
   const imageBtn = document.getElementById('iconModeImageBtn');
-  emojiBtn.style.background = mode === 'emoji' ? 'var(--green)' : 'var(--bg)';
+  emojiBtn.style.background = mode === 'emoji' ? 'var(--green-fill)' : 'var(--bg)';
   emojiBtn.style.color = mode === 'emoji' ? '#fff' : 'var(--text-2)';
-  imageBtn.style.background = mode === 'image' ? 'var(--green)' : 'var(--bg)';
+  imageBtn.style.background = mode === 'image' ? 'var(--green-fill)' : 'var(--bg)';
   imageBtn.style.color = mode === 'image' ? '#fff' : 'var(--text-2)';
   pfIconUpdatePreview();
 }
@@ -2447,24 +2465,36 @@ function getBlessingWingBuffMap() {
   return map;
 }
 
-// ノードが「解放済み」とみなされるかどうかを判定する。
-// spirit-catalog自身の解放記録に加え、item/emote側で該当アイテムを既に
-// 所持済みにしている場合や、wings側で再訪の光の翼を入手済みにしている場合も
-// 解放済みとして扱う（item/emote・wings→spirit-catalogの逆方向同期）。
-// また、祝福ノードはその先の羽ロックが解放済みなら自動で解放済み扱いにする
-// （ツリーは根から順番にしか進めないため、羽ロックまで到達済みなら祝福も
-// 必ず通過済みのはず）。
-function isNodeUnlocked(node) {
-  if (getUnlockedMap()[node.guid]) return true;
+// ノードの解放が「どこから来たか」を判定する。
+// - 'own'  : spirit-catalog自身の解放記録（このツールで直接タップして解放した分）
+// - 'sync' : item/emote側で該当アイテムを既に所持済み、またはwings側で再訪の光の翼を
+//            入手済みにしている場合（item/emote・wings→spirit-catalogの逆方向同期による
+//            自動解放。このツール自身では未操作）
+// - null   : 未解放
+// 祝福ノードは、その先の羽ロックが解放済みなら自動で解放済み扱いにする（ツリーは根から
+// 順番にしか進めないため、羽ロックまで到達済みなら祝福も必ず通過済みのはず）。この場合の
+// 解放元は、根拠となった羽ロック側の解放元をそのまま引き継ぐ（羽ロックがsync由来なら
+// 祝福もsync由来として扱う）。
+// isNodeUnlocked()も本関数の結果をそのまま真偽化したもので、判定ロジックの二重管理を避ける。
+function getUnlockSource(node) {
+  if (getUnlockedMap()[node.guid]) return 'own';
   const ext = getExternalOwnCache();
-  if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return true;
-  if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return true;
-  if (node.itemType === 'WingBuff' && ext.wingUnlockedGuids.has(node.guid)) return true;
+  if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return 'sync';
+  if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return 'sync';
+  if (node.itemType === 'WingBuff' && ext.wingUnlockedGuids.has(node.guid)) return 'sync';
   if (node.itemNameJa === '祝福') {
     const wingNodes = getBlessingWingBuffMap()[node.guid];
-    if (wingNodes && wingNodes.some(wn => isNodeUnlocked(wn))) return true;
+    if (wingNodes) {
+      for (const wn of wingNodes) {
+        const src = getUnlockSource(wn);
+        if (src) return src;
+      }
+    }
   }
-  return false;
+  return null;
+}
+function isNodeUnlocked(node) {
+  return !!getUnlockSource(node);
 }
 
 // 案内人ツリーの「〇〇 Warp」ノード（案内人の広場へのワープ機能）は、
@@ -2658,7 +2688,7 @@ function markAllArea(spiritGuid, remainingCount) {
       <button type="button" class="pf-icon-btn" onclick="markAllCancel()" data-focus-key="markAllCancel">${t('profile.cancelBtn')}</button>
     </div>`;
 }
-function markAllStart() { markAllConfirming = true; renderDetail(currentDetailGuid); }
+function markAllStart() { markAllConfirming = true; resetTreeConfirming = false; renderDetail(currentDetailGuid); }
 function markAllCancel() { markAllConfirming = false; renderDetail(currentDetailGuid); }
 function markAllConfirm(spiritGuid) {
   markAllConfirming = false;
@@ -2707,6 +2737,81 @@ function markTreeComplete(spiritGuid) {
   renderDetail(spiritGuid);
   renderGrid();
   showToast(t('detail.markAllDoneToast', { count: changedCount }));
+}
+
+/* ================================================================
+   🔒 ツリー一括ロック（「このツリーを全て未解放に戻す」）
+   markTreeComplete()の対称機能。うっかり全部解放してしまった／作り直したい場合に、
+   1件ずつ個別解除する手間を省く。
+   toggleNode()の単体解除と同じく、連携ツール（item/emote/wings）側の所持データも
+   合わせてfalseに戻す（＝スプレッドシート的な「表示だけロック」ではなく、本当に
+   このツリーを未解放状態へ巻き戻す）。範囲が広く元に戻す操作が個別タップになるため、
+   markTreeComplete()と同じ確認ステップを挟む。
+   ================================================================ */
+let resetTreeConfirming = false;
+
+function resetTreeArea(spiritGuid, unlockedCount) {
+  if (unlockedCount <= 0) return ''; // 戻せるノードが無い（未着手の）ツリーには出さない
+  if (!resetTreeConfirming) {
+    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:8px; padding:8px;" onclick="resetTreeStart()" data-focus-key="resetTreeStart">${t('detail.resetAllBtn')}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap; margin-top: 8px;">
+      <span class="pf-row-confirm-text">${t('detail.resetAllConfirmTemplate', { count: unlockedCount })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-danger" onclick="resetTreeConfirm('${spiritGuid}')" data-focus-key="resetTreeConfirm">${t('detail.resetAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="resetTreeCancel()" data-focus-key="resetTreeCancel">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+// 一括解放・一括ロックの確認UIを同時に2つ出さないよう、片方を開始したらもう片方は閉じる。
+function resetTreeStart() { resetTreeConfirming = true; markAllConfirming = false; renderDetail(currentDetailGuid); }
+function resetTreeCancel() { resetTreeConfirming = false; renderDetail(currentDetailGuid); }
+function resetTreeConfirm(spiritGuid) {
+  resetTreeConfirming = false;
+  resetTreeToLocked(spiritGuid);
+}
+
+function resetTreeToLocked(spiritGuid) {
+  const spirit = spiritByGuid[spiritGuid];
+  if (!spirit) return;
+
+  const unlocked = getUnlockedMap();
+  let changedCount = 0;
+  spirit.nodes.forEach(node => {
+    if (isWarpNode(node)) return;
+    if (!isNodeUnlocked(node)) return; // 元々未解放のノードは対象外
+
+    const prevEntry = unlocked[node.guid];
+    if (prevEntry) {
+      // toggleNode()の単体解除と同じく、実際に適用された額（記録が無い旧データは名目コスト）
+      // のみを払い戻す。名目コストをそのまま払い戻すと、通貨不足でクランプされていた場合に
+      // 実際には払っていない分まで生成されてしまう（toggleNode()と同じ水増しバグの再発防止）。
+      const spent = (typeof prevEntry === 'object')
+        ? { c: prevEntry.spentC || 0, h: prevEntry.spentH || 0 }
+        : { c: node.cost?.c || 0, h: node.cost?.h || 0 };
+      adjustOwnCurrency(spent.c, spent.h);
+      delete unlocked[node.guid];
+    } else if (node.itemNameJa === '祝福') {
+      // 祝福ノードはown mapを持たず、羽ロックの解放状況から動的に導出されているだけなので
+      // ここでは何もしない（同じループ内で羽ロック側が未解放に戻れば、次の再描画で祝福も
+      // 自動的に未解放表示へ戻る）。処理・カウントするとロック対象の水増しになる。
+      return;
+    }
+    // item/emote側の所持だけで表示上「解放済み」だったノードも、toggleNode()の単体解除と
+    // 同じく連携先の所持データ自体を未所持に戻す（真に「ツリーを未解放に戻す」ため）。
+    syncItemOwned(node, false);
+    syncEmoteOwned(node, false);
+    changedCount++;
+  });
+  saveUnlockedMap(unlocked);
+
+  // 羽バフノードは複数まとめて変わりうるため、全ノード反映後にまとめて1回だけ同期する
+  syncWingBuff(spirit);
+
+  invalidateExternalOwnCache();
+
+  renderDetail(spiritGuid);
+  renderGrid();
+  showToast(t('detail.resetAllDoneToast', { count: changedCount }));
 }
 
 /* ================================================================
@@ -2928,6 +3033,29 @@ function renderStats() {
     <div class="stat-box"><div class="stat-num">🕯️${candleSpent}<br>💗${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
     <div class="stat-box"><div class="stat-num">🕯️🍂${seasonCandleSpent}<br>💗🍂${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
   `;
+  // 絞り込みとは無関係に、常に全216ツリー分の残りコストも合わせて再描画する
+  // （renderStats()はtoggleNode()/markTreeComplete()/resetTreeToLocked()/言語切替等、
+  // 解放状況が変わりうる箇所からすべて呼ばれるため、フックポイントとして一本化する）。
+  renderGrandRemainingCost();
+}
+
+// 精霊リストのうち、まだ解放していない全ノードのコストを通貨種別ごとに合算する。
+// 現在の絞り込み一覧（renderFilterRemainingCost）・全216ツリー（renderGrandRemainingCost）の
+// 両方で共有する集計ロジック。
+function sumRemainingCost(list) {
+  const totals = {};
+  list.forEach(s => {
+    s.nodes.forEach(n => {
+      if (isWarpNode(n)) return;
+      if (isNodeUnlocked(n)) return;
+      Object.keys(n.cost || {}).forEach(k => { totals[k] = (totals[k] || 0) + (n.cost[k] || 0); });
+    });
+  });
+  return totals;
+}
+function remainingCostChipsHtml(totals) {
+  const order = ['c', 'h', 'sc', 'sh', 'ac', 'ec'];
+  return order.filter(k => totals[k]).map(k => `<span class="cost-chip cost-${k}">${COST_ICON[k] || ''}${totals[k]}</span>`).join('');
 }
 
 // 現在の絞り込み（検索・種別・シーズン・進捗フィルター）に一致している精霊のうち、
@@ -2935,18 +3063,18 @@ function renderStats() {
 // 「今の絞り込みで、あと何を消費すれば埋まるか」を一目で分かるようにするための集計で、
 // renderStats()の（全体・使用済みの）集計とは独立してrenderGrid()から都度呼び出す。
 function renderFilterRemainingCost(filtered) {
-  const totals = {};
-  filtered.forEach(s => {
-    s.nodes.forEach(n => {
-      if (isWarpNode(n)) return;
-      if (isNodeUnlocked(n)) return;
-      Object.keys(n.cost || {}).forEach(k => { totals[k] = (totals[k] || 0) + (n.cost[k] || 0); });
-    });
-  });
-  const order = ['c', 'h', 'sc', 'sh', 'ac', 'ec'];
-  const chips = order.filter(k => totals[k]).map(k => `<span class="cost-chip cost-${k}">${COST_ICON[k] || ''}${totals[k]}</span>`).join('');
+  const chips = remainingCostChipsHtml(sumRemainingCost(filtered));
   document.getElementById('filterRemainingCost').innerHTML =
     `<b>${t('filter.remainingCostLabel')}</b>${t('common.labelSep')}${chips || t('filter.remainingCostZero')}`;
+}
+
+// 絞り込みの影響を一切受けない、全216ツリー分の残りコスト合計。
+// 「いつか全部揃えるには結局あとどれだけ要るか」という長期の完走計画用に、
+// 今のフィルター条件に関わらず常時表示する（renderFilterRemainingCostとは独立の集計）。
+function renderGrandRemainingCost() {
+  const chips = remainingCostChipsHtml(sumRemainingCost(SPIRIT_TREE_DATA));
+  document.getElementById('grandRemainingCost').innerHTML =
+    `<b>${t('stats.grandRemainingCostLabel', { total: SPIRIT_TREE_DATA.length })}</b>${t('common.labelSep')}${chips || t('filter.remainingCostZero')}`;
 }
 
 /* ================================================================
@@ -2957,6 +3085,7 @@ let currentDetailGuid = null;
 function openDetail(guid) {
   currentDetailGuid = guid;
   markAllConfirming = false; // 別の精霊の一括解放確認状態を持ち越さない
+  resetTreeConfirming = false; // 別の精霊の一括ロック確認状態を持ち越さない
   renderDetail(guid);
   document.getElementById('detailOverlay').classList.add('open');
 }
@@ -2964,6 +3093,7 @@ function closeDetail() {
   document.getElementById('detailOverlay').classList.remove('open');
   currentDetailGuid = null;
   markAllConfirming = false;
+  resetTreeConfirming = false;
 }
 
 /* ================================================================
@@ -2991,18 +3121,32 @@ function nodeCostSum(n) {
   return Object.keys(cost).reduce((sum, k) => sum + (cost[k] || 0), 0);
 }
 
-// 「コスト違いバリエーション」判定: 同じitemCostId+itemTypeを持つノードが同一ツリー内に
-// 複数ある場合、それらは名前重複バグではなく、本家の「同じアイテムを異なるコストで
-// 入手できる」仕様（例: 長老ツリーの色違いケープが安い方/高い方の2枠で並ぶ等）。
-// バッジ表示用に、コスト合計の安い順を1始まりの段番号として返す（表示専用、データは変更しない）。
+// 「コスト違いバリエーション」「エモートのレベル違いバリエーション」判定:
+// ① 同じitemCostId+itemTypeを持つノードが同一ツリー内に複数ある場合、それらは名前重複
+//    バグではなく、本家の「同じアイテムを異なるコストで入手できる」仕様（例: 長老ツリーの
+//    色違いケープが安い方/高い方の2枠で並ぶ等）。コスト合計の安い順を1始まりの段番号として
+//    返す（mode: 'cost'）。
+// ② エモートノード（itemType==='Emote'）はitemCostIdを持たないため①の判定に掛からず、
+//    同じエモートの異なるレベル（emoteLevel違い）のノードが同一ツリー内に複数あっても
+//    これまでバッジが出ず区別が付かなかった。emoteId+itemTypeでグルーピングし、実際の
+//    レベル番号をそのままバッジ値として返す（mode: 'emote'。位置の連番ではなく実レベル値
+//    そのものの方が、ホバー無しでも「どのレベルか」が一目で分かり有用なため）。
+// いずれも表示専用のバッジで、データは変更しない。
 function getCostTierBadge(spirit, node) {
-  if (!node.itemCostId || !node.itemType || !spirit) return null;
+  if (!spirit) return null;
+  if (node.itemType === 'Emote') {
+    if (node.emoteId == null || node.emoteLevel == null) return null;
+    const group = spirit.nodes.filter(n => n.itemType === 'Emote' && n.emoteId === node.emoteId);
+    if (group.length < 2) return null;
+    return { n: node.emoteLevel, total: group.length, mode: 'emote' };
+  }
+  if (!node.itemCostId || !node.itemType) return null;
   const group = spirit.nodes.filter(n => n.itemCostId === node.itemCostId && n.itemType === node.itemType);
   if (group.length < 2) return null;
   const sorted = group.slice().sort((a, b) => nodeCostSum(a) - nodeCostSum(b) || (a.guid < b.guid ? -1 : 1));
   const idx = sorted.findIndex(n => n.guid === node.guid);
   if (idx === -1) return null;
-  return { n: idx + 1, total: sorted.length };
+  return { n: idx + 1, total: sorted.length, mode: 'cost' };
 }
 
 /* ================================================================
@@ -3363,7 +3507,8 @@ function treeNodeHtml(spiritGuid, n, style) {
       </div>`;
   }
 
-  const unlocked = isNodeUnlocked(n);
+  const unlockSource = getUnlockSource(n);
+  const unlocked = !!unlockSource;
   const costChips = Object.keys(n.cost || {}).map(k =>
     `<span class="cost-chip cost-${k}">${COST_ICON[k] || ''}${n.cost[k]}</span>`
   ).join('');
@@ -3372,14 +3517,24 @@ function treeNodeHtml(spiritGuid, n, style) {
     ? `<span class="tree-node-wingtag" title="${t('detail.emoteSyncTitleTemplate', { level: n.emoteLevel })}">🎭</span>` : '';
   const tierBadge = getCostTierBadge(spirit, n);
   const tierBadgeHtml = tierBadge
-    ? `<span class="tree-node-tier-badge" title="${escapeHtml(t('detail.tierVariantTitleTemplate', { n: tierBadge.n, total: tierBadge.total }))}">T${tierBadge.n}</span>` : '';
+    ? (tierBadge.mode === 'emote'
+        ? `<span class="tree-node-tier-badge" title="${escapeHtml(t('detail.emoteLevelBadgeTitleTemplate', { n: tierBadge.n, total: tierBadge.total }))}">Lv${tierBadge.n}</span>`
+        : `<span class="tree-node-tier-badge" title="${escapeHtml(t('detail.tierVariantTitleTemplate', { n: tierBadge.n, total: tierBadge.total }))}">T${tierBadge.n}</span>`)
+    : '';
+  // 🔄 このツール自身のタップではなく、連携ツール（item/emote/wings）側の所持データから
+  // 自動で解放された（sync由来の）ノードにのみ付ける視覚的な印。wingTag/emoteTagは
+  // ノード種別ごとの「連携対象かどうか」を常時示すだけ（未解放でも表示される）なので、
+  // 「今チェックが付いているのは自分でタップしたからか、連携経由かで見た目が同じ」という
+  // 別の問題を解決するために、ノード種別を問わず追加する。
+  const syncBadge = unlockSource === 'sync'
+    ? `<span class="tree-node-sync-badge" title="${t('detail.syncBadgeTitle')}">🔄</span>` : '';
   return `
     <div class="tree-node-wrap" style="${style || ''}">
       <div class="tree-node-circle-holder">
         <button type="button" class="tree-node ${unlocked ? 'checked' : ''}" onclick="toggleNode('${spiritGuid}','${n.guid}')" title="${escapeHtml(name)}" aria-pressed="${unlocked}" data-node-guid="${n.guid}">
           <span class="tree-node-icon">${unlocked ? '✓' : iconHtml}</span>
         </button>
-        ${wingTag}${emoteTag}${tierBadgeHtml}
+        ${wingTag}${emoteTag}${tierBadgeHtml}${syncBadge}
       </div>
       <div class="tree-node-label ${noJa ? 'no-ja' : ''}">${escapeHtml(name)}</div>
       <div class="tree-node-cost">${costChips}</div>
@@ -3530,6 +3685,7 @@ function renderDetail(guid) {
         ${revisitNote}
       </div>
       ${markAllArea(guid, total - done)}
+      ${resetTreeArea(guid, done)}
       ${bodyHtml}
     </div>
   `;
