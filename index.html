@@ -311,6 +311,14 @@
     .stat-num { font-size: 22px; font-weight: 800; color: var(--green-d); font-variant-numeric: tabular-nums; }
     .stat-label { font-size: 11.5px; color: var(--text-2); margin-top: 2px; }
 
+    /* ── 🏆 称号 ── */
+    .titles-panel { margin-top: 10px; }
+    .titles-label { font-size: 11.5px; font-weight: 700; color: var(--text-2); padding: 0 2px 6px; }
+    .titles-chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .title-chip { font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; white-space: nowrap; background: var(--orange-bg); color: #B8740A; }
+    [data-theme="dark"] .title-chip { color: var(--orange); }
+    .titles-empty-hint { font-size: 12px; color: var(--text-2); padding: 0 2px; }
+
     /* ── 精霊グリッド ── */
     .spirit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
     .spirit-card {
@@ -555,6 +563,7 @@
     </div>
 
     <div class="stats-row" id="statsRow"></div>
+    <div class="titles-panel" id="titlesPanel"></div>
     <div class="filter-remaining-cost" id="grandRemainingCost"></div>
 
     <div class="share-btn-row">
@@ -770,6 +779,18 @@ const I18N = {
     candleHeartUsed: { ja: '使用したキャンドル/ハート（全ツリー合計）', en: 'Candles/Hearts used (all trees)' },
     seasonCandleHeartUsed: { ja: '使用したシーズンキャンドル/ハート（全ツリー合計）', en: 'Season Candles/Hearts used (all trees)' },
     grandRemainingCostLabel: { ja: '残りコスト（現在の絞り込みに関わらず全{total}ツリー合計）', en: 'Remaining cost (all {total} trees, regardless of filter)' },
+  },
+  // 一度獲得した称号は、後でノードのチェックを外しても取り消されない
+  // （checkTitleUnlocks()参照）。
+  titles: {
+    sectionLabel: { ja: '🏆 称号', en: '🏆 Titles' },
+    emptyHint: { ja: '精霊ツリーを解放していくと、ここに称号が並びます', en: 'Unlock spirit tree nodes to start earning titles here' },
+    unlockedToast: { ja: '🏆 称号「{name}」を獲得しました！', en: '🏆 Title earned: “{name}”!' },
+    pct1: { name: { ja: '芽吹きの精霊使い', en: 'Budding Spirit Keeper' }, desc: { ja: '精霊ツリーのノードを1%以上解放した', en: 'Unlocked 1%+ of all spirit tree nodes' } },
+    pct10: { name: { ja: '灯火の道しるべ', en: 'Candlelit Trailblazer' }, desc: { ja: '精霊ツリーのノードを10%以上解放した', en: 'Unlocked 10%+ of all spirit tree nodes' } },
+    pct25: { name: { ja: '深緑の探求者', en: 'Verdant Explorer' }, desc: { ja: '精霊ツリーのノードを25%以上解放した', en: 'Unlocked 25%+ of all spirit tree nodes' } },
+    pct50: { name: { ja: '満開の森の守り人', en: 'Guardian of the Blooming Grove' }, desc: { ja: '精霊ツリーのノードを50%以上解放した', en: 'Unlocked 50%+ of all spirit tree nodes' } },
+    pct100: { name: { ja: '精霊の森の賢者', en: 'Sage of the Spirit Forest' }, desc: { ja: '精霊ツリーの全ノードをコンプリートした', en: 'Unlocked 100% of all spirit tree nodes' } },
   },
   detail: {
     progress: { ja: '進捗', en: 'Progress' },
@@ -2479,6 +2500,57 @@ function getUnlockedMap() {
 }
 function saveUnlockedMap(map) { localStorage.setItem(nsKey(UNLOCK_KEY_RAW), JSON.stringify(map)); }
 
+/* ================================================================
+   🏆 称号（実績） — 精霊ツリー全体の解放率に応じて段階的に獲得。
+   一度獲得した称号は、後でノードのチェックを外して解放率が下がっても
+   取り消さない（TITLESは条件到達時に追加されるのみで削除しないロジック
+   自体が、実質的な「ハイウォーターマーク」として機能する）。
+   ================================================================ */
+const TITLES_KEY_RAW = 'spiritCatalogTitles_v1';
+const TITLES = [
+  { id: 'pct1',   icon: '🌱', threshold: 1 },
+  { id: 'pct10',  icon: '🕯️', threshold: 10 },
+  { id: 'pct25',  icon: '🌿', threshold: 25 },
+  { id: 'pct50',  icon: '🌳', threshold: 50 },
+  { id: 'pct100', icon: '👑', threshold: 100 },
+];
+function loadEarnedTitles() {
+  try { return JSON.parse(localStorage.getItem(nsKey(TITLES_KEY_RAW))) || {}; }
+  catch (_) { return {}; }
+}
+function saveEarnedTitles(map) { localStorage.setItem(nsKey(TITLES_KEY_RAW), JSON.stringify(map)); }
+
+// renderStats()から呼ばれる（＝ノード解放状況が変わりうる箇所すべてから間接的に呼ばれる）。
+function checkTitleUnlocks(doneNodes, totalNodes) {
+  if (!totalNodes) return; // データ読み込み前は判定しない
+  const earned = loadEarnedTitles();
+  const pct = (doneNodes / totalNodes) * 100;
+  let changed = false;
+  TITLES.forEach(def => {
+    if (earned[def.id]) return; // 既に獲得済みなら再判定しない（=取り消されない）
+    const reached = def.threshold >= 100 ? doneNodes >= totalNodes : pct >= def.threshold;
+    if (!reached) return;
+    earned[def.id] = { earnedAt: new Date().toISOString() };
+    changed = true;
+    showToast(t('titles.unlockedToast', { name: t('titles.' + def.id + '.name') }));
+  });
+  if (changed) saveEarnedTitles(earned);
+  renderTitlesPanel(earned);
+}
+
+function renderTitlesPanel(earnedMap) {
+  const el = document.getElementById('titlesPanel');
+  if (!el) return;
+  const earned = earnedMap || loadEarnedTitles();
+  const chips = TITLES.filter(def => earned[def.id]).map(def =>
+    `<span class="title-chip" title="${escapeHtml(t('titles.' + def.id + '.desc'))}">${def.icon} ${escapeHtml(t('titles.' + def.id + '.name'))}</span>`
+  ).join('');
+  el.innerHTML = `
+    <div class="titles-label">${t('titles.sectionLabel')}</div>
+    ${chips ? `<div class="titles-chip-row">${chips}</div>` : `<div class="titles-empty-hint">${t('titles.emptyHint')}</div>`}
+  `;
+}
+
 // item（アイテム所持管理）/emote（エモート所持率管理）の所持データを一度だけ
 // 読み込んでキャッシュする（ノードごとに毎回JSON.parseしないための最適化）。
 // item/emote側で先に所持登録した場合でも、精霊ツリー側が自動でチェック済みに
@@ -3147,6 +3219,7 @@ function renderStats() {
     <div class="stat-box"><div class="stat-num">🕯️${candleSpent}<br>💗${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
     <div class="stat-box"><div class="stat-num">🕯️🍂${seasonCandleSpent}<br>💗🍂${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
   `;
+  checkTitleUnlocks(doneNodes, totalNodes);
   // 絞り込みとは無関係に、常に全216ツリー分の残りコストも合わせて再描画する
   // （renderStats()はtoggleNode()/markTreeComplete()/resetTreeToLocked()/言語切替等、
   // 解放状況が変わりうる箇所からすべて呼ばれるため、フックポイントとして一本化する）。
