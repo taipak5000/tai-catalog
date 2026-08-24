@@ -221,6 +221,24 @@
     .pf-dash-btn { background: var(--bg); border: 1px solid var(--sep); color: var(--text-2);
       border-radius: 6px; padding: 5px 10px; font-size: 14px; cursor: pointer; flex-shrink: 0; line-height: 1; }
     .pf-dash-btn:hover { background: var(--sep); }
+
+    /* ── 🕊️ 再訪カウントダウン連携バッジ（ダッシュボードの再訪ステータスをメイン画面にも表示）
+       ダッシュボード同様、対象精霊の固有名は特定できないため文言は汎用（「再訪イベント」）に
+       留める。data.revisitが無い/読み込み前は空のまま非表示（display:noneではなくinnerHTML
+       空文字で十分。中身が無ければpaddingだけの箱に見えてしまうため親側もpadding:0扱いにする）。 */
+    .revisit-badge:empty { display: none; }
+    .revisit-badge {
+      max-width: 100%; margin: 10px 0 0; background: var(--card); border: 1px solid var(--sep);
+      border-radius: var(--r-sm); padding: 10px 14px; font-size: 13px; color: var(--text);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .revisit-badge-text { flex: 1; min-width: 0; }
+    .revisit-badge-text b { color: var(--green-d); }
+    .revisit-badge-btn {
+      background: var(--green-fill); color: #fff; border: none; border-radius: var(--r-sm);
+      padding: 8px 12px; font-size: 12.5px; font-weight: 700; cursor: pointer; font-family: inherit;
+      white-space: nowrap; flex-shrink: 0;
+    }
     .dash-section { margin-top: 16px; }
     .dash-section:first-child { margin-top: 0; }
     .dash-section-label { font-size: 12px; font-weight: 700; color: var(--text-2); margin: 0 0 8px;
@@ -321,14 +339,34 @@
       flex: 1 1 120px; background: var(--bg); border: 1.5px solid var(--sep); border-radius: var(--r-sm);
       padding: 10px 10px; font-size: 13.5px; color: var(--text); outline: none;
     }
-    .filter-reset-row { display: flex; justify-content: flex-end; margin-top: 8px; }
+    /* 🔁 再訪ツリーのみ表示トグル。既存のfilter-reset-btnと対で並べるため
+       flex-endからspace-betweenに変更（既存クラスの上書きはこの1箇所のみ使用のため安全）。 */
+    .filter-reset-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .filter-reset-btn {
       background: var(--bg); border: none; padding: 8px 14px; border-radius: var(--r-sm);
       font-size: 13px; font-weight: 600; color: var(--blue); cursor: pointer; transition: background 0.15s;
     }
     .filter-reset-btn:active { background: var(--sep); }
+    .filter-toggle-btn {
+      background: var(--bg); border: 1px solid var(--sep); padding: 7px 13px; border-radius: var(--r-sm);
+      font-size: 13px; font-weight: 600; color: var(--text-2); cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .filter-toggle-btn.active { background: var(--green-fill); border-color: var(--green-fill); color: #fff; }
     .filter-stats { font-size: 12px; color: var(--text-2); padding: 10px 2px 0; }
     .filter-remaining-cost { font-size: 12.5px; color: var(--text-2); padding: 6px 2px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+    .bulk-catchup-row:empty { display: none; }
+    .bulk-catchup-row { padding: 8px 2px 0; }
+    .bulk-catchup-row .pf-icon-btn { width: 100%; box-sizing: border-box; padding: 8px; }
+
+    /* ── 🗺️ 一覧／エリア別／シーズン別 表示モード切替 ── */
+    .view-mode-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    .view-mode-btn {
+      flex: 1 1 100px; background: var(--card); border: 1.5px solid var(--sep); border-radius: var(--r-sm);
+      padding: 10px; font-size: 13px; font-weight: 700; color: var(--text-2); cursor: pointer;
+      font-family: inherit; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .view-mode-btn.active { background: var(--green-fill); border-color: var(--green-fill); color: #fff; }
 
     /* ── 統計サマリー ── */
     .stats-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
@@ -370,7 +408,23 @@
     .spirit-revisit-badge {
       position: absolute; top: 6px; right: 6px; font-size: 12px;
     }
+    /* 🗺️ エリア別／シーズン別ビューのカードにのみ追加される所在地タグ（既存.spirit-metaとは
+       別行。通常の一覧カードでは付与しない＝見た目を変えないため、意図的に別クラスにしている）。 */
+    .spirit-area-tag { font-size: 9.5px; color: var(--text-2); margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .empty-note { text-align: center; color: var(--text-2); font-size: 13px; padding: 30px 0; }
+
+    /* ── 🗺️🌸 エリア別／シーズン別 グループ表示 ── */
+    .area-group { margin-top: 18px; }
+    .area-group:first-child { margin-top: 0; }
+    .area-group-head { background: var(--card); border-radius: var(--r); padding: 12px 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .area-group-head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .area-group-title { font-size: 14.5px; font-weight: 800; color: var(--text); }
+    .area-group-badge { font-size: 12px; color: var(--text-2); margin-top: 3px; }
+    .area-group-badge b { color: var(--green-d); }
+    .area-group-pct-bar { height: 5px; border-radius: 2.5px; background: var(--sep); margin-top: 10px; overflow: hidden; }
+    .area-group-pct-fill { height: 100%; background: var(--green); }
+    .area-group-pct-fill.complete { background: var(--blue); }
+    .area-group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 12px; }
 
     /* ── 精霊詳細モーダル ── */
     .detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 800; align-items: flex-start; justify-content: center; padding: 0; overflow-y: auto; }
@@ -557,6 +611,7 @@
 
   <div class="wrap">
     <div class="pf-bar" id="pfBar"></div>
+    <div class="revisit-badge" id="revisitBadge"></div>
 
     <p class="sec-label" data-i18n="filter.sectionLabel">🔍 検索・絞り込み</p>
     <div class="filter-card">
@@ -585,10 +640,12 @@
         </select>
       </div>
       <div class="filter-reset-row">
+        <button type="button" class="filter-toggle-btn" id="revisitOnlyBtn" onclick="toggleRevisitOnlyFilter()" data-i18n="filter.revisitOnlyBtn">🔁 再訪ツリーのみ</button>
         <button type="button" class="filter-reset-btn" id="clearFiltersBtn" onclick="clearAllFilters()" data-i18n="filter.clearAllBtn">🧹 フィルターを全てクリア</button>
       </div>
       <div class="filter-stats" id="filterStats"></div>
       <div class="filter-remaining-cost" id="filterRemainingCost"></div>
+      <div class="bulk-catchup-row" id="bulkCatchupFilteredRow"></div>
     </div>
 
     <div class="stats-row" id="statsRow"></div>
@@ -601,7 +658,13 @@
     </div>
 
     <p class="sec-label" data-i18n="grid.sectionLabel">✨ 精霊一覧</p>
+    <div class="view-mode-row">
+      <button type="button" class="view-mode-btn active" id="viewModeGridBtn" onclick="setBrowseMode('grid')" data-i18n="browse.modeGrid">✨ 一覧</button>
+      <button type="button" class="view-mode-btn" id="viewModeAreaBtn" onclick="setBrowseMode('area')" data-i18n="browse.modeArea">🗺️ エリア別</button>
+      <button type="button" class="view-mode-btn" id="viewModeSeasonBtn" onclick="setBrowseMode('season')" data-i18n="browse.modeSeason">🌸 シーズン別</button>
+    </div>
     <div class="spirit-grid" id="spiritGrid"></div>
+    <div class="grouped-view" id="groupedView" style="display:none;"></div>
   </div>
 </div>
 
@@ -793,6 +856,7 @@ const I18N = {
     clearAllBtn: { ja: '🧹 フィルターを全てクリア', en: '🧹 Clear All Filters' },
     remainingCostLabel: { ja: '残りコスト（現在の絞り込み）', en: 'Remaining cost (current filter)' },
     remainingCostZero: { ja: '0', en: '0' },
+    revisitOnlyBtn: { ja: '🔁 再訪ツリーのみ', en: '🔁 Revisit Trees Only' },
   },
   share: {
     twitterBtn: { ja: '📤🖼️ Xで画像を共有', en: '📤🖼️ Share image on X' },
@@ -801,6 +865,19 @@ const I18N = {
   grid: {
     sectionLabel: { ja: '✨ 精霊一覧', en: '✨ Spirit List' },
     emptyNote: { ja: '条件に一致する精霊が見つかりません', en: 'No spirits match the current filter.' },
+  },
+  // 🗺️🌸 エリア別／シーズン別 表示モード（どのエリア・シーズンが手薄かを一目で把握する用途）
+  browse: {
+    modeGrid: { ja: '✨ 一覧', en: '✨ List' },
+    modeArea: { ja: '🗺️ エリア別', en: '🗺️ By Area' },
+    modeSeason: { ja: '🌸 シーズン別', en: '🌸 By Season' },
+    otherAreas: { ja: 'その他の特別エリア', en: 'Other Special Areas' },
+    noSeasonGroup: { ja: '季節に属さない精霊（恒常・長老・特殊）', en: 'Non-seasonal Spirits (Regular / Elder / Special)' },
+    treesCompleteTemplate: { ja: '🌳 ツリー {done}/{total} 件完了', en: '🌳 {done}/{total} trees complete' },
+    nodesPctTemplate: { ja: 'ノード解放 {pct}%', en: 'Nodes {pct}% unlocked' },
+    bulkCatchUpBtnTemplate: { ja: '✅ 未完了の{count}件を一括で追いつかせる', en: '✅ Catch up {count} incomplete trees' },
+    bulkCatchUpConfirmTemplate: { ja: 'ここに表示中の未完了ツリー{count}件（残りノード{nodes}件）をまとめて解放済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} incomplete trees shown here ({nodes} remaining nodes) as complete? You will need to undo them one by one if this was a mistake. Continue?' },
+    bulkCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のノードを解放済みにしました', en: 'Marked {trees} trees ({nodes} nodes) as complete' },
   },
   stats: {
     unlockedNodes: { ja: '解放済みノード', en: 'Unlocked Nodes' },
@@ -999,6 +1076,13 @@ const I18N = {
     wasteland: { ja: '捨てられた地', en: 'Wasteland' },
     vault: { ja: '書庫', en: 'Vault' },
   },
+  // 🕊️ ダッシュボードの再訪カウントダウンと連携するメイン画面バッジ。固有名詞（誰が来訪中か）
+  // は特定できないため、開催有無・タイミングのみをダッシュボードと同じ文言方針で表示する。
+  revisitBadge: {
+    activeTemplate: { ja: '🕊️ 再訪イベント開催中・残り {time}', en: '🕊️ Revisit event active — {time} left' },
+    upcomingTemplate: { ja: '🕊️ 次の再訪イベントまで {time}', en: '🕊️ Next revisit event in {time}' },
+    viewBtn: { ja: '🔁 再訪ツリーの精霊を見る', en: '🔁 View Revisit-Tree Spirits' },
+  },
   backup: {
     modalTitle: { ja: '💾 データのバックアップ・復元・削除', en: '💾 Backup / Restore / Erase Data' },
     hint: { ja: 'このブラウザに保存されている taipak5000.github.io 系ツール（item・wings・companion・spirit-catalog 等）のデータをまとめて書き出し・読み込み・削除できます。全プロフィール分がまとめて対象になります。', en: 'Back up, restore, or erase all locally-stored data for the taipak5000.github.io tool suite (item, wings, companion, spirit-catalog, etc.) at once. This covers all profiles together.' },
@@ -1084,6 +1168,7 @@ function setLang(lang) {
   if (dashModal && dashModal.classList.contains('open') && pfDashCache) {
     document.getElementById('dashBody').innerHTML = pfDashBuildHtml(pfDashCache);
   }
+  renderRevisitBadge(); // 🕊️ 再訪連携バッジの文言（data-i18n非対応のJS生成テキスト）
   settingsSyncThemeBtn(); // 設定モーダルのダーク/ライト切替ボタンの文言（data-i18n非対応のJS生成テキスト）
   settingsSyncLangBtns(); // 設定モーダルの言語セレクターの選択状態
 }
@@ -1488,10 +1573,15 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ================================================================
    📣 トースト通知
    ================================================================ */
+// 同一ティック内で複数回showToast()が呼ばれる場合（例: 一括追いつきの完了トーストと、
+// renderStats()内の称号獲得判定が同時に発火するケース）に、同じfixed座標へ重なって
+// お互いの文字が判読不能になるのを防ぐため、既に表示中のトースト数だけ上へ積み上げる。
 function showToast(msg) {
   const t = document.createElement('div');
   t.className = 'toast';
   t.textContent = msg;
+  const stackIndex = document.querySelectorAll('.toast').length;
+  if (stackIndex > 0) t.style.bottom = `calc(84px + env(safe-area-inset-bottom) + ${stackIndex * 46}px)`;
   document.body.appendChild(t);
   setTimeout(() => t.classList.add('show'), 10);
   setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2600);
@@ -2661,6 +2751,58 @@ function pfDashClose() {
 }
 
 /* ================================================================
+   🕊️ 再訪カウントダウン連携バッジ（ダッシュボードの再訪ステータスをメイン画面にも表示し、
+   ツリーグリッドの絞り込みとワンクリックで連携させる）。
+   ダッシュボードと同じくpfDashLoadData()が取得するREVISIT_SPIRIT_SCHEDULEは固有名詞を
+   持たない周期スケジュールのみで、「今まさに来訪中の精霊が誰か」は特定できない
+   （コミットdabb841でダッシュボード側の表示から固有名詞を削除済み）。そのためこのバッジも
+   「再訪イベントの開催有無・タイミング」のみをダッシュボードと同じ計算式で表示し、
+   ボタンは「再訪ツリーを持つ精霊たち」（treeSource === 'revisit'、実データに基づく代理指標）
+   の絞り込みへ誘導する（＝「今日来ている精霊そのもの」を断定しない）。
+   ================================================================ */
+let revisitBadgeTimer = null;
+function renderRevisitBadge() {
+  const el = document.getElementById('revisitBadge');
+  if (!el) return;
+  if (!pfDashCache || !pfDashCache.revisit) { el.innerHTML = ''; return; }
+  const rv = pfDashRevisitStatus(pfDashCache.revisit);
+  if (!rv) { el.innerHTML = ''; return; }
+  const countdown = pfDashCountdown(rv.target);
+  if (rv.active) {
+    el.innerHTML = `
+      <span class="revisit-badge-text">${t('revisitBadge.activeTemplate', { time: countdown })}</span>
+      <button type="button" class="revisit-badge-btn" onclick="viewRevisitTrees()">${t('revisitBadge.viewBtn')}</button>`;
+  } else {
+    el.innerHTML = `<span class="revisit-badge-text">${t('revisitBadge.upcomingTemplate', { time: countdown })}</span>`;
+  }
+}
+function startRevisitBadgeTimer() {
+  if (revisitBadgeTimer) return;
+  revisitBadgeTimer = setInterval(renderRevisitBadge, 1000);
+}
+// ダッシュボードを開く前でもバッジを表示できるよう、ページ読み込み時に一度だけ
+// pfDashLoadData()を先読みする（pfDashOpen()側もpfDashLoadingを共有するため、
+// 後でダッシュボードを開いても二重fetchにはならない）。
+function initRevisitBadge() {
+  if (!pfDashLoading) pfDashLoading = pfDashLoadData();
+  pfDashLoading.then(data => {
+    if (!pfDashCache) pfDashCache = data; // ダッシュボードが既に開いて別途キャッシュ済みなら上書きしない
+    renderRevisitBadge();
+    startRevisitBadgeTimer();
+  }).catch(e => { console.error('initRevisitBadge', e); });
+}
+// バッジの「見る」ボタン。再訪ツリー限定フィルター（revisitOnlyFilter）をONにしてグリッド
+// （表示モードに関わらず、一覧／エリア別／シーズン別いずれでも絞り込まれる）を更新する。
+function viewRevisitTrees() {
+  revisitOnlyFilter = true;
+  const btn = document.getElementById('revisitOnlyBtn');
+  if (btn) btn.classList.add('active');
+  renderGrid();
+  const target = document.getElementById(browseMode === 'grid' ? 'spiritGrid' : 'groupedView');
+  target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ================================================================
    季節名（英語→日本語）対応表。wings 同期・表示用。
    ================================================================ */
 const SEASON_JA_MAP = {
@@ -3079,9 +3221,14 @@ function markAllConfirm(spiritGuid) {
   markTreeComplete(spiritGuid);
 }
 
-function markTreeComplete(spiritGuid) {
+// 実際の解放処理本体（通貨消費・item/emote同期）のみを行い、再描画やトーストは呼び出し側に
+// 任せる。単独ツリーのmarkTreeComplete()と、複数ツリーをまたぐ一括追いつき
+// （bulkCatchUpConfirm()）の両方から共有する（再描画・トーストをループ内で毎回呼ぶと、
+// 複数ツリーをまたぐ処理で開いていない詳細モーダルを無駄に描画したり、トーストが
+// 同一ティック内で連続発火して上書きし合う問題が起きるため、ここでは行わない）。
+function markTreeCompleteCore(spiritGuid) {
   const spirit = spiritByGuid[spiritGuid];
-  if (!spirit) return;
+  if (!spirit) return 0;
 
   const unlocked = getUnlockedMap();
   let changedCount = 0;
@@ -3117,10 +3264,69 @@ function markTreeComplete(spiritGuid) {
   syncWingBuff(spirit);
 
   invalidateExternalOwnCache();
+  return changedCount;
+}
 
+function markTreeComplete(spiritGuid) {
+  const changedCount = markTreeCompleteCore(spiritGuid);
   renderDetail(spiritGuid);
   renderGrid();
   showToast(t('detail.markAllDoneToast', { count: changedCount }));
+}
+
+/* ================================================================
+   🌱➡️🌳 複数ツリーの一括「追いつき」（現在の絞り込み全体、またはエリア別／シーズン別
+   ビューの1グループを対象に、markTreeComplete()相当の処理をまとめて実行する）。
+   単独ツリーの一括解放（markAllArea()）と同じ確認ステップ（実行前に対象件数を明示し、
+   ワンタップで即実行しない）を踏襲する。取り消しは個別のノード解除のみ（一括取り消しは
+   無い）ため、影響範囲（ツリー件数・残りノード件数）を確認テキストに必ず含める。
+   ================================================================ */
+let bulkScopeRegistry = {}; // scopeId → 対象spirit guid配列（renderGrid()/renderGroupedView()が毎回更新）
+let bulkCatchUpConfirmingScope = null; // 現在確認UIを表示中のscopeId（同時に複数は出さない）
+
+// scopeId配下でまだ完了していないツリー件数・残りノード件数を集計する
+function bulkScopeRemaining(scopeId) {
+  const guids = bulkScopeRegistry[scopeId] || [];
+  let trees = 0, nodes = 0;
+  guids.forEach(guid => {
+    const s = spiritByGuid[guid];
+    if (!s) return;
+    const { done, total } = spiritProgress(s);
+    if (done < total) { trees++; nodes += (total - done); }
+  });
+  return { trees, nodes };
+}
+
+function bulkCatchUpControlHtml(scopeId) {
+  const { trees, nodes } = bulkScopeRemaining(scopeId);
+  if (trees <= 0) return ''; // 対象が既に全て完了済みなら何も出さない（markAllArea()と同じ考え方）
+  if (bulkCatchUpConfirmingScope !== scopeId) {
+    return `<button type="button" class="pf-icon-btn" onclick="bulkCatchUpStart('${scopeId}')" data-focus-key="bulkCatchUpStart_${escapeHtml(scopeId)}">${t('browse.bulkCatchUpBtnTemplate', { count: trees })}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap;">
+      <span class="pf-row-confirm-text">${t('browse.bulkCatchUpConfirmTemplate', { count: trees, nodes })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="bulkCatchUpConfirm('${scopeId}')" data-focus-key="bulkCatchUpConfirm_${escapeHtml(scopeId)}">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="bulkCatchUpCancel()" data-focus-key="bulkCatchUpCancel_${escapeHtml(scopeId)}">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+function bulkCatchUpStart(scopeId) { bulkCatchUpConfirmingScope = scopeId; renderGrid(); }
+function bulkCatchUpCancel() { bulkCatchUpConfirmingScope = null; renderGrid(); }
+function bulkCatchUpConfirm(scopeId) {
+  bulkCatchUpConfirmingScope = null;
+  const guids = bulkScopeRegistry[scopeId] || [];
+  let treesChanged = 0, nodesChanged = 0;
+  guids.forEach(guid => {
+    const changed = markTreeCompleteCore(guid);
+    if (changed > 0) { treesChanged++; nodesChanged += changed; }
+  });
+  renderGrid();
+  // 詳細モーダルが開いている場合のみ、その内容も最新の解放状況に更新する
+  // （setLang()の言語切替時と同じ考え方。閉じている間は無駄な描画を避ける）。
+  if (currentDetailGuid && document.getElementById('detailOverlay').classList.contains('open')) {
+    renderDetail(currentDetailGuid);
+  }
+  showToast(t('browse.bulkCatchUpDoneToast', { trees: treesChanged, nodes: nodesChanged }));
 }
 
 /* ================================================================
@@ -3219,6 +3425,61 @@ const AREA_TO_REALM = {
   'Vault Rest': 'Vault of Knowledge', 'Upper Vault': 'Vault of Knowledge',
   'Lower Vault': 'Vault of Knowledge', 'Vault Second Floor': 'Vault of Knowledge'
 };
+// 🗺️ エリア別ビュー（新機能）用に、AREA_TO_REALMを季節精霊・案内人の出現エリアにも拡張する。
+// 元々のAREA_TO_REALM（上記）は恒常精霊の並び替え専用に作られたもので、範囲が限定的だった。
+// 追加分は下記のいずれかで実在の場所と確認できたエリア名のみを対象にしている（当てずっぽうの
+// 割り当ては行わない）。さらに、同じエリア名を持つ精霊たちのseason/typeを突き合わせて
+// 「1シーズン（または1体の案内人が属するシーズン）内で一貫しているか」を検証済み:
+//  (a) このプロジェクトのwings（羽トラッカー）リポジトリのLIGHT_CHILDREN（光の子）データに
+//      同名または明確に対応する（表記ゆれのみの）エリアが realm 付きで記録済み（例:
+//      'Cave of Prophecies' → Isle of Dawn、'Village of Dreams' → Valley、'Forest Cavern' →
+//      Forest、'Vault Archive'（wings表記は'Archives'）→ Vault 等）。
+//  (b) 'Temple of the X' 系など、既存AREA_TO_REALM内の命名パターン
+//      （'Temple of the Isle Entrance' → Isle of Dawn）と完全に一致する規則的な組。
+// 【検証で除外したもの】'The Passage'は追加候補だったが、実データを精霊名で確認したところ
+// Prairie/Forest/Valley/Wasteland/Vault/Isle Elderの6長老全員に共通する値だった（＝特定の
+// リアルムを指す値ではなく、Elder型に対する汎用的なプレースホルダーの可能性が高い）ため、
+// 当てずっぽうの割り当てを避けるためマッピングから除外した（'Passage Rock'は同一シーズン
+// （ならいの季節）の精霊のみで一貫していたため採用している。両者は別のエリア名なので注意）。
+// 上記いずれにも該当しない特殊イベント用エリア（Aviary Village／Wandering Carnival／
+// Nesting Workshop／Sky Cinema／Concert Hall／Village Theatre／Starry Gallery／
+// Repository of Refuge／Fractured Lantern Storage／Revival Season Shop／Moominvalley Glade／
+// Void of Shattering／The Last City／Aviary Shopping Area／The Passage）は、6大リアルムの
+// いずれにも確信を持って割り当てられないため、意図的に未マップのまま残す（エリア別ビュー側で
+// 「その他の特別エリア」として別集計する。browse.otherAreas参照）。
+Object.assign(AREA_TO_REALM, {
+  'Dawn Overlook': 'Isle of Dawn', 'Cave of Prophecies': 'Isle of Dawn',
+  'Passage Rock': 'Isle of Dawn',
+  'Prairie Peaks': 'Daylight Prairie', 'Sanctuary Islands': 'Daylight Prairie',
+  'Forest Cavern': 'Hidden Forest', 'The Treehouse': 'Hidden Forest',
+  'The Wind Paths': 'Hidden Forest', 'Blue Bird theater': 'Hidden Forest',
+  'Village of Dreams': 'Valley of Triumph', 'Temple of the Valley': 'Valley of Triumph',
+  'Forgotten Ark': 'Golden Wasteland', 'Treasure Reef': 'Golden Wasteland',
+  'Starlight Desert': 'Vault of Knowledge', 'Starlight Desert Jar': 'Vault of Knowledge',
+  'Crescent Oasis': 'Vault of Knowledge', 'Vault Archive': 'Vault of Knowledge',
+  'Jellyfish Beach': 'Vault of Knowledge',
+});
+// 6大リアルムのいずれにも確信を持って割り当てられなかったエリア（上記コメント参照）を
+// まとめる「その他」バケットのキー。実データが示す範囲を超えて場所を捏造しないための
+// 明示的な受け皿（エリア別ビューでのみ使用）。
+const OTHER_AREA_KEY = '__other_area__';
+const AREA_GROUP_ORDER = [...REALM_ORDER, OTHER_AREA_KEY];
+// REALM_ORDERの英語キーに対する日本語訳。SHARD_REALM_JA/I18N.realmは孤島(Isle of Dawn)を
+// 含まない別の短縮キー体系（闇の破片が出現する5リアルムのみ）のため転用できず、こちらは
+// REALM_ORDER全6キー（孤島を含む）専用の対応表として新設する。訳語自体はSHARD_REALM_JA等
+// 既存箇所と表記を揃えている。
+const REALM_ORDER_JA = {
+  'Isle of Dawn': '孤島', 'Daylight Prairie': '草原', 'Hidden Forest': '雨林',
+  'Valley of Triumph': '峡谷', 'Golden Wasteland': '捨てられた地', 'Vault of Knowledge': '書庫',
+};
+// AREA_TO_REALMの英語表記realmキー（'Isle of Dawn'等）→表示ラベル。
+// realmLabel()（realm.*、5リアルム限定のSHARD_REALM_JAベース）とは別体系のため名前を分ける。
+function realmOrderLabel(realmKey) { return LANG === 'en' ? realmKey : (REALM_ORDER_JA[realmKey] || realmKey); }
+function areaGroupLabel(key) { return key === OTHER_AREA_KEY ? t('browse.otherAreas') : realmOrderLabel(key); }
+// 精霊1体が属するリアルムキーを返す（area未設定、またはAREA_TO_REALM未収録のエリアは
+// すべてOTHER_AREA_KEYへ。実データに無い場所を推測しない）。
+function spiritRealmKey(s) { return (s.area && AREA_TO_REALM[s.area]) || OTHER_AREA_KEY; }
+
 const TYPE_GROUP_ORDER = { Guide: 0, Special: 1, Elder: 2, Regular: 3, Season: 4 };
 function sortSpiritsBySeasonOrder() {
   const seasonOrder = {};
@@ -3273,6 +3534,34 @@ function spiritName(s) {
 }
 
 /* ================================================================
+   🗺️🌸 表示モード（一覧／エリア別／シーズン別）
+   フィルター類（検索・種別・シーズン・進捗・再訪限定）とは独立の「見せ方」の切替。
+   非永続（他のフィルターと同様、localStorageに保存せずDOM/変数のみで保持し、
+   再読み込みで一覧ビューに戻る）。
+   ================================================================ */
+let browseMode = 'grid'; // 'grid' | 'area' | 'season'
+function setBrowseMode(mode) {
+  browseMode = mode;
+  document.getElementById('viewModeGridBtn').classList.toggle('active', mode === 'grid');
+  document.getElementById('viewModeAreaBtn').classList.toggle('active', mode === 'area');
+  document.getElementById('viewModeSeasonBtn').classList.toggle('active', mode === 'season');
+  bulkCatchUpConfirmingScope = null; // モード切替時は一括追いつきの確認状態を持ち越さない
+  renderGrid();
+}
+
+// 🔁 再訪ツリーのみ表示フィルター（ダッシュボードの再訪カウントダウン連携。renderRevisitBadge()
+// 参照）。s.treeSource === 'revisit'（過去の再訪イベントで更新されたツリーを持つ精霊）で
+// 絞り込む。ダッシュボードのREVISIT_SPIRIT_SCHEDULEは固有名詞を持たない周期スケジュールのみで
+// 「今まさに来訪中の精霊が誰か」までは特定できないため、この絞り込みは実データに基づく代理
+// 指標（＝再訪ツリーを持つ精霊たち一覧）であり、「今日来ている精霊」を断定するものではない。
+let revisitOnlyFilter = false;
+function toggleRevisitOnlyFilter() {
+  revisitOnlyFilter = !revisitOnlyFilter;
+  document.getElementById('revisitOnlyBtn').classList.toggle('active', revisitOnlyFilter);
+  renderGrid();
+}
+
+/* ================================================================
    フィルター用シーズンリストを構築
    ================================================================ */
 function initSeasonFilter() {
@@ -3304,7 +3593,121 @@ function clearAllFilters() {
   document.getElementById('seasonFilter').value = 'all';
   document.getElementById('progressFilter').value = 'all';
   document.getElementById('sortFilter').value = 'default';
+  revisitOnlyFilter = false;
+  document.getElementById('revisitOnlyBtn').classList.remove('active');
   renderGrid();
+}
+
+// spirit-meta（サムネ下の小さな1行メタ情報）に出す文言。シーズン精霊はシーズン名、
+// シーズンを持たない精霊（恒常/長老/特殊）はareaがあればそれをフォールバック表示する
+// （従来は空欄だった箇所を埋めるだけなので、シーズン精霊側の見た目は一切変わらない）。
+// areaはSkyGame-Data由来の英語表記のみでJA訳を持たないため、revisitName等と同様
+// LANG非依存でそのまま表示する。
+function spiritMetaLine(s) {
+  if (s.season) return escapeHtml(seasonLabel(s.season));
+  if (s.area) return escapeHtml(s.area);
+  return '';
+}
+
+// エリア別／シーズン別ビューのカードにのみ付与する所在地タグ（既存のspirit-metaとは別行）。
+//   'realm' : リアルム名(JA/EN)＋エリア名（シーズン別ビュー用。グループ自体はリアルムで
+//             絞られていないため、リアルムも合わせて示す）
+//   'plain' : エリア名のみ（エリア別ビュー用。グループ見出し自体が既にリアルムを示している）
+//   falsy   : 付与しない（既存の一覧ビューは今まで通りの見た目を維持する）
+function spiritAreaTagHtml(s, areaTagMode) {
+  if (!areaTagMode || !s.area) return '';
+  if (areaTagMode === 'realm') {
+    const realmKey = spiritRealmKey(s);
+    const realmPart = realmKey !== OTHER_AREA_KEY ? realmOrderLabel(realmKey) + ' ・ ' : '';
+    return `<div class="spirit-area-tag">🗺️ ${escapeHtml(realmPart)}${escapeHtml(s.area)}</div>`;
+  }
+  return `<div class="spirit-area-tag">🗺️ ${escapeHtml(s.area)}</div>`;
+}
+
+// 精霊1体分のカードHTML。一覧／エリア別／シーズン別の3ビューで共有する
+// （レンダリング元を一本化し、修正時の二重管理を避ける）。
+function spiritCardHtml(s, areaTagMode) {
+  const { done, total } = spiritProgress(s);
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  const name = spiritName(s);
+  const thumb = s.imageUrl
+    ? `<img src="${s.imageUrl}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=&quot;spirit-thumb-fallback&quot;>✨</span>'">`
+    : `<span class="spirit-thumb-fallback">✨</span>`;
+  return `
+    <div class="spirit-card" onclick="openDetail('${s.guid}')">
+      <span class="spirit-badge">${typeLabel(s.type)}</span>
+      ${s.treeSource === 'revisit' ? `<span class="spirit-revisit-badge" title="${t('detail.revisitTreeBadgeTitle')}">🔁</span>` : ''}
+      <div class="spirit-thumb-wrap">${thumb}</div>
+      <div class="spirit-name">${escapeHtml(name)}</div>
+      <div class="spirit-meta">${spiritMetaLine(s)}</div>
+      ${spiritAreaTagHtml(s, areaTagMode)}
+      <div class="spirit-progress-bar"><div class="spirit-progress-fill ${done === total ? 'complete' : ''}" style="width:${pct}%"></div></div>
+    </div>`;
+}
+
+const NO_SEASON_KEY = '__no_season__';
+function spiritSeasonKey(s) { return s.season || NO_SEASON_KEY; }
+function seasonGroupLabel(key) { return key === NO_SEASON_KEY ? t('browse.noSeasonGroup') : seasonLabel(key); }
+
+// browseMode（'area'|'season'）ごとに、与えられた精霊リストをグループ分けする。
+// 各グループの並び順は実データの登場順に従う（エリア別はAREA_GROUP_ORDER＝REALM_ORDER＋
+// その他／シーズン別は既に実装順にソート済みのSPIRIT_TREE_DATAからシーズンの初出順を拾う。
+// initSeasonFilter()と同じ考え方）。該当精霊が1件も無いグループは表示しない。
+function computeGroups(mode, list) {
+  const order = [];
+  const bucket = new Map();
+  const pushKey = (k) => { if (!bucket.has(k)) { bucket.set(k, []); order.push(k); } };
+
+  if (mode === 'area') {
+    AREA_GROUP_ORDER.forEach(pushKey);
+    list.forEach(s => { const k = spiritRealmKey(s); pushKey(k); bucket.get(k).push(s); });
+  } else {
+    const seasonsInData = [...new Set(SPIRIT_TREE_DATA.filter(s => s.season).map(s => s.season))];
+    seasonsInData.forEach(pushKey);
+    pushKey(NO_SEASON_KEY);
+    list.forEach(s => { const k = spiritSeasonKey(s); pushKey(k); bucket.get(k).push(s); });
+  }
+  return order.filter(k => bucket.get(k).length > 0).map(k => ({ key: k, spirits: bucket.get(k) }));
+}
+
+// エリア別／シーズン別ビュー本体の描画。renderGrid()側で検索・種別・シーズン・進捗・
+// 再訪限定の各フィルターを適用済みのlistを受け取り、グループごとにヘッダー
+// （達成率バッジ＋一括追いつきボタン）とカード群を描画する。
+function renderGroupedView(mode, list) {
+  const container = document.getElementById('groupedView');
+  const groups = computeGroups(mode, list);
+  if (groups.length === 0) {
+    container.innerHTML = `<div class="empty-note">${t('grid.emptyNote')}</div>`;
+    return;
+  }
+  const icon = mode === 'area' ? '🗺️' : '🌸';
+  container.innerHTML = groups.map(g => {
+    const label = mode === 'area' ? areaGroupLabel(g.key) : seasonGroupLabel(g.key);
+    let totalNodes = 0, doneNodes = 0, completeTrees = 0;
+    g.spirits.forEach(s => {
+      const { done, total } = spiritProgress(s);
+      totalNodes += total; doneNodes += done;
+      if (total > 0 && done === total) completeTrees++;
+    });
+    const pct = totalNodes > 0 ? Math.round((doneNodes / totalNodes) * 100) : 0;
+    const scopeId = 'grp_' + mode + '_' + g.key;
+    bulkScopeRegistry[scopeId] = g.spirits.map(s => s.guid);
+    const cardsHtml = g.spirits.map(s => spiritCardHtml(s, mode === 'season' ? 'realm' : 'plain')).join('');
+    return `
+      <div class="area-group">
+        <div class="area-group-head">
+          <div class="area-group-head-row">
+            <div>
+              <div class="area-group-title">${icon} ${escapeHtml(label)}</div>
+              <div class="area-group-badge">${t('browse.treesCompleteTemplate', { done: completeTrees, total: g.spirits.length })} ・ ${t('browse.nodesPctTemplate', { pct })}</div>
+            </div>
+            ${bulkCatchUpControlHtml(scopeId)}
+          </div>
+          <div class="area-group-pct-bar"><div class="area-group-pct-fill ${pct === 100 ? 'complete' : ''}" style="width:${pct}%"></div></div>
+        </div>
+        <div class="area-group-grid">${cardsHtml}</div>
+      </div>`;
+  }).join('');
 }
 
 function renderGrid() {
@@ -3317,6 +3720,7 @@ function renderGrid() {
   const filtered = SPIRIT_TREE_DATA.filter(s => {
     if (typeF !== 'all' && s.type !== typeF) return false;
     if (seasonF !== 'all' && s.season !== seasonF) return false;
+    if (revisitOnlyFilter && s.treeSource !== 'revisit') return false;
     if (q) {
       const nameJa = normalizeSearchText(s.nameJa || '');
       const nameEn = normalizeSearchText(s.name);
@@ -3347,27 +3751,25 @@ function renderGrid() {
   document.getElementById('filterStats').textContent = t('filter.statsTemplate', { filtered: filtered.length, total: SPIRIT_TREE_DATA.length });
   renderFilterRemainingCost(filtered);
 
-  const grid = document.getElementById('spiritGrid');
-  if (filtered.length === 0) {
-    grid.innerHTML = `<div class="empty-note">${t('grid.emptyNote')}</div>`;
+  // 🌱➡️🌳 現在の絞り込みに対する一括追いつきボタン（表示モードに関わらず常に更新する）
+  bulkScopeRegistry['filtered'] = filtered.map(s => s.guid);
+  document.getElementById('bulkCatchupFilteredRow').innerHTML = bulkCatchUpControlHtml('filtered');
+
+  const gridEl = document.getElementById('spiritGrid');
+  const groupedEl = document.getElementById('groupedView');
+
+  if (browseMode === 'grid') {
+    gridEl.style.display = '';
+    groupedEl.style.display = 'none';
+    if (filtered.length === 0) {
+      gridEl.innerHTML = `<div class="empty-note">${t('grid.emptyNote')}</div>`;
+    } else {
+      gridEl.innerHTML = filtered.map(s => spiritCardHtml(s, null)).join('');
+    }
   } else {
-    grid.innerHTML = filtered.map(s => {
-      const { done, total } = spiritProgress(s);
-      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-      const name = spiritName(s);
-      const thumb = s.imageUrl
-        ? `<img src="${s.imageUrl}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=&quot;spirit-thumb-fallback&quot;>✨</span>'">`
-        : `<span class="spirit-thumb-fallback">✨</span>`;
-      return `
-        <div class="spirit-card" onclick="openDetail('${s.guid}')">
-          <span class="spirit-badge">${typeLabel(s.type)}</span>
-          ${s.treeSource === 'revisit' ? `<span class="spirit-revisit-badge" title="${t('detail.revisitTreeBadgeTitle')}">🔁</span>` : ''}
-          <div class="spirit-thumb-wrap">${thumb}</div>
-          <div class="spirit-name">${escapeHtml(name)}</div>
-          <div class="spirit-meta">${s.season ? escapeHtml(seasonLabel(s.season)) : ''}</div>
-          <div class="spirit-progress-bar"><div class="spirit-progress-fill ${done === total ? 'complete' : ''}" style="width:${pct}%"></div></div>
-        </div>`;
-    }).join('');
+    gridEl.style.display = 'none';
+    groupedEl.style.display = '';
+    renderGroupedView(browseMode, filtered);
   }
 
   renderStats();
@@ -4133,6 +4535,7 @@ settingsInjectModal();
 pfRenderBar();
 initSeasonFilter();
 renderGrid();
+initRevisitBadge(); // 🕊️ ダッシュボードを開かなくても再訪連携バッジを表示できるよう先読み
 openDetailByNameFromHash();
 window.addEventListener('hashchange', openDetailByNameFromHash);
 </script>
