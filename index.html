@@ -600,6 +600,11 @@
     <a href="https://taipak5000.github.io/wings/" class="sidebar-nav-link" data-i18n="tools.wings">🪽 羽トラッカー</a>
     <a href="https://taipak5000.github.io/tai-emote/" class="sidebar-nav-link" data-i18n="tools.emote">🎭 エモート所持率管理</a>
     <a href="https://taipak5000.github.io/tai-transfer/" class="sidebar-nav-link" data-i18n="tools.dataTransfer">🔄 データ引継ぎ</a>
+    <a href="https://taipak5000.github.io/tai-nomacan/" class="sidebar-nav-link" data-i18n="tools.nomacan">🕯️ ノマキャン計算機</a>
+    <a href="https://taipak5000.github.io/skyzztai-profile/" class="sidebar-nav-link" data-i18n="tools.profile">👤 作者プロフィール</a>
+    <a href="https://taipak5000.github.io/tai-nomacan-pro/" class="sidebar-nav-link" data-i18n="tools.nomacanPro">🕯️ ノマキャン計算機プロ</a>
+    <a href="https://taipak5000.github.io/tai-info/" class="sidebar-nav-link" data-i18n="tools.info">⚙️ 設定・更新情報</a>
+    <a href="https://taipak5000.github.io/tai-revisit/" class="sidebar-nav-link" data-i18n="tools.revisit">🕊️ 再訪精霊データベース</a>
     <div style="margin-top:14px; padding-top:12px; border-top:0.5px solid var(--sep);">
       <div class="sidebar-section-label" style="margin-bottom:8px;" data-i18n="sidebar.homeIcon">📱 ホーム画面アイコン</div>
       <button type="button" class="sidebar-nav-link" style="width:100%; box-sizing:border-box; border:1px solid var(--sep); background:var(--bg); cursor:pointer; justify-content:center;" onclick="pfIconOpenModal()" data-i18n="sidebar.customizeIcon">🎨 アイコンを<br>カスタマイズ</button>
@@ -835,6 +840,11 @@ const I18N = {
     wings: { ja: '🪽 羽トラッカー', en: '🪽 Wing Tracker' },
     emote: { ja: '🎭 エモート所持率管理', en: '🎭 Emote Collection' },
     dataTransfer: { ja: '🔄 データ引継ぎ', en: '🔄 Data Transfer' },
+    nomacan: { ja: '🕯️ ノマキャン計算機', en: '🕯️ Nomacan Calculator' },
+    profile: { ja: '👤 作者プロフィール', en: '👤 Creator Profile' },
+    nomacanPro: { ja: '🕯️ ノマキャン計算機プロ', en: '🕯️ Nomacan Calculator Pro' },
+    info: { ja: '⚙️ 設定・更新情報', en: '⚙️ Settings & Updates' },
+    revisit: { ja: '🕊️ 再訪精霊データベース', en: '🕊️ Revisit Spirit Database' },
   },
   filter: {
     sectionLabel: { ja: '🔍 検索・絞り込み', en: '🔍 Search & Filter' },
@@ -2167,7 +2177,7 @@ const CROSS_TITLE_CATALOG = {
 };
 
 // CROSS_TITLE_CATALOGの定義順（ツールごと）で、指定プロフィールが実際に獲得済みの称号だけを
-// まとめて返す。namespaced:falseのツール（score＝楽譜作成ツール）はプロフィール単位で
+// まとめて返す。namespaced:falseのツール（score＝姉妹サイト）はプロフィール単位で
 // 保存先を分けていないため、nsKeyFor()を経由せず生キーのまま読む。
 // 戻り値: [{ source, titles: [{icon, name, desc}, ...] }, ...]（該当が無いツールは含めない）
 function pfCollectEarnedTitles(profileId) {
