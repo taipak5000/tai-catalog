@@ -143,6 +143,10 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .app-layout { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+    /* 🖥️ デスクトップ幅の共有規約: 850px以上は960pxまで広げる。常時表示サイドバー撤去に伴う
+       レイアウト整理（.app-layoutのflex化解除）の際に、このコンテナ幅自体の850px+ブレークポイントも
+       誤って一緒に削除されてしまっていたため復元する（他の姉妹サイトと同じ720px/960pxの2段階）。 */
+    @media (min-width: 850px) { .app-layout { max-width: 960px; } }
 
     .sidebar {
       background: var(--card); border-radius: var(--r); padding: 16px;
@@ -380,7 +384,6 @@
     [data-theme="dark"] .title-chip { color: var(--orange); }
     /* 未獲得：橙の獲得色をやめ、text-3で淡くして「まだ手が届いていない」印象にする */
     .title-chip.locked { background: var(--bg); color: var(--text-3); }
-    .titles-empty-hint { font-size: 12px; color: var(--text-2); padding: 0 2px; }
 
     /* ── 精霊グリッド ── */
     .spirit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
@@ -883,7 +886,6 @@ const I18N = {
     countTemplate: { ja: '{earned} / {total} 個解除', en: '{earned} / {total} unlocked' },
     lockedName: { ja: '？？？', en: '？？？' },
     lockedHint: { ja: '称号は条件を満たすと明らかになります', en: 'Unlocks when you meet its condition' },
-    emptyHint: { ja: '精霊ツリーを解放していくと、ここに称号が並びます', en: 'Unlock spirit tree nodes to start earning titles here' },
     unlockedToast: { ja: '🏆 称号「{name}」を獲得しました！', en: '🏆 Title earned: “{name}”!' },
     pct1: { name: { ja: '芽吹きの精霊使い', en: 'Budding Spirit Keeper' }, desc: { ja: '精霊ツリーのノードを1%以上解放した', en: 'Unlocked 1%+ of all spirit tree nodes' } },
     pct10: { name: { ja: '灯火の道しるべ', en: 'Candlelit Trailblazer' }, desc: { ja: '精霊ツリーのノードを10%以上解放した', en: 'Unlocked 10%+ of all spirit tree nodes' } },
@@ -1201,9 +1203,6 @@ function getStoredThemeMode() {
 function resolveEffectiveTheme(mode) {
   if (mode === 'light' || mode === 'dark') return mode;
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-function isDarkMode() {
-  return document.documentElement.getAttribute('data-theme') === 'dark';
 }
 function applyThemeToDOM(isDark) {
   document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -4506,7 +4505,7 @@ function renderDetail(guid) {
   }
 }
 
-// 他サイト（tai-revisitなど）からの「#spirit=精霊の日本語名」形式のディープリンクで、
+// 他サイトからの「#spirit=精霊の日本語名」形式のディープリンクで、
 // 対象精霊の詳細（ツリー開放状況）を自動で開く。
 function openDetailByNameFromHash() {
   const m = location.hash.match(/^#spirit=(.+)$/);
