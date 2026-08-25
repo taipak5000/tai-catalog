@@ -1059,6 +1059,7 @@ const I18N = {
     everySundayPacific: { ja: '毎週日曜0時・太平洋時間', en: 'Every Sunday 00:00 Pacific Time' },
     nextUpdate: { ja: '次回アップデート予定', en: 'Next Update' },
     seasonLoadFailed: { ja: 'シーズン情報が取得できませんでした', en: 'Could not load season info' },
+    noItemsInRange: { ja: 'この期間の予定はありません', en: 'Nothing scheduled in this range' },
     dayUnit: { ja: '日', en: 'd' },
   },
   realm: {
@@ -2589,6 +2590,19 @@ function pfDashCountdown(target) {
   return days > 0 ? `${days}${t('dashboard.dayUnit')} ${hh}:${mm}:${ss}` : `${hh}:${mm}:${ss}`;
 }
 
+// ダッシュボードの今日/今週/今月は「項目の種類」ではなく「実際の残り時間」で振り分ける
+// （24時間未満=今日、7日未満=今週、それ以上=今月）。以前は種類ごとに固定のセクションへ
+// 置いていたため、例えば「終了まで2日」のイベントが今日欄に、24時間未満の「次回アップデート」が
+// 今週欄に表示されてしまい、セクション名と中身の期間が食い違って分かりにくくなっていた。
+function pfDashBucketFor(target) {
+  if (!target) return 'month';
+  const ms = target.getTime() - Date.now();
+  const MS_DAY = 24 * 60 * 60 * 1000, MS_WEEK = 7 * MS_DAY;
+  if (ms <= MS_DAY) return 'today';
+  if (ms <= MS_WEEK) return 'week';
+  return 'month';
+}
+
 // 複数の未来時刻候補から一番近いものを選ぶ（全て過去なら null）
 function pfDashSoonestFuture(dates) {
   const now = new Date();
@@ -2666,37 +2680,46 @@ function pfDashBuildHtml(data) {
   // 注: data.season.name / ev.name / data.revisit.name は item(tai-item)側のindex.htmlから
   // fetchして取得した日本語のみのデータ（手動更新の生文字列）で、このリポジトリの範囲外のため翻訳していない
   // （wings/star-candle等の同じダッシュボード機能でも同様の扱い）。
-  const todayRows = [];
+  // 種類（イベント/再訪/週間リセット/アップデート/シーズン終了）ではなく、各項目の実際の
+  // 残り時間で今日/今週/今月へ振り分ける。季節が「開催中」であること自体は常に今日欄に残す
+  // （カウントダウンを伴わない単なる状態表示のため、時間による振り分けの対象外）。
+  const bucketRows = { today: [], week: [], month: [] };
+  let seasonErrored = false;
   if (data.season && data.season.name && data.season.endDate && new Date() < new Date(data.season.endDate)) {
-    todayRows.push(pfDashRow('🌟', `<b>${escapeHtmlPf(data.season.name)}</b>${t('dashboard.currentlyActive')}`));
+    bucketRows.today.push(pfDashRow('🌟', `<b>${escapeHtmlPf(data.season.name)}</b>${t('dashboard.currentlyActive')}`));
   }
   pfDashActiveScheduledEvents(data.eventSchedule).forEach(ev => {
-    todayRows.push(pfDashRow('🌟', `<b>${escapeHtmlPf(ev.name)}</b>${t('dashboard.currentlyActive')}<span class="dash-countdown">${t('dashboard.endsIn')} ${pfDashCountdown(new Date(ev.end))}</span>`));
+    const endDate = new Date(ev.end);
+    bucketRows[pfDashBucketFor(endDate)].push(pfDashRow('🌟', `<b>${escapeHtmlPf(ev.name)}</b>${t('dashboard.currentlyActive')}<span class="dash-countdown">${t('dashboard.endsIn')} ${pfDashCountdown(endDate)}</span>`));
   });
   const rv = pfDashRevisitStatus(data.revisit);
   if (rv && data.revisit) {
     const revisitLabel = rv.active
       ? `${t('dashboard.revisitSpirit')}${t('dashboard.revisitHereNow')}`
       : `${t('dashboard.revisitSpirit')}${t('dashboard.revisitReturnsIn')}`;
-    todayRows.push(pfDashRow('🕊️', `${revisitLabel}<span class="dash-countdown">${pfDashCountdown(rv.target)}</span>`));
+    bucketRows[pfDashBucketFor(rv.target)].push(pfDashRow('🕊️', `${revisitLabel}<span class="dash-countdown">${pfDashCountdown(rv.target)}</span>`));
   }
-  const todayHtml = todayRows.length ? todayRows.join('') : `<div class="dash-empty">${t('dashboard.noCurrentSeasonEvent')}</div>`;
-
-  let weekHtml = pfDashRow('🌩️', `${t('dashboard.eyeOfEden')}${t('common.labelSep')}${t('dashboard.weeklyResetIn')}<span class="dash-countdown">${pfDashCountdown(pfDashNextEdenResetTarget())}</span><span class="dash-note">${t('dashboard.everySundayPacific')}</span>`);
+  const edenTarget = pfDashNextEdenResetTarget();
+  bucketRows[pfDashBucketFor(edenTarget)].push(pfDashRow('🌩️', `${t('dashboard.eyeOfEden')}${t('common.labelSep')}${t('dashboard.weeklyResetIn')}<span class="dash-countdown">${pfDashCountdown(edenTarget)}</span><span class="dash-note">${t('dashboard.everySundayPacific')}</span>`));
   if (data.nextUpdate && data.nextUpdate.date) {
     const updateTarget = new Date(data.nextUpdate.date);
     if (new Date() < updateTarget) {
-      weekHtml += pfDashRow('🔧', `${t('dashboard.nextUpdate')}<span class="dash-countdown">${pfDashCountdown(updateTarget)}</span>`);
+      bucketRows[pfDashBucketFor(updateTarget)].push(pfDashRow('🔧', `${t('dashboard.nextUpdate')}<span class="dash-countdown">${pfDashCountdown(updateTarget)}</span>`));
     }
   }
-
-  let monthHtml;
   if (data.season && data.season.endDate) {
     const end = new Date(data.season.endDate);
-    monthHtml = pfDashRow('🎨', `「<b>${escapeHtmlPf(data.season.name)}</b>」${t('dashboard.seasonEndsInSuffix')}<span class="dash-countdown">${pfDashCountdown(end)}</span>`);
+    bucketRows[pfDashBucketFor(end)].push(pfDashRow('🎨', `「<b>${escapeHtmlPf(data.season.name)}</b>」${t('dashboard.seasonEndsInSuffix')}<span class="dash-countdown">${pfDashCountdown(end)}</span>`));
   } else {
-    monthHtml = `<div class="dash-empty">${t('dashboard.seasonLoadFailed')}</div>`;
+    seasonErrored = true;
   }
+
+  const bucketEmptyMsg = `<div class="dash-empty">${t('dashboard.noItemsInRange')}</div>`;
+  const todayHtml = bucketRows.today.length ? bucketRows.today.join('') : `<div class="dash-empty">${t('dashboard.noCurrentSeasonEvent')}</div>`;
+  const weekHtml = bucketRows.week.length ? bucketRows.week.join('') : bucketEmptyMsg;
+  const monthHtml = seasonErrored
+    ? `<div class="dash-empty">${t('dashboard.seasonLoadFailed')}</div>`
+    : (bucketRows.month.length ? bucketRows.month.join('') : bucketEmptyMsg);
 
   return `
     <div class="dash-section"><p class="dash-section-label">${t('dashboard.sectionDaily')}</p>${dailyHtml}</div>
