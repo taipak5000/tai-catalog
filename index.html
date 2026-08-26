@@ -420,6 +420,10 @@
     .area-group-title { font-size: 14.5px; font-weight: 800; color: var(--text); }
     .area-group-badge { font-size: 12px; color: var(--text-2); margin-top: 3px; }
     .area-group-badge b { color: var(--green-d); }
+    /* 🗺️🌸 グループ（エリア/シーズン）ごとの残り必要コスト。filter-remaining-costと
+       同じ見た目だが、グループカード内に収めるため余白のみ調整する。 */
+    .area-group-remaining-cost { font-size: 12px; color: var(--text-2); margin-top: 3px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+    .area-group-remaining-cost b { color: var(--text-2); }
     .area-group-pct-bar { height: 5px; border-radius: 2.5px; background: var(--sep); margin-top: 10px; overflow: hidden; }
     .area-group-pct-fill { height: 100%; background: var(--green); }
     .area-group-pct-fill.complete { background: var(--blue); }
@@ -868,6 +872,7 @@ const I18N = {
     noSeasonGroup: { ja: '季節に属さない精霊（恒常・長老・特殊）', en: 'Non-seasonal Spirits (Regular / Elder / Special)' },
     treesCompleteTemplate: { ja: '🌳 ツリー {done}/{total} 件完了', en: '🌳 {done}/{total} trees complete' },
     nodesPctTemplate: { ja: 'ノード解放 {pct}%', en: 'Nodes {pct}% unlocked' },
+    groupRemainingCostLabel: { ja: '残りコスト', en: 'Remaining cost' },
     bulkCatchUpBtnTemplate: { ja: '✅ 未完了の{count}件を一括で追いつかせる', en: '✅ Catch up {count} incomplete trees' },
     bulkCatchUpConfirmTemplate: { ja: 'ここに表示中の未完了ツリー{count}件（残りノード{nodes}件）をまとめて解放済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} incomplete trees shown here ({nodes} remaining nodes) as complete? You will need to undo them one by one if this was a mistake. Continue?' },
     bulkCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のノードを解放済みにしました', en: 'Marked {trees} trees ({nodes} nodes) as complete' },
@@ -3703,6 +3708,7 @@ function renderGroupedView(mode, list) {
       if (total > 0 && done === total) completeTrees++;
     });
     const pct = totalNodes > 0 ? Math.round((doneNodes / totalNodes) * 100) : 0;
+    const costChips = remainingCostChipsHtml(sumRemainingCost(g.spirits));
     const scopeId = 'grp_' + mode + '_' + g.key;
     bulkScopeRegistry[scopeId] = g.spirits.map(s => s.guid);
     const cardsHtml = g.spirits.map(s => spiritCardHtml(s, mode === 'season' ? 'realm' : 'plain')).join('');
@@ -3713,6 +3719,7 @@ function renderGroupedView(mode, list) {
             <div>
               <div class="area-group-title">${icon} ${escapeHtml(label)}</div>
               <div class="area-group-badge">${t('browse.treesCompleteTemplate', { done: completeTrees, total: g.spirits.length })} ・ ${t('browse.nodesPctTemplate', { pct })}</div>
+              <div class="area-group-remaining-cost"><b>${t('browse.groupRemainingCostLabel')}</b>${t('common.labelSep')}${costChips || t('filter.remainingCostZero')}</div>
             </div>
             ${bulkCatchUpControlHtml(scopeId)}
           </div>
