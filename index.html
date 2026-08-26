@@ -603,7 +603,7 @@
     <a href="https://taipak5000.github.io/tai-info/" class="sidebar-nav-link" data-i18n="tools.info">⚙️ 設定・更新情報</a>
   </aside>
 
-  <div class="wrap">
+  <div>
     <div class="pf-bar" id="pfBar"></div>
     <div class="revisit-badge" id="revisitBadge"></div>
 
@@ -2062,9 +2062,10 @@ function pfSyncCurrencyToggleUI() {
    名前空間化ルール・称号ID→アイコン/名前/条件文の対応表は、各ツール側の称号定義をこの
    ファイルの書式に合わせて複製したもの。ランタイムを共有しているわけではないため、
    元の定義が増える／変わった場合はここも手動で追従させる必要がある。
-   称号名（name）・条件文（desc）はいずれも各ツール側の実データに英語表記が存在するため、
-   descと同じ{ja, en}＋L()の形で言語切替に追従させる。ツール名（source）のみ上流に英訳が
-   用意されていない固有名詞のため、ja表記のまま両言語で共通表示する。
+   称号名（name）・条件文（desc）・ツール名（source）はいずれも{ja, en}＋L()の形で言語切替に
+   追従させる。sourceの英訳はこのサイト自身のI18N.tools.*（サイドバー等で既に使っている表記）
+   と揃えてあり、scoreツール（非公開の姉妹サイト）分のみ実名を出さず汎用表記（姉妹サイト/Sister Site）
+   にしている（🔒 プライバシー方針: 非公開サイトの実名は一切露出しない）。
    ================================================================ */
 // {ja, en}オブジェクトから現在の言語の文字列を返す（enが無ければjaにフォールバック）。
 // I18Nのようなdot-pathを持たない、このカタログのdesc等の即値オブジェクト専用の軽量ヘルパー。
@@ -2073,7 +2074,7 @@ function L(obj) {
   return (LANG === 'en' && obj.en) ? obj.en : obj.ja;
 }
 const CROSS_TITLE_CATALOG = {
-  item: { storageKey: 'itemTitles_v1', namespaced: true, source: 'アイテム所持管理',
+  item: { storageKey: 'itemTitles_v1', namespaced: true, source: { ja: 'アイテム所持管理', en: 'Item Collection' },
     extract: d => Object.keys((d && d.earned) || {}),
     titles: {
       rate25: { icon: '🕯️', name: { ja: '灯火の旅人', en: 'Traveler of the Flame' }, desc: { ja: '全アイテムの所持率が25%に到達', en: 'Reached 25% overall ownership' } },
@@ -2088,7 +2089,7 @@ const CROSS_TITLE_CATALOG = {
       spend30k: { icon: '🌌', name: { ja: '星空の大後援者', en: 'Grand Patron of the Stars' }, desc: { ja: '実額の合計が¥30,000に到達', en: 'Real-money total reached ¥30,000' } },
       spend50k: { icon: '🌟', name: { ja: '光の大後援者', en: 'Grand Patron of Light' }, desc: { ja: '実額の合計が¥50,000に到達', en: 'Real-money total reached ¥50,000' } },
     } },
-  emote: { storageKey: 'emoteTitles_v1', namespaced: true, source: 'エモート所持率管理',
+  emote: { storageKey: 'emoteTitles_v1', namespaced: true, source: { ja: 'エモート所持率管理', en: 'Emote Collection' },
     extract: d => Object.keys(d || {}),
     titles: {
       apprentice: { icon: '🔰', name: { ja: '一芸見習い', en: 'Emote Apprentice' }, desc: { ja: '所持レベル数が全体の10%に到達', en: 'Owned levels reached 10% of the total' } },
@@ -2097,7 +2098,7 @@ const CROSS_TITLE_CATALOG = {
       completionist: { icon: '🗺️', name: { ja: '全種踏破', en: 'Full Collection' }, desc: { ja: '全エモートを最低1レベルずつ所持', en: 'Owns at least one level of every emote' } },
       guideFan: { icon: '🧭', name: { ja: '案内人めぐり', en: 'Guide’s Companion' }, desc: { ja: '「案内人」エモートを全種最低1レベルずつ所持', en: 'Owns at least one level of every Guide emote' } },
     } },
-  wings: { storageKey: 'wingsTitles_v1', namespaced: true, source: '羽トラッカー',
+  wings: { storageKey: 'wingsTitles_v1', namespaced: true, source: { ja: '羽トラッカー', en: 'Wing Tracker' },
     extract: d => Object.keys(d || {}),
     titles: {
       cape_lv5: { icon: '🪶', name: { ja: '羽ばたきの証', en: 'Budding Wings' }, desc: { ja: 'ケープレベル5に到達（光の翼20枚）', en: 'Reached Cape Level 5 (20 Wings of Light)' } },
@@ -2106,7 +2107,7 @@ const CROSS_TITLE_CATALOG = {
       lc_half: { icon: '🔦', name: { ja: '光を辿る探検家', en: 'Light-Tracing Explorer' }, desc: { ja: '光の子を62体（半数）発見', en: 'Found 62 Children of Light (half)' } },
       lc_all: { icon: '🌟', name: { ja: '光の子コンプリート', en: 'Children of Light Completionist' }, desc: { ja: '光の子124体すべてを発見', en: 'Found all 124 Children of Light' } },
     } },
-  spirit: { storageKey: 'spiritCatalogTitles_v1', namespaced: true, source: '精霊ツリー管理',
+  spirit: { storageKey: 'spiritCatalogTitles_v1', namespaced: true, source: { ja: '精霊ツリー管理', en: 'Spirit Tree Catalog' },
     extract: d => Object.keys(d || {}),
     titles: {
       pct1: { icon: '🌱', name: { ja: '芽吹きの精霊使い', en: 'Budding Spirit Keeper' }, desc: { ja: '精霊ツリーのノードを1%以上解放した', en: 'Unlocked 1%+ of all spirit tree nodes' } },
@@ -2115,7 +2116,7 @@ const CROSS_TITLE_CATALOG = {
       pct50: { icon: '🌳', name: { ja: '満開の森の守り人', en: 'Guardian of the Blooming Grove' }, desc: { ja: '精霊ツリーのノードを50%以上解放した', en: 'Unlocked 50%+ of all spirit tree nodes' } },
       pct100: { icon: '👑', name: { ja: '精霊の森の賢者', en: 'Sage of the Spirit Forest' }, desc: { ja: '精霊ツリーの全ノードをコンプリートした', en: 'Unlocked 100% of all spirit tree nodes' } },
     } },
-  score: { storageKey: 'taiScoreTitles_v1', namespaced: false, source: '姉妹サイト',
+  score: { storageKey: 'taiScoreTitles_v1', namespaced: false, source: { ja: '姉妹サイト', en: 'Sister Site' },
     extract: d => ((d && d.earned) || []).map(e => e.id),
     titles: {
       firstSong: { icon: '🎼', name: { ja: 'はじめの一歩', en: 'First Step' }, desc: { ja: 'はじめての1曲をライブラリに加えた', en: 'Added your first song to the library' } },
@@ -2125,7 +2126,7 @@ const CROSS_TITLE_CATALOG = {
       passionate: { icon: '🔥', name: { ja: '情熱の演奏者', en: 'Passionate Performer' }, desc: { ja: '1曲に100音を超える演奏を詰め込んだ', en: 'Packed over 100 notes into a single song' } },
       virtuoso: { icon: '⚡', name: { ja: '超絶技巧', en: 'Virtuoso' }, desc: { ja: '1曲に300音を超える演奏を詰め込んだ', en: 'Packed over 300 notes into a single song' } },
     } },
-  share: { storageKey: 'shareTitles_v1', namespaced: true, source: '創作物管理ツール',
+  share: { storageKey: 'shareTitles_v1', namespaced: true, source: { ja: '創作物管理ツール', en: 'Creation Manager' },
     extract: d => ((d && d.earned) || []).map(e => e.id),
     titles: {
       first: { icon: '🌱', name: { ja: 'はじめての一歩', en: 'First Steps' }, desc: { ja: '創作物をはじめて追加した', en: 'Added your first creation' } },
@@ -2134,7 +2135,7 @@ const CROSS_TITLE_CATALOG = {
       master: { icon: '🏛️', name: { ja: '創作の匠', en: 'Master Craftsperson' }, desc: { ja: '累計30個の創作物を追加した', en: '30 creations added (lifetime)' } },
       legend: { icon: '👑', name: { ja: '伝説の創作者', en: 'Legendary Creator' }, desc: { ja: '累計50個の創作物を追加した', en: '50 creations added (lifetime)' } },
     } },
-  nomacan: { storageKey: 'skyNomacanTitles_v1', namespaced: true, source: 'ノマキャン計算機',
+  nomacan: { storageKey: 'skyNomacanTitles_v1', namespaced: true, source: { ja: 'ノマキャン計算機', en: 'Nomacan Calculator' },
     extract: d => Object.keys((d && d.earned) || {}),
     titles: {
       streak3: { icon: '🔥', name: { ja: '灯し始め', en: 'Spark of a Streak' }, desc: { ja: '3日連続で記録', en: 'Recorded 3 days in a row' } },
@@ -2144,7 +2145,7 @@ const CROSS_TITLE_CATALOG = {
       hold300: { icon: '🏮', name: { ja: '光の貯蔵庫', en: 'Vault of Light' }, desc: { ja: '所持本数が300本に到達', en: 'Reached 300 candles held' } },
       hold600: { icon: '👑', name: { ja: '灯火の富豪', en: 'Candle Baron' }, desc: { ja: '所持本数が600本に到達', en: 'Reached 600 candles held' } },
     } },
-  starcandle: { storageKey: 'skyStarCandleCalc_titles_v1', namespaced: true, source: '星のキャンドル計算機',
+  starcandle: { storageKey: 'skyStarCandleCalc_titles_v1', namespaced: true, source: { ja: '星のキャンドル計算機', en: 'Star Candle Calculator' },
     extract: d => Object.keys(d || {}),
     titles: {
       streak_3: { icon: '🕯️', name: { ja: '灯を絶やさぬ者', en: 'Flame Unwavering' }, desc: { ja: '赤闇を3日連続で取りこぼさず回収', en: 'Collected shard rewards 3 days in a row without missing one' } },
@@ -2173,7 +2174,7 @@ function pfCollectEarnedTitles(profileId) {
       .map(id => tool.titles[id])
       .filter(Boolean) // 未知の称号ID（先方のバージョン差異等）は無視
       .map(def => ({ icon: def.icon, name: L(def.name), desc: L(def.desc) }));
-    if (earned.length) groups.push({ source: tool.source, titles: earned });
+    if (earned.length) groups.push({ source: L(tool.source), titles: earned });
   });
   return groups;
 }
