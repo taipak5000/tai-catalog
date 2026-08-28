@@ -28147,7 +28147,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  12,
         "nodes":  [
                       {
                           "guid":  "hg2026lv1a",
@@ -28222,6 +28222,21 @@ const SPIRIT_TREE_DATA = [
                           "itemGuid":  "GOhva5yLDa",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hg2026hrt1",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "hg2026hrt1",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "jG5Kuv-GTDh",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  "hg2026outf",
@@ -28340,7 +28355,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  10,
+        "nodeCount":  11,
         "nodes":  [
                       {
                           "guid":  "hu2026lv1a",
@@ -28415,6 +28430,21 @@ const SPIRIT_TREE_DATA = [
                           "itemGuid":  "C3n9ZNcSYr",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hu2026hrt1",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "hu2026hrt1",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "h2zRh4oz4_h",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  "hu2026outf",
@@ -28644,7 +28674,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  12,
         "nodes":  [
                       {
                           "guid":  "pr2026lv1a",
@@ -28734,6 +28764,21 @@ const SPIRIT_TREE_DATA = [
                           "itemGuid":  "UzRclD65vO",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "pr2026hrt1",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "pr2026hrt1",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "IWXeOczUJvh",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  "pr2026outf",
