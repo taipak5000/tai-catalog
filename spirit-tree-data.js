@@ -28143,14 +28143,14 @@ const SPIRIT_TREE_DATA = [
         "area":  "Crescent Oasis",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/a/ae/Nine-Colored-Deer-Herb-Gatherer.png",
         "treeGuid":  "nDiOVsRGWO",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-08-28",
+        "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  8,
         "nodes":  [
                       {
-                          "guid":  "EEz74j7uA3",
+                          "guid":  "hg2026lv1a",
                           "cost":  {
 
                                    },
@@ -28158,8 +28158,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Whistle",
                           "itemNameJa":  "口笛",
                           "itemType":  "Emote",
-                          "nw":  "GqoF1aIatY",
-                          "n":  "5c4eEiWyPA",
+                          "nw":  null,
+                          "n":  "hg2026lv2a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28167,46 +28167,79 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "5c4eEiWyPA",
+                          "guid":  "hg2026lv2a",
                           "cost":  {
-                                       "sc":  16
+                                       "h":  4
+                                   },
+                          "itemGuid":  "fRqeU-viVI",
+                          "itemName":  "Whistle",
+                          "itemNameJa":  "口笛",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  "hg2026hair",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_100",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "hg2026hair",
+                          "cost":  {
+                                       "c":  38
+                                   },
+                          "itemGuid":  "HbrxremuY-",
+                          "itemName":  "Herb Gatherer Hair",
+                          "itemNameJa":  "薬草採集者 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  "hg2026gate",
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_119"
+                      },
+                      {
+                          "guid":  "hg2026gate",
+                          "cost":  {
+                                       "h":  3,
+                                       "sc":  2
                                    },
                           "itemGuid":  "GOhva5yLDa",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "AbrrfEgFe1",
-                          "n":  "aQx3iDWNf0",
+                          "nw":  null,
+                          "n":  "hg2026outf",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null
                       },
                       {
-                          "guid":  "aQx3iDWNf0",
+                          "guid":  "hg2026outf",
                           "cost":  {
-                                       "sc":  26
+                                       "c":  64
                                    },
-                          "itemGuid":  "HbrxremuY-",
-                          "itemName":  "Herb Gatherer Hair",
-                          "itemNameJa":  null,
-                          "itemType":  "Hair",
-                          "nw":  "cuJ-cN9cNI",
-                          "n":  "854R0K3fkh",
+                          "itemGuid":  "iwngzO_Ye0",
+                          "itemName":  "Herb Gatherer Outfit",
+                          "itemNameJa":  "薬草採集人　服",
+                          "itemType":  "Outfit",
+                          "nw":  null,
+                          "n":  "hg2026lv3a",
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_024"
                       },
                       {
-                          "guid":  "854R0K3fkh",
+                          "guid":  "hg2026lv3a",
                           "cost":  {
-                                       "sc":  30
+
                                    },
                           "itemGuid":  "brs2b0XtiY",
                           "itemName":  "Whistle",
                           "itemNameJa":  "口笛",
                           "itemType":  "Emote",
-                          "nw":  "yAlhMb7QEp",
-                          "n":  "Losgq6EGS7",
+                          "nw":  null,
+                          "n":  "hg2026lv4a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28214,61 +28247,16 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "Losgq6EGS7",
+                          "guid":  "hg2026lv4a",
                           "cost":  {
-                                       "sc":  36
-                                   },
-                          "itemGuid":  "W1GZqtaPaM",
-                          "itemName":  "Herb Gatherer Prop",
-                          "itemNameJa":  null,
-                          "itemType":  "Prop",
-                          "nw":  "euJyOBiQl-",
-                          "n":  "oHFhwfAbmW",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "oHFhwfAbmW",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "jG5Kuv-GTD",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "euJyOBiQl-",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "x7vrsngRCI",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "yAlhMb7QEp",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "fB-Akhop3K",
                           "itemName":  "Whistle",
                           "itemNameJa":  "口笛",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  null,
+                          "n":  "hg2026prop",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28276,55 +28264,23 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "cuJ-cN9cNI",
+                          "guid":  "hg2026prop",
                           "cost":  {
-
+                                       "c":  17
                                    },
-                          "itemGuid":  "A1fMJZO5K_",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "W1GZqtaPaM",
+                          "itemName":  "Herb Gatherer Prop",
+                          "itemNameJa":  "薬草壺",
+                          "itemType":  "Prop",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "AbrrfEgFe1",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "iwngzO_Ye0",
-                          "itemName":  "Herb Gatherer Outfit",
-                          "itemNameJa":  "薬草採集人　服",
-                          "itemType":  "Outfit",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_024"
-                      },
-                      {
-                          "guid":  "GqoF1aIatY",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "fRqeU-viVI",
-                          "itemName":  "Whistle",
-                          "itemNameJa":  "口笛",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_100",
-                          "emoteLevel":  2
+                          "itemCatKey":  "small_placeable",
+                          "itemCostId":  "small_placeable_022"
                       }
                   ],
         "nameJa":  "薬草採集人",
-        "rootNodeGuid":  "EEz74j7uA3"
+        "rootNodeGuid":  "hg2026lv1a"
     },
     {
         "guid":  "4h9FByzo7y",
@@ -28335,14 +28291,14 @@ const SPIRIT_TREE_DATA = [
         "area":  "Crescent Oasis",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/7/72/Nine-Colored-Deer-Hunter.png",
         "treeGuid":  "rsxn04As9U",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-08-28",
+        "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  8,
         "nodes":  [
                       {
-                          "guid":  "kU0nAenGkj",
+                          "guid":  "hu2026lv1a",
                           "cost":  {
 
                                    },
@@ -28350,8 +28306,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Flex",
                           "itemNameJa":  "手足を曲げる",
                           "itemType":  "Emote",
-                          "nw":  "oBDRhIc-U0",
-                          "n":  "vy42LcfVgL",
+                          "nw":  null,
+                          "n":  "hu2026lv2a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28359,31 +28315,79 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "vy42LcfVgL",
+                          "guid":  "hu2026lv2a",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
+                                   },
+                          "itemGuid":  "F_3lTFwBoE",
+                          "itemName":  "Flex",
+                          "itemNameJa":  "手足を曲げる",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  "hu2026hair",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_101",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "hu2026hair",
+                          "cost":  {
+                                       "c":  45
+                                   },
+                          "itemGuid":  "5NmGXSaWaK",
+                          "itemName":  "Hunter Hair",
+                          "itemNameJa":  "狩人 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  "hu2026gate",
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_121"
+                      },
+                      {
+                          "guid":  "hu2026gate",
+                          "cost":  {
+                                       "h":  3,
+                                       "sc":  2
+                                   },
+                          "itemGuid":  "C3n9ZNcSYr",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hu2026outf",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "hu2026outf",
+                          "cost":  {
+                                       "c":  67
                                    },
                           "itemGuid":  "X_2wqYzEu5",
                           "itemName":  "Hunter Outfit",
                           "itemNameJa":  "狩人　服",
                           "itemType":  "OutfitShoes",
-                          "nw":  "O-9cB13pGo",
-                          "n":  "QTgfN7i74o",
+                          "nw":  null,
+                          "n":  "hu2026lv3a",
                           "ne":  null,
                           "itemCatKey":  "outfit",
                           "itemCostId":  "outfit_091"
                       },
                       {
-                          "guid":  "QTgfN7i74o",
+                          "guid":  "hu2026lv3a",
                           "cost":  {
-                                       "sc":  20
+
                                    },
                           "itemGuid":  "QJq0kW8j2S",
                           "itemName":  "Flex",
                           "itemNameJa":  "手足を曲げる",
                           "itemType":  "Emote",
-                          "nw":  "cJVd-UG9Zp",
-                          "n":  "op_OClDINi",
+                          "nw":  null,
+                          "n":  "hu2026lv4a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28391,91 +28395,16 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "op_OClDINi",
+                          "guid":  "hu2026lv4a",
                           "cost":  {
-                                       "sc":  28
-                                   },
-                          "itemGuid":  "C3n9ZNcSYr",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "Jtt8zjusE8",
-                          "n":  "caBIg543Il",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "caBIg543Il",
-                          "cost":  {
-                                       "sc":  34
-                                   },
-                          "itemGuid":  "orB3idfSwo",
-                          "itemName":  "Hunter Cape",
-                          "itemNameJa":  "狩人 ケープ",
-                          "itemType":  "Cape",
-                          "nw":  "6YddprtswD",
-                          "n":  "hAjYAWNFv0",
-                          "ne":  null,
-                          "itemCatKey":  "cape",
-                          "itemCostId":  "cape_093"
-                      },
-                      {
-                          "guid":  "hAjYAWNFv0",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "h2zRh4oz4_",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "6YddprtswD",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "kfHRAuUJcv",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "Jtt8zjusE8",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "5NmGXSaWaK",
-                          "itemName":  "Hunter Hair",
-                          "itemNameJa":  "狩人 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_121"
-                      },
-                      {
-                          "guid":  "cJVd-UG9Zp",
-                          "cost":  {
-
+                                       "h":  6
                                    },
                           "itemGuid":  "zBw4EnSXM1",
                           "itemName":  "Flex",
                           "itemNameJa":  "手足を曲げる",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  null,
+                          "n":  "hu2026cape",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28483,40 +28412,23 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  4
                       },
                       {
-                          "guid":  "O-9cB13pGo",
+                          "guid":  "hu2026cape",
                           "cost":  {
-
+                                       "c":  80
                                    },
-                          "itemGuid":  "IQY8K6P32K",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
+                          "itemGuid":  "orB3idfSwo",
+                          "itemName":  "Hunter Cape",
+                          "itemNameJa":  "狩人 ケープ",
+                          "itemType":  "Cape",
                           "nw":  null,
                           "n":  null,
                           "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "oBDRhIc-U0",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "F_3lTFwBoE",
-                          "itemName":  "Flex",
-                          "itemNameJa":  "手足を曲げる",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_101",
-                          "emoteLevel":  2
+                          "itemCatKey":  "cape",
+                          "itemCostId":  "cape_093"
                       }
                   ],
         "nameJa":  "狩人",
-        "rootNodeGuid":  "kU0nAenGkj"
+        "rootNodeGuid":  "hu2026lv1a"
     },
     {
         "guid":  "wyFKAWN45l",
@@ -28527,14 +28439,14 @@ const SPIRIT_TREE_DATA = [
         "area":  "Crescent Oasis",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/c/cf/Nine-Colored-Deer-Feudal-Lord.png",
         "treeGuid":  "0wgQ9rDShR",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-08-28",
+        "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  11,
+        "nodeCount":  5,
         "nodes":  [
                       {
-                          "guid":  "c1ukj9PFVD",
+                          "guid":  "fl2026emo1",
                           "cost":  {
 
                                    },
@@ -28542,8 +28454,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Cradle Carry",
                           "itemNameJa":  null,
                           "itemType":  "Emote",
-                          "nw":  "OdBgcJbtEK",
-                          "n":  "3_B5F60qou",
+                          "nw":  null,
+                          "n":  "fl2026gate",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28551,99 +28463,54 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  null
                       },
                       {
-                          "guid":  "3_B5F60qou",
+                          "guid":  "fl2026gate",
                           "cost":  {
-                                       "sc":  6
+                                       "sc":  2
                                    },
                           "itemGuid":  "va-bCmN1T_",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "e1EHTQbh7O",
-                          "n":  "EpLzU7Tck4",
+                          "nw":  null,
+                          "n":  "fl2026hacc",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null
                       },
                       {
-                          "guid":  "EpLzU7Tck4",
+                          "guid":  "fl2026hacc",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  36
+                                   },
+                          "itemGuid":  "VJu0fG2ndS",
+                          "itemName":  "Feudal Lord Hat",
+                          "itemNameJa":  "国王 ヘアアクセサリー",
+                          "itemType":  "HairAccessory",
+                          "nw":  null,
+                          "n":  "fl2026mask",
+                          "ne":  null,
+                          "itemCatKey":  "hair_accessory",
+                          "itemCostId":  "hair_accessory_015"
+                      },
+                      {
+                          "guid":  "fl2026mask",
+                          "cost":  {
+                                       "c":  42
                                    },
                           "itemGuid":  "xm183xQb6B",
                           "itemName":  "Feudal Lord Mask",
                           "itemNameJa":  "国王　マスク",
                           "itemType":  "Mask",
-                          "nw":  "47suLqrKU3",
-                          "n":  "fimJTaBUjW",
+                          "nw":  null,
+                          "n":  "fl2026cape",
                           "ne":  null,
                           "itemCatKey":  "mask",
                           "itemCostId":  "mask_076"
                       },
                       {
-                          "guid":  "fimJTaBUjW",
+                          "guid":  "fl2026cape",
                           "cost":  {
-                                       "sc":  26
-                                   },
-                          "itemGuid":  "bPs2llkWyk",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "uXkkTBo9E7",
-                          "n":  "AYd2LYGwHd",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "AYd2LYGwHd",
-                          "cost":  {
-                                       "sc":  32
-                                   },
-                          "itemGuid":  "H3IbNNMgeI",
-                          "itemName":  "Deer Song",
-                          "itemNameJa":  "鹿の歌",
-                          "itemType":  "Music",
-                          "nw":  "fqJcKikf2K",
-                          "n":  "oSY366YRwW",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "oSY366YRwW",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "b8fsOpXbiN",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "fqJcKikf2K",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Ob9-4JZoGH",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "uXkkTBo9E7",
-                          "cost":  {
-
+                                       "c":  78
                                    },
                           "itemGuid":  "WkyRmWK_lE",
                           "itemName":  "Feudal Lord Cape",
@@ -28654,57 +28521,10 @@ const SPIRIT_TREE_DATA = [
                           "ne":  null,
                           "itemCatKey":  "cape",
                           "itemCostId":  "cape_094"
-                      },
-                      {
-                          "guid":  "47suLqrKU3",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "MDwDKmNPig",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "e1EHTQbh7O",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "VJu0fG2ndS",
-                          "itemName":  "Feudal Lord Hat",
-                          "itemNameJa":  "国王 ヘアアクセサリー",
-                          "itemType":  "HairAccessory",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hair_accessory",
-                          "itemCostId":  "hair_accessory_015"
-                      },
-                      {
-                          "guid":  "OdBgcJbtEK",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "SxBmlA58uo",
-                          "itemName":  "Cradle Carry",
-                          "itemNameJa":  null,
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  null,
-                          "emoteLevel":  null
                       }
                   ],
         "nameJa":  "国王",
-        "rootNodeGuid":  "c1ukj9PFVD"
+        "rootNodeGuid":  "fl2026emo1"
     },
     {
         "guid":  "mf7NyGfeDI",
@@ -28715,14 +28535,14 @@ const SPIRIT_TREE_DATA = [
         "area":  "Crescent Oasis",
         "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/d/da/Nine-Colored-Deer-Princess.png",
         "treeGuid":  "uLAuAvptPA",
-        "treeSource":  "original",
-        "revisitDate":  null,
-        "revisitName":  null,
+        "treeSource":  "revisit",
+        "revisitDate":  "2026-08-28",
+        "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  13,
+        "nodeCount":  9,
         "nodes":  [
                       {
-                          "guid":  "QLHntqZQ6m",
+                          "guid":  "pr2026lv1a",
                           "cost":  {
 
                                    },
@@ -28730,8 +28550,8 @@ const SPIRIT_TREE_DATA = [
                           "itemName":  "Float Spin",
                           "itemNameJa":  "浮遊スピン",
                           "itemType":  "Emote",
-                          "nw":  "teffb5GxyX",
-                          "n":  "nq-taG3wQg",
+                          "nw":  null,
+                          "n":  "pr2026lv2a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28739,46 +28559,94 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  1
                       },
                       {
-                          "guid":  "nq-taG3wQg",
+                          "guid":  "pr2026lv2a",
                           "cost":  {
-                                       "sc":  8
+                                       "h":  4
+                                   },
+                          "itemGuid":  "c2ogGO4e6t",
+                          "itemName":  "Float Spin",
+                          "itemNameJa":  "浮遊スピン",
+                          "itemType":  "Emote",
+                          "nw":  null,
+                          "n":  "pr2026mask",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null,
+                          "emoteId":  "emote_102",
+                          "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "pr2026mask",
+                          "cost":  {
+                                       "c":  36
                                    },
                           "itemGuid":  "5WpDgbgdqb",
                           "itemName":  "Princess Mask",
                           "itemNameJa":  "王女　マスク",
                           "itemType":  "Mask",
-                          "nw":  "AP1XKnfsxx",
-                          "n":  "P5uOwY_l-A",
+                          "nw":  null,
+                          "n":  "pr2026hair",
                           "ne":  null,
                           "itemCatKey":  "mask",
                           "itemCostId":  "mask_075"
                       },
                       {
-                          "guid":  "P5uOwY_l-A",
+                          "guid":  "pr2026hair",
                           "cost":  {
-                                       "sc":  18
+                                       "c":  45
+                                   },
+                          "itemGuid":  "XBA8t0KAgo",
+                          "itemName":  "Princess Hair",
+                          "itemNameJa":  "王女 ヘアスタイル",
+                          "itemType":  "Hair",
+                          "nw":  null,
+                          "n":  "pr2026gate",
+                          "ne":  null,
+                          "itemCatKey":  "hairstyle",
+                          "itemCostId":  "hairstyle_120"
+                      },
+                      {
+                          "guid":  "pr2026gate",
+                          "cost":  {
+                                       "h":  3,
+                                       "sc":  2
                                    },
                           "itemGuid":  "UzRclD65vO",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
                           "itemType":  "Special",
-                          "nw":  "JGZV3U9Jvu",
-                          "n":  "z0Lkyd1iNP",
+                          "nw":  null,
+                          "n":  "pr2026outf",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null
                       },
                       {
-                          "guid":  "z0Lkyd1iNP",
+                          "guid":  "pr2026outf",
                           "cost":  {
-                                       "sc":  22
+                                       "c":  71
+                                   },
+                          "itemGuid":  "O0ktmTVR_z",
+                          "itemName":  "Princess Outfit",
+                          "itemNameJa":  "王女　服",
+                          "itemType":  "Outfit",
+                          "nw":  null,
+                          "n":  "pr2026lv3a",
+                          "ne":  null,
+                          "itemCatKey":  "outfit",
+                          "itemCostId":  "outfit_025"
+                      },
+                      {
+                          "guid":  "pr2026lv3a",
+                          "cost":  {
+
                                    },
                           "itemGuid":  "UcG0zDem_M",
                           "itemName":  "Float Spin",
                           "itemNameJa":  "浮遊スピン",
                           "itemType":  "Emote",
-                          "nw":  "09kVqTSZgq",
-                          "n":  "eU1kzP8PY-",
+                          "nw":  null,
+                          "n":  "pr2026lv4a",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
@@ -28786,54 +28654,26 @@ const SPIRIT_TREE_DATA = [
                           "emoteLevel":  3
                       },
                       {
-                          "guid":  "eU1kzP8PY-",
+                          "guid":  "pr2026lv4a",
                           "cost":  {
-                                       "sc":  26
+                                       "h":  6
                                    },
-                          "itemGuid":  "O0ktmTVR_z",
-                          "itemName":  "Princess Outfit",
-                          "itemNameJa":  "王女　服",
-                          "itemType":  "Outfit",
-                          "nw":  "w1VCzjbtmd",
-                          "n":  "vN5lBp0S9x",
-                          "ne":  null,
-                          "itemCatKey":  "outfit",
-                          "itemCostId":  "outfit_025"
-                      },
-                      {
-                          "guid":  "vN5lBp0S9x",
-                          "cost":  {
-                                       "sc":  32
-                                   },
-                          "itemGuid":  "6FYRAG6jIS",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  "8jxbLNGDUI",
-                          "n":  "VXLRTIyOvf",
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "VXLRTIyOvf",
-                          "cost":  {
-                                       "sc":  3
-                                   },
-                          "itemGuid":  "IWXeOczUJv",
-                          "itemName":  "Season Heart",
-                          "itemNameJa":  "シーズンハート",
-                          "itemType":  "Special",
+                          "itemGuid":  "8hRD36UT6n",
+                          "itemName":  "Float Spin",
+                          "itemNameJa":  "浮遊スピン",
+                          "itemType":  "Emote",
                           "nw":  null,
-                          "n":  null,
+                          "n":  "pr2026cape",
                           "ne":  null,
                           "itemCatKey":  null,
-                          "itemCostId":  null
+                          "itemCostId":  null,
+                          "emoteId":  "emote_102",
+                          "emoteLevel":  4
                       },
                       {
-                          "guid":  "8jxbLNGDUI",
+                          "guid":  "pr2026cape",
                           "cost":  {
-
+                                       "c":  75
                                    },
                           "itemGuid":  "iSIZiicqA0",
                           "itemName":  "Princess Cape",
@@ -28844,89 +28684,10 @@ const SPIRIT_TREE_DATA = [
                           "ne":  null,
                           "itemCatKey":  "cape",
                           "itemCostId":  "cape_092"
-                      },
-                      {
-                          "guid":  "w1VCzjbtmd",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "3KnSMisbLM",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "09kVqTSZgq",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "8hRD36UT6n",
-                          "itemName":  "Float Spin",
-                          "itemNameJa":  "浮遊スピン",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_102",
-                          "emoteLevel":  4
-                      },
-                      {
-                          "guid":  "JGZV3U9Jvu",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "XBA8t0KAgo",
-                          "itemName":  "Princess Hair",
-                          "itemNameJa":  "王女 ヘアスタイル",
-                          "itemType":  "Hair",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  "hairstyle",
-                          "itemCostId":  "hairstyle_120"
-                      },
-                      {
-                          "guid":  "AP1XKnfsxx",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "Ye-rhyzgWF",
-                          "itemName":  "Blessing",
-                          "itemNameJa":  "祝福",
-                          "itemType":  "Special",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null
-                      },
-                      {
-                          "guid":  "teffb5GxyX",
-                          "cost":  {
-
-                                   },
-                          "itemGuid":  "c2ogGO4e6t",
-                          "itemName":  "Float Spin",
-                          "itemNameJa":  "浮遊スピン",
-                          "itemType":  "Emote",
-                          "nw":  null,
-                          "n":  null,
-                          "ne":  null,
-                          "itemCatKey":  null,
-                          "itemCostId":  null,
-                          "emoteId":  "emote_102",
-                          "emoteLevel":  2
                       }
                   ],
         "nameJa":  "王女",
-        "rootNodeGuid":  "QLHntqZQ6m"
+        "rootNodeGuid":  "pr2026lv1a"
     },
     {
         "guid":  "_ZYvHXY8HB",
