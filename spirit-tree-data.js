@@ -28147,7 +28147,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  11,
         "nodes":  [
                       {
                           "guid":  "hg2026lv1a",
@@ -28176,12 +28176,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "口笛",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "hg2026hair",
+                          "n":  "hg2026bls1",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_100",
                           "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "hg2026bls1",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "GOhva5yLDb1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hg2026hair",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "hg2026hair",
@@ -28224,10 +28239,25 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "薬草採集人　服",
                           "itemType":  "Outfit",
                           "nw":  null,
-                          "n":  "hg2026lv3a",
+                          "n":  "hg2026bls2",
                           "ne":  null,
                           "itemCatKey":  "outfit",
                           "itemCostId":  "outfit_024"
+                      },
+                      {
+                          "guid":  "hg2026bls2",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "GOhva5yLDb2",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hg2026lv3a",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "hg2026lv3a",
@@ -28239,12 +28269,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "口笛",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "hg2026lv4a",
+                          "n":  "hg2026bls3",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_100",
                           "emoteLevel":  3
+                      },
+                      {
+                          "guid":  "hg2026bls3",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "GOhva5yLDb3",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hg2026lv4a",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "hg2026lv4a",
@@ -28295,7 +28340,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  8,
+        "nodeCount":  10,
         "nodes":  [
                       {
                           "guid":  "hu2026lv1a",
@@ -28324,12 +28369,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "手足を曲げる",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "hu2026hair",
+                          "n":  "hu2026bls1",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_101",
                           "emoteLevel":  2
+                      },
+                      {
+                          "guid":  "hu2026bls1",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "C3n9ZNcSYb1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hu2026hair",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "hu2026hair",
@@ -28387,12 +28447,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "手足を曲げる",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "hu2026lv4a",
+                          "n":  "hu2026bls2",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_101",
                           "emoteLevel":  3
+                      },
+                      {
+                          "guid":  "hu2026bls2",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "C3n9ZNcSYb2",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "hu2026lv4a",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "hu2026lv4a",
@@ -28443,7 +28518,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  5,
+        "nodeCount":  7,
         "nodes":  [
                       {
                           "guid":  "fl2026emo1",
@@ -28455,12 +28530,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  null,
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "fl2026gate",
+                          "n":  "fl2026bls1",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  null,
                           "emoteLevel":  null
+                      },
+                      {
+                          "guid":  "fl2026bls1",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "va-bCmN1T_b1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "fl2026gate",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "fl2026gate",
@@ -28487,10 +28577,25 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "国王 ヘアアクセサリー",
                           "itemType":  "HairAccessory",
                           "nw":  null,
-                          "n":  "fl2026mask",
+                          "n":  "fl2026bls2",
                           "ne":  null,
                           "itemCatKey":  "hair_accessory",
                           "itemCostId":  "hair_accessory_015"
+                      },
+                      {
+                          "guid":  "fl2026bls2",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "va-bCmN1T_b2",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "fl2026mask",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "fl2026mask",
@@ -28539,7 +28644,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  9,
+        "nodeCount":  11,
         "nodes":  [
                       {
                           "guid":  "pr2026lv1a",
@@ -28585,10 +28690,25 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "王女　マスク",
                           "itemType":  "Mask",
                           "nw":  null,
-                          "n":  "pr2026hair",
+                          "n":  "pr2026bls1",
                           "ne":  null,
                           "itemCatKey":  "mask",
                           "itemCostId":  "mask_075"
+                      },
+                      {
+                          "guid":  "pr2026bls1",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "UzRclD65vOb1",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "pr2026hair",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "pr2026hair",
@@ -28646,12 +28766,27 @@ const SPIRIT_TREE_DATA = [
                           "itemNameJa":  "浮遊スピン",
                           "itemType":  "Emote",
                           "nw":  null,
-                          "n":  "pr2026lv4a",
+                          "n":  "pr2026bls2",
                           "ne":  null,
                           "itemCatKey":  null,
                           "itemCostId":  null,
                           "emoteId":  "emote_102",
                           "emoteLevel":  3
+                      },
+                      {
+                          "guid":  "pr2026bls2",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "UzRclD65vOb2",
+                          "itemName":  "Blessing",
+                          "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "pr2026lv4a",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
                       },
                       {
                           "guid":  "pr2026lv4a",
