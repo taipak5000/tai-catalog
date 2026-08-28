@@ -2617,23 +2617,48 @@ function pfDashSoonestFuture(dates) {
 }
 
 function pfDashRevisitStatus(schedule) {
-  if (!schedule || !schedule.anchorStart || !schedule.anchorEnd) return null;
-  const start0 = new Date(schedule.anchorStart);
-  const end0 = new Date(schedule.anchorEnd);
-  const intervalMs = schedule.intervalDays * 86400000;
+  if (!schedule) return null;
   const now = new Date();
-  const k = Math.floor((now - start0) / intervalMs);
-  const start = new Date(start0.getTime() + k * intervalMs);
-  const end = new Date(start.getTime() + (end0 - start0));
+  if (schedule.intervalDays) {
+    if (!schedule.anchorStart || !schedule.anchorEnd) return null;
+    const start0 = new Date(schedule.anchorStart);
+    const end0 = new Date(schedule.anchorEnd);
+    const intervalMs = schedule.intervalDays * 86400000;
+    const k = Math.floor((now - start0) / intervalMs);
+    const start = new Date(start0.getTime() + k * intervalMs);
+    const end = new Date(start.getTime() + (end0 - start0));
+    if (start <= now && now <= end) return { active: true, daysLeft: Math.ceil((end - now) / 86400000), target: end };
+    const nextStart = now < start ? start : new Date(start.getTime() + intervalMs);
+    return { active: false, daysUntil: Math.ceil((nextStart - now) / 86400000), target: nextStart };
+  }
+  // 一回限りの来訪（intervalDaysなし）：start/endで判定し、終了済みなら二度と表示しない
+  if (!schedule.start || !schedule.end) return null;
+  const start = new Date(schedule.start), end = new Date(schedule.end);
   if (start <= now && now <= end) return { active: true, daysLeft: Math.ceil((end - now) / 86400000), target: end };
-  const nextStart = now < start ? start : new Date(start.getTime() + intervalMs);
-  return { active: false, daysUntil: Math.ceil((nextStart - now) / 86400000), target: nextStart };
+  if (now < start) return { active: false, daysUntil: Math.ceil((start - now) / 86400000), target: start };
+  return null;
+}
+// 複数の来訪(周期的な単独の旅の精霊・期間限定の来訪団など)が同時に進行することがあるため、
+// それぞれの状態をまとめて計算する（ダッシュボードは全件を行として表示する）
+function pfDashRevisitStatuses(schedules) {
+  return (schedules || [])
+    .map(schedule => ({ schedule, status: pfDashRevisitStatus(schedule) }))
+    .filter(x => x.status);
+}
+// メイン画面の1行だけのバッジ用に、複数の来訪から表示すべき1件を選ぶ
+// （開催中があればそれを優先。複数開催中なら終了が近い順。無ければ一番近く始まるもの）
+function pfDashPickRevisitStatus(schedules) {
+  const statuses = pfDashRevisitStatuses(schedules);
+  const active = statuses.filter(x => x.status.active);
+  if (active.length) return active.sort((a, b) => a.status.target - b.status.target)[0].status;
+  const upcoming = statuses.filter(x => !x.status.active);
+  return upcoming.length ? upcoming.sort((a, b) => a.status.target - b.status.target)[0].status : null;
 }
 async function pfDashLoadData() {
   const res = await fetch(`${SPIRIT_SITE_ROOT}/tai-item/index.html`);
   const html = await res.text();
   return {
-    revisit: treeExtractArray(html, 'REVISIT_SPIRIT_SCHEDULE') || null,
+    revisitSchedules: treeExtractArray(html, 'REVISIT_SPIRIT_SCHEDULES') || [],
     season: treeExtractArray(html, 'CURRENT_SEASON') || null,
     eventSchedule: treeExtractArray(html, 'EVENT_SCHEDULE') || [],
     nextUpdate: treeExtractArray(html, 'NEXT_UPDATE') || null,
@@ -2683,7 +2708,7 @@ function pfDashBuildHtml(data) {
   dailyRows.push(pfDashRow('🐢', `${t('dashboard.turtleDarkness')}<span class="dash-countdown">${t('dashboard.nextEventIn')} ${pfDashCountdown(pfDashNextEvenHourEvent(50))}</span>`));
   const dailyHtml = dailyRows.join('');
 
-  // 注: data.season.name / ev.name / data.revisit.name は item(tai-item)側のindex.htmlから
+  // 注: data.season.name / ev.name は item(tai-item)側のindex.htmlから
   // fetchして取得した日本語のみのデータ（手動更新の生文字列）で、このリポジトリの範囲外のため翻訳していない
   // （wings/star-candle等の同じダッシュボード機能でも同様の扱い）。
   // 種類（イベント/再訪/週間リセット/アップデート/シーズン終了）ではなく、各項目の実際の
@@ -2698,13 +2723,12 @@ function pfDashBuildHtml(data) {
     const endDate = new Date(ev.end);
     bucketRows[pfDashBucketFor(endDate)].push(pfDashRow('🌟', `<b>${escapeHtmlPf(ev.name)}</b>${t('dashboard.currentlyActive')}<span class="dash-countdown">${t('dashboard.endsIn')} ${pfDashCountdown(endDate)}</span>`));
   });
-  const rv = pfDashRevisitStatus(data.revisit);
-  if (rv && data.revisit) {
+  pfDashRevisitStatuses(data.revisitSchedules).forEach(({ status: rv }) => {
     const revisitLabel = rv.active
       ? `${t('dashboard.revisitSpirit')}${t('dashboard.revisitHereNow')}`
       : `${t('dashboard.revisitSpirit')}${t('dashboard.revisitReturnsIn')}`;
     bucketRows[pfDashBucketFor(rv.target)].push(pfDashRow('🕊️', `${revisitLabel}<span class="dash-countdown">${pfDashCountdown(rv.target)}</span>`));
-  }
+  });
   const edenTarget = pfDashNextEdenResetTarget();
   bucketRows[pfDashBucketFor(edenTarget)].push(pfDashRow('🌩️', `${t('dashboard.eyeOfEden')}${t('common.labelSep')}${t('dashboard.weeklyResetIn')}<span class="dash-countdown">${pfDashCountdown(edenTarget)}</span><span class="dash-note">${t('dashboard.everySundayPacific')}</span>`));
   if (data.nextUpdate && data.nextUpdate.date) {
@@ -2782,8 +2806,8 @@ let revisitBadgeTimer = null;
 function renderRevisitBadge() {
   const el = document.getElementById('revisitBadge');
   if (!el) return;
-  if (!pfDashCache || !pfDashCache.revisit) { el.innerHTML = ''; return; }
-  const rv = pfDashRevisitStatus(pfDashCache.revisit);
+  if (!pfDashCache || !pfDashCache.revisitSchedules) { el.innerHTML = ''; return; }
+  const rv = pfDashPickRevisitStatus(pfDashCache.revisitSchedules);
   if (!rv) { el.innerHTML = ''; return; }
   const countdown = pfDashCountdown(rv.target);
   if (rv.active) {
