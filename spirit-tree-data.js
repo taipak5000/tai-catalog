@@ -28548,7 +28548,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  "2026-08-28",
         "revisitName":  "Nine-Colored Deer Troupe Visit",
         "isTiered":  false,
-        "nodeCount":  7,
+        "nodeCount":  9,
         "nodes":  [
                       {
                           "guid":  "fl2026emo1",
@@ -28590,6 +28590,36 @@ const SPIRIT_TREE_DATA = [
                           "itemGuid":  "va-bCmN1T_",
                           "itemName":  "Blessing",
                           "itemNameJa":  "祝福",
+                          "itemType":  "Special",
+                          "nw":  null,
+                          "n":  "fl2026song",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "fl2026song",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "H3IbNNMgeIr",
+                          "itemName":  "Deer Song",
+                          "itemNameJa":  "鹿の歌",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  "fl2026hrt1",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "fl2026hrt1",
+                          "cost":  {
+                                       "c":  3
+                                   },
+                          "itemGuid":  "b8fsOpXbiNh",
+                          "itemName":  "Heart",
+                          "itemNameJa":  "ハート",
                           "itemType":  "Special",
                           "nw":  null,
                           "n":  "fl2026hacc",
