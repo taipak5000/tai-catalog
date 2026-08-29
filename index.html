@@ -171,6 +171,7 @@
     }
     .sidebar-nav-link:hover { background: var(--bg); }
     .sidebar-nav-link.current-tool { background: var(--green-bg); color: var(--green-d); font-weight: 700; }
+    .tool-badge-test { font-size: 9px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.3px; }
 
     /* ── サイトドック（画面下部固定のクイックアクセスバー。pengram.jp流儀。
        既存のハンバーガーサイドバーは残したまま、その横に並ぶ補助的なショートカット行として追加。
@@ -604,6 +605,7 @@
     <a href="https://taipak5000.github.io/tai-emote/" class="sidebar-nav-link" data-i18n="tools.emote">🎭 エモート所持率管理</a>
     <a href="https://taipak5000.github.io/tai-transfer/" class="sidebar-nav-link" data-i18n="tools.dataTransfer">🔄 データ引継ぎ</a>
     <a href="https://taipak5000.github.io/tai-nomacan/" class="sidebar-nav-link" data-i18n="tools.nomacan">🕯️ ノマキャン計算機</a>
+    <a href="https://taipak5000.github.io/tai-score/" class="sidebar-nav-link"><span class="tool-badge-test">test</span><span data-i18n="tools.score">🎵 楽譜づくり</span></a>
     <a href="https://taipak5000.github.io/tai-info/" class="sidebar-nav-link" data-i18n="tools.info">⚙️ 設定・更新情報</a>
   </aside>
 
@@ -831,6 +833,7 @@ const I18N = {
     emote: { ja: '🎭 エモート所持率管理', en: '🎭 Emote Collection' },
     dataTransfer: { ja: '🔄 データ引継ぎ', en: '🔄 Data Transfer' },
     nomacan: { ja: '🕯️ ノマキャン計算機', en: '🕯️ Nomacan Calculator' },
+    score: { ja: '🎵 楽譜づくり', en: '🎵 Sheet Music Maker' },
     info: { ja: '⚙️ 設定・更新情報', en: '⚙️ Settings & Updates' },
   },
   filter: {
