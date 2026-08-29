@@ -772,7 +772,7 @@
 </footer>
 
 <!-- ▸ サイトドック（下部固定クイックメニュー。既存のハンバーガーサイドバーはそのまま残す） -->
-<nav class="site-dock" aria-label="クイックメニュー">
+<nav class="site-dock" aria-label="クイックメニュー" data-i18n-aria-label="dock.ariaLabel">
   <button type="button" onclick="pfOpenModal()">
     <span class="site-dock-icon">🗂️</span>
     <!-- 汎用ラベルではなく現在アクティブなプロフィール名を表示する（pfRenderBar()がJSで設定するため
@@ -818,6 +818,7 @@ const I18N = {
   // ── 下部固定クイックメニュー（サイトドック）。sidebar.*と同じ操作を指すが、
   //    アイコンとラベルを別要素で表示するため絵文字を含まない短いラベル文言にしている。
   dock: {
+    ariaLabel: { ja: 'クイックメニュー', en: 'Quick menu' },
     profile: { ja: 'プロフィール', en: 'Profile' },
     dashboard: { ja: 'ダッシュボード', en: 'Dashboard' },
     tools: { ja: '他のツール', en: 'Other Tools' },
@@ -1131,6 +1132,7 @@ function applyI18n() {
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.getAttribute('data-i18n-placeholder')); });
   document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.getAttribute('data-i18n-title')); });
   document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = t(el.getAttribute('data-i18n-alt')); });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
   const langBtn = document.getElementById('langToggleBtn');
   if (langBtn) langBtn.textContent = LANG === 'ja' ? 'EN' : '日本語';
 }
