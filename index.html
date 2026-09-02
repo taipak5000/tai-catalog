@@ -3080,10 +3080,14 @@ function getBlessingWingBuffMap() {
 //            入手済みにしている場合（item/emote・wings→spirit-catalogの逆方向同期による
 //            自動解放。このツール自身では未操作）
 // - null   : 未解放
-// 祝福ノードは、その先の羽ロックが解放済みなら自動で解放済み扱いにする（ツリーは根から
-// 順番にしか進めないため、羽ロックまで到達済みなら祝福も必ず通過済みのはず）。この場合の
-// 解放元は、根拠となった羽ロック側の解放元をそのまま引き継ぐ（羽ロックがsync由来なら
-// 祝福もsync由来として扱う）。
+// 祝福ノードは、その先の羽ロックがwings側との同期で解放済みなら自動で解放済み扱いにする
+// （ツリーは根から順番にしか進めないため、実際のゲーム内で羽ロックまで到達済みなら祝福も
+// 必ず通過済みのはず）。この「順番通り」の前提はwings同期（実ゲーム側の所持状態の裏付けが
+// ある）でしか保証できない。toggleNode()自体には前提ノードの解放チェックが無く、ツリーの
+// 途中を飛ばして羽ロックだけを直接タップできてしまうため、spirit-catalog自身の解放記録
+// （own）を根拠に祝福を自動解放扱いにすると、祝福のコストを一切払わずに済んでしまう
+// （残りコスト集計や実績判定が狂う）。そのためここではwings同期由来（sync）の羽ロックの
+// みを根拠にする。
 // isNodeUnlocked()も本関数の結果をそのまま真偽化したもので、判定ロジックの二重管理を避ける。
 function getUnlockSource(node) {
   if (getUnlockedMap()[node.guid]) return 'own';
@@ -3094,9 +3098,14 @@ function getUnlockSource(node) {
   if (node.itemNameJa === '祝福') {
     const wingNodes = getBlessingWingBuffMap()[node.guid];
     if (wingNodes) {
+      // ext.wingUnlockedGuids単独では判定しない: 羽ロックをspirit-catalogで直接タップ
+      // （own）した場合もsyncWingBuff()によって同じpermWingTracker_v1へ書き戻される
+      // ため、ext.wingUnlockedGuids.has()だけを見るとownタップも真になってしまう。
+      // getUnlockSource(wn)は自身の解放記録（own）を最優先で見るため、これを使って
+      // 「本当にwings側だけに由来する（＝spirit-catalogでは直接タップされていない）」
+      // 場合のみを厳密に判定する。
       for (const wn of wingNodes) {
-        const src = getUnlockSource(wn);
-        if (src) return src;
+        if (getUnlockSource(wn) === 'sync') return 'sync';
       }
     }
   }
@@ -3146,15 +3155,20 @@ function adjustOwnCurrency(deltaCandle, deltaHeart) {
 /* ================================================================
    wings（羽トラッカー）と自動同期（Wing Buff ノードのみ）
    ================================================================ */
-function syncWingBuff(spirit) {
-  if (!spirit.nameJa) return;
+// spirit-catalog側でnode（Wing Buffノード）の解放状態がnowUnlockedに変わったことを
+// wings側のトラッカーへ反映する。Regular型はtier1/tier2の2ノードを持ちうるが、ここで
+// 触るのは変化したnode（tierKey）1件のみで、それ以外のtierの既存データ（wings側だけで
+// 記録された分も含む）は読み込んだtrackerオブジェクトをそのまま保持することで温存する。
+// 以前はspirit.nameJaのエントリ全体をownMap（spirit-catalog自身の解放記録）だけから
+// 毎回作り直していたため、片方のtierがwings側でしか解放記録を持たない場合（このツールで
+// 個別にタップしたことが一度も無い場合）、もう片方のtierをトグルしただけでそのtierの
+// 記録ごと消えてしまっていた（syncItemOwned/syncEmoteOwnedと同じスコープ限定の
+// read-modify-writeに揃える）。
+function syncWingBuff(spirit, node, nowUnlocked) {
+  if (!spirit.nameJa || !node || node.itemType !== 'WingBuff') return;
   const wingBuffNodes = spirit.nodes.filter(n => n.itemType === 'WingBuff');
-  if (wingBuffNodes.length === 0) return;
-  // isNodeUnlocked()はwings側の値も参照するようになったため、ここでそれを使うと
-  // 「push（spirit-catalog→wings）」と「pull（wings→spirit-catalog）」が循環してしまい、
-  // wings側で既にチェック済みのノードをspirit-catalog側でOFFにできなくなる。
-  // そのためここではspirit-catalog自身の解放記録（ownMap）のみを見る。
-  const ownMap = getUnlockedMap();
+  const idx = wingBuffNodes.findIndex(n => n.guid === node.guid);
+  if (idx === -1) return;
 
   if (spirit.type === 'Season') {
     const seasonJa = spirit.season ? SEASON_JA_MAP[spirit.season] : null;
@@ -3163,19 +3177,16 @@ function syncWingBuff(spirit) {
     let tracker;
     try { tracker = JSON.parse(localStorage.getItem(key)) || {}; } catch (_) { tracker = {}; }
     if (!tracker[seasonJa]) tracker[seasonJa] = {};
-    const anyChecked = wingBuffNodes.some(n => !!ownMap[n.guid]);
-    tracker[seasonJa][spirit.nameJa] = anyChecked;
+    tracker[seasonJa][spirit.nameJa] = nowUnlocked;
     localStorage.setItem(key, JSON.stringify(tracker));
   } else if (spirit.type === 'Regular') {
+    const tierKey = idx === 0 ? 'tier1' : 'tier2';
     const key = nsKey('permWingTracker_v1');
     let tracker;
     try { tracker = JSON.parse(localStorage.getItem(key)) || {}; } catch (_) { tracker = {}; }
-    const entry = {};
-    wingBuffNodes.forEach((n, idx) => {
-      const tierKey = idx === 0 ? 'tier1' : 'tier2';
-      if (ownMap[n.guid]) entry[tierKey] = true;
-    });
-    tracker[spirit.nameJa] = entry;
+    const entry = { ...(tracker[spirit.nameJa] || {}) };
+    if (nowUnlocked) { entry[tierKey] = true; } else { delete entry[tierKey]; }
+    if (Object.keys(entry).length === 0) { delete tracker[spirit.nameJa]; } else { tracker[spirit.nameJa] = entry; }
     localStorage.setItem(key, JSON.stringify(tracker));
   }
 }
@@ -3270,7 +3281,7 @@ function toggleNode(spiritGuid, nodeGuid) {
   saveUnlockedMap(unlocked);
 
   // 羽バフノードならwingsとも同期
-  if (node.itemType === 'WingBuff') syncWingBuff(spirit);
+  if (node.itemType === 'WingBuff') syncWingBuff(spirit, node, nowUnlocked);
 
   // アイテムカタログと対応が取れているノードならitemの所持アイテムとも同期
   syncItemOwned(node, nowUnlocked);
@@ -3349,12 +3360,10 @@ function markTreeCompleteCore(spiritGuid) {
     }
     syncItemOwned(node, true);
     syncEmoteOwned(node, true);
+    if (node.itemType === 'WingBuff') syncWingBuff(spirit, node, true);
     changedCount++;
   });
   saveUnlockedMap(unlocked);
-
-  // 羽バフノードは複数まとめて変わりうるため、全ノード反映後にまとめて1回だけ同期する
-  syncWingBuff(spirit);
 
   invalidateExternalOwnCache();
   return changedCount;
@@ -3483,12 +3492,10 @@ function resetTreeToLocked(spiritGuid) {
     // 同じく連携先の所持データ自体を未所持に戻す（真に「ツリーを未解放に戻す」ため）。
     syncItemOwned(node, false);
     syncEmoteOwned(node, false);
+    if (node.itemType === 'WingBuff') syncWingBuff(spirit, node, false);
     changedCount++;
   });
   saveUnlockedMap(unlocked);
-
-  // 羽バフノードは複数まとめて変わりうるため、全ノード反映後にまとめて1回だけ同期する
-  syncWingBuff(spirit);
 
   invalidateExternalOwnCache();
 
