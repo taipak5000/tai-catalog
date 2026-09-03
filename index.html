@@ -131,13 +131,6 @@
       white-space: nowrap;
     }
 
-    .sidebar-toggle-btn {
-      background: var(--card); border: 1px solid var(--sep); border-radius: var(--r-sm);
-      padding: 6px 12px; font-size: 13px; font-weight: 600; color: var(--text);
-      display: flex; align-items: center; gap: 6px; white-space: nowrap;
-    }
-    @media (min-width: 850px) { .sidebar-toggle-btn { visibility: hidden; } }
-
     .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 499; }
     .sidebar-overlay.show { display: block; animation: fadeIn 0.2s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -825,7 +818,6 @@ const I18N = {
   page: { title: { ja: '精霊ツリー管理 - Sky所持率管理', en: 'Spirit Tree Catalog - Sky Collection Tracker' } },
   nav: { title: { ja: '🌳 精霊ツリー管理', en: '🌳 Spirit Tree Catalog' } },
   sidebar: {
-    hamburger: { ja: '☰ ツール', en: '☰ Tools' },
     relatedTools: { ja: '関連ツール', en: 'Related Tools' },
   },
   // ── 下部固定クイックメニュー（サイトドック）。sidebar.*と同じ操作を指すが、
