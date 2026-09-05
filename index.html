@@ -90,6 +90,19 @@
     .inline-icon { stroke: var(--green-d); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -3px; color: var(--green-d); }
     .inline-icon.warn { stroke: var(--red); color: var(--red); }
     .inline-icon.ok { stroke: var(--green); color: var(--green); }
+    /* 🔵 サイトドック/表示設定モーダルの一部アイコン向け「ガラス風の丸バッジ」背景。
+       アイテム所持管理(item)と見た目を揃えるための装飾。--ACCENTはこのファイルの
+       .inline-icon既定色(var(--green-d))に合わせ、--ACCENT-BGは対応する-bgトークンが
+       無いため近似色(#248A3Dのrgba)を直書きしている。 */
+    .icon-chip {
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      background: rgba(36,138,61,0.12);
+      background-image: linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0) 60%);
+      border-radius: 26%;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35), inset 0 1px 1px rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.10);
+      color: var(--green-d);
+    }
+    .icon-chip svg { display: block; stroke: var(--green-d); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
     .pf-titles-toggle[aria-expanded="true"] .pf-titles-caret svg { transform: rotate(180deg); }
     .pf-titles-caret svg { transition: transform 0.15s ease; }
     .tree-node-icon svg { width: calc(24px * var(--tree-scale, 1)); height: calc(24px * var(--tree-scale, 1)); }
@@ -694,6 +707,9 @@
     <symbol id="i-glasses" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><circle cx="6.5" cy="14" r="3.2"/><circle cx="17.5" cy="14" r="3.2"/><path d="M9.7 14h4.6M3 12l1-2h2M21 12l-1-2h-2"/></g></symbol>
     <symbol id="i-sofa" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><path d="M5 12V9.5a1.5 1.5 0 0 1 1.5-1.5h11A1.5 1.5 0 0 1 19 9.5V12"/><path d="M3.5 12h17v4a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1Z"/><path d="M4.5 17v2M19.5 17v2"/></g></symbol>
     <symbol id="i-balloon" viewBox="0 0 24 24"><path d="M12 3a5 5.5 0 0 0-5 5.5C7 12 9.5 14.3 11 14.7l-.6 1.8"/><path d="M12 3a5 5.5 0 0 1 5 5.5c0 3.5-2.5 5.8-4 6.2l.6 1.8"/><path d="M11 16.5h1.4"/><path d="M11.3 18.3c-.2.6.1 1.2.7 1.2s.9-.6.7-1.2"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/><path d="M9 20.5h6M12 17v3.5"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 18H5a1.5 1.5 0 0 1-1.5-1.5Z"/><path d="M6.5 9.5h.01M9.5 9.5h.01M12.5 9.5h.01M15.5 9.5h.01M17.5 9.5h.01M6.5 12.5h.01M9.5 12.5h.01M12.5 12.5h.01M15.5 12.5h.01M17.5 12.5h.01M8 15.5h8"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M4.5 9h15M4.5 15h15"/><path d="M12 4a12 12 0 0 1 0 16"/><path d="M12 4a12 12 0 0 0 0 16"/></g></symbol>
 </defs></svg>
 
 
@@ -712,7 +728,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-head">
       <div class="sidebar-section-label" data-i18n="sidebar.relatedTools">関連ツール</div>
-      <button class="sidebar-close-btn" onclick="toggleSidebar()"><svg class="inline-icon" width="14" height="14"><use href="#i-close"/></svg></button>
+      <button class="sidebar-close-btn" onclick="toggleSidebar()"><span class="icon-chip" style="width:22px; height:22px;"><svg width="16" height="16"><use href="#i-close"/></svg></span></button>
     </div>
     <a href="https://taipak5000.github.io/tai-item/" class="sidebar-nav-link" data-i18n="tools.item">アイテム所持管理</a>
     <a href="https://taipak5000.github.io/share/" class="sidebar-nav-link" data-i18n="tools.share">創作物管理ツール</a>
@@ -892,24 +908,24 @@
 <!-- ▸ サイトドック（下部固定クイックメニュー。既存のハンバーガーサイドバーはそのまま残す） -->
 <nav class="site-dock" aria-label="クイックメニュー" data-i18n-aria-label="dock.ariaLabel">
   <button type="button" onclick="pfOpenModal()">
-    <span class="site-dock-icon"><svg class="inline-icon" width="19" height="19"><use href="#i-folder"/></svg></span>
+    <span class="site-dock-icon"><span class="icon-chip" style="width:28px; height:28px;"><svg width="22" height="22"><use href="#i-folder"/></svg></span></span>
     <!-- 汎用ラベルではなく現在アクティブなプロフィール名を表示する（pfRenderBar()がJSで設定するため
          data-i18nは付けない。pf-bar本体の表示名と同じ考え方）。 -->
     <span class="site-dock-label" id="siteDockProfileLabel">プロフィール</span>
   </button>
   <button type="button" onclick="pfDashOpen()">
     <span class="site-dock-icon-wrap">
-      <span class="site-dock-icon"><svg class="inline-icon" width="19" height="19"><use href="#i-calendar"/></svg></span>
+      <span class="site-dock-icon"><span class="icon-chip" style="width:28px; height:28px;"><svg width="22" height="22"><use href="#i-calendar"/></svg></span></span>
       <span class="dock-urgent-dot" id="dockUrgentDot" aria-hidden="true" title="季節/イベントの終了が近づいています" data-i18n-title="dock.urgentTitle"></span>
     </span>
     <span class="site-dock-label" data-i18n="dock.dashboard">ダッシュボード</span>
   </button>
   <button type="button" onclick="toggleSidebar()">
-    <span class="site-dock-icon"><svg class="inline-icon" width="19" height="19"><use href="#i-menu"/></svg></span>
+    <span class="site-dock-icon"><span class="icon-chip" style="width:28px; height:28px;"><svg width="22" height="22"><use href="#i-menu"/></svg></span></span>
     <span class="site-dock-label" data-i18n="dock.tools">他のツール</span>
   </button>
   <button type="button" onclick="settingsOpenModal()">
-    <span class="site-dock-icon"><svg class="inline-icon" width="19" height="19"><use href="#i-settings"/></svg></span>
+    <span class="site-dock-icon"><span class="icon-chip" style="width:28px; height:28px;"><svg width="22" height="22"><use href="#i-settings"/></svg></span></span>
     <span class="site-dock-label" data-i18n="dock.settings">表示設定</span>
   </button>
 </nav>
@@ -1094,19 +1110,19 @@ const I18N = {
   // sky_app_theme / sky_shortcuts_enabled という共通localStorageキーを使う。
   settings: {
     modalTitle: { ja: '表示設定', en: 'Display Settings' },
-    displaySection: { ja: '表示', en: 'Display' },
+    displaySection: { ja: '<svg class="inline-icon" width="15" height="15"><use href="#i-monitor"/></svg> 表示', en: '<svg class="inline-icon" width="15" height="15"><use href="#i-monitor"/></svg> Display' },
     darkModeLabel: { ja: 'ダークモード', en: 'Dark Mode' },
     themeBtnDark: { ja: 'ダーク', en: 'Dark' },
     themeBtnLight: { ja: 'ライト', en: 'Light' },
     themeBtnSystem: { ja: 'システム', en: 'System' },
     themeBtnAriaLabel: { ja: '現在のテーマ: {current}（タップで{next}に切り替え）', en: 'Current theme: {current} (tap to switch to {next})' },
-    langSection: { ja: '言語 / Language', en: 'Language' },
-    shortcutsSection: { ja: 'キーボードショートカット', en: 'Keyboard Shortcuts' },
+    langSection: { ja: '<svg class="inline-icon" width="15" height="15"><use href="#i-globe"/></svg> 言語 / Language', en: '<svg class="inline-icon" width="15" height="15"><use href="#i-globe"/></svg> Language' },
+    shortcutsSection: { ja: '<svg class="inline-icon" width="15" height="15"><use href="#i-keyboard"/></svg> キーボードショートカット', en: '<svg class="inline-icon" width="15" height="15"><use href="#i-keyboard"/></svg> Keyboard Shortcuts' },
     shortcutsEnableLabel: { ja: 'ショートカットを有効にする', en: 'Enable keyboard shortcuts' },
     shortcutOpen: { ja: 'この設定を開く', en: 'Open this settings panel' },
     shortcutTheme: { ja: 'ダークモード切替', en: 'Toggle dark mode' },
     shortcutEscape: { ja: '開いているウィンドウを閉じる', en: 'Close the open window' },
-    customizeSection: { ja: '表示のカスタマイズ', en: 'Customize Display' },
+    customizeSection: { ja: '<svg class="inline-icon" width="15" height="15"><use href="#i-palette"/></svg> 表示のカスタマイズ', en: '<svg class="inline-icon" width="15" height="15"><use href="#i-palette"/></svg> Customize Display' },
     customizeBtn: { ja: 'カスタマイズ', en: 'Customize' },
   },
   iconCustom: {
@@ -4731,7 +4747,7 @@ function renderDetail(guid) {
         <div class="detail-title">${escapeHtml(name)}</div>
         <div class="detail-sub">${typeLabel(s.type)}${s.season ? ' ・ ' + escapeHtml(seasonLabel(s.season)) : ''}</div>
       </div>
-      <button class="detail-close" onclick="closeDetail()" data-focus-key="detailClose"><svg class="inline-icon" width="16" height="16"><use href="#i-close"/></svg></button>
+      <button class="detail-close" onclick="closeDetail()" data-focus-key="detailClose"><span class="icon-chip" style="width:22px; height:22px;"><svg width="16" height="16"><use href="#i-close"/></svg></span></button>
     </div>
     <div class="detail-body">
       <div class="detail-summary">
