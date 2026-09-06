@@ -666,6 +666,7 @@
     <symbol id="i-ticket" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><path d="M4 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1.3a1.5 1.5 0 0 0 0 3.4V15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1.3a1.5 1.5 0 0 0 0-3.4Z"/><path d="M12 7v10" stroke-dasharray="1.5 2"/></g></symbol>
     <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 0 0 16c1.2 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1 .8-1.9 1.8-1.9H16a4 4 0 0 0 4-4c0-3.9-3.6-7-8-7Z"/><path d="M9 9v.01M13 7.5v.01M16.5 10v.01M9.5 13.5v.01"/></symbol>
     <symbol id="i-masks" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z"/><path d="M9 10v.01M15 10v.01"/><path d="M8.5 14.5q3.5 3 7 0"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.9-6.5 11-6.5 11Z"/><path d="M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></symbol>
     <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.5 6L20 12l-6.5 1.5L12 21l-1.5-6L4 12l6.5-1.5Z"/></symbol>
     <symbol id="i-wing" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.281) translate(-10.5 -12.83)"><path d="M4 19c2-6 6-11 13-13-1 6-2 9-6 12-3 2-5 2-7 1Z"/><path d="M7 17c3-2 6-5 8-9"/></g></symbol>
     <symbol id="i-music-note" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.207) translate(-13.75 -10.75)"><path d="M9 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M11.5 15.5V5l7-1.5v9"/><path d="M18.5 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></g></symbol>
@@ -966,17 +967,17 @@ const I18N = {
     settings: { ja: '表示設定', en: 'Display Settings' },
   },
   tools: {
-    item: { ja: 'アイテム所持管理', en: 'Item Collection' },
-    share: { ja: '創作物管理ツール', en: 'Creation Manager' },
-    starCandle: { ja: '星のキャンドル計算機', en: 'Star Candle Calculator' },
-    companion: { ja: '精霊同行ツール', en: 'Spirit Companion Tool' },
-    catalog: { ja: '精霊ツリー管理', en: 'Spirit Tree Catalog' },
-    wings: { ja: '羽トラッカー', en: 'Wing Tracker' },
-    emote: { ja: 'エモート所持率管理', en: 'Emote Collection' },
-    dataTransfer: { ja: 'データ引継ぎ', en: 'Data Transfer' },
-    nomacan: { ja: 'ノマキャン計算機', en: 'Nomacan Calculator' },
-    score: { ja: '楽譜づくり', en: 'Sheet Music Maker' },
-    info: { ja: '設定・更新情報', en: 'Settings & Updates' },
+    item: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-folder"/></svg> アイテム所持管理', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-folder"/></svg> Item Collection' },
+    share: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-pin"/></svg> 創作物管理ツール', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-pin"/></svg> Creation Manager' },
+    starCandle: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-star-candle"/></svg> 星のキャンドル計算機', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-star-candle"/></svg> Star Candle Calculator' },
+    companion: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-sparkle"/></svg> 精霊同行ツール', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-sparkle"/></svg> Spirit Companion Tool' },
+    catalog: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-tree"/></svg> 精霊ツリー管理', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-tree"/></svg> Spirit Tree Catalog' },
+    wings: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-wing"/></svg> 羽トラッカー', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-wing"/></svg> Wing Tracker' },
+    emote: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-masks"/></svg> エモート所持率管理', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-masks"/></svg> Emote Collection' },
+    dataTransfer: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-sync"/></svg> データ引継ぎ', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-sync"/></svg> Data Transfer' },
+    nomacan: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-candle"/></svg> ノマキャン計算機', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-candle"/></svg> Nomacan Calculator' },
+    score: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-music-note"/></svg> 楽譜づくり', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-music-note"/></svg> Sheet Music Maker' },
+    info: { ja: '<svg class="inline-icon" width="19" height="19"><use href="#i-settings"/></svg> 設定・更新情報', en: '<svg class="inline-icon" width="19" height="19"><use href="#i-settings"/></svg> Settings & Updates' },
   },
   filter: {
     sectionLabel: { ja: '検索・絞り込み', en: 'Search & Filter' },
