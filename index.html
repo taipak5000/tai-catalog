@@ -240,7 +240,7 @@
     .pf-bar {
       max-width: 100%; margin: 12px 0 0; background: var(--card); border: 1px solid var(--sep);
       border-radius: var(--r-sm); padding: 10px 14px; font-size: 13px; color: var(--text-2);
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 10px; line-height: 1.5;
     }
     .pf-bar b { color: var(--green-d); font-weight: 700; }
     .pf-bar-text { flex: 1; min-width: 0; cursor: pointer; }
@@ -256,7 +256,7 @@
     .revisit-badge {
       max-width: 100%; margin: 10px 0 0; background: var(--card); border: 1px solid var(--sep);
       border-radius: var(--r-sm); padding: 10px 14px; font-size: 13px; color: var(--text);
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; line-height: 1.5;
     }
     .revisit-badge-text { flex: 1; min-width: 0; }
     .revisit-badge-text b { color: var(--green-d); }
@@ -530,7 +530,9 @@
     .tier-grid-row .tree-node-wrap { position: static; }
 
     footer { text-align: center; font-size: 11.5px; color: var(--text-3); padding: 34px 16px 12px; line-height: 1.9; }
-    footer a { color: var(--green-d); text-decoration: none; }
+    /* 文中リンク（credit/infoLink等）は下線を出して「リンクである」ことが一目で
+       分かるようにする。ボタン化していない生の<a>はここだけのため一括で下線化してよい。 */
+    footer a { color: var(--green-d); text-decoration: underline; text-underline-offset: 2px; }
 
     /* ── トースト通知 ─────────────────────────── */
     .toast {
@@ -1223,8 +1225,8 @@ const I18N = {
   // 🕊️ ダッシュボードの再訪カウントダウンと連携するメイン画面バッジ。固有名詞（誰が来訪中か）
   // は特定できないため、開催有無・タイミングのみをダッシュボードと同じ文言方針で表示する。
   revisitBadge: {
-    activeTemplate: { ja: '再訪イベント開催中・残り {time}', en: 'Revisit event active — {time} left' },
-    upcomingTemplate: { ja: '次の再訪イベントまで {time}', en: 'Next revisit event in {time}' },
+    activeTemplate: { ja: '再訪イベント開催中・残り <b>{time}</b>', en: 'Revisit event active — <b>{time}</b> left' },
+    upcomingTemplate: { ja: '次の再訪イベントまで <b>{time}</b>', en: 'Next revisit event in <b>{time}</b>' },
     viewBtn: { ja: '再訪ツリーの精霊を見る', en: 'View Revisit-Tree Spirits' },
   },
   backup: {
