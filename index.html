@@ -321,6 +321,10 @@
     .pf-row-confirm-text { flex: 1; font-size: 13px; color: var(--text); line-height: 1.4; }
     .pf-row-btn-ok { background: var(--green-fill); color: #fff; border: none; }
     .pf-row-btn-danger { background: #ff3b30; color: #fff; border: none; }
+    /* .pf-icon-btn:hover（詳細度0,2,0）が.pf-row-btn-ok/danger単体（0,1,0）に勝ってしまい、
+       hover時に背景がvar(--sep)へ戻って白文字が読めなくなるのを防ぐための明示ルール */
+    .pf-icon-btn.pf-row-btn-ok:hover { background: var(--green-fill); color: #fff; }
+    .pf-icon-btn.pf-row-btn-danger:hover { background: #ff3b30; color: #fff; }
 
     /* ── 🏆 プロフィール切替モーダル内：他ツール横断の獲得称号（プロフィールを切り替えずに閲覧） ── */
     .pf-titles-row { padding: 0 4px 8px; }
@@ -2184,6 +2188,15 @@ function pfSaveCurrencyField(field, rawValue) {
     localStorage.setItem(key, JSON.stringify(extra));
   }
 }
+// 所持通貨inputのvalue属性へそのままNumberを埋め込むと、桁数の大きい値
+// （例: 1e+24）はJSのデフォルトtoString()が指数表記に切り替わってしまい、
+// 入力欄に「1e+24」という読めない文字列がそのまま表示されてしまう。
+// toLocaleStringはグルーピング無しでも指数表記を使わず全桁の数字文字列を
+// 返すため、number inputのvalueとして安全に使える。
+function pfFmtCurrencyInputValue(n) {
+  const num = Number(n) || 0;
+  return num.toLocaleString('en-US', { useGrouping: false, maximumFractionDigits: 6 });
+}
 function pfRenderCurrency() {
   const body = document.getElementById('pfCurrencyBody');
   if (!body) return;
@@ -2191,7 +2204,7 @@ function pfRenderCurrency() {
   body.innerHTML = PF_CURRENCY_FIELDS.map(f => `
     <div class="pf-currency-row">
       <span class="pf-currency-label">${f.icon} ${t(f.labelKey)}</span>
-      <input type="number" min="0" class="pf-currency-input" value="${c[f.key]}"
+      <input type="number" min="0" class="pf-currency-input" value="${pfFmtCurrencyInputValue(c[f.key])}"
         onchange="pfSaveCurrencyField('${f.key}', this.value)">
     </div>`).join('');
   pfSyncCurrencyToggleUI();
