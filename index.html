@@ -1320,6 +1320,7 @@ function setLang(lang) {
   if (dashModal && dashModal.classList.contains('open') && pfDashCache) {
     document.getElementById('dashBody').innerHTML = pfDashBuildHtml(pfDashCache);
   }
+  pfSyncReminderUI(); // 🔔 通知リマインダーの状態文言（data-i18n非対応の動的テキスト）
   renderRevisitBadge(); // 🕊️ 再訪連携バッジの文言（data-i18n非対応のJS生成テキスト）
   settingsSyncThemeBtn(); // 設定モーダルのダーク/ライト切替ボタンの文言（data-i18n非対応のJS生成テキスト）
   settingsSyncLangBtns(); // 設定モーダルの言語セレクターの選択状態
@@ -2479,22 +2480,22 @@ function pfInjectModal() {
       <h3 data-i18n="dashboard.modalTitle">${t('dashboard.modalTitle')}</h3>
       <div id="dashBody"><div class="pf-hint">${t('dashboard.loading')}</div></div>
       <div class="dash-section">
-        <p class="dash-section-label"><svg class="inline-icon" width="15" height="15"><use href="#i-bell"/></svg> ${t('dashboard.reminderSectionLabel')}</p>
+        <p class="dash-section-label"><svg class="inline-icon" width="15" height="15"><use href="#i-bell"/></svg> <span data-i18n="dashboard.reminderSectionLabel">${t('dashboard.reminderSectionLabel')}</span></p>
         <div class="dash-row" style="align-items:center;">
           <span class="dash-row-icon icon-chip" style="width:22px; height:22px;"><svg width="17" height="17"><use href="#i-bell"/></svg></span>
-          <span class="dash-row-text">${t('dashboard.reminderNotifyLabel')}</span>
+          <span class="dash-row-text" data-i18n="dashboard.reminderNotifyLabel">${t('dashboard.reminderNotifyLabel')}</span>
           <input type="checkbox" id="dashReminderCheckbox" style="width:19px; height:19px; flex-shrink:0; cursor:pointer;"
             onchange="pfReminderToggle(this.checked)">
         </div>
         <div class="dash-row" style="align-items:center;">
           <span class="dash-row-icon icon-chip" style="width:22px; height:22px;"><svg width="17" height="17"><use href="#i-clock"/></svg></span>
-          <span class="dash-row-text">${t('dashboard.reminderTimingLabel')}</span>
+          <span class="dash-row-text" data-i18n="dashboard.reminderTimingLabel">${t('dashboard.reminderTimingLabel')}</span>
           <select id="dashReminderMinutes" class="pf-icon-btn" onchange="pfReminderSaveMinutes(this.value)">
-            <option value="10">${t('dashboard.reminderOption10')}</option>
-            <option value="30">${t('dashboard.reminderOption30')}</option>
-            <option value="60">${t('dashboard.reminderOption60')}</option>
-            <option value="180">${t('dashboard.reminderOption180')}</option>
-            <option value="1440">${t('dashboard.reminderOption1440')}</option>
+            <option value="10" data-i18n="dashboard.reminderOption10">${t('dashboard.reminderOption10')}</option>
+            <option value="30" data-i18n="dashboard.reminderOption30">${t('dashboard.reminderOption30')}</option>
+            <option value="60" data-i18n="dashboard.reminderOption60">${t('dashboard.reminderOption60')}</option>
+            <option value="180" data-i18n="dashboard.reminderOption180">${t('dashboard.reminderOption180')}</option>
+            <option value="1440" data-i18n="dashboard.reminderOption1440">${t('dashboard.reminderOption1440')}</option>
           </select>
         </div>
         <div class="pf-hint" id="dashReminderStatus"></div>
