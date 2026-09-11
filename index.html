@@ -284,6 +284,13 @@
     .dash-calendar-chevron { margin-left: auto; font-size: 13px; color: var(--text-2); transition: transform 0.2s ease; }
     .dash-calendar[open] .dash-calendar-summary { border-radius: var(--r-sm) var(--r-sm) 0 0; }
     .dash-calendar[open] .dash-calendar-chevron { transform: rotate(90deg); }
+    /* 🖥️ ダッシュボードシート自体は.pf-modal-cardの仕様で幅560px以上では最大600pxまで
+       広がる（設定モーダルのように#settingsModalOverlayでの360px上限指定が無いため）。
+       .dash-cal-dayはaspect-ratio:1の7列1frグリッドで上限が無いと、デスクトップ幅では
+       1マスが70px超まで肥大化し、11pxの数字と4pxのドットだけが浮いた不格好な見た目になる。
+       カレンダー全体（summary+grid）を360pxで頭打ちにして中央寄せし、モバイル幅
+       （どのみち360px未満）は無変更のまま、広い画面でだけグリッドの肥大化を止める。 */
+    .dash-calendar { max-width: 360px; margin: 0 auto; }
     .dash-cal-grid {
       display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
       padding: 10px 11px; background: var(--bg); border-radius: 0 0 var(--r-sm) var(--r-sm);
@@ -296,6 +303,12 @@
     .dash-cal-day.is-today .dash-cal-daynum { color: #fff; font-weight: 700; }
     .dash-cal-dots { display: flex; gap: 2px; height: 4px; }
     .dash-cal-dot { width: 4px; height: 4px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    /* 🎯 is-today背景(--green-fill #22813A)は4色のドット(season/event/candle/revisit)
+       いずれとも実測コントラスト比が3:1未満（最良のrevisitで約2:1、最悪のeventで約1.4:1）。
+       背景色そのものを変えるとテキストの4.5:1が崩れるため、ドット単体に白いリングを
+       足して境界のコントラストを確保する（box-shadowはレイアウトサイズに影響しないので
+       .dash-cal-dotsのgap:2pxはそのまま維持できる）。 */
+    .dash-cal-day.is-today .dash-cal-dot { box-shadow: 0 0 0 1px rgba(255,255,255,0.95); }
     .dash-cal-dot.season { background: #eab308; }
     .dash-cal-dot.event { background: #ec4899; }
     .dash-cal-dot.candle { background: #f97316; }
@@ -1359,9 +1372,7 @@ function setLang(lang) {
   const dashModal = document.getElementById('dashModalOverlay');
   if (dashModal && dashModal.classList.contains('open') && pfDashCache) {
     const dashBodyEl = document.getElementById('dashBody');
-    const calWasOpen = dashBodyEl.querySelector('.dash-calendar')?.open;
-    dashBodyEl.innerHTML = pfDashBuildHtml(pfDashCache);
-    if (calWasOpen) { const cal = dashBodyEl.querySelector('.dash-calendar'); if (cal) cal.open = true; }
+    pfDashRebuildBody(dashBodyEl, pfDashBuildHtml(pfDashCache));
   }
   pfSyncReminderUI(); // 🔔 通知リマインダーの状態文言（data-i18n非対応の動的テキスト）
   renderRevisitBadge(); // 🕊️ 再訪連携バッジの文言（data-i18n非対応のJS生成テキスト）
@@ -2985,9 +2996,13 @@ function pfDashCalendarHtml(data) {
     const key = `${year}-${month}-${d}`;
     const cats = marks.get(key);
     const isToday = key === todayKey;
-    const dotsHtml = cats
-      ? `<span class="dash-cal-dots">${CAT_ORDER.filter(c => cats.has(c)).map(c => `<i class="dash-cal-dot ${c}"></i>`).join('')}</span>`
-      : '';
+    // 🩹 ドットの有無に関わらず.dash-cal-dotsは常に出力する（中身が空でも）。
+    // .dash-cal-dayはflex-column+justify-content:centerなので、子要素数が
+    // 1個(数字のみ)か2個(数字+ドット行)かで数字の垂直位置が数px変わってしまう
+    // （ドット行の高さぶん、無い方の数字が再センタリングされて下にずれる）。
+    // 常にドット行の高さを確保しておくことで、同じ行内の日付同士で数字の
+    // 縦位置が揃うようにする。
+    const dotsHtml = `<span class="dash-cal-dots">${cats ? CAT_ORDER.filter(c => cats.has(c)).map(c => `<i class="dash-cal-dot ${c}"></i>`).join('') : ''}</span>`;
     cellsHtml += `<div class="dash-cal-day${isToday ? ' is-today' : ''}"><span class="dash-cal-daynum">${d}</span>${dotsHtml}</div>`;
   }
   const monthLabel = LANG === 'en'
@@ -2996,7 +3011,7 @@ function pfDashCalendarHtml(data) {
 
   return `
     <details class="dash-calendar">
-      <summary class="dash-calendar-summary">
+      <summary class="dash-calendar-summary" data-focus-key="dashCalendarSummary">
         <svg class="inline-icon" width="15" height="15"><use href="#i-calendar"/></svg>
         <span>${t('dashboard.calendarSummary', { month: monthLabel })}</span>
         <span class="dash-calendar-chevron">›</span>
@@ -3126,21 +3141,39 @@ function pfDashBuildHtml(data) {
 let pfDashCache = null;
 let pfDashLoading = null;
 let pfDashTimer = null;
+// ⌨️ フォーカス保持: カレンダーの開閉(<details>)はカウントダウンと違って毎秒更新する
+// 必要はないが、innerHTMLごと差し替えるとdetails要素等のDOMノードが丸ごと作り直される。
+// これにより①開いていたカレンダーが毎秒勝手に閉じてしまう、②キーボード/スクリーン
+// リーダー利用者がsummary等にフォーカスしていた場合、そのフォーカスがdocument.bodyへ
+// 静かに落ちてモーダルのフォーカストラップが壊れてしまう、という2つの問題が起きる。
+// ①はdetails.openの読み書きで既に対処済みだったので、同じ考え方（差し替え前に状態を
+// 読み、差し替え後に復元する）でrenderDetail()のdata-focus-keyパターン（フォーカス中の
+// 要素をキーで特定し、再描画後に同じキーの要素へフォーカスを戻す）を移植する。
+function pfDashRebuildBody(body, html) {
+  const wasOpen = body.querySelector('.dash-calendar')?.open;
+  const prevFocus = document.activeElement;
+  const focusKey = (prevFocus && body.contains(prevFocus) && prevFocus.dataset)
+    ? prevFocus.dataset.focusKey : null;
+
+  body.innerHTML = html;
+
+  if (wasOpen) {
+    const cal = body.querySelector('.dash-calendar');
+    if (cal) cal.open = true;
+  }
+  if (focusKey) {
+    const target = Array.from(body.querySelectorAll('[data-focus-key]'))
+      .find(el => el.dataset.focusKey === focusKey);
+    if (target) target.focus();
+  }
+}
 function pfDashStartTimer() {
   pfDashStopTimer();
   pfDashTimer = setInterval(() => {
     if (!pfDashCache) return;
     const body = document.getElementById('dashBody');
     if (!body) return;
-    // カレンダーの開閉(<details>)はカウントダウンと違って毎秒更新する必要がないが、
-    // innerHTMLごと差し替えるとdetails要素が作り直され、開いていた状態が毎秒
-    // 勝手に閉じてしまう。差し替え前に開閉状態を読み、差し替え後に復元する。
-    const wasOpen = body.querySelector('.dash-calendar')?.open;
-    body.innerHTML = pfDashBuildHtml(pfDashCache);
-    if (wasOpen) {
-      const cal = body.querySelector('.dash-calendar');
-      if (cal) cal.open = true;
-    }
+    pfDashRebuildBody(body, pfDashBuildHtml(pfDashCache));
   }, 1000);
 }
 function pfDashStopTimer() {
@@ -3149,7 +3182,7 @@ function pfDashStopTimer() {
 async function pfDashOpen() {
   document.getElementById('dashModalOverlay').classList.add('open');
   const body = document.getElementById('dashBody');
-  if (pfDashCache) { body.innerHTML = pfDashBuildHtml(pfDashCache); pfDashStartTimer(); return; }
+  if (pfDashCache) { pfDashRebuildBody(body, pfDashBuildHtml(pfDashCache)); pfDashStartTimer(); return; }
   body.innerHTML = `<div class="pf-hint">${t('dashboard.loading')}</div>`;
   try {
     if (!pfDashLoading) pfDashLoading = pfDashLoadData();
