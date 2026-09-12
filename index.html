@@ -288,19 +288,20 @@
        広がる（設定モーダルのように#settingsModalOverlayでの360px上限指定が無いため）。
        .dash-cal-dayはaspect-ratio:1の7列1frグリッドで上限が無いと、デスクトップ幅では
        1マスが70px超まで肥大化し、11pxの数字と4pxのドットだけが浮いた不格好な見た目になる。
-       🩹 ただし.dash-calendar自体（summary込みの外枠）を360pxで頭打ちにすると、隣接する
-       他のセクション（デイリー/今日/今週/今月の各行）はシート全幅のままなのに、カレンダー
-       だけ幅が違って中央に浮いた「浮島」に見えてしまう回帰が起きた。summaryは他の行と
-       揃えてシート全幅のまま出し、グリッド＋凡例だけを360pxで頭打ちにして中央寄せする
-       ことで、肥大化は止めつつ閉じた状態の見た目は他の行と完全に一致させる。モバイル幅
-       （どのみち360px未満）はどちらの要素も無変更。 */
-    .dash-cal-grid, .dash-cal-legend { max-width: 360px; margin: 0 auto; }
+       🩹 ラウンド2では.dash-cal-grid/.dash-cal-legendごと360pxで頭打ちにしていたが、
+       それだと今度はグリッド＋凡例だけが隣接する他のセクション（デイリー/今日/今週/今月の
+       各行）やsummaryバーより幅が狭くなり、中央に浮いた「浮島」に見える回帰が直っていな
+       かった（コンテナごと縮めている限り、どこで頭打ちにしても浮島は再発する）。正しくは
+       コンテナ幅は他の行と揃えてシート全幅のまま出し、個々のセルの見た目サイズだけを
+       max-widthで頭打ちにする。グリッドは7列1frのまま全幅に広がり、各セルはjustify-items:
+       centerで列の中央に配置しつつ.dash-cal-day側のmax-widthで肥大化を止める。モバイル幅
+       （どのみち1列48px未満）ではmax-widthが効かず、従来通りセルが列いっぱいに広がる。 */
     .dash-cal-grid {
-      display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; justify-items: center;
       padding: 10px 11px; background: var(--bg); border-radius: 0 0 var(--r-sm) var(--r-sm);
     }
     .dash-cal-dow { text-align: center; font-size: 10px; font-weight: 700; color: var(--text-2); padding-bottom: 4px; }
-    .dash-cal-day { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px; gap: 2px; }
+    .dash-cal-day { aspect-ratio: 1; width: 100%; max-width: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px; gap: 2px; }
     .dash-cal-day.is-pad { visibility: hidden; }
     .dash-cal-daynum { font-size: 11px; font-variant-numeric: tabular-nums; color: var(--text); }
     .dash-cal-day.is-today { background: var(--green-fill); }
@@ -310,9 +311,16 @@
     /* 🎯 is-today背景(--green-fill #22813A)は4色のドット(season/event/candle/revisit)
        いずれとも実測コントラスト比が3:1未満（最良のrevisitで約2:1、最悪のeventで約1.4:1）。
        背景色そのものを変えるとテキストの4.5:1が崩れるため、ドット単体に白いリングを
-       足して境界のコントラストを確保する（box-shadowはレイアウトサイズに影響しないので
-       .dash-cal-dotsのgap:2pxはそのまま維持できる）。 */
+       足して境界のコントラストを確保する。
+       🩹 ラウンド2はここで「box-shadowはレイアウトサイズに影響しないのでgap:2pxのままで
+       良い」としていたが誤りだった：リングはspread 1pxなので各ドットの見た目の直径は
+       4px→6pxに広がり、隣接ドット間の実際の空きはgap 2px - 1px - 1px = 0pxになる。つまり
+       2個以上の輪が触れ合って繋がり、実機で3カテゴリ以上が同時に立つ日（ズームで実測確認
+       済み）は円がひとつながりの塊に見えていた。is-todayのドット行だけgapを4pxへ広げ、
+       リング同士の間に実測2px（4 - 1 - 1）の隙間を確保して明確に分離させる。リング無しの
+       通常セルはgap:2pxのまま（見た目もレイアウトも変えない）。 */
     .dash-cal-day.is-today .dash-cal-dot { box-shadow: 0 0 0 1px rgba(255,255,255,0.95); }
+    .dash-cal-day.is-today .dash-cal-dots { gap: 4px; }
     /* 🎯 ライトモードの通常セル背景(--bg #F2F2F7)に対し、上記4色の生ドット単体では
        WCAG 1.4.11の非テキストコントラスト3:1を満たさない（実測: season 1.72:1,
        candle 2.51:1, revisit 2.23:1, eventのみ3.16:1でぎりぎり合格）。色相はほぼ保ったまま
