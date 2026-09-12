@@ -5350,13 +5350,63 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
       s.hideTimer = setTimeout(function () { finishHide(s); }, 340);
     }
   }
+  // ♿ フォーカストラップ: これらのモーダルは<body>の末尾近くに置かれているため、素の
+  // Tab移動ではトリガーボタンを押した直後にカード内へ入らず、DOM順で後ろにある
+  // （見た目には隠れている）背景コンテンツへ飛んでしまう。上と同じ「'open'クラスの
+  // 付け外しを監視するMutationObserver」に相乗りすることで、個々のopen/close関数を
+  // 1つずつラップしなくても、この共有オーバーレイパターンを使う新しいモーダルへ
+  // 自動的に効くようにしている（sheet-physics側のonVisibilityChangeはreduced-motion時に
+  // 早期returnするため、意図的に別関数として独立させ、reduced-motion環境でもフォーカス
+  // トラップ自体は必ず効くようにしている）。
+  // 🩹 summary（ダッシュボードのカレンダー<details>開閉トグル）はネイティブに
+  // フォーカス可能だが上のCSSセレクタだけでは拾えないため、isInteractive()と同様に
+  // 明示的に加えておく（無いと、そこへTabで到達すること自体はできても、初期フォーカス
+  // 対象の算出や「最初/最後の要素」判定からsummaryだけが漏れてしまう）。
+  var FT_FOCUSABLE_SEL = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])';
+  var ftContainer = null;
+  var ftTrigger = null;
+  function ftGetFocusable(container) {
+    return Array.prototype.filter.call(container.querySelectorAll(FT_FOCUSABLE_SEL), function (el) { return el.offsetParent !== null; });
+  }
+  function ftHandleKeydown(e) {
+    if (e.key !== 'Tab' || !ftContainer) return;
+    var focusables = ftGetFocusable(ftContainer);
+    if (focusables.length === 0) { e.preventDefault(); ftContainer.focus(); return; }
+    var first = focusables[0], last = focusables[focusables.length - 1];
+    var activeInside = ftContainer.contains(document.activeElement);
+    if (e.shiftKey) {
+      if (!activeInside || document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (!activeInside || document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+  document.addEventListener('keydown', ftHandleKeydown);
+  function ftVisibilityChange(overlay, visible) {
+    var card = overlay.querySelector(CARD_SEL);
+    if (!card) return;
+    if (visible) {
+      ftTrigger = document.activeElement;
+      ftContainer = card;
+      if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '-1');
+      var focusables = ftGetFocusable(card);
+      (focusables[0] || card).focus({ preventScroll: true });
+    } else {
+      if (ftContainer !== card) return; // 待っている間に別モーダルへ切り替わっていたら何もしない
+      ftContainer = null;
+      var trigger = ftTrigger;
+      ftTrigger = null;
+      if (trigger && typeof trigger.focus === 'function' && document.contains(trigger)) {
+        trigger.focus({ preventScroll: true });
+      }
+    }
+  }
   new MutationObserver(function (records) {
     records.forEach(function (r) {
       var el = r.target;
       if (!matchesOverlay(el)) return;
       var was = (' ' + (r.oldValue || '') + ' ').indexOf(' ' + OPEN_CLASS + ' ') !== -1;
       var now = el.classList.contains(OPEN_CLASS);
-      if (was !== now) onVisibilityChange(el, now);
+      if (was !== now) { onVisibilityChange(el, now); ftVisibilityChange(el, now); }
     });
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'], subtree: true, attributeOldValue: true });
 
