@@ -1587,11 +1587,25 @@ function settingsInjectModal() {
 // 開いているモーダルのz-index:1000のスクリムに覆われて押せなくなるため実質ブロックされて
 // いるが、「?」ショートカットはキー入力なのでこのブロックを素通りしてしまう）。開く前に、
 // 開こうとしているもの以外を閉じておく（各close関数は未オープン時は何もしない安全な関数）。
+// 🩹 精霊詳細(detailOverlay)も同じ穴を持つ：カードクリックだけでなく「#spirit=名前」の
+// hashchangeからも独立して開けてしまい（上記4つの「?」ショートカットと同じくスクリム
+// によるクリックブロックを素通りする経路）、他のいずれかが既に開いたままだと重なって
+// しまう（特にz-index:800のdetailOverlayが後から開くと、視覚的には1000側のモーダルに
+// 完全に隠れているにも関わらずftスタックの最上段（＝Tabトラップ対象）を奪ってしまい、
+// 見えているモーダルへTabで戻れなくなる）。この5つ目としてここに含める。
+// 🩹 画像カスタマイズ(customizeModal)・画像保存プレビュー(imagePreviewModal)も
+// メインページの独立したボタン（「カスタマイズして共有」「Xで画像を共有」）から
+// 直接開ける（他モーダルの中に閉じ込められた導線ではない）上、同じ.pf-modal-overlay
+// （z-index:1000）を使う。「?」ショートカットでSettingsを開いた時などにこれらが
+// 除外リストへ含まれていないと、同じz-indexのカード同士が重なって表示されてしまう。
 function pfCloseOtherTopLevelOverlays(exceptId) {
   if (exceptId !== 'settingsModalOverlay' && document.getElementById('settingsModalOverlay').classList.contains('open')) settingsCloseModal();
   if (exceptId !== 'dashModalOverlay' && document.getElementById('dashModalOverlay').classList.contains('open')) pfDashClose();
   if (exceptId !== 'pfModalOverlay' && document.getElementById('pfModalOverlay').classList.contains('open')) pfCloseModal();
   if (exceptId !== 'sidebar' && document.getElementById('sidebar').classList.contains('sidebar-open')) closeSidebar();
+  if (exceptId !== 'detailOverlay' && document.getElementById('detailOverlay').classList.contains('open')) closeDetail();
+  if (exceptId !== 'customizeModal' && document.getElementById('customizeModal').classList.contains('open')) closeCustomizeModal();
+  if (exceptId !== 'imagePreviewModal' && document.getElementById('imagePreviewModal').classList.contains('open')) closeImagePreviewModal();
 }
 
 // Escapeで閉じるべき「現在開いているモーダル/パネル」を、重なり順（z-index優先）で判定して閉じる。
@@ -1616,13 +1630,22 @@ function closeTopmostOpenModal() {
   if (sidebar && sidebar.classList.contains('sidebar-open')) { toggleSidebar(); return; }
 }
 
+// 🩹 input要素はtypeを問わず一律「入力中」扱いにしていたため、type=colorのような
+// 実際には'?'や'd'をリテラル文字として受け付けない入力（チェックボックス/ラジオ/
+// レンジ/カラー/ボタン等）にフォーカスがあるだけでショートカットが死んでいた
+// （プロフィール切替モーダルは開くとtype=colorのカラースウォッチへ自動フォーカス
+// するため、モーダルを開いた直後から'?'/'d'が効かなくなっていた）。実際に文字を
+// 打ち込めるtypeだけを「入力中」とみなす。
+const FT_NON_TEXT_INPUT_TYPES = ['checkbox', 'radio', 'range', 'color', 'button', 'submit', 'reset', 'file', 'image', 'hidden'];
+
 // キーボードショートカット: ?（設定を開く）／D（ダークモード切替）／Esc（開いているモーダルを閉じる）。
 // Escapeはショートカットのオン/オフ設定に関わらず常に有効（モーダルの基本UXのため）。
 document.addEventListener('keydown', function (e) {
   if (e.repeat) return;
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   const target = e.target;
-  const isTyping = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable);
+  const isTextInput = target && target.tagName === 'INPUT' && FT_NON_TEXT_INPUT_TYPES.indexOf((target.type || '').toLowerCase()) === -1;
+  const isTyping = target && (isTextInput || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable);
 
   if (e.key === 'Escape') {
     closeTopmostOpenModal();
@@ -1873,6 +1896,7 @@ function saveShareCustomize(theme) {
 }
 
 function openCustomizeModal() {
+  pfCloseOtherTopLevelOverlays('customizeModal');
   const saved = loadShareCustomize();
   document.getElementById('themeSwatchRow').innerHTML = Object.keys(SHARE_THEMES).map(key => `
     <div class="theme-swatch ${key === saved.theme ? 'selected' : ''}" data-theme="${key}"
@@ -2017,6 +2041,7 @@ async function tryShareImage(canvas, filename, text) {
 }
 
 function openImagePreview(dataUrl, filename, shareText) {
+  pfCloseOtherTopLevelOverlays('imagePreviewModal');
   document.getElementById('previewImg').src = dataUrl;
   const link = document.getElementById('previewDownloadLink');
   link.href = dataUrl;
@@ -3326,6 +3351,18 @@ async function pfDashOpen() {
   const body = document.getElementById('dashBody');
   if (pfDashCache) { pfDashRebuildBody(body, pfDashBuildHtml(pfDashCache)); pfDashStartTimer(); return; }
   body.innerHTML = `<div class="pf-hint">${t('dashboard.loading')}</div>`;
+  // ♿ 上のclassList.add('open')でフォーカストラップの初期フォーカス（MutationObserver経由の
+  // ftPush、マイクロタスク）が既に走っている。だがその時点の#dashBodyはまだ「読み込み中」
+  // プレースホルダーだけでフォーカス可能な要素が無く、暫定的にその下のリマインダー欄
+  // （チェックボックス等）へ着地してしまっている。マイクロタスクを1つ待ってその暫定フォーカス
+  // 先を記録しておき（フェッチ開始前＝ユーザーが動きようがないこの時点でのスナップショット）、
+  // 実データ描画の直前になってもまだそこにフォーカスが残っていれば（＝ユーザーが自分で
+  // Tab等を動かして別の場所へ意図的に移動してはいなければ）、本来の先頭要素
+  // （カレンダーsummary等）へ改めてフォーカスし直す。逆にユーザーが既に動かしていた場合は
+  // 触らない（意図的な操作を横取りしないため）。
+  const cardEl = document.getElementById('dashModalOverlay').querySelector('.pf-modal-card');
+  await Promise.resolve();
+  const provisionalFocus = cardEl && cardEl.contains(document.activeElement) ? document.activeElement : null;
   try {
     if (!pfDashLoading) pfDashLoading = pfDashLoadData();
     const data = await pfDashLoading;
@@ -3337,6 +3374,9 @@ async function pfDashOpen() {
     if (!document.getElementById('dashModalOverlay').classList.contains('open')) return;
     body.innerHTML = pfDashBuildHtml(data);
     pfDashStartTimer();
+    if (provisionalFocus && document.activeElement === provisionalFocus && window.ftFocusFirst) {
+      window.ftFocusFirst(cardEl);
+    }
   } catch (e) {
     console.error('pfDashOpen', e);
     body.innerHTML = `<div class="dash-empty">${t('dashboard.loadFailed')}</div>`;
@@ -4652,17 +4692,28 @@ function renderGrandRemainingCost() {
 let currentDetailGuid = null;
 
 function openDetail(guid) {
+  // 🩹 pfCloseOtherTopLevelOverlays()の対応表参照。表示設定/ダッシュボード/
+  // プロフィール切替/サイドバーのいずれかが開いたままhashchange等でここへ来ても、
+  // 先に閉じておいて重なりを防ぐ（既に開いている精霊詳細自体はexceptIdで除外される
+  // ため、同じ精霊/別の精霊への出し替えでは何もクリアされない）。
+  pfCloseOtherTopLevelOverlays('detailOverlay');
   currentDetailGuid = guid;
   markAllConfirming = false; // 別の精霊の一括解放確認状態を持ち越さない
   resetTreeConfirming = false; // 別の精霊の一括ロック確認状態を持ち越さない
   renderDetail(guid);
   document.getElementById('detailOverlay').classList.add('open');
+  // ♿ .detail-overlay/.detail-cardは他モーダルの'.pf-modal-overlay'/'.pf-modal-card'
+  // パターンに乗っておらず、フォーカストラップを自動フックするMutationObserverから
+  // 見えない（CARD_SEL='.pf-modal-card'にマッチしないため）。他の全モーダルと同じ
+  // 挙動になるよう、ここで明示的にftPush/ftPopを呼ぶ。
+  if (window.ftPush) window.ftPush(document.getElementById('detailCard'));
 }
 function closeDetail() {
   document.getElementById('detailOverlay').classList.remove('open');
   currentDetailGuid = null;
   markAllConfirming = false;
   resetTreeConfirming = false;
+  if (window.ftPop) window.ftPop(document.getElementById('detailCard'));
 }
 
 /* ================================================================
@@ -5510,6 +5561,18 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
     if (!card) return;
     if (visible) ftPush(card); else ftPop(card);
   }
+  // ♿ 非同期でコンテンツを差し替えるモーダル（例: ダッシュボードの初回オープン時の
+  // データfetch）向け: ftPush()は開いた瞬間の「その時点のDOM」から最初のフォーカス
+  // 対象を1度だけ計算するため、フェッチが解決してから本来のコンテンツが描画された
+  // 時点では既にトラップのスタックへ積み終わっている（ftPush自体を再呼び出しすると
+  // 二重登録ガードに阻まれ何も起きない）。トリガー参照はそのままに、フォーカス先だけを
+  // 今のDOMを基準に計算し直すための別関数。
+  function ftFocusFirst(container) {
+    if (!container) return;
+    var focusables = ftGetFocusable(container);
+    (focusables[0] || container).focus({ preventScroll: true });
+  }
+  window.ftFocusFirst = ftFocusFirst;
   new MutationObserver(function (records) {
     records.forEach(function (r) {
       var el = r.target;
