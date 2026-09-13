@@ -682,9 +682,15 @@
       animation: none;
       transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1);
     }
+    /* 🖥️ デスクトップ幅の共有規約: モーダルカードもページコンテナ(.app-layout)と同じ
+       720px/960pxの2段階に統一する（姉妹サイト間の表記ゆれだった600px/560pxを是正。
+       設定モーダルの360px狭め表示はこのサイト独自の意図的な選択のため対象外・現状維持）。 */
+    .pf-modal-card { max-width: 720px; }
     @media (min-width: 560px) {
-      .pf-modal-card { max-width: 600px; }
       #settingsModalOverlay .pf-modal-card { max-width: 360px; }
+    }
+    @media (min-width: 850px) {
+      .pf-modal-card { max-width: 960px; }
     }
     .pf-modal-card.is-dragging, .pf-modal-card.js-anim { transition: none; animation: none; cursor: grabbing; user-select: none; }
     .pf-modal-card::before {
@@ -1402,9 +1408,22 @@ function toggleLang() {
 /* ================================================================
    サイドバー開閉
    ================================================================ */
+function openSidebar() {
+  // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
+  // ドロワー内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
+  if (document.getElementById('sidebar').classList.contains('sidebar-open')) return;
+  pfCloseOtherTopLevelOverlays('sidebar');
+  document.getElementById('sidebar').classList.add('sidebar-open');
+  document.getElementById('sidebarOverlay').classList.add('show');
+  ftPush(document.getElementById('sidebar'));
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('sidebar-open');
+  document.getElementById('sidebarOverlay').classList.remove('show');
+  ftPop(document.getElementById('sidebar'));
+}
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('sidebar-open');
-  document.getElementById('sidebarOverlay').classList.toggle('show');
+  if (document.getElementById('sidebar').classList.contains('sidebar-open')) closeSidebar(); else openSidebar();
 }
 
 /* ================================================================
@@ -1499,11 +1518,15 @@ function settingsSyncShortcutsCheckbox() {
 }
 
 function settingsOpenModal() {
+  // 既に開いている場合は何もしない（「?」ショートカットは他のモーダルが開いているか
+  // 確認せず呼ばれるため、ここでガードしないとftPush側のトリガー参照がモーダル内の
+  // 要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
+  if (document.getElementById('settingsModalOverlay').classList.contains('open')) return;
+  pfCloseOtherTopLevelOverlays('settingsModalOverlay');
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
   settingsSyncLangBtns();
   document.getElementById('settingsModalOverlay').classList.add('open');
-  if (document.getElementById('sidebar').classList.contains('sidebar-open')) toggleSidebar();
 }
 function settingsCloseModal() {
   document.getElementById('settingsModalOverlay').classList.remove('open');
@@ -1556,6 +1579,19 @@ function settingsInjectModal() {
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
   settingsSyncLangBtns();
+}
+
+// 表示設定／ダッシュボード／プロフィール切替／サイドバー（「他のツール」ドロワー）の
+// 4つは下部ドックや「?」ショートカットからいつでも独立して開けるため、他のどれかが
+// 開いたままもう1つを開くとオーバーレイ同士が重なってしまう（下部ドックのボタン自体は
+// 開いているモーダルのz-index:1000のスクリムに覆われて押せなくなるため実質ブロックされて
+// いるが、「?」ショートカットはキー入力なのでこのブロックを素通りしてしまう）。開く前に、
+// 開こうとしているもの以外を閉じておく（各close関数は未オープン時は何もしない安全な関数）。
+function pfCloseOtherTopLevelOverlays(exceptId) {
+  if (exceptId !== 'settingsModalOverlay' && document.getElementById('settingsModalOverlay').classList.contains('open')) settingsCloseModal();
+  if (exceptId !== 'dashModalOverlay' && document.getElementById('dashModalOverlay').classList.contains('open')) pfDashClose();
+  if (exceptId !== 'pfModalOverlay' && document.getElementById('pfModalOverlay').classList.contains('open')) pfCloseModal();
+  if (exceptId !== 'sidebar' && document.getElementById('sidebar').classList.contains('sidebar-open')) closeSidebar();
 }
 
 // Escapeで閉じるべき「現在開いているモーダル/パネル」を、重なり順（z-index優先）で判定して閉じる。
@@ -2439,12 +2475,21 @@ function pfBuildTitlesSectionHtml(p) {
 }
 
 function pfOpenModal() {
+  // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
+  // モーダル内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
+  if (document.getElementById('pfModalOverlay').classList.contains('open')) return;
+  pfCloseOtherTopLevelOverlays('pfModalOverlay');
   pfEditingId = null; pfDeletingId = null;
   pfRenderModal();
   pfRenderCurrency();
   document.getElementById('pfModalOverlay').classList.add('open');
 }
 function pfCloseModal() {
+  // 🧭 このモーダルの上に「バックアップ」モーダルが重ねて開いている場合に備えた安全策
+  // （通常はこの全画面オーバーレイに覆われてpfCloseModal()自体を呼べないため発生しない
+  // はずだが、念のため）。閉じないまま親だけ消えると、開いたままの子モーダルの裏に
+  // 戻る場所が無くなってしまう。
+  if (document.getElementById('dmModalOverlay').classList.contains('open')) dmCloseModal();
   pfEditingId = null; pfDeletingId = null;
   document.getElementById('pfModalOverlay').classList.remove('open');
 }
@@ -3265,6 +3310,10 @@ function pfDashStopTimer() {
   if (pfDashTimer) { clearInterval(pfDashTimer); pfDashTimer = null; }
 }
 async function pfDashOpen() {
+  // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
+  // モーダル内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
+  if (document.getElementById('dashModalOverlay').classList.contains('open')) return;
+  pfCloseOtherTopLevelOverlays('dashModalOverlay');
   document.getElementById('dashModalOverlay').classList.add('open');
   const body = document.getElementById('dashBody');
   if (pfDashCache) { pfDashRebuildBody(body, pfDashBuildHtml(pfDashCache)); pfDashStartTimer(); return; }
@@ -5398,18 +5447,26 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
   // フォーカス可能だが上のCSSセレクタだけでは拾えないため、isInteractive()と同様に
   // 明示的に加えておく（無いと、そこへTabで到達すること自体はできても、初期フォーカス
   // 対象の算出や「最初/最後の要素」判定からsummaryだけが漏れてしまう）。
+  // 📚 スタック化（wings のtrapPush/trapPop方式を移植）: 以前は単一のftContainer/ftTrigger
+  // だけを保持していたため、開いているモーダルの上にさらに別のモーダルが重なるケース
+  // （例: プロフィール切替モーダルを開いたまま、その中の「バックアップ」ボタンで
+  // バックアップモーダルを開く）で、内側のモーダルを閉じた瞬間にftContainerがnullへ
+  // クリアされてしまい、まだ開いたままの外側モーダルのフォーカストラップごと消えて
+  // しまうバグがあった。開閉順（LIFO）で積み上げるスタックに変え、常に「最も上に
+  // 積まれている（＝最前面の）モーダル」だけをTabトラップ対象にすることで、
+  // ネストしたモーダルにも自動的に対応できるようにする。
   var FT_FOCUSABLE_SEL = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])';
-  var ftContainer = null;
-  var ftTrigger = null;
+  var ftStack = [];
   function ftGetFocusable(container) {
     return Array.prototype.filter.call(container.querySelectorAll(FT_FOCUSABLE_SEL), function (el) { return el.offsetParent !== null; });
   }
   function ftHandleKeydown(e) {
-    if (e.key !== 'Tab' || !ftContainer) return;
-    var focusables = ftGetFocusable(ftContainer);
-    if (focusables.length === 0) { e.preventDefault(); ftContainer.focus(); return; }
+    if (e.key !== 'Tab' || !ftStack.length) return;
+    var container = ftStack[ftStack.length - 1].container;
+    var focusables = ftGetFocusable(container);
+    if (focusables.length === 0) { e.preventDefault(); container.focus(); return; }
     var first = focusables[0], last = focusables[focusables.length - 1];
-    var activeInside = ftContainer.contains(document.activeElement);
+    var activeInside = container.contains(document.activeElement);
     if (e.shiftKey) {
       if (!activeInside || document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
@@ -5417,24 +5474,33 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
     }
   }
   document.addEventListener('keydown', ftHandleKeydown);
+  // containerをスタックに積み、Tabトラップの対象にする（同じcontainerが既に積まれている
+  // ＝多重呼び出しの場合は何もしない。トリガー参照の上書き防止のため）。サイドバー
+  // （ドロワー）のように'.pf-modal-overlay'パターンに乗らないオーバーレイからも
+  // 明示的に呼べるよう、下のMutationObserver経由の呼び出しとは別に外部へ公開する。
+  function ftPush(container) {
+    if (!container || ftStack.some(function (s) { return s.container === container; })) return;
+    ftStack.push({ container: container, trigger: document.activeElement });
+    if (!container.hasAttribute('tabindex')) container.setAttribute('tabindex', '-1');
+    var focusables = ftGetFocusable(container);
+    (focusables[0] || container).focus({ preventScroll: true });
+  }
+  // containerをスタックから取り除き、開いた時にフォーカスしていた要素（トリガー）へ
+  // 戻す。document.contains()は、トリガーが別のオーバーレイの再描画等で既にDOMから
+  // 失われていた場合に備えた安全策。
+  function ftPop(container) {
+    var idx = -1;
+    for (var i = ftStack.length - 1; i >= 0; i--) { if (ftStack[i].container === container) { idx = i; break; } }
+    if (idx === -1) return; // 待っている間に既に別経路で取り除かれていたら何もしない
+    var entry = ftStack.splice(idx, 1)[0];
+    if (entry.trigger && typeof entry.trigger.focus === 'function' && document.contains(entry.trigger)) {
+      entry.trigger.focus({ preventScroll: true });
+    }
+  }
   function ftVisibilityChange(overlay, visible) {
     var card = overlay.querySelector(CARD_SEL);
     if (!card) return;
-    if (visible) {
-      ftTrigger = document.activeElement;
-      ftContainer = card;
-      if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '-1');
-      var focusables = ftGetFocusable(card);
-      (focusables[0] || card).focus({ preventScroll: true });
-    } else {
-      if (ftContainer !== card) return; // 待っている間に別モーダルへ切り替わっていたら何もしない
-      ftContainer = null;
-      var trigger = ftTrigger;
-      ftTrigger = null;
-      if (trigger && typeof trigger.focus === 'function' && document.contains(trigger)) {
-        trigger.focus({ preventScroll: true });
-      }
-    }
+    if (visible) ftPush(card); else ftPop(card);
   }
   new MutationObserver(function (records) {
     records.forEach(function (r) {
@@ -5445,6 +5511,11 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
       if (was !== now) { onVisibilityChange(el, now); ftVisibilityChange(el, now); }
     });
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'], subtree: true, attributeOldValue: true });
+  // サイドバー（他ツールドロワー）は'.pf-modal-overlay'パターンを使わないため上の
+  // MutationObserverでは拾えない。openSidebar()/closeSidebar()（このIIFEの外、通常の
+  // トップレベルscript内）から直接呼べるよう、この2つだけwindowへ公開する。
+  window.ftPush = ftPush;
+  window.ftPop = ftPop;
 
   function isInteractive(el) {
     // 🩹 summary（カレンダーの<details>開閉トグル）はネイティブに role=button を持たないため、
