@@ -202,7 +202,14 @@
          position:fixed; top:0; bottom:0; のまま画面全高に引き伸ばされ、
          中身は上部に小さく見えるだけの巨大な透明クリック領域になってしまう
          （下層のグリッドやフィルターへのクリックを丸ごと奪ってしまう）。 */
-      display: flex; position: fixed; left: 0; right: 0; top: auto; bottom: 0; z-index: 90;
+      /* 🩹 z-index:90だと.pf-modal-overlay等の全オーバーレイ背景(z-index:800〜1000)より
+         下に埋もれ、モーダルが開いている間はドックのボタンがそのオーバーレイに覆われて
+         実質クリック不能になっていた（見た目にはドックが最前面にあるように見えても、
+         実際のヒットテストはoverlayが受け取ってしまい、「開いているモーダルを閉じるだけ」
+         の1クリックになってしまう＝別アイコンへ切り替えるには2クリック必要だった）。
+         ドックは常にどのオーバーレイより上で押せる必要があるため、このサイトで最も
+         高いオーバーレイのz-index（.pf-modal-overlay: 1000）より上へ引き上げる。 */
+      display: flex; position: fixed; left: 0; right: 0; top: auto; bottom: 0; z-index: 1001;
       padding: 6px 10px calc(8px + env(safe-area-inset-bottom));
       background: var(--card);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -1598,6 +1605,14 @@ function settingsInjectModal() {
 // 直接開ける（他モーダルの中に閉じ込められた導線ではない）上、同じ.pf-modal-overlay
 // （z-index:1000）を使う。「?」ショートカットでSettingsを開いた時などにこれらが
 // 除外リストへ含まれていないと、同じz-indexのカード同士が重なって表示されてしまう。
+// 🩹 データバックアップ(dmModalOverlay)・アイコンカスタマイズ(iconCustomModal)は、
+// 開く側（プロフィールモーダル内のボタン／settingsOpenIconCustomize()）が自身の
+// 親モーダルを閉じてから開くため、ここに含めなくても「開く」経路自体は正しく動く。
+// しかしこれらが開いている状態で「?」ショートカット（settingsOpenModal()がここを
+// exceptId='settingsModalOverlay'で呼ぶ経路）のようにクリックチェーンを経由しない
+// 開き方をされると、この2つは除外リストに無いため閉じられずSettingsの下に取り残され、
+// フォーカストラップのスタックも壊れる。closeTopmostOpenModal()のpfOverlayClosers／
+// CLOSE_FNには既に両方入っているため、ここにも同様に含めて揃える。
 function pfCloseOtherTopLevelOverlays(exceptId) {
   if (exceptId !== 'settingsModalOverlay' && document.getElementById('settingsModalOverlay').classList.contains('open')) settingsCloseModal();
   if (exceptId !== 'dashModalOverlay' && document.getElementById('dashModalOverlay').classList.contains('open')) pfDashClose();
@@ -1606,6 +1621,8 @@ function pfCloseOtherTopLevelOverlays(exceptId) {
   if (exceptId !== 'detailOverlay' && document.getElementById('detailOverlay').classList.contains('open')) closeDetail();
   if (exceptId !== 'customizeModal' && document.getElementById('customizeModal').classList.contains('open')) closeCustomizeModal();
   if (exceptId !== 'imagePreviewModal' && document.getElementById('imagePreviewModal').classList.contains('open')) closeImagePreviewModal();
+  if (exceptId !== 'dmModalOverlay' && document.getElementById('dmModalOverlay').classList.contains('open')) dmCloseModal();
+  if (exceptId !== 'iconCustomModal' && document.getElementById('iconCustomModal').classList.contains('open')) pfIconCloseModal();
 }
 
 // Escapeで閉じるべき「現在開いているモーダル/パネル」を、重なり順（z-index優先）で判定して閉じる。
@@ -4433,7 +4450,7 @@ function spiritCardHtml(s, areaTagMode) {
     ? `<img src="${s.imageUrl}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=spirit-thumb-fallback><svg class=inline-icon width=20 height=20><use href=#i-sparkle /></svg></span>'">`
     : `<span class="spirit-thumb-fallback"><svg class="inline-icon" width="20" height="20"><use href="#i-sparkle"/></svg></span>`;
   return `
-    <div class="spirit-card" onclick="openDetail('${s.guid}')">
+    <div class="spirit-card" tabindex="0" role="button" onclick="openDetail('${s.guid}')" onkeydown="if(event.target===event.currentTarget&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openDetail('${s.guid}');}">
       <span class="spirit-badge">${typeLabel(s.type)}</span>
       ${s.treeSource === 'revisit' ? `<span class="spirit-revisit-badge" title="${t('detail.revisitTreeBadgeTitle')}"><svg class="inline-icon" width="10" height="10"><use href="#i-sync"/></svg></span>` : ''}
       <div class="spirit-thumb-wrap">${thumb}</div>
