@@ -5636,6 +5636,29 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
   function ftGetFocusable(container) {
     return Array.prototype.filter.call(container.querySelectorAll(FT_FOCUSABLE_SEL), function (el) { return el.offsetParent !== null; });
   }
+  // 🩹 連鎖クローズのフォールバック対策（上のftNoteTrigger/ftPendingTriggerとは別の穴）:
+  // ftNoteTrigger()で退避したトリガー自体は正しく捕捉できていても、そのトリガー要素が
+  // 「別のオーバーレイのカード内」に置かれているボタン（例: プロフィールモーダル内の
+  // 「バックアップ」ボタンでバックアップモーダルを開いた後、そのプロフィールモーダル自体が
+  // 別の連鎖クローズ経由で一緒に閉じられるケース）だと、閉じたバックアップモーダルの
+  // ftPop()がentry.triggerへ.focus()しようとする時点で、そのプロフィールモーダルは既に
+  // display:noneになっており、ボタンはDOM上には残る（document.contains()はtrueのまま）が
+  // 実際にはレンダリングされていない＝.focus()が静かに空振りしてフォーカスが迷子になる
+  // （多くの場合document.bodyへ落ちる）。document.contains()だけでは見抜けないため、
+  // 実際にレンダリングされているかどうかも見る。offsetParentではなくgetClientRects()で
+  // 判定するのは、このサイトの下部ドック(nav.site-dock)を含むposition:fixed要素は
+  // 可視であってもoffsetParentが常にnullになる仕様上の癖があり、offsetParentだけで
+  // 判定すると「実際は見えていてフォーカス可能」な要素まで誤って弾いてしまうため。
+  function ftIsFocusable(el) {
+    return !!(el && typeof el.focus === 'function' && document.contains(el) && el.getClientRects().length > 0);
+  }
+  // 退避したトリガーがフォーカス不能だった場合の安全な着地点。下部サイトドック
+  // （全オーバーレイのz-index:1000より高いz-index:1001を持ち、モーダルの開閉に関わらず
+  // 常に表示・操作可能）の先頭ボタンへ。document.bodyへ迷子にするよりはるかにまし。
+  function ftFocusFallbackAnchor() {
+    var anchor = document.querySelector('nav.site-dock button');
+    if (anchor) anchor.focus({ preventScroll: true });
+  }
   function ftHandleKeydown(e) {
     if (e.key !== 'Tab' || !ftStack.length) return;
     var container = ftStack[ftStack.length - 1].container;
@@ -5667,15 +5690,19 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
     (focusables[0] || container).focus({ preventScroll: true });
   }
   // containerをスタックから取り除き、開いた時にフォーカスしていた要素（トリガー）へ
-  // 戻す。document.contains()は、トリガーが別のオーバーレイの再描画等で既にDOMから
-  // 失われていた場合に備えた安全策。
+  // 戻す。ftIsFocusable()は、トリガーが別のオーバーレイの再描画等で既にDOMから失われて
+  // いた場合や、連鎖クローズに巻き込まれて不可視になっていた場合に備えた安全策
+  // （不可視ならftFocusFallbackAnchor()で常設の着地点へ逃がし、フォーカスが
+  // document.bodyへ迷子になるのを防ぐ）。
   function ftPop(container) {
     var idx = -1;
     for (var i = ftStack.length - 1; i >= 0; i--) { if (ftStack[i].container === container) { idx = i; break; } }
     if (idx === -1) return; // 待っている間に既に別経路で取り除かれていたら何もしない
     var entry = ftStack.splice(idx, 1)[0];
-    if (entry.trigger && typeof entry.trigger.focus === 'function' && document.contains(entry.trigger)) {
+    if (ftIsFocusable(entry.trigger)) {
       entry.trigger.focus({ preventScroll: true });
+    } else {
+      ftFocusFallbackAnchor();
     }
   }
   function ftVisibilityChange(overlay, visible) {
