@@ -1421,6 +1421,7 @@ function openSidebar() {
   // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
   // ドロワー内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
   if (document.getElementById('sidebar').classList.contains('sidebar-open')) return;
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('sidebar');
   document.getElementById('sidebar').classList.add('sidebar-open');
   document.getElementById('sidebarOverlay').classList.add('show');
@@ -1531,6 +1532,7 @@ function settingsOpenModal() {
   // 確認せず呼ばれるため、ここでガードしないとftPush側のトリガー参照がモーダル内の
   // 要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
   if (document.getElementById('settingsModalOverlay').classList.contains('open')) return;
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('settingsModalOverlay');
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
@@ -1716,6 +1718,9 @@ let pfIconMode = 'emoji';
 let pfIconUploadedImg = null;
 
 function pfIconOpenModal() {
+  // ♿ 直後のtoggleSidebar()（サイドバーが開いていれば同期的にclose→ftPop()を呼び、
+  // document.activeElementを書き換え得る）より前に、実際のトリガーを退避しておく。
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   document.getElementById('iconCustomModal').classList.add('open');
   if (document.getElementById('sidebar').classList.contains('sidebar-open')) toggleSidebar();
 }
@@ -1915,6 +1920,7 @@ function saveShareCustomize(theme) {
 }
 
 function openCustomizeModal() {
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('customizeModal');
   const saved = loadShareCustomize();
   document.getElementById('themeSwatchRow').innerHTML = Object.keys(SHARE_THEMES).map(key => `
@@ -2060,6 +2066,7 @@ async function tryShareImage(canvas, filename, text) {
 }
 
 function openImagePreview(dataUrl, filename, shareText) {
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('imagePreviewModal');
   document.getElementById('previewImg').src = dataUrl;
   const link = document.getElementById('previewDownloadLink');
@@ -2522,6 +2529,7 @@ function pfOpenModal() {
   // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
   // モーダル内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
   if (document.getElementById('pfModalOverlay').classList.contains('open')) return;
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('pfModalOverlay');
   pfEditingId = null; pfDeletingId = null;
   pfRenderModal();
@@ -2689,6 +2697,7 @@ function pfInjectModal() {
    companion・spirit-catalog 等すべてのデータが対象になる。
    ================================================================ */
 function dmOpenModal() {
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   document.getElementById('dmStatus').textContent = '';
   document.getElementById('dmImportConfirmArea').innerHTML = '';
   dmWipeConfirming = false;
@@ -3411,6 +3420,7 @@ async function pfDashOpen() {
   // 既に開いている場合は何もしない（ここでガードしないとftPush側のトリガー参照が
   // モーダル内の要素で上書きされ、閉じたときにフォーカスの戻し先を見失う）
   if (document.getElementById('dashModalOverlay').classList.contains('open')) return;
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('dashModalOverlay');
   document.getElementById('dashModalOverlay').classList.add('open');
   const body = document.getElementById('dashBody');
@@ -4761,6 +4771,9 @@ function openDetail(guid) {
   // プロフィール切替/サイドバーのいずれかが開いたままhashchange等でここへ来ても、
   // 先に閉じておいて重なりを防ぐ（既に開いている精霊詳細自体はexceptIdで除外される
   // ため、同じ精霊/別の精霊への出し替えでは何もクリアされない）。
+  // ♿ pfCloseOtherTopLevelOverlays()（サイドバー等、同期的にftPop()を呼ぶ経路を含む）が
+  // document.activeElementを書き換える前に、実際のトリガーをftNoteTrigger()で退避する。
+  if (window.ftNoteTrigger) window.ftNoteTrigger();
   pfCloseOtherTopLevelOverlays('detailOverlay');
   currentDetailGuid = guid;
   markAllConfirming = false; // 別の精霊の一括解放確認状態を持ち越さない
@@ -5581,6 +5594,25 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
   // ネストしたモーダルにも自動的に対応できるようにする。
   var FT_FOCUSABLE_SEL = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])';
   var ftStack = [];
+  // 🩹 連鎖オーバーレイのフォーカス誤復元対策: 「Aを開いたまま、Bのトリガーをクリック/
+  // '?'などでBを開く（内部でpfCloseOtherTopLevelOverlays()がAを先に閉じる）」場合、
+  // Aの'open'クラス除去とBの'open'クラス付与は同じ同期処理内で連続して起こるため、
+  // 下のMutationObserverには1回のコールバックにまとめて（batchされて）通知される。
+  // records.forEach()はその中を発生順に処理するので、先にA側のレコードでftPop(A)が
+  // 走り、そこでA自身のトリガーへ同期的に.focus()する。その"直後"に同じforEachの中で
+  // B側のレコードが処理されftPush(B)が走るが、その時点のdocument.activeElementは
+  // 既にftPop(A)の.focus()で書き換わった後（＝A側のトリガー）であり、Bを実際に開いた
+  // 要素ではない。閉じる側が同期的にftPop()を呼ぶ直接呼び出し経路（サイドバー/精霊詳細）
+  // 同士の組み合わせでも、順序次第で同じ理由により起こり得る。
+  // 対策: 各open*()関数の冒頭、pfCloseOtherTopLevelOverlays()等の「閉じる」処理より
+  // 前でftNoteTrigger()を呼び、その瞬間のdocument.activeElement（＝実際にクリックされた
+  // トリガー、または'?'押下時にフォーカスされていた要素）を退避しておく。ftPush()は
+  // 呼ばれた時点のdocument.activeElementではなく、この退避値があればそれを優先して使い、
+  // 使ったら即クリアする（観測経由/直接呼び出しのどちらのftPush()呼び出しにも効く上、
+  // 使われなかった退避値が後続の無関係なftPush()へ誤って流用されるのも防ぐ）。
+  var ftPendingTrigger = null;
+  function ftNoteTrigger() { ftPendingTrigger = document.activeElement; }
+  window.ftNoteTrigger = ftNoteTrigger;
   function ftGetFocusable(container) {
     return Array.prototype.filter.call(container.querySelectorAll(FT_FOCUSABLE_SEL), function (el) { return el.offsetParent !== null; });
   }
@@ -5603,8 +5635,13 @@ window.addEventListener('hashchange', openDetailByNameFromHash);
   // （ドロワー）のように'.pf-modal-overlay'パターンに乗らないオーバーレイからも
   // 明示的に呼べるよう、下のMutationObserver経由の呼び出しとは別に外部へ公開する。
   function ftPush(container) {
+    // 退避されたトリガーがあれば最優先で使い、使用有無に関わらず即クリアする
+    // （このcontainerが二重登録ガードで弾かれて何も積まれない場合でも、退避値を
+    // 次の無関係なftPush()呼び出しへ持ち越さないため）。
+    var trigger = ftPendingTrigger !== null ? ftPendingTrigger : document.activeElement;
+    ftPendingTrigger = null;
     if (!container || ftStack.some(function (s) { return s.container === container; })) return;
-    ftStack.push({ container: container, trigger: document.activeElement });
+    ftStack.push({ container: container, trigger: trigger });
     if (!container.hasAttribute('tabindex')) container.setAttribute('tabindex', '-1');
     var focusables = ftGetFocusable(container);
     (focusables[0] || container).focus({ preventScroll: true });
