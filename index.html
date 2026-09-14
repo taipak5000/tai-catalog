@@ -2698,6 +2698,7 @@ function pfInjectModal() {
    ================================================================ */
 function dmOpenModal() {
   if (window.ftNoteTrigger) window.ftNoteTrigger();
+  pfCloseModal();
   document.getElementById('dmStatus').textContent = '';
   document.getElementById('dmImportConfirmArea').innerHTML = '';
   dmWipeConfirming = false;
