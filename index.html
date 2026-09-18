@@ -5766,6 +5766,10 @@ if ('requestIdleCallback' in window) {
 // ノードのアイテム表示名。英語モードでは常にitemName（英語、SkyGame-Data由来で必ず入っている）を
 // そのまま使う。日本語モードは従来通りitemNameJa優先→resolveNodeNameJa()の補完ロジックを使う。
 function itemDisplayName(n, spirit) {
+  // 🎵 楽譜(Music)は曲名そのものであり、アイテム所持管理の楽譜一覧（music_sheet.html
+  // MUSIC_SHEETSのname）と同じく、言語設定に関わらず常に英語の原題で表示する
+  // （itemNameJaは日本語UI向けの便宜的な訳で、公式な曲名ではないため）。
+  if (n.itemType === 'Music' && n.itemName) return n.itemName;
   if (LANG === 'en') return n.itemName || n.itemNameJa || resolveNodeNameJa(n, spirit) || t('detail.noItemName');
   return n.itemNameJa || resolveNodeNameJa(n, spirit) || n.itemName || t('detail.noItemName');
 }
