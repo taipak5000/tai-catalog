@@ -492,8 +492,12 @@
     .spirit-card {
       background: var(--card); border-radius: var(--r-sm); padding: 10px; text-align: center;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative;
+      border: 1.5px solid transparent;
     }
     .spirit-card:active { opacity: 0.75; }
+    /* 🎨 ツリーが完成した精霊は、進捗バーの色（.spirit-progress-fill.complete）と
+       揃えてマス自体も色を変え、一覧上で完成済みを一目で識別できるようにする。 */
+    .spirit-card.complete { background: var(--blue-bg); border-color: var(--blue); }
     /* 🩹 精霊のFandom画像は縦横比がバラバラ(かなり縦長のものも多い)で、正方形の枠に
        object-fit:coverで敷いていたため、頭や足先が枠外に切れてしまう精霊が多発していた。
        枠を縦長(3:4)にして一般的な縦長画像に近づけたうえで、object-fit:containに変更し、
@@ -4823,8 +4827,9 @@ function spiritCardHtml(s, areaTagMode) {
   const thumb = s.imageUrl
     ? `<img src="${fandomThumbUrl(s.imageUrl, 400)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=spirit-thumb-fallback><svg class=inline-icon width=20 height=20><use href=#i-sparkle /></svg></span>'">`
     : `<span class="spirit-thumb-fallback"><svg class="inline-icon" width="20" height="20"><use href="#i-sparkle"/></svg></span>`;
+  const isComplete = total > 0 && done === total;
   return `
-    <div class="spirit-card" tabindex="0" role="button" onclick="openDetail('${s.guid}')" onkeydown="if(event.target===event.currentTarget&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openDetail('${s.guid}');}">
+    <div class="spirit-card${isComplete ? ' complete' : ''}" tabindex="0" role="button" onclick="openDetail('${s.guid}')" onkeydown="if(event.target===event.currentTarget&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openDetail('${s.guid}');}">
       <span class="spirit-badge">${typeLabel(s.type)}</span>
       ${s.treeSource === 'revisit' ? `<span class="spirit-revisit-badge" title="${t('detail.revisitTreeBadgeTitle')}"><svg class="inline-icon" width="10" height="10"><use href="#i-sync"/></svg></span>` : ''}
       <div class="spirit-thumb-wrap">${thumb}</div>
