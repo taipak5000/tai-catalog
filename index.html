@@ -1160,6 +1160,12 @@ const I18N = {
     markAllConfirmTemplate: { ja: 'このツリーの未解放ノード {count} 件をすべて解放済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} remaining locked nodes in this tree as unlocked? You will need to undo them one by one if this was a mistake. Continue?' },
     markAllConfirmBtn: { ja: '実行', en: 'Mark Complete' },
     markAllDoneToast: { ja: '{count}件のノードを解放済みにしました', en: 'Marked {count} nodes as complete' },
+    markQuestsBtn: { ja: 'クエストをまとめて完了済みにする', en: 'Mark all quests as complete' },
+    markQuestsConfirmTemplate: { ja: 'このツリーの未完了のクエスト {count} 件をすべて完了済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} remaining incomplete quests in this tree as complete? You will need to undo them one by one if this was a mistake. Continue?' },
+    markQuestsDoneToast: { ja: '{count}件のクエストを完了済みにしました', en: 'Marked {count} quests as complete' },
+    markHeartsBtn: { ja: 'ハートをまとめて獲得済みにする', en: 'Mark all hearts as obtained' },
+    markHeartsConfirmTemplate: { ja: 'このツリーの未獲得のハート {count} 件をすべて獲得済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} remaining un-obtained hearts in this tree as obtained? You will need to undo them one by one if this was a mistake. Continue?' },
+    markHeartsDoneToast: { ja: '{count}件のハートを獲得済みにしました', en: 'Marked {count} hearts as obtained' },
     tierVariantTitleTemplate: { ja: '同じアイテムのコスト違いバリエーション（{n}/{total}）', en: 'Cost-tier variant of the same item ({n} of {total})' },
     emoteLevelBadgeTitleTemplate: { ja: '同じエモートのレベル違いバリエーション（Lv{n}・全{total}レベル中）', en: 'Level variant of the same emote (Lv{n} of {total})' },
     syncBadgeTitle: { ja: '連携ツール（アイテム/エモート/羽トラッカー）の所持データから自動で解放されました', en: 'Auto-unlocked via sync with a connected tool (item/emote/wing tracker)' },
@@ -4172,7 +4178,7 @@ function markAllArea(spiritGuid, remainingCount) {
       <button type="button" class="pf-icon-btn" onclick="markAllCancel()" data-focus-key="markAllCancel">${t('profile.cancelBtn')}</button>
     </div>`;
 }
-function markAllStart() { markAllConfirming = true; resetTreeConfirming = false; renderDetail(currentDetailGuid); }
+function markAllStart() { markAllConfirming = true; resetTreeConfirming = false; markQuestsConfirming = false; markHeartsConfirming = false; renderDetail(currentDetailGuid); }
 function markAllCancel() { markAllConfirming = false; renderDetail(currentDetailGuid); }
 function markAllConfirm(spiritGuid) {
   markAllConfirming = false;
@@ -4184,6 +4190,34 @@ function markAllConfirm(spiritGuid) {
 // （bulkCatchUpConfirm()）の両方から共有する（再描画・トーストをループ内で毎回呼ぶと、
 // 複数ツリーをまたぐ処理で開いていない詳細モーダルを無駄に描画したり、トーストが
 // 同一ティック内で連続発火して上書きし合う問題が起きるため、ここでは行わない）。
+// 1ノード分の「解放済みにする」処理本体（コスト消費・item/emote/wings同期）。
+// markTreeCompleteCore()（ツリー全体）と markNodesByPredicateCore()（種別を絞った
+// 一括操作：クエスト一括完了・ハート一括獲得）の両方がこれを共有することで、
+// 通貨計算ロジック（下記コメント参照）を1箇所に保つ。
+function unlockNodeForBulk(spirit, unlocked, node) {
+  const wasInOwnMap = !!unlocked[node.guid];
+  // toggleNode()と同じく、item/emote側の所持だけで表示上「解放済み」だった分は
+  // spirit-catalog側でコストを払っていないため、この増減の対象外にする。
+  //
+  // 🪙 以前はここで全ノード分のコストを合計してからadjustOwnCurrency()を1回だけ
+  // 呼んでいたが、それだと「実際に何が適用されたか（クランプ後の実額）」が
+  // ノード単位では分からなくなり、unlocked[guid]にboolean trueしか記録できなかった。
+  // その状態で個別のtoggleNode()により1ノードだけ解除すると、常にレガシー扱いされて
+  // 名目コストで払い戻されてしまい、通貨が水増しされる（toggleNode()側の修正と同じ
+  // クラスのバグが一括解放経由でも再現する）。そのためtoggleNode()と同じく、
+  // ノードごとにadjustOwnCurrency()を呼んで実際に適用された額を記録する。
+  if (wasInOwnMap) {
+    unlocked[node.guid] = { spentC: 0, spentH: 0 };
+  } else {
+    const cost = node.cost || {};
+    const applied = adjustOwnCurrency(-(cost.c || 0), -(cost.h || 0));
+    unlocked[node.guid] = { spentC: -applied.candle, spentH: -applied.heart };
+  }
+  syncItemOwned(node, true);
+  syncEmoteOwned(node, true);
+  if (node.itemType === 'WingBuff') syncWingBuff(spirit, node, true);
+}
+
 function markTreeCompleteCore(spiritGuid) {
   const spirit = spiritByGuid[spiritGuid];
   if (!spirit) return 0;
@@ -4193,34 +4227,101 @@ function markTreeCompleteCore(spiritGuid) {
   spirit.nodes.forEach(node => {
     if (isWarpNode(node)) return;
     if (isNodeUnlocked(node)) return; // 既に解放済み（item/emote/wings側の所持による自動解放も含む）
-
-    const wasInOwnMap = !!unlocked[node.guid];
-    // toggleNode()と同じく、item/emote側の所持だけで表示上「解放済み」だった分は
-    // spirit-catalog側でコストを払っていないため、この増減の対象外にする。
-    //
-    // 🪙 以前はここで全ノード分のコストを合計してからadjustOwnCurrency()を1回だけ
-    // 呼んでいたが、それだと「実際に何が適用されたか（クランプ後の実額）」が
-    // ノード単位では分からなくなり、unlocked[guid]にboolean trueしか記録できなかった。
-    // その状態で個別のtoggleNode()により1ノードだけ解除すると、常にレガシー扱いされて
-    // 名目コストで払い戻されてしまい、通貨が水増しされる（toggleNode()側の修正と同じ
-    // クラスのバグが一括解放経由でも再現する）。そのためtoggleNode()と同じく、
-    // ノードごとにadjustOwnCurrency()を呼んで実際に適用された額を記録する。
-    if (wasInOwnMap) {
-      unlocked[node.guid] = { spentC: 0, spentH: 0 };
-    } else {
-      const cost = node.cost || {};
-      const applied = adjustOwnCurrency(-(cost.c || 0), -(cost.h || 0));
-      unlocked[node.guid] = { spentC: -applied.candle, spentH: -applied.heart };
-    }
-    syncItemOwned(node, true);
-    syncEmoteOwned(node, true);
-    if (node.itemType === 'WingBuff') syncWingBuff(spirit, node, true);
+    unlockNodeForBulk(spirit, unlocked, node);
     changedCount++;
   });
   saveUnlockedMap(unlocked);
 
   invalidateExternalOwnCache();
   return changedCount;
+}
+
+/* ================================================================
+   🎯💗 種別を絞った一括解放（「クエストをまとめて完了済みにする」
+   「ハートをまとめて獲得済みにする」）。季節ガイドのツリー等は本家クエストや
+   ハート獲得のノードが多数連なるため、1件ずつのタップを省けるようにする。
+   markTreeCompleteCore()と同じunlockNodeForBulk()を共有し、対象ノードだけ
+   predicateで絞り込む。
+   ================================================================ */
+// クエストノード（itemType==='Quest'、"Quest 1"〜等）。この型はraw ItemTypeで
+// 一意に判別できる（ファイル冒頭のコメント「use itemType, not itemName
+// string-matching」の方針通り）。
+function isQuestNode(node) { return node.itemType === 'Quest'; }
+// ハートノードはitemTypeが汎用の'Special'に埋もれており型だけでは判別できないため
+// （NODE_NAME_ICON_OVERRIDEと同じ理由）、英語の正規名（必ず入っている）で判定する。
+// 「Heart Gesture」（itemType==='Emote'のジェスチャー）等の紛らわしい別アイテムは
+// 完全一致のみなので誤って含まれない。
+function isHeartNode(node) { return node.itemType === 'Special' && (node.itemName === 'Heart' || node.itemName === 'Season Heart'); }
+
+function markNodesByPredicateCore(spiritGuid, predicate) {
+  const spirit = spiritByGuid[spiritGuid];
+  if (!spirit) return 0;
+
+  const unlocked = getUnlockedMap();
+  let changedCount = 0;
+  spirit.nodes.forEach(node => {
+    if (isWarpNode(node)) return;
+    if (isNodeUnlocked(node)) return;
+    if (!predicate(node)) return;
+    unlockNodeForBulk(spirit, unlocked, node);
+    changedCount++;
+  });
+  saveUnlockedMap(unlocked);
+
+  invalidateExternalOwnCache();
+  return changedCount;
+}
+
+function spiritNodesRemaining(spirit, predicate) {
+  return spirit.nodes.filter(n => !isWarpNode(n) && predicate(n) && !isNodeUnlocked(n)).length;
+}
+
+let markQuestsConfirming = false;
+let markHeartsConfirming = false;
+
+function markQuestsArea(spiritGuid, remainingCount) {
+  if (remainingCount <= 0) return '';
+  if (!markQuestsConfirming) {
+    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:8px; padding:8px;" onclick="markQuestsStart()" data-focus-key="markQuestsStart">${t('detail.markQuestsBtn')}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap; margin-top: 8px;">
+      <span class="pf-row-confirm-text">${t('detail.markQuestsConfirmTemplate', { count: remainingCount })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="markQuestsConfirm('${spiritGuid}')" data-focus-key="markQuestsConfirm">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="markQuestsCancel()" data-focus-key="markQuestsCancel">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+// 一括系の確認UIを同時に2つ出さないよう、いずれかを開始したら他は全て閉じる。
+function markQuestsStart() { markQuestsConfirming = true; markHeartsConfirming = false; markAllConfirming = false; resetTreeConfirming = false; renderDetail(currentDetailGuid); }
+function markQuestsCancel() { markQuestsConfirming = false; renderDetail(currentDetailGuid); }
+function markQuestsConfirm(spiritGuid) {
+  markQuestsConfirming = false;
+  const changedCount = markNodesByPredicateCore(spiritGuid, isQuestNode);
+  renderDetail(spiritGuid);
+  renderGrid();
+  showToast(t('detail.markQuestsDoneToast', { count: changedCount }));
+}
+
+function markHeartsArea(spiritGuid, remainingCount) {
+  if (remainingCount <= 0) return '';
+  if (!markHeartsConfirming) {
+    return `<button type="button" class="pf-icon-btn" style="width:100%; margin-top:8px; padding:8px;" onclick="markHeartsStart()" data-focus-key="markHeartsStart">${t('detail.markHeartsBtn')}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap; margin-top: 8px;">
+      <span class="pf-row-confirm-text">${t('detail.markHeartsConfirmTemplate', { count: remainingCount })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="markHeartsConfirm('${spiritGuid}')" data-focus-key="markHeartsConfirm">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="markHeartsCancel()" data-focus-key="markHeartsCancel">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+function markHeartsStart() { markHeartsConfirming = true; markQuestsConfirming = false; markAllConfirming = false; resetTreeConfirming = false; renderDetail(currentDetailGuid); }
+function markHeartsCancel() { markHeartsConfirming = false; renderDetail(currentDetailGuid); }
+function markHeartsConfirm(spiritGuid) {
+  markHeartsConfirming = false;
+  const changedCount = markNodesByPredicateCore(spiritGuid, isHeartNode);
+  renderDetail(spiritGuid);
+  renderGrid();
+  showToast(t('detail.markHeartsDoneToast', { count: changedCount }));
 }
 
 function markTreeComplete(spiritGuid) {
@@ -4309,7 +4410,7 @@ function resetTreeArea(spiritGuid, unlockedCount) {
     </div>`;
 }
 // 一括解放・一括ロックの確認UIを同時に2つ出さないよう、片方を開始したらもう片方は閉じる。
-function resetTreeStart() { resetTreeConfirming = true; markAllConfirming = false; renderDetail(currentDetailGuid); }
+function resetTreeStart() { resetTreeConfirming = true; markAllConfirming = false; markQuestsConfirming = false; markHeartsConfirming = false; renderDetail(currentDetailGuid); }
 function resetTreeCancel() { resetTreeConfirming = false; renderDetail(currentDetailGuid); }
 function resetTreeConfirm(spiritGuid) {
   resetTreeConfirming = false;
@@ -5485,6 +5586,8 @@ function renderDetail(guid) {
         ${revisitNote}
       </div>
       ${markAllArea(guid, total - done)}
+      ${markQuestsArea(guid, spiritNodesRemaining(s, isQuestNode))}
+      ${markHeartsArea(guid, spiritNodesRemaining(s, isHeartNode))}
       ${resetTreeArea(guid, done)}
       ${bodyHtml}
     </div>
