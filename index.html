@@ -802,6 +802,7 @@
     <symbol id="i-lock" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -12)"><path d="M6.5 11h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"/><path d="M8 11V8a4 4 0 1 1 8 0v3"/></g></symbol>
     <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 16v5"/></symbol>
     <symbol id="i-scroll" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-13 -12)"><path d="M5 7a2 2 0 1 1 0 4h1.5"/><path d="M19 17a2 2 0 1 0 0-4h-1.5"/><path d="M6.5 7H17a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H6.5"/><path d="M9 10.5h6M9 13.5h4"/></g></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24"><path d="M9 9a3 3 0 1 1 4.5 2.6c-1.1.6-1.5 1.1-1.5 2.4v.4"/><path d="M12 18.5v.01"/></symbol>
     <symbol id="i-geyser" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.25) translate(-12 -12)"><path d="M5 19h14"/><path d="M8 19c0-3 1.5-5 4-5s4 2 4 5"/><path d="M12 12V5"/><path d="M9.5 8l2.5-3 2.5 3"/></g></symbol>
     <symbol id="i-bread" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.094) translate(-12 -13.75)"><path d="M4 14a8 5 0 0 1 16 0v2.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M9 12l1-3M13.5 12l1-3"/></g></symbol>
     <symbol id="i-turtle" viewBox="0 0 24 24"><g transform="translate(12 12) scale(1.389) translate(-12 -12)"><path d="M12 8a6 4.2 0 0 0-6 4.2A6 4.2 0 0 0 12 16.4a6 4.2 0 0 0 6-4.2A6 4.2 0 0 0 12 8Z"/><path d="M12 8V6M8 10.5l-2.3-1.2M16 10.5l2.3-1.2M8.3 14l-2 1.4M15.7 14l2 1.4M10.3 16l-1 2M13.7 16l1 2"/></g></symbol>
@@ -5117,6 +5118,12 @@ const NODE_NAME_ICON_OVERRIDE = {
   'シーズンハート': NODE_ICON_SVG('i-heart'),
   'Heart': NODE_ICON_SVG('i-heart'),
   'Season Heart': NODE_ICON_SVG('i-heart'),
+  // 🎬「カットシーン」（寄り添うお友だち唯一の該当ノード）は本家Fandom側にも
+  // 単体の実機アイコンが存在しない（SkyGame-Data側も自前のFandom外プレースホルダーを
+  // 使っている）ため、資産のハイパーリンクは行わず、他ノードと見た目を揃えた
+  // 「？」マークのSVGアイコンをこのサイト側で用意して充てる。
+  'カットシーン': NODE_ICON_SVG('i-question'),
+  'Cutscene': NODE_ICON_SVG('i-question'),
 };
 
 // ノードのコスト合計（キー種別を問わず単純合算。同ノード内の複数コストを比較するためだけの値）
