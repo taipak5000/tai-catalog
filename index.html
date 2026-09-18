@@ -891,6 +891,8 @@
       <div class="filter-stats" id="filterStats"></div>
       <div class="filter-remaining-cost" id="filterRemainingCost"></div>
       <div class="bulk-catchup-row" id="bulkCatchupFilteredRow"></div>
+      <div class="bulk-catchup-row" id="bulkQuestCatchupFilteredRow"></div>
+      <div class="bulk-catchup-row" id="bulkHeartCatchupFilteredRow"></div>
     </div>
 
     <div class="stats-row" id="statsRow"></div>
@@ -1125,6 +1127,12 @@ const I18N = {
     bulkCatchUpBtnTemplate: { ja: '未完了の{count}件を一括で追いつかせる', en: 'Catch up {count} incomplete trees' },
     bulkCatchUpConfirmTemplate: { ja: 'ここに表示中の未完了ツリー{count}件（残りノード{nodes}件）をまとめて解放済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} incomplete trees shown here ({nodes} remaining nodes) as complete? You will need to undo them one by one if this was a mistake. Continue?' },
     bulkCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のノードを解放済みにしました', en: 'Marked {trees} trees ({nodes} nodes) as complete' },
+    bulkQuestCatchUpBtnTemplate: { ja: 'クエスト未完了の{count}件をまとめて完了済みにする', en: 'Catch up quests in {count} trees' },
+    bulkQuestCatchUpConfirmTemplate: { ja: 'ここに表示中のクエスト未完了ツリー{count}件（残りクエスト{nodes}件）をまとめて完了済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} trees with incomplete quests shown here ({nodes} remaining quests) as complete? You will need to undo them one by one if this was a mistake. Continue?' },
+    bulkQuestCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のクエストを完了済みにしました', en: 'Marked {trees} trees ({nodes} quests) as complete' },
+    bulkHeartCatchUpBtnTemplate: { ja: 'ハート未獲得の{count}件をまとめて獲得済みにする', en: 'Catch up hearts in {count} trees' },
+    bulkHeartCatchUpConfirmTemplate: { ja: 'ここに表示中のハート未獲得ツリー{count}件（残りハート{nodes}件）をまとめて獲得済みにします。この操作は個別に取り消す必要があります。よろしいですか？', en: 'Mark all {count} trees with un-obtained hearts shown here ({nodes} remaining hearts) as obtained? You will need to undo them one by one if this was a mistake. Continue?' },
+    bulkHeartCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のハートを獲得済みにしました', en: 'Marked {trees} trees ({nodes} hearts) as obtained' },
   },
   stats: {
     unlockedNodes: { ja: '解放済みノード', en: 'Unlocked Nodes' },
@@ -4367,7 +4375,7 @@ function bulkCatchUpControlHtml(scopeId) {
       <button type="button" class="pf-icon-btn" onclick="bulkCatchUpCancel()" data-focus-key="bulkCatchUpCancel_${escapeHtml(scopeId)}">${t('profile.cancelBtn')}</button>
     </div>`;
 }
-function bulkCatchUpStart(scopeId) { bulkCatchUpConfirmingScope = scopeId; renderGrid(); }
+function bulkCatchUpStart(scopeId) { bulkCatchUpConfirmingScope = scopeId; bulkQuestConfirmingScope = null; bulkHeartConfirmingScope = null; renderGrid(); }
 function bulkCatchUpCancel() { bulkCatchUpConfirmingScope = null; renderGrid(); }
 function bulkCatchUpConfirm(scopeId) {
   bulkCatchUpConfirmingScope = null;
@@ -4384,6 +4392,88 @@ function bulkCatchUpConfirm(scopeId) {
     renderDetail(currentDetailGuid);
   }
   showToast(t('browse.bulkCatchUpDoneToast', { trees: treesChanged, nodes: nodesChanged }));
+}
+
+/* ================================================================
+   🎯💗 種別を絞った複数ツリー一括「追いつき」（クエスト一括完了・ハート一括獲得を
+   現在の絞り込み全体に対して行う）。bulkCatchUpControlHtml()と同じscopeId方式・
+   確認ステップを踏襲し、対象ノードだけpredicateで絞り込む。詳細ツリー側の
+   markQuestsArea()/markHeartsArea()と同様、markNodesByPredicateCore()を共有する。
+   ================================================================ */
+let bulkQuestConfirmingScope = null;
+let bulkHeartConfirmingScope = null;
+
+function bulkScopeRemainingByPredicate(scopeId, predicate) {
+  const guids = bulkScopeRegistry[scopeId] || [];
+  let trees = 0, nodes = 0;
+  guids.forEach(guid => {
+    const s = spiritByGuid[guid];
+    if (!s) return;
+    const remaining = spiritNodesRemaining(s, predicate);
+    if (remaining > 0) { trees++; nodes += remaining; }
+  });
+  return { trees, nodes };
+}
+
+function bulkQuestCatchUpControlHtml(scopeId) {
+  const { trees, nodes } = bulkScopeRemainingByPredicate(scopeId, isQuestNode);
+  if (trees <= 0) return '';
+  if (bulkQuestConfirmingScope !== scopeId) {
+    return `<button type="button" class="pf-icon-btn" onclick="bulkQuestCatchUpStart('${scopeId}')" data-focus-key="bulkQuestCatchUpStart_${escapeHtml(scopeId)}">${t('browse.bulkQuestCatchUpBtnTemplate', { count: trees })}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap;">
+      <span class="pf-row-confirm-text">${t('browse.bulkQuestCatchUpConfirmTemplate', { count: trees, nodes })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="bulkQuestCatchUpConfirm('${scopeId}')" data-focus-key="bulkQuestCatchUpConfirm_${escapeHtml(scopeId)}">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="bulkQuestCatchUpCancel()" data-focus-key="bulkQuestCatchUpCancel_${escapeHtml(scopeId)}">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+// 一括系の確認UIを同時に2つ出さないよう、いずれかを開始したら他は全て閉じる。
+function bulkQuestCatchUpStart(scopeId) { bulkQuestConfirmingScope = scopeId; bulkHeartConfirmingScope = null; bulkCatchUpConfirmingScope = null; renderGrid(); }
+function bulkQuestCatchUpCancel() { bulkQuestConfirmingScope = null; renderGrid(); }
+function bulkQuestCatchUpConfirm(scopeId) {
+  bulkQuestConfirmingScope = null;
+  const guids = bulkScopeRegistry[scopeId] || [];
+  let treesChanged = 0, nodesChanged = 0;
+  guids.forEach(guid => {
+    const changed = markNodesByPredicateCore(guid, isQuestNode);
+    if (changed > 0) { treesChanged++; nodesChanged += changed; }
+  });
+  renderGrid();
+  if (currentDetailGuid && document.getElementById('detailOverlay').classList.contains('open')) {
+    renderDetail(currentDetailGuid);
+  }
+  showToast(t('browse.bulkQuestCatchUpDoneToast', { trees: treesChanged, nodes: nodesChanged }));
+}
+
+function bulkHeartCatchUpControlHtml(scopeId) {
+  const { trees, nodes } = bulkScopeRemainingByPredicate(scopeId, isHeartNode);
+  if (trees <= 0) return '';
+  if (bulkHeartConfirmingScope !== scopeId) {
+    return `<button type="button" class="pf-icon-btn" onclick="bulkHeartCatchUpStart('${scopeId}')" data-focus-key="bulkHeartCatchUpStart_${escapeHtml(scopeId)}">${t('browse.bulkHeartCatchUpBtnTemplate', { count: trees })}</button>`;
+  }
+  return `
+    <div class="pf-row" style="flex-wrap: wrap;">
+      <span class="pf-row-confirm-text">${t('browse.bulkHeartCatchUpConfirmTemplate', { count: trees, nodes })}</span>
+      <button type="button" class="pf-icon-btn pf-row-btn-ok" onclick="bulkHeartCatchUpConfirm('${scopeId}')" data-focus-key="bulkHeartCatchUpConfirm_${escapeHtml(scopeId)}">${t('detail.markAllConfirmBtn')}</button>
+      <button type="button" class="pf-icon-btn" onclick="bulkHeartCatchUpCancel()" data-focus-key="bulkHeartCatchUpCancel_${escapeHtml(scopeId)}">${t('profile.cancelBtn')}</button>
+    </div>`;
+}
+function bulkHeartCatchUpStart(scopeId) { bulkHeartConfirmingScope = scopeId; bulkQuestConfirmingScope = null; bulkCatchUpConfirmingScope = null; renderGrid(); }
+function bulkHeartCatchUpCancel() { bulkHeartConfirmingScope = null; renderGrid(); }
+function bulkHeartCatchUpConfirm(scopeId) {
+  bulkHeartConfirmingScope = null;
+  const guids = bulkScopeRegistry[scopeId] || [];
+  let treesChanged = 0, nodesChanged = 0;
+  guids.forEach(guid => {
+    const changed = markNodesByPredicateCore(guid, isHeartNode);
+    if (changed > 0) { treesChanged++; nodesChanged += changed; }
+  });
+  renderGrid();
+  if (currentDetailGuid && document.getElementById('detailOverlay').classList.contains('open')) {
+    renderDetail(currentDetailGuid);
+  }
+  showToast(t('browse.bulkHeartCatchUpDoneToast', { trees: treesChanged, nodes: nodesChanged }));
 }
 
 /* ================================================================
@@ -4820,6 +4910,8 @@ function renderGrid() {
   // 🌱➡️🌳 現在の絞り込みに対する一括追いつきボタン（表示モードに関わらず常に更新する）
   bulkScopeRegistry['filtered'] = filtered.map(s => s.guid);
   document.getElementById('bulkCatchupFilteredRow').innerHTML = bulkCatchUpControlHtml('filtered');
+  document.getElementById('bulkQuestCatchupFilteredRow').innerHTML = bulkQuestCatchUpControlHtml('filtered');
+  document.getElementById('bulkHeartCatchupFilteredRow').innerHTML = bulkHeartCatchUpControlHtml('filtered');
 
   const gridEl = document.getElementById('spiritGrid');
   const groupedEl = document.getElementById('groupedView');
