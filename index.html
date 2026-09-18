@@ -471,6 +471,15 @@
     .view-mode-btn.active { background: var(--green-fill); border-color: var(--green-fill); color: #fff; }
 
     /* ── 統計サマリー ── */
+    /* 🎯 item（アイテム所持管理）の「全体の達成率」と同じ考え方で、全体のコンプリート率を
+       数値で確認できるようにするカード。あちらの円形ゲージほど大掛かりにはせず、この
+       ページの既存カード（.stat-box等）と統一感のあるシンプルな数値表示にする。 */
+    .overall-pct-card {
+      background: var(--card); border-radius: var(--r); padding: 16px; text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 0.5px 1px rgba(0,0,0,0.04); margin-top: 14px;
+    }
+    .overall-pct-num { font-size: 34px; font-weight: 800; color: var(--green-d); font-variant-numeric: tabular-nums; line-height: 1.15; }
+    .overall-pct-label { font-size: 12px; color: var(--text-2); margin-top: 2px; }
     .stats-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
     .stat-box { flex: 1; min-width: 100px; background: var(--card); border-radius: var(--r); padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 0.5px 1px rgba(0,0,0,0.04); }
     .stat-num { font-size: 22px; font-weight: 800; color: var(--green-d); font-variant-numeric: tabular-nums; }
@@ -905,6 +914,7 @@
       <div class="bulk-catchup-row" id="bulkHeartCatchupFilteredRow"></div>
     </div>
 
+    <div class="overall-pct-card" id="overallPctCard"></div>
     <div class="stats-row" id="statsRow"></div>
     <div class="titles-panel" id="titlesPanel"></div>
     <div class="filter-remaining-cost" id="grandRemainingCost"></div>
@@ -1153,6 +1163,7 @@ const I18N = {
     bulkHeartCatchUpDoneToast: { ja: '{trees}件のツリー・{nodes}件のハートを獲得済みにしました', en: 'Marked {trees} trees ({nodes} hearts) as obtained' },
   },
   stats: {
+    overallPctLabel: { ja: '全体の達成率', en: 'Overall Completion Rate' },
     unlockedNodes: { ja: '解放済みノード', en: 'Unlocked Nodes' },
     completeSpirits: { ja: 'コンプリート済み精霊', en: 'Completed Spirits' },
     candleHeartUsed: { ja: '使用したキャンドル/ハート（全ツリー合計）', en: 'Candles/Hearts used (all trees)' },
@@ -5071,6 +5082,11 @@ function renderStats() {
     });
     if (spiritDone === spiritTotal && spiritTotal > 0) completeSpirits++;
   });
+  const overallPct = totalNodes > 0 ? (doneNodes / totalNodes) * 100 : 0;
+  document.getElementById('overallPctCard').innerHTML = `
+    <div class="overall-pct-num">${totalNodes > 0 ? formatPct(overallPct) : '--%'}</div>
+    <div class="overall-pct-label">${t('stats.overallPctLabel')}</div>
+  `;
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-box"><div class="stat-num">${doneNodes} / ${totalNodes}</div><div class="stat-label">${t('stats.unlockedNodes')}</div></div>
     <div class="stat-box"><div class="stat-num">${completeSpirits} / ${SPIRIT_TREE_DATA.length}</div><div class="stat-label">${t('stats.completeSpirits')}</div></div>
