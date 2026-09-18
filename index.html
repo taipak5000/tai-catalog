@@ -861,7 +861,7 @@
     <p class="sec-label" data-i18n="filter.sectionLabel">検索・絞り込み</p>
     <div class="filter-card">
       <div class="filter-row">
-        <input type="search" class="filter-search" id="searchInput" data-i18n-placeholder="filter.searchPlaceholder" placeholder="精霊名・アイテム名で検索…" oninput="renderGrid()">
+        <input type="search" class="filter-search" id="searchInput" data-i18n-placeholder="filter.searchPlaceholder" placeholder="精霊名・アイテム名で検索…" oninput="renderGridDebounced()">
         <select class="filter-select" id="typeFilter" onchange="renderGrid()">
           <option value="all" data-i18n="filter.typeAll">すべての種別</option>
           <option value="Season" data-i18n="filter.typeSeason">季節精霊</option>
@@ -4773,6 +4773,18 @@ function spiritAreaTagHtml(s, areaTagMode) {
   return `<div class="spirit-area-tag"><svg class="inline-icon" width="9" height="9"><use href="#i-map"/></svg> ${escapeHtml(s.area)}</div>`;
 }
 
+// 🚀 パフォーマンス最適化: 精霊の元画像はFandom側のフル解像度(数百KB〜1MB超)のことが
+// 多く、実際の表示サイズ（一覧サムネ・詳細ヘッダーとも高々150px前後）に対して過大で、
+// 読み込みが重く感じる主因になっていた。Fandom(Wikia)の画像配信はURL末尾に
+// revision/latest/scale-to-width-down/<px>を付けるとリサイズ済み画像(WebP化されることが
+// 多く、元の1/10〜1/50程度のサイズ)を返してくれる（item側cost-data.js等で既に使われて
+// いるのと同じ手法）。表示幅の2〜3倍程度を目安にして高DPI環境でも粗くならないようにする。
+function fandomThumbUrl(url, width) {
+  if (!url || !/static\.wikia\.nocookie\.net/.test(url)) return url;
+  if (/\/revision\//.test(url)) return url; // 既にリビジョン/サイズ指定が付いている場合はそのまま使う
+  return `${url}/revision/latest/scale-to-width-down/${width}`;
+}
+
 // 精霊1体分のカードHTML。一覧／エリア別／シーズン別の3ビューで共有する
 // （レンダリング元を一本化し、修正時の二重管理を避ける）。
 function spiritCardHtml(s, areaTagMode) {
@@ -4780,7 +4792,7 @@ function spiritCardHtml(s, areaTagMode) {
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const name = spiritName(s);
   const thumb = s.imageUrl
-    ? `<img src="${s.imageUrl}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=spirit-thumb-fallback><svg class=inline-icon width=20 height=20><use href=#i-sparkle /></svg></span>'">`
+    ? `<img src="${fandomThumbUrl(s.imageUrl, 400)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span class=spirit-thumb-fallback><svg class=inline-icon width=20 height=20><use href=#i-sparkle /></svg></span>'">`
     : `<span class="spirit-thumb-fallback"><svg class="inline-icon" width="20" height="20"><use href="#i-sparkle"/></svg></span>`;
   return `
     <div class="spirit-card" tabindex="0" role="button" onclick="openDetail('${s.guid}')" onkeydown="if(event.target===event.currentTarget&&(event.key==='Enter'||event.key===' ')){event.preventDefault();openDetail('${s.guid}');}">
@@ -4859,6 +4871,16 @@ function renderGroupedView(mode, list) {
         <div class="area-group-grid">${cardsHtml}</div>
       </div>`;
   }).join('');
+}
+
+// 🚀 パフォーマンス最適化: 検索ボックスは1文字入力するたびにrenderGrid()（全216精霊分の
+// カードHTML再構築・残りコスト集計等）が走ると、特に低スペック端末で入力のたびに引っかかる
+// 体感の重さにつながる。検索入力だけは少し待ってから1回にまとめて再描画する
+// （プルダウン系のフィルターは離散的な単発操作なので従来通り即時renderGrid()のままでよい）。
+let renderGridDebounceTimer = null;
+function renderGridDebounced() {
+  clearTimeout(renderGridDebounceTimer);
+  renderGridDebounceTimer = setTimeout(renderGrid, 200);
 }
 
 function renderGrid() {
@@ -5055,6 +5077,10 @@ function openDetail(guid) {
   currentDetailGuid = guid;
   markAllConfirming = false; // 別の精霊の一括解放確認状態を持ち越さない
   resetTreeConfirming = false; // 別の精霊の一括ロック確認状態を持ち越さない
+  // 🚀 item/emote画像マップは通常アイドル時まで読み込みを遅延させているが、ツリー詳細を
+  // 開いた時点ではノードアイコン解決にすぐ使いたいので、ここで前倒しして読み込みを開始する
+  // （ロード関数側に多重フェッチ防止のガードがあるため、既に開始/完了済みなら何もしない）。
+  loadItemEmoteMapsDeferred();
   renderDetail(guid);
   document.getElementById('detailOverlay').classList.add('open');
   // ♿ .detail-overlay/.detail-cardは他モーダルの'.pf-modal-overlay'/'.pf-modal-card'
@@ -5449,10 +5475,22 @@ function resolveNodeImg(n) {
 // item/emoteの画像マップを読み込み、完了したら現在開いている詳細画面があれば再描画する。
 // 季節のペンダント所持判定（renderStats内）もitemのnecklaceカタログ読込に依存しているため、
 // 統計欄も合わせて再描画する。
-Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
-  if (currentDetailGuid) renderDetail(currentDetailGuid);
-  renderStats();
-});
+// 🚀 パフォーマンス最適化: tai-item側13カテゴリ+tai-emoteの計14ファイル（合計1.5MB超）を
+// フェッチするため、ページ読み込み直後に即実行すると初期表示に必要な通信・CPUと競合して
+// 体感を重くしていた。この処理はツリー詳細を開いたときのアイコン解決と、統計欄の
+// 「季節のペンダント」判定にのみ使う（一覧表示には不要）ため、初期表示が落ち着いてから
+// バックグラウンドで読み込む（requestIdleCallback、未対応環境はsetTimeoutで代替）。
+function loadItemEmoteMapsDeferred() {
+  Promise.all([loadItemImgMapForTree(), loadEmoteImgMapForTree()]).then(() => {
+    if (currentDetailGuid) renderDetail(currentDetailGuid);
+    renderStats();
+  });
+}
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(loadItemEmoteMapsDeferred, { timeout: 3000 });
+} else {
+  setTimeout(loadItemEmoteMapsDeferred, 1500);
+}
 
 // ノードのアイテム表示名。英語モードでは常にitemName（英語、SkyGame-Data由来で必ず入っている）を
 // そのまま使う。日本語モードは従来通りitemNameJa優先→resolveNodeNameJa()の補完ロジックを使う。
@@ -5645,7 +5683,7 @@ function renderDetail(guid) {
   const { done, total } = spiritProgress(s);
   const name = spiritName(s);
   const thumb = s.imageUrl
-    ? `<img src="${s.imageUrl}" alt="" onerror="this.parentElement.innerHTML='<svg class=inline-icon width=26 height=26><use href=#i-sparkle /></svg>'">`
+    ? `<img src="${fandomThumbUrl(s.imageUrl, 150)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<svg class=inline-icon width=26 height=26><use href=#i-sparkle /></svg>'">`
     : '<svg class="inline-icon" width="26" height="26"><use href="#i-sparkle"/></svg>';
 
   const bodyHtml = s.isTiered ? renderTieredTree(guid, s) : renderTreeDiagram(guid, s);
