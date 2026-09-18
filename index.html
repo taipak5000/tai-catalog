@@ -3801,11 +3801,24 @@ const COST_ICON = { c: COST_ICON_SVG('i-candle'), h: COST_ICON_SVG('i-heart'), s
    ノード解放状況の保存（プロフィールごとに名前空間化）
    ================================================================ */
 const UNLOCK_KEY_RAW = 'spiritCatalogUnlocked_v1';
+// 🚀 パフォーマンス最適化: getUnlockedMap()はisNodeUnlocked()経由で全ノードのチェックの
+// たびに呼ばれる（1回のトグル操作でrenderGrid()が全216ツリー分を複数パス再計算するため
+// 万単位の回数になる）。キャッシュ無しでJSON.parse(localStorage...)を毎回行っていたため、
+// これだけでトグル操作1回あたり1〜2秒かかる原因になっていた（_externalOwnCacheと同じ
+// パターンでキャッシュする。書き込みはsaveUnlockedMap()経由のみなのでここで同期すれば
+// 常に最新に保てる。バックアップ復元／全データ削除は直後にlocation.reload()するため
+// 別途キャッシュ無効化は不要）。
+let _unlockedMapCache = null;
 function getUnlockedMap() {
-  try { return JSON.parse(localStorage.getItem(nsKey(UNLOCK_KEY_RAW))) || {}; }
-  catch (_) { return {}; }
+  if (_unlockedMapCache) return _unlockedMapCache;
+  try { _unlockedMapCache = JSON.parse(localStorage.getItem(nsKey(UNLOCK_KEY_RAW))) || {}; }
+  catch (_) { _unlockedMapCache = {}; }
+  return _unlockedMapCache;
 }
-function saveUnlockedMap(map) { localStorage.setItem(nsKey(UNLOCK_KEY_RAW), JSON.stringify(map)); }
+function saveUnlockedMap(map) {
+  localStorage.setItem(nsKey(UNLOCK_KEY_RAW), JSON.stringify(map));
+  _unlockedMapCache = map;
+}
 
 /* ================================================================
    🏆 称号（実績） — 精霊ツリー全体の解放率に応じて段階的に獲得。
