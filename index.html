@@ -557,7 +557,8 @@
        （オン/オフ切替時にJS側で再描画を呼び直す必要がなく、取りこぼしも起きにくいため）。 */
     html:not([data-cost-display="on"]) .filter-remaining-cost,
     html:not([data-cost-display="on"]) .area-group-remaining-cost,
-    html:not([data-cost-display="on"]) .tree-node-cost { display: none !important; }
+    html:not([data-cost-display="on"]) .tree-node-cost,
+    html:not([data-cost-display="on"]) .cost-stat-box { display: none !important; }
     .settings-test-tag {
       display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px;
       border-radius: 999px; background: var(--bg); border: 1px solid var(--sep);
@@ -4792,8 +4793,8 @@ function renderStats() {
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-box"><div class="stat-num">${doneNodes} / ${totalNodes}</div><div class="stat-label">${t('stats.unlockedNodes')}</div></div>
     <div class="stat-box"><div class="stat-num">${completeSpirits} / ${SPIRIT_TREE_DATA.length}</div><div class="stat-label">${t('stats.completeSpirits')}</div></div>
-    <div class="stat-box"><div class="stat-num"><svg class="inline-icon" width="14" height="14"><use href="#i-candle"/></svg>${candleSpent}<br><svg class="inline-icon" width="14" height="14"><use href="#i-heart"/></svg>${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
-    <div class="stat-box"><div class="stat-num"><svg class="inline-icon" width="14" height="14"><use href="#i-candle"/></svg>${seasonCandleSpent}<br><svg class="inline-icon" width="14" height="14"><use href="#i-heart"/></svg>${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
+    <div class="stat-box cost-stat-box"><div class="stat-num"><svg class="inline-icon" width="14" height="14"><use href="#i-candle"/></svg>${candleSpent}<br><svg class="inline-icon" width="14" height="14"><use href="#i-heart"/></svg>${heartSpent}</div><div class="stat-label">${t('stats.candleHeartUsed')}</div></div>
+    <div class="stat-box cost-stat-box"><div class="stat-num"><svg class="inline-icon" width="14" height="14"><use href="#i-candle"/></svg>${seasonCandleSpent}<br><svg class="inline-icon" width="14" height="14"><use href="#i-heart"/></svg>${seasonHeartSpent}</div><div class="stat-label">${t('stats.seasonCandleHeartUsed')}</div></div>
   `;
   checkTitleUnlocks(doneNodes, totalNodes);
   // 絞り込みとは無関係に、常に全216ツリー分の残りコストも合わせて再描画する
