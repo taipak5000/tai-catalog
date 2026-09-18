@@ -1162,6 +1162,7 @@ const I18N = {
     revisitTreeBadgeTitle: { ja: '再訪ツリー', en: 'Revisit Tree' },
     noItemName: { ja: '（アイテム不明）', en: '(Unknown Item)' },
     warpNodeTitleTemplate: { ja: '{name}（イベント期間限定のワープ機能のため管理対象外）', en: '{name} (event-limited warp feature — not tracked)' },
+    accompanyNodeTitleTemplate: { ja: '{name}（イベント期間限定の同伴ボタンのため管理対象外）', en: '{name} (event-limited accompany button — not tracked)' },
     wingSyncTitle: { ja: '羽トラッカーと同期されます', en: 'Synced with Wing Tracker' },
     emoteSyncTitleTemplate: { ja: 'エモート管理と同期されます（Lv{level}）', en: 'Synced with Emote Collection (Lv{level})' },
     tierLabelTemplate: { ja: '段 {n}', en: 'Tier {n}' },
@@ -2026,7 +2027,7 @@ function getSpiritStats() {
   SPIRIT_TREE_DATA.forEach(s => {
     let spiritDone = 0, spiritTotal = 0;
     s.nodes.forEach(n => {
-      if (isWarpNode(n)) return;
+      if (isChecklistExcludedNode(n)) return;
       totalNodes++; spiritTotal++;
       if (isNodeUnlocked(n)) { doneNodes++; spiritDone++; }
     });
@@ -3991,14 +3992,28 @@ function isWarpNode(node) {
   return node.itemType === 'Special' && /Warp$/.test(node.itemName || '');
 }
 
+// 案内人ツリーの「〇〇と連れ歩く」ノード（Accompany系）も、ワープノードと同じく
+// イベント期間中にしか出現しない同伴ボタンでありアイテム/クエストの所持管理とは
+// 無関係なため、チェックリスト（進捗集計・トグル操作）の対象から除外する。
+function isAccompanyNode(node) {
+  return /^Accompany /.test(node.itemName || '');
+}
+
+// チェックリストの進捗集計・トグル操作・一括操作の対象外にすべきノードかどうか
+// （isWarpNode/isAccompanyNode共通の判定。呼び出し側を一本化して漏れを防ぐ）。
+function isChecklistExcludedNode(node) {
+  return isWarpNode(node) || isAccompanyNode(node);
+}
+
 // 🌟「次に解放できる」ハイライト用: あるノードの直前の前提ノード（親ノード）が
-// 解放済みと見なせるか。ワープノードはこのアプリでは所持状態を持たず常に未解放
-// 判定になってしまう（isWarpNode参照）ため、そのままだとワープの先のノードが
-// 永遠に「次に解放できる」にならない。ワープは実績上ユーザーを止める障壁ではない
-// （イベント限定の おまけ機能でしかない）ため、前提ノードとしては素通りさせる。
+// 解放済みと見なせるか。ワープ/連れ歩くノードはこのアプリでは所持状態を持たず
+// 常に未解放判定になってしまう（isChecklistExcludedNode参照）ため、そのままだと
+// その先のノードが永遠に「次に解放できる」にならない。これらは実績上ユーザーを
+// 止める障壁ではない（イベント限定の おまけ機能でしかない）ため、
+// 前提ノードとしては素通りさせる。
 function isPrereqNodeSatisfied(parentNode) {
   if (!parentNode) return true; // 前提ノードが無い（根ノードなど）＝常に解放可能
-  return isWarpNode(parentNode) || isNodeUnlocked(parentNode);
+  return isChecklistExcludedNode(parentNode) || isNodeUnlocked(parentNode);
 }
 
 /* ================================================================
@@ -4234,7 +4249,7 @@ function markTreeCompleteCore(spiritGuid) {
   const unlocked = getUnlockedMap();
   let changedCount = 0;
   spirit.nodes.forEach(node => {
-    if (isWarpNode(node)) return;
+    if (isChecklistExcludedNode(node)) return;
     if (isNodeUnlocked(node)) return; // 既に解放済み（item/emote/wings側の所持による自動解放も含む）
     unlockNodeForBulk(spirit, unlocked, node);
     changedCount++;
@@ -4273,7 +4288,7 @@ function markNodesByPredicateCore(spiritGuid, predicate) {
   const unlocked = getUnlockedMap();
   let changedCount = 0;
   spirit.nodes.forEach(node => {
-    if (isWarpNode(node)) return;
+    if (isChecklistExcludedNode(node)) return;
     if (isNodeUnlocked(node)) return;
     if (!predicate(node)) return;
     unlockNodeForBulk(spirit, unlocked, node);
@@ -4286,7 +4301,7 @@ function markNodesByPredicateCore(spiritGuid, predicate) {
 }
 
 function spiritNodesRemaining(spirit, predicate) {
-  return spirit.nodes.filter(n => !isWarpNode(n) && predicate(n) && !isNodeUnlocked(n)).length;
+  return spirit.nodes.filter(n => !isChecklistExcludedNode(n) && predicate(n) && !isNodeUnlocked(n)).length;
 }
 
 let markQuestsConfirming = false;
@@ -4519,7 +4534,7 @@ function resetTreeToLocked(spiritGuid) {
   const unlocked = getUnlockedMap();
   let changedCount = 0;
   spirit.nodes.forEach(node => {
-    if (isWarpNode(node)) return;
+    if (isChecklistExcludedNode(node)) return;
     if (!isNodeUnlocked(node)) return; // 元々未解放のノードは対象外
 
     const prevEntry = unlocked[node.guid];
@@ -4666,7 +4681,7 @@ const spiritByGuid = {};
 SPIRIT_TREE_DATA.forEach(s => { spiritByGuid[s.guid] = s; });
 
 function spiritProgress(spirit) {
-  const trackable = spirit.nodes.filter(n => !isWarpNode(n));
+  const trackable = spirit.nodes.filter(n => !isChecklistExcludedNode(n));
   const total = trackable.length;
   const done = trackable.filter(n => isNodeUnlocked(n)).length;
   return { done, total };
@@ -4992,7 +5007,7 @@ function renderStats() {
     const seasonJa = s.season ? SEASON_JA_MAP[s.season] : null;
     const pendantOwned = !!(seasonJa && pendantOwnedSeasons && pendantOwnedSeasons.has(seasonJa));
     s.nodes.forEach(n => {
-      if (isWarpNode(n)) return; // イベント限定のワープ機能はチェックリスト集計の対象外
+      if (isChecklistExcludedNode(n)) return; // イベント限定のワープ/連れ歩く機能はチェックリスト集計の対象外
       totalNodes++; spiritTotal++;
       if (isNodeUnlocked(n)) { doneNodes++; spiritDone++; }
       // item/emote側の所持だけで解放扱いになっている分は、ここでは払っていないため含めない
@@ -5030,7 +5045,7 @@ function sumRemainingCost(list) {
   const totals = {};
   list.forEach(s => {
     s.nodes.forEach(n => {
-      if (isWarpNode(n)) return;
+      if (isChecklistExcludedNode(n)) return;
       if (isNodeUnlocked(n)) return;
       Object.keys(n.cost || {}).forEach(k => { totals[k] = (totals[k] || 0) + (n.cost[k] || 0); });
     });
@@ -5709,13 +5724,14 @@ function treeNodeHtml(spiritGuid, n, style, prereqSatisfied) {
     ? `<img src="${nodeImg}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerHTML:'${icon}'}))">`
     : icon;
 
-  // ワープノードはイベント期間限定機能でチェックリスト対象外のため、
+  // ワープ/連れ歩くノードはイベント期間限定機能でチェックリスト対象外のため、
   // トグル不可の情報表示のみとする（進捗集計にも含めない）
-  if (isWarpNode(n)) {
+  if (isWarpNode(n) || isAccompanyNode(n)) {
+    const titleKey = isWarpNode(n) ? 'detail.warpNodeTitleTemplate' : 'detail.accompanyNodeTitleTemplate';
     return `
       <div class="tree-node-wrap" style="${style || ''}">
         <div class="tree-node-circle-holder">
-          <div class="tree-node tree-node-excluded" title="${escapeHtml(t('detail.warpNodeTitleTemplate', { name }))}">
+          <div class="tree-node tree-node-excluded" title="${escapeHtml(t(titleKey, { name }))}">
             <span class="tree-node-icon">${iconHtml}</span>
           </div>
         </div>
@@ -5847,12 +5863,12 @@ function renderTieredTree(spiritGuid, s) {
   // 段階ツリーのノードにはnw/n/neのような個々のノード間の前提関係データが無く、
   // 段（tier = フレンドシップレベル）でまとまって解放されるゲーム仕様のため、
   // 前提関係は「一つ前の段の全ノードが解放済みか」で判定する（段の昇順に並べたもの）。
-  // ワープノードはこのアプリで所持状態を持たない（isWarpNode）ため、段が完了したかの
-  // 判定からも除外する（isPrereqNodeSatisfiedと同じ考え方）。
+  // ワープ/連れ歩くノードはこのアプリで所持状態を持たない（isChecklistExcludedNode）ため、
+  // 段が完了したかの判定からも除外する（isPrereqNodeSatisfiedと同じ考え方）。
   const tierKeysAsc = Object.keys(byTier).map(Number).sort((a, b) => a - b);
   const tierComplete = {};
   tierKeysAsc.forEach(tn => {
-    tierComplete[tn] = byTier[tn].every(n => isWarpNode(n) || isNodeUnlocked(n));
+    tierComplete[tn] = byTier[tn].every(n => isChecklistExcludedNode(n) || isNodeUnlocked(n));
   });
   // 本家のツリーと同じく段1が一番下・上に向かって段数が増えるように、降順で並べる
   // (loop varはグローバルの t()（翻訳ヘルパー）と衝突しないよう tierNum と命名)
