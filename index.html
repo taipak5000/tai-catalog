@@ -21,6 +21,17 @@
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
+    // 🧪 コスト表示（テスト機能）: 残りコスト・ツリー内コストの正確性は保証できないため、
+    // 既定ではオフ（要素は描画するがCSSで隠す）。描画前に確定させ、オン設定時に一瞬
+    // 非表示のまま見えてしまう「ちらつき」を防ぐ（上のテーマ判定と同じ理由・同じ場所）。
+    (function () {
+      try {
+        var enabled = localStorage.getItem('sky_catalog_cost_display_enabled') === '1';
+        document.documentElement.setAttribute('data-cost-display', enabled ? 'on' : 'off');
+      } catch (e) {
+        document.documentElement.setAttribute('data-cost-display', 'off');
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
@@ -540,6 +551,18 @@
     .detail-summary { background: var(--card); border-radius: var(--r); padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 0.5px 1px rgba(0,0,0,0.04); margin-bottom: 14px; font-size: 12.5px; color: var(--text-2); display: flex; flex-wrap: wrap; gap: 10px 18px; }
     .detail-summary b { color: var(--text); }
     .tier-label { font-size: 12px; font-weight: 700; color: var(--text-2); padding: 12px 2px 6px; }
+    /* 🧪 コスト表示（テスト機能・既定オフ）: 表示設定でオンにするまで、残りコスト表示
+       （絞り込み分・全体合計・エリア/シーズン別グループ）とツリー内の各ノードのコスト
+       チップを一括で非表示にする。要素の生成自体は変えず、CSSのみで出し分ける
+       （オン/オフ切替時にJS側で再描画を呼び直す必要がなく、取りこぼしも起きにくいため）。 */
+    html:not([data-cost-display="on"]) .filter-remaining-cost,
+    html:not([data-cost-display="on"]) .area-group-remaining-cost,
+    html:not([data-cost-display="on"]) .tree-node-cost { display: none !important; }
+    .settings-test-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px;
+      border-radius: 999px; background: var(--bg); border: 1px solid var(--sep);
+      color: var(--text-2); margin-left: 6px; vertical-align: middle;
+    }
     .cost-chip { font-size: 10.5px; font-weight: 700; padding: 3px 7px; border-radius: 999px; white-space: nowrap; }
     .cost-c { background: var(--orange-bg); color: #B8740A; }
     .cost-h { background: rgba(255,45,85,0.10); color: #D6294F; }
@@ -1196,6 +1219,9 @@ const I18N = {
     modalTitle: { ja: '表示設定', en: 'Display Settings' },
     displaySection: { ja: '<svg class="inline-icon" width="15" height="15"><use href="#i-monitor"/></svg> 表示', en: '<svg class="inline-icon" width="15" height="15"><use href="#i-monitor"/></svg> Display' },
     darkModeLabel: { ja: 'ダークモード', en: 'Dark Mode' },
+    costDisplayLabel: { ja: 'コスト表示', en: 'Cost Display' },
+    testFeatureTag: { ja: 'テスト機能', en: 'Experimental' },
+    costDisplayHint: { ja: '残りコスト・ツリー内の必要コストの数値は正確性を保証できないため、試験的な機能として提供しています。既定ではオフです。', en: 'Remaining-cost and in-tree cost figures are not guaranteed to be accurate, so this is provided as an experimental feature. It is off by default.' },
     themeBtnDark: { ja: 'ダーク', en: 'Dark' },
     themeBtnLight: { ja: 'ライト', en: 'Light' },
     themeBtnSystem: { ja: 'システム', en: 'System' },
@@ -1455,6 +1481,7 @@ function toggleSidebar() {
    ================================================================ */
 const THEME_KEY = 'sky_app_theme';
 const SHORTCUTS_KEY = 'sky_shortcuts_enabled';
+const COST_DISPLAY_KEY = 'sky_catalog_cost_display_enabled';
 
 // 🌓 sky_app_theme は 'light' / 'dark' / 'system' の3値を取り得る（キー未設定＝初回訪問時も
 // 'system'として扱う）。「今どちらの見た目にすべきか」を決める箇所（<head>内の先読みスクリプト・
@@ -1537,6 +1564,21 @@ function settingsSyncShortcutsCheckbox() {
   if (cb) cb.checked = skyShortcutsEnabled();
 }
 
+// 🧪 コスト表示（テスト機能）: 残りコスト・ツリー内コストの算出はデータ精度に依存し
+// 正確性を保証できないため、既定はOFF。実際の表示切替はCSS側（[data-cost-display]）で
+// 行うため、ここではlocalStorageへの保存と<html>属性の同期のみを担う。
+function costDisplayEnabled() {
+  return localStorage.getItem(COST_DISPLAY_KEY) === '1'; // 未設定・それ以外はデフォルトOFF
+}
+function toggleCostDisplayEnabled(checked) {
+  try { localStorage.setItem(COST_DISPLAY_KEY, checked ? '1' : '0'); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+  document.documentElement.setAttribute('data-cost-display', checked ? 'on' : 'off');
+}
+function settingsSyncCostDisplayCheckbox() {
+  const cb = document.getElementById('settingsCostDisplayCheckbox');
+  if (cb) cb.checked = costDisplayEnabled();
+}
+
 function settingsOpenModal() {
   // 既に開いている場合は何もしない（「?」ショートカットは他のモーダルが開いているか
   // 確認せず呼ばれるため、ここでガードしないとftPush側のトリガー参照がモーダル内の
@@ -1573,6 +1615,11 @@ function settingsInjectModal() {
         <span class="pf-currency-label" data-i18n="settings.darkModeLabel">${t('settings.darkModeLabel')}</span>
         <button type="button" class="pf-icon-btn" id="settingsThemeBtn" onclick="toggleTheme()"></button>
       </div>
+      <div class="pf-currency-row">
+        <span class="pf-currency-label"><span data-i18n="settings.costDisplayLabel">${t('settings.costDisplayLabel')}</span><span class="settings-test-tag" data-i18n="settings.testFeatureTag">${t('settings.testFeatureTag')}</span></span>
+        <input type="checkbox" id="settingsCostDisplayCheckbox" onchange="toggleCostDisplayEnabled(this.checked)" style="width:18px; height:18px; accent-color:var(--green); cursor:pointer;">
+      </div>
+      <div class="pf-hint" data-i18n="settings.costDisplayHint">${t('settings.costDisplayHint')}</div>
 
       <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.shortcutsSection">${t('settings.shortcutsSection')}</div>
       <div class="pf-currency-row">
@@ -1598,6 +1645,7 @@ function settingsInjectModal() {
     </div>`;
   document.body.appendChild(overlay);
   settingsSyncThemeBtn();
+  settingsSyncCostDisplayCheckbox();
   settingsSyncShortcutsCheckbox();
   settingsSyncLangBtns();
 }
