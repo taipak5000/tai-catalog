@@ -475,6 +475,10 @@
     .stat-box { flex: 1; min-width: 100px; background: var(--card); border-radius: var(--r); padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 0.5px 1px rgba(0,0,0,0.04); }
     .stat-num { font-size: 22px; font-weight: 800; color: var(--green-d); font-variant-numeric: tabular-nums; }
     .stat-label { font-size: 11.5px; color: var(--text-2); margin-top: 2px; }
+    /* 🔄 item/emote/wingsを別タブで操作した直後、リロード無しでも_externalOwnCacheを
+       手動で更新できるようにするボタン（invalidateExternalOwnCache()参照）。 */
+    .sync-refresh-row { display: flex; justify-content: center; margin-top: 10px; }
+    .sync-refresh-btn { display: inline-flex; align-items: center; gap: 5px; }
 
     /* ── 🏆 称号 ── */
     .titles-panel { margin-top: 10px; }
@@ -904,6 +908,13 @@
     <div class="titles-panel" id="titlesPanel"></div>
     <div class="filter-remaining-cost" id="grandRemainingCost"></div>
 
+    <div class="sync-refresh-row">
+      <button type="button" class="filter-reset-btn sync-refresh-btn" onclick="refreshExternalSync()" title="アイテム所持管理・エモート所持率管理・羽トラッカーを別タブで操作した直後は、ここを押すと最新の状態に反映されます" data-i18n-title="stats.syncRefreshHint">
+        <svg class="inline-icon" width="13" height="13"><use href="#i-sync"/></svg>
+        <span data-i18n="stats.syncRefreshBtn">アイテム所持管理との同期を更新</span>
+      </button>
+    </div>
+
     <div class="share-btn-row">
       <button type="button" class="share-btn twitter" onclick="shareOverallOnTwitter()" data-i18n="share.twitterBtn">Xで画像を共有</button>
       <button type="button" class="share-btn customize" onclick="openCustomizeModal()" data-i18n="share.customizeBtn">カスタマイズして共有</button>
@@ -1145,6 +1156,8 @@ const I18N = {
     candleHeartUsed: { ja: '使用したキャンドル/ハート（全ツリー合計）', en: 'Candles/Hearts used (all trees)' },
     seasonCandleHeartUsed: { ja: '使用したシーズンキャンドル/ハート（全ツリー合計）', en: 'Season Candles/Hearts used (all trees)' },
     grandRemainingCostLabel: { ja: '残りコスト（現在の絞り込みに関わらず全{total}ツリー合計）', en: 'Remaining cost (all {total} trees, regardless of filter)' },
+    syncRefreshBtn: { ja: 'アイテム所持管理との同期を更新', en: 'Refresh sync with Item Collection' },
+    syncRefreshHint: { ja: 'アイテム所持管理・エモート所持率管理・羽トラッカーを別タブで操作した直後は、ここを押すと最新の状態に反映されます', en: 'If you just made changes in Item Collection, Emote Collection, or Wing Tracker in another tab, tap this to pull in the latest state' },
   },
   // 一度獲得した称号は、後でノードのチェックを外しても取り消されない
   // （checkTitleUnlocks()参照）。
@@ -1218,6 +1231,7 @@ const I18N = {
     shared: { ja: '共有しました！', en: 'Shared!' },
     saveFailed: { ja: '画像の保存に失敗しました', en: 'Failed to save the image' },
     dataLoading: { ja: 'データを読み込み中です', en: 'Data is still loading' },
+    syncRefreshed: { ja: '同期を更新しました', en: 'Sync refreshed' },
   },
   exportCard: {
     brand: { ja: '精霊ツリー管理', en: 'Spirit Tree Catalog' },
@@ -3931,6 +3945,18 @@ function getExternalOwnCache() {
   return _externalOwnCache;
 }
 function invalidateExternalOwnCache() { _externalOwnCache = null; }
+
+// 🔄 item（アイテム所持管理）/emote（エモート所持率管理）/wings（羽トラッカー）を別タブで
+// 操作した直後、このタブをリロードしなくても最新の所持状態を反映できるようにする手動更新
+// ボタン用。_externalOwnCacheはこのタブ自身のtoggleNode()等の書き込み時にしか無効化されず、
+// 他タブでの変更までは検知できないため、ユーザーが任意のタイミングで明示的に破棄・再読み込み
+// できるようにする。
+function refreshExternalSync() {
+  invalidateExternalOwnCache();
+  renderGrid(); // renderStats()もここから呼ばれる
+  if (currentDetailGuid) renderDetail(currentDetailGuid);
+  showToast(t('toast.syncRefreshed'));
+}
 
 // ツリーは根から順番にしか解放できないため、「祝福」ノードから見て
 // その先（根から遠い側）にあるWing Buff（羽ロック）ノードの一覧を
