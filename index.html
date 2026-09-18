@@ -4251,10 +4251,14 @@ function markTreeCompleteCore(spiritGuid) {
    markTreeCompleteCore()と同じunlockNodeForBulk()を共有し、対象ノードだけ
    predicateで絞り込む。
    ================================================================ */
-// クエストノード（itemType==='Quest'、"Quest 1"〜等）。この型はraw ItemTypeで
-// 一意に判別できる（ファイル冒頭のコメント「use itemType, not itemName
-// string-matching」の方針通り）。
-function isQuestNode(node) { return node.itemType === 'Quest'; }
+// クエストノード（"Quest 1"〜等）。ファイル冒頭のコメントは itemType での判別を
+// 推奨しているが、実データを確認したところ光の修繕者の季節の案内人の
+// 「Quest 4」ノードだけ itemType が 'Special' に誤タグ付けされており
+// （SkyGame-Data側のデータ不備）、itemType単独では判別漏れが起きることを確認した。
+// itemName（必ず入っている英語名）の"Quest N"パターンで判定すれば、この
+// 誤タグ付けノードも含めて確実にクエストとして扱える（"Quest 2 (removed …)"の
+// ような末尾に注記が付くバリエーションも先頭一致でカバーする）。
+function isQuestNode(node) { return /^Quest \d+/.test(node.itemName || ''); }
 // ハートノードはitemTypeが汎用の'Special'に埋もれており型だけでは判別できないため
 // （NODE_NAME_ICON_OVERRIDEと同じ理由）、英語の正規名（必ず入っている）で判定する。
 // 「Heart Gesture」（itemType==='Emote'のジェスチャー）等の紛らわしい別アイテムは
@@ -5435,8 +5439,10 @@ function resolveNodeImg(n) {
   // 汎用の「Warp」アイコンで代用する
   if (isWarpNode(n)) return GENERIC_ITEM_IMG['Warp'];
   // クエスト（「クエスト1」「Quest 2」等、番号は精霊ごとに違うが実機アイコンは共通）は
-  // ゲーム内と同じ「！」マークで表示する（紙の絵文字より実機に近くわかりやすいため）
-  if (n.itemType === 'Quest') return 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8b/Exclamation-mark-Ray.png/revision/latest/scale-to-width-down/51';
+  // ゲーム内と同じ「！」マークで表示する（紙の絵文字より実機に近くわかりやすいため）。
+  // isQuestNode()を使うことで、itemTypeが'Special'に誤タグ付けされているノード
+  // （光の修繕者の季節の案内人「Quest 4」等）も番号にかかわらず確実に「！」に統一される。
+  if (isQuestNode(n)) return 'https://static.wikia.nocookie.net/sky-children-of-the-light/images/8/8b/Exclamation-mark-Ray.png/revision/latest/scale-to-width-down/51';
   return null;
 }
 
@@ -5461,7 +5467,11 @@ function treeNodeHtml(spiritGuid, n, style, prereqSatisfied) {
   const name = itemDisplayName(n, spirit);
   // 「日本語訳未確認」の斜体表示は日本語モードでのみ意味を持つ（英語モードは常にitemNameを表示するため）
   const noJa = LANG === 'ja' && !jaName;
-  const icon = NODE_NAME_ICON_OVERRIDE[name] || NODE_TYPE_ICON[n.itemType] || NODE_ICON_SVG('i-sparkle');
+  // 🩹 実機画像(nodeImg)の読み込みに失敗した場合のフォールバック絵文字。isQuestNode()で
+  // 判定することで、itemTypeが誤タグ付けされたクエストノードでもクエスト用アイコン
+  // （NODE_TYPE_ICON.Quest）に倒れるようにする（n.itemTypeそのままだと⭐等の
+  // 無関係なアイコンにフォールバックしてしまう）。
+  const icon = NODE_NAME_ICON_OVERRIDE[name] || (isQuestNode(n) ? NODE_TYPE_ICON.Quest : NODE_TYPE_ICON[n.itemType]) || NODE_ICON_SVG('i-sparkle');
   const nodeImg = resolveNodeImg(n);
   const iconHtml = nodeImg
     ? `<img src="${nodeImg}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerHTML:'${icon}'}))">`

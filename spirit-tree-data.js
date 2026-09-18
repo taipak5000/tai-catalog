@@ -14473,7 +14473,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "rTMkyo8ps7",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -14488,7 +14488,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Hzwq3gNp4n",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
 
@@ -14503,7 +14503,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "ucBnU6hQc5",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
                                        "sh":  1
@@ -14518,7 +14518,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "h4ekoTqcZt",
                           "tier":  1,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -14533,7 +14533,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "ZJGMr3g6so",
                           "tier":  1,
-                          "row":  1,
+                          "row":  0,
                           "col":  1,
                           "cost":  {
 
@@ -14548,7 +14548,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "en_VEKZitX",
                           "tier":  1,
-                          "row":  1,
+                          "row":  0,
                           "col":  2,
                           "cost":  {
 
@@ -14578,7 +14578,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "33dXqWBULr",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  0,
                           "cost":  {
 
@@ -14593,7 +14593,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "AVxM3nbZ37",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
@@ -14608,7 +14608,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Qh9AhzqiqW",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  2,
                           "cost":  {
                                        "sh":  2
@@ -14653,7 +14653,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "rV1VNPET-F",
                           "tier":  2,
-                          "row":  2,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -14668,7 +14668,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "tVXCCDv6Ll",
                           "tier":  2,
-                          "row":  2,
+                          "row":  0,
                           "col":  1,
                           "cost":  {
 
@@ -21262,7 +21262,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "U65O1DVwDs",
                           "tier":  0,
-                          "row":  0,
+                          "row":  2,
                           "col":  0,
                           "cost":  {
 
@@ -21277,7 +21277,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "z3-VIUI_6l",
                           "tier":  0,
-                          "row":  0,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
@@ -21292,7 +21292,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "2eANYDUQpF",
                           "tier":  0,
-                          "row":  0,
+                          "row":  2,
                           "col":  2,
                           "cost":  {
 
@@ -21352,7 +21352,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "ZvrM10f_vq",
                           "tier":  0,
-                          "row":  2,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -21367,7 +21367,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Vx9DUUt-3e",
                           "tier":  1,
-                          "row":  0,
+                          "row":  2,
                           "col":  0,
                           "cost":  {
 
@@ -21382,7 +21382,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "vS2pHP4Ua3",
                           "tier":  1,
-                          "row":  0,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
@@ -21397,7 +21397,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "ovE247wsyc",
                           "tier":  1,
-                          "row":  0,
+                          "row":  2,
                           "col":  2,
                           "cost":  {
                                        "sh":  1
@@ -21442,7 +21442,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "yF8eEYsKeS",
                           "tier":  1,
-                          "row":  2,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -21457,7 +21457,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "VIgYdV3vgW",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  0,
                           "cost":  {
 
@@ -21472,7 +21472,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "_cofE3qPH8",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
@@ -21487,7 +21487,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "OC1a3zYwA-",
                           "tier":  2,
-                          "row":  0,
+                          "row":  2,
                           "col":  2,
                           "cost":  {
                                        "sh":  2
@@ -21532,7 +21532,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "cC4mDHheXz",
                           "tier":  2,
-                          "row":  2,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -21547,7 +21547,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Hs58f9fnK6",
                           "tier":  3,
-                          "row":  0,
+                          "row":  2,
                           "col":  0,
                           "cost":  {
 
@@ -21562,7 +21562,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "JwqkysH0p7",
                           "tier":  3,
-                          "row":  0,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
@@ -21577,7 +21577,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "RJbMDvqPFo",
                           "tier":  3,
-                          "row":  0,
+                          "row":  2,
                           "col":  2,
                           "cost":  {
 
@@ -21607,7 +21607,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "BO3BGL6OuK",
                           "tier":  3,
-                          "row":  2,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -23628,7 +23628,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "RTje2sQbDf",
                           "tier":  0,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -23643,7 +23643,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "BvZNonEg4z",
                           "tier":  0,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
 
@@ -23658,7 +23658,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "iB3vN3wulM",
                           "tier":  0,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
 
@@ -23673,7 +23673,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "DEjV0YzK4j",
                           "tier":  0,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -23688,7 +23688,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "dCtodX8-2C",
                           "tier":  0,
-                          "row":  1,
+                          "row":  0,
                           "col":  2,
                           "cost":  {
                                        "sh":  1
@@ -23703,7 +23703,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "eoqXwyNVfY",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -23718,7 +23718,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "tzI9RG4290",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
 
@@ -23733,7 +23733,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Fj6_fYi-LK",
                           "tier":  1,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
                                        "sh":  2
@@ -23748,7 +23748,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "zoNkAU2lUv",
                           "tier":  1,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -23763,7 +23763,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "NQLhGo3wVU",
                           "tier":  1,
-                          "row":  1,
+                          "row":  0,
                           "col":  1,
                           "cost":  {
 
@@ -23778,7 +23778,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "YzAC-ypl-5",
                           "tier":  2,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -23793,7 +23793,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "CVZOVQxIn7",
                           "tier":  2,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
 
@@ -23808,7 +23808,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "KIcUmxzswP",
                           "tier":  2,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
                                        "sh":  2
@@ -23823,7 +23823,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "iBoxpERjGF",
                           "tier":  2,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -23838,7 +23838,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "0hGiGPNCzb",
                           "tier":  2,
-                          "row":  1,
+                          "row":  0,
                           "col":  1,
                           "cost":  {
 
@@ -23853,7 +23853,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "oGvTrwgIck",
                           "tier":  3,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -23868,7 +23868,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "8kcD2KTQ_x",
                           "tier":  3,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
 
@@ -23883,7 +23883,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "L1I8Uo47XP",
                           "tier":  3,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
 
@@ -23898,7 +23898,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "dKE6PlUw3l",
                           "tier":  3,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
@@ -23913,7 +23913,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "hVb_kmCJlq",
                           "tier":  4,
-                          "row":  0,
+                          "row":  1,
                           "col":  0,
                           "cost":  {
 
@@ -23928,7 +23928,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "PnhaGyOV4F",
                           "tier":  4,
-                          "row":  0,
+                          "row":  1,
                           "col":  1,
                           "cost":  {
                                        "c":  32
@@ -23943,7 +23943,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "aLhY8eo_Vs",
                           "tier":  4,
-                          "row":  0,
+                          "row":  1,
                           "col":  2,
                           "cost":  {
 
@@ -23958,7 +23958,7 @@ const SPIRIT_TREE_DATA = [
                       {
                           "guid":  "Uppf-aDVeo",
                           "tier":  4,
-                          "row":  1,
+                          "row":  0,
                           "col":  0,
                           "cost":  {
 
