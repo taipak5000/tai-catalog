@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><head><title>init</title></head>
+<body>
+<script>
+var o = {
+  x: 1,
+  get x() { return 2; }
+};
+var r1 = o.x;
+o.x = 999;
+var r2 = o.x;
+document.title = "read1=" + r1 + " read2=" + r2;
+</script>
+</body></html>
