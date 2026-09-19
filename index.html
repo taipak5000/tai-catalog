@@ -5330,7 +5330,11 @@ function loadEmoteImgMapForTree() {
 const TYPE_TO_CATKEYS = {
   Cape: ['cape'], Mask: ['mask'], Necklace: ['necklace'], Hair: ['hairstyle'],
   HairAccessory: ['hair_accessory'], HeadAccessory: ['head_accessory'], Outfit: ['outfit'],
-  OutfitShoes: ['shoes'], Shoes: ['shoes'], FaceAccessory: ['face_accessory'],
+  // 🩹 OutfitShoes（服+靴セット）は、アイテム所持管理側では実際には靴カタログではなく
+  // 服カタログ(outfit)に登録されている場合が大半だった（例: Bearhug Hermit Outfit等）。
+  // shoesカタログのみを見ていたため名前・アイコンの自動解決に7件失敗していたことが判明し、
+  // outfitも合わせて検索するようにした。
+  OutfitShoes: ['outfit', 'shoes'], Shoes: ['shoes'], FaceAccessory: ['face_accessory'],
   Held: ['portable_item'], Furniture: ['large_placeable', 'small_placeable'],
   Prop: ['portable_item', 'large_placeable', 'small_placeable'],
 };
