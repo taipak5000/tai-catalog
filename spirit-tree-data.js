@@ -14438,7 +14438,7 @@ const SPIRIT_TREE_DATA = [
         "revisitDate":  null,
         "revisitName":  null,
         "isTiered":  true,
-        "nodeCount":  19,
+        "nodeCount":  20,
         "nodes":  [
                       {
                           "guid":  "1VyEZLTMej",
@@ -14711,9 +14711,24 @@ const SPIRIT_TREE_DATA = [
                           "itemCostId":  null
                       },
                       {
-                          "guid":  "m_CWBnno1c",
+                          "guid":  "t--OeyBCT7",
                           "tier":  3,
                           "row":  1,
+                          "col":  1,
+                          "cost":  {
+                                       "c":  120
+                                   },
+                          "itemGuid":  "KwENV96jIh",
+                          "itemName":  "Easel Prop",
+                          "itemNameJa":  "イーゼル",
+                          "itemType":  "Furniture",
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "m_CWBnno1c",
+                          "tier":  3,
+                          "row":  2,
                           "col":  1,
                           "cost":  {
 
