@@ -5095,6 +5095,11 @@ function renderStats() {
     if (spiritDone === spiritTotal && spiritTotal > 0) completeSpirits++;
   });
   const overallPct = totalNodes > 0 ? (doneNodes / totalNodes) * 100 : 0;
+  // 🔗 姉妹サイト（星紡ぎカード等）が「精霊ツリー進行度」を表示する際、このアプリの
+  // ノード総数をハードコードのスナップショット値として持つとデータ更新のたびに
+  // ズレてしまうため、item（アイテム所持管理）のgameItems_*と同じ考え方で、
+  // 集計結果をlocalStorageに保存し、常に最新の値を他サイトから直接読めるようにする。
+  try { localStorage.setItem(nsKey('spiritCatalogStats_v1'), JSON.stringify({ totalNodes, doneNodes })); } catch (_) { /* ストレージ不可時は無視 */ }
   document.getElementById('overallPctCard').innerHTML = `
     <div class="overall-pct-num">${totalNodes > 0 ? formatPct(overallPct) : '--%'}</div>
     <div class="overall-pct-label">${t('stats.overallPctLabel')}</div>
