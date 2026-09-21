@@ -31151,6 +31151,211 @@ const SPIRIT_TREE_DATA = [
         "nameJa":  "慎み深い踊り手",
         "rootNodeGuid":  "XcU33tjR-q"
     },
+    // 🆕 奏の音楽堂の案内人（英語名: Harmony Hall Guide）はSkyGame-Data(上記ヘッダー参照)には
+    // 存在しない、独自追加のエントリ。奏の音楽堂は表現者たちの季節の到来で追加された建物で、
+    // 案内人はキャンドルとの交換専用（クエスト進行によるハグ等の友情表現は無し）。
+    // JP wiki https://sky-children-of-the-light.fandom.com/ja/wiki/奏の音楽堂#奏の音楽堂の案内人
+    // （2024年時点のツリー、グランドオープニング版は含まない）を出典に、guid/itemGuidのみ
+    // このプロジェクトで新規採番した。
+    {
+        "guid":  "qXm3HHg7Rk",
+        "name":  "Harmony Hall Guide",
+        "type":  "Guide",
+        "season":  "Season of Performance",
+        "seasonOrderIndex":  5,
+        "area":  "Harmony Hall",
+        "imageUrl":  "https://static.wikia.nocookie.net/sky-children-of-the-light/images/1/1e/Performance-Spirit-Forgetful-Storyteller.png",
+        "treeGuid":  "hV9Trk2MnQ",
+        "treeSource":  "original",
+        "revisitDate":  null,
+        "revisitName":  null,
+        "isTiered":  false,
+        "nodeCount":  12,
+        "nodes":  [
+                      {
+                          "guid":  "n1c5Bls9Xa",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iBls5c001a",
+                          "itemName":  "5 Candles Blessing",
+                          "itemNameJa":  "5キャンドルの祝福",
+                          "itemType":  "Spell",
+                          "nw":  "sh5Note8Ab",
+                          "n":  "n2c5Bls3Yb",
+                          "ne":  "sh1Note2Bc",
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "sh5Note8Ab",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iSheet05Fa",
+                          "itemName":  "Duet Sheet Music 5",
+                          "itemNameJa":  "楽譜 奏5",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "sh1Note2Bc",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "iSheet01Fb",
+                          "itemName":  "Duet Sheet Music 1",
+                          "itemNameJa":  "楽譜 奏1",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "n2c5Bls3Yb",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iBls5c002b",
+                          "itemName":  "5 Candles Blessing",
+                          "itemNameJa":  "5キャンドルの祝福",
+                          "itemType":  "Spell",
+                          "nw":  "sh2Note4Cd",
+                          "n":  "n3c5Bls7Zc",
+                          "ne":  "sh3Note6De",
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "sh2Note4Cd",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "iSheet02Fc",
+                          "itemName":  "Duet Sheet Music 2",
+                          "itemNameJa":  "楽譜 奏2",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "sh3Note6De",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "iSheet03Fd",
+                          "itemName":  "Duet Sheet Music 3",
+                          "itemNameJa":  "楽譜 奏3",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "n3c5Bls7Zc",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iBls5c003c",
+                          "itemName":  "5 Candles Blessing",
+                          "itemNameJa":  "5キャンドルの祝福",
+                          "itemType":  "Spell",
+                          "nw":  "sh4Note0Ef",
+                          "n":  "n4c5Bls1Wd",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "sh4Note0Ef",
+                          "cost":  {
+                                       "c":  10
+                                   },
+                          "itemGuid":  "iSheet04Fe",
+                          "itemName":  "Duet Sheet Music 4",
+                          "itemNameJa":  "楽譜 奏4",
+                          "itemType":  "Music",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "n4c5Bls1Wd",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iBls5c004d",
+                          "itemName":  "5 Candles Blessing",
+                          "itemNameJa":  "5キャンドルの祝福",
+                          "itemType":  "Spell",
+                          "nw":  "jamStat9Fg",
+                          "n":  "n5c5Bls5Ve",
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "jamStat9Fg",
+                          "cost":  {
+                                       "c":  250
+                                   },
+                          "itemGuid":  "iJamStatFf",
+                          "itemName":  "Jam Station",
+                          "itemNameJa":  "ジャム・ステーション",
+                          "itemType":  "Furniture",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "n5c5Bls5Ve",
+                          "cost":  {
+                                       "c":  5
+                                   },
+                          "itemGuid":  "iBls5c005e",
+                          "itemName":  "5 Candles Blessing",
+                          "itemNameJa":  "5キャンドルの祝福",
+                          "itemType":  "Spell",
+                          "nw":  "saxPhon3Gh",
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      },
+                      {
+                          "guid":  "saxPhon3Gh",
+                          "cost":  {
+                                       "c":  125
+                                   },
+                          "itemGuid":  "iSaxPhonFg",
+                          "itemName":  "Saxophone",
+                          "itemNameJa":  "サクソフォン",
+                          "itemType":  "Held",
+                          "nw":  null,
+                          "n":  null,
+                          "ne":  null,
+                          "itemCatKey":  null,
+                          "itemCostId":  null
+                      }
+                  ],
+        "nameJa":  "奏の音楽堂の案内人",
+        "rootNodeGuid":  "n1c5Bls9Xa"
+    },
     {
         "guid":  "DKFofCESGJ",
         "name":  "Prophecy Guide",
