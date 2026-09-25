@@ -1281,6 +1281,8 @@ const I18N = {
     costDisplayLabel: { ja: 'コスト表示', en: 'Cost Display' },
     testFeatureTag: { ja: 'テスト機能', en: 'Experimental' },
     costDisplayHint: { ja: '残りコスト・ツリー内の必要コストの数値は正確性を保証できないため、試験的な機能として提供しています。既定ではオフです。', en: 'Remaining-cost and in-tree cost figures are not guaranteed to be accurate, so this is provided as an experimental feature. It is off by default.' },
+    titlesDisplayLabel: { ja: '称号を表示', en: 'Show Titles' },
+    titlesDisplayHint: { ja: 'オフにすると、このページ上部の称号パネルと、プロフィール切替内の獲得称号一覧の両方が非表示になります（称号の獲得判定自体は引き続き行われます）。既定ではオンです。', en: 'When off, this hides both the titles panel on this page and the earned-titles list inside the profile switcher (titles are still tracked in the background). On by default.' },
     themeBtnDark: { ja: 'ダーク', en: 'Dark' },
     themeBtnLight: { ja: 'ライト', en: 'Light' },
     themeBtnSystem: { ja: 'システム', en: 'System' },
@@ -1341,6 +1343,7 @@ const I18N = {
     ascendedCandle: { ja: '星のキャンドル', en: 'Star Candles' },
     seasonCandle: { ja: 'シーズンキャンドル', en: 'Season Candles' },
     giftPass: { ja: 'ギフトパス', en: 'Gift Pass' },
+    syncHint: { ja: 'キャンドル・ハート・星のキャンドルはアイテム所持管理、シーズンキャンドルは精霊同行ツールと共有されます（どちらで編集してもここに反映されます）。', en: 'Candles, Hearts, and Star Candles are shared with Item Collection; Season Candles are shared with the Spirit Companion tool (edits in either place are reflected here).' },
   },
   dashboard: {
     modalTitle: { ja: '今日・今週・今月', en: 'Today / This Week / This Month' },
@@ -1545,6 +1548,7 @@ function toggleSidebar() {
 const THEME_KEY = 'sky_app_theme';
 const SHORTCUTS_KEY = 'sky_shortcuts_enabled';
 const COST_DISPLAY_KEY = 'sky_catalog_cost_display_enabled';
+const TITLES_DISPLAY_KEY = 'sky_catalog_titles_display_enabled';
 
 // 🌓 sky_app_theme は 'light' / 'dark' / 'system' の3値を取り得る（キー未設定＝初回訪問時も
 // 'system'として扱う）。「今どちらの見た目にすべきか」を決める箇所（<head>内の先読みスクリプト・
@@ -1642,6 +1646,24 @@ function settingsSyncCostDisplayCheckbox() {
   if (cb) cb.checked = costDisplayEnabled();
 }
 
+// 🏆 称号表示: 精霊ツリー全体の達成率に応じた自身の称号パネル（#titlesPanel）と、
+// プロフィール切替モーダル内の他ツール横断の獲得称号セクション（pf-titles-row）の
+// 両方に反映する端末単位の表示設定。既存ユーザーの体験を変えないよう既定はON。
+function titlesDisplayEnabled() {
+  const v = localStorage.getItem(TITLES_DISPLAY_KEY);
+  return v === null ? true : v === '1'; // 未設定はデフォルトON
+}
+function toggleTitlesDisplayEnabled(checked) {
+  try { localStorage.setItem(TITLES_DISPLAY_KEY, checked ? '1' : '0'); } catch (e) { /* ストレージ不可時も表示は継続する */ }
+  renderTitlesPanel();
+  // プロフィール切替モーダルが開いたままこの設定を変えた場合、横断称号セクションにも即反映する
+  if (document.getElementById('pfModalOverlay')?.classList.contains('open')) pfRenderModal();
+}
+function settingsSyncTitlesDisplayCheckbox() {
+  const cb = document.getElementById('settingsTitlesDisplayCheckbox');
+  if (cb) cb.checked = titlesDisplayEnabled();
+}
+
 function settingsOpenModal() {
   // 既に開いている場合は何もしない（「?」ショートカットは他のモーダルが開いているか
   // 確認せず呼ばれるため、ここでガードしないとftPush側のトリガー参照がモーダル内の
@@ -1652,6 +1674,7 @@ function settingsOpenModal() {
   settingsSyncThemeBtn();
   settingsSyncShortcutsCheckbox();
   settingsSyncLangBtns();
+  settingsSyncTitlesDisplayCheckbox();
   document.getElementById('settingsModalOverlay').classList.add('open');
 }
 function settingsCloseModal() {
@@ -1683,6 +1706,11 @@ function settingsInjectModal() {
         <input type="checkbox" id="settingsCostDisplayCheckbox" onchange="toggleCostDisplayEnabled(this.checked)" style="width:18px; height:18px; accent-color:var(--green); cursor:pointer;">
       </div>
       <div class="pf-hint" data-i18n="settings.costDisplayHint">${t('settings.costDisplayHint')}</div>
+      <div class="pf-currency-row">
+        <span class="pf-currency-label" data-i18n="settings.titlesDisplayLabel">${t('settings.titlesDisplayLabel')}</span>
+        <input type="checkbox" id="settingsTitlesDisplayCheckbox" onchange="toggleTitlesDisplayEnabled(this.checked)" style="width:18px; height:18px; accent-color:var(--green); cursor:pointer;">
+      </div>
+      <div class="pf-hint" data-i18n="settings.titlesDisplayHint">${t('settings.titlesDisplayHint')}</div>
 
       <div class="customize-section-label" style="margin-top:18px;" data-i18n="settings.shortcutsSection">${t('settings.shortcutsSection')}</div>
       <div class="pf-currency-row">
@@ -1711,6 +1739,7 @@ function settingsInjectModal() {
   settingsSyncCostDisplayCheckbox();
   settingsSyncShortcutsCheckbox();
   settingsSyncLangBtns();
+  settingsSyncTitlesDisplayCheckbox();
 }
 
 // 表示設定／ダッシュボード／プロフィール切替／サイドバー（「他のツール」ドロワー）の
@@ -2410,11 +2439,11 @@ function pfToggleTitles(id) {
    新規キー（skyCurrencyExtra_v1）で管理する。
    ================================================================ */
 const PF_CURRENCY_FIELDS = [
-  { key: 'candle',         icon: '<svg class="inline-icon" width="12" height="12"><use href="#i-candle"/></svg>', labelKey: 'currency.candle' },
-  { key: 'heart',          icon: '<svg class="inline-icon" width="12" height="12"><use href="#i-heart"/></svg>', labelKey: 'currency.heart' },
-  { key: 'ascendedCandle', icon: '<svg class="inline-icon" width="12" height="12"><use href="#i-star-candle"/></svg>', labelKey: 'currency.ascendedCandle' },
-  { key: 'seasonCandle',   icon: '<svg class="inline-icon" width="12" height="12"><use href="#i-candle"/></svg>', labelKey: 'currency.seasonCandle' },
-  { key: 'giftPass',       icon: '<svg class="inline-icon" width="12" height="12"><use href="#i-ticket"/></svg>', labelKey: 'currency.giftPass' },
+  { key: 'candle',         icon: '<svg class="inline-icon" width="13" height="13"><use href="#i-candle"/></svg>', labelKey: 'currency.candle' },
+  { key: 'heart',          icon: '<svg class="inline-icon" width="13" height="13"><use href="#i-heart"/></svg>', labelKey: 'currency.heart' },
+  { key: 'ascendedCandle', icon: '<svg class="inline-icon" width="13" height="13"><use href="#i-star-candle"/></svg>', labelKey: 'currency.ascendedCandle' },
+  { key: 'seasonCandle',   icon: '<svg class="inline-icon" width="13" height="13"><use href="#i-candle"/></svg>', labelKey: 'currency.seasonCandle' },
+  { key: 'giftPass',       icon: '<svg class="inline-icon" width="13" height="13"><use href="#i-ticket"/></svg>', labelKey: 'currency.giftPass' },
 ];
 function pfCompanionDataKey() {
   const id = getActiveProfileId();
@@ -2480,8 +2509,8 @@ function pfRenderCurrency() {
   body.innerHTML = PF_CURRENCY_FIELDS.map(f => `
     <div class="pf-currency-row">
       <span class="pf-currency-label">${f.icon} ${t(f.labelKey)}</span>
-      <input type="number" min="0" class="pf-currency-input" value="${pfFmtCurrencyInputValue(c[f.key])}"
-        onchange="pfSaveCurrencyField('${f.key}', this.value)">
+      <input type="number" min="0" inputmode="numeric" class="pf-currency-input" value="${pfFmtCurrencyInputValue(c[f.key])}"
+        onfocus="this.select()" onchange="pfSaveCurrencyField('${f.key}', this.value)">
     </div>`).join('');
   pfSyncCurrencyToggleUI();
 }
@@ -2626,6 +2655,9 @@ function pfCollectEarnedTitles(profileId) {
 // プロフィール切替モーダルの1行分に添える「🏆 N個の称号 ▾」開閉セクションのHTML。
 // pfRenderModal()から、プロフィールを切り替えずに（＝アクティブプロフィールを問わず）呼ばれる。
 function pfBuildTitlesSectionHtml(p) {
+  // 🏆 表示設定「称号を表示」がオフの場合は、プロフィール切替モーダル内のこのセクション
+  // 自体を出さない（renderTitlesPanel()と同じ設定を共有。判定・保存には影響しない）。
+  if (!titlesDisplayEnabled()) return '';
   const groups = pfCollectEarnedTitles(p.id);
   const total = groups.reduce((sum, g) => sum + g.titles.length, 0);
   const expanded = pfTitlesExpandedIds.has(p.id);
@@ -2751,6 +2783,7 @@ function pfInjectModal() {
         </div>
         <div id="pfCurrencyBody"></div>
       </div>
+      <div class="pf-hint" data-i18n="currency.syncHint">${t('currency.syncHint')}</div>
       <button type="button" class="pf-icon-btn" style="width:100%; margin-top:10px; padding:8px;" onclick="dmOpenModal()" data-i18n="profile.backupOpenBtn">${t('profile.backupOpenBtn')}</button>
       <button type="button" class="pf-close-btn" onclick="pfCloseModal()" data-i18n="profile.closeBtn">${t('profile.closeBtn')}</button>
     </div>`;
@@ -3908,6 +3941,10 @@ function checkTitleUnlocks(doneNodes, totalNodes) {
 function renderTitlesPanel(earnedMap) {
   const el = document.getElementById('titlesPanel');
   if (!el) return;
+  // 🏆 表示設定「称号を表示」がオフの場合はこのパネル自体を非表示にする（判定・保存は
+  // checkTitleUnlocks()側で引き続き行われるため、オンに戻せば取りこぼし無く反映される）。
+  if (!titlesDisplayEnabled()) { el.innerHTML = ''; el.style.display = 'none'; return; }
+  el.style.display = '';
   const earned = earnedMap || loadEarnedTitles();
   const earnedCount = TITLES.filter(def => earned[def.id]).length;
   // 未獲得も含め全件を表示する。未獲得の名前・条件は伏せ、🔒＋？？？のみ出す
