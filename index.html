@@ -4287,19 +4287,95 @@ function getExternalOwnCache() {
   _externalOwnCache = { itemOwnedByCat, emoteOwned, wingUnlockedGuids };
   return _externalOwnCache;
 }
-function invalidateExternalOwnCache() { _externalOwnCache = null; }
+// このタブ自身がitem/emote/wingsへ書き込んだ直後に呼ぶ（toggleNode()・一括解放・ツリーの
+// リセット）。キャッシュを捨てるだけでなく、後述の「連携の写し」も書き込み後の状態に揃えて
+// おく。揃えておかないと、同じアイテムに紐づく別ノードの所持がこのタブ自身の操作で外れた
+// ときに、それを「他のツールで所持が外された」と誤認してしまう。
+function invalidateExternalOwnCache() {
+  _externalOwnCache = null;
+  saveExternalSyncSnapshot();
+}
+
+// 🔄 ノードがitem/emote/wings側でも所持済みになっているか（連携先の所持データのみで判定）。
+function isNodeExternallyOwned(node, ext) {
+  if (node.itemCatKey && node.itemCostId && ext.itemOwnedByCat[node.itemCatKey]?.[node.itemCostId]) return true;
+  if (node.emoteId && node.emoteLevel && (ext.emoteOwned[node.emoteId] || []).includes(node.emoteLevel)) return true;
+  if (node.itemType === 'WingBuff' && ext.wingUnlockedGuids.has(node.guid)) return true;
+  return false;
+}
+
+// 🔄 他ツールで「所持を外した」ことを精霊ツリー側にも反映するための写し。
+// 精霊ツリーで解放したノードはspirit-catalog自身の解放記録（own）にも残るため、item/emote/
+// wings側で所持を外しても、ownが残っている限り解放済みのまま表示されていた（同期の更新
+// ボタンを押しても戻らなかった原因）。そこで「ownで解放済み、かつ連携先でも所持済み」の
+// ノードを写しとして保存しておき、次の同期時に連携先から所持が消えていればownからも外す。
+// 写しに入るのは連携先と実際に一致していたノードだけなので、連携先への書き込みが無かった
+// 古い解放記録などが巻き込まれて消えることは無い。
+const EXT_SYNC_SNAPSHOT_KEY_RAW = 'spiritCatalogExtSyncSnapshot_v1';
+function computeExternalSyncSnapshot() {
+  const own = getUnlockedMap();
+  const ext = getExternalOwnCache();
+  const guids = [];
+  SPIRIT_TREE_DATA.forEach(s => s.nodes.forEach(n => {
+    if (own[n.guid] && isNodeExternallyOwned(n, ext)) guids.push(n.guid);
+  }));
+  return guids;
+}
+function saveExternalSyncSnapshot() {
+  try { localStorage.setItem(nsKey(EXT_SYNC_SNAPSHOT_KEY_RAW), JSON.stringify(computeExternalSyncSnapshot())); }
+  catch (_) { /* ストレージ不可時は次回の同期で作り直す */ }
+}
+// 戻り値は、連携先で所持が外されたためownからも外したノード数。
+// 外したノードのキャンドル/ハートは払い戻さない（item側で所持を外しても通貨は変わらない
+// ため、ここで払い戻すと通貨だけが増えてしまう）。
+function reconcileExternalRemovals() {
+  _unlockedMapCache = null; // 精霊ツリーを別タブでも開いている場合に備えて読み直す
+  let prev = null;
+  try { prev = JSON.parse(localStorage.getItem(nsKey(EXT_SYNC_SNAPSHOT_KEY_RAW))); } catch (_) {}
+  let removed = 0;
+  if (Array.isArray(prev) && prev.length) {
+    const prevSet = new Set(prev);
+    const own = getUnlockedMap();
+    const ext = getExternalOwnCache();
+    SPIRIT_TREE_DATA.forEach(s => s.nodes.forEach(n => {
+      if (!prevSet.has(n.guid) || !own[n.guid] || isNodeExternallyOwned(n, ext)) return;
+      delete own[n.guid];
+      removed++;
+    }));
+    if (removed) saveUnlockedMap(own);
+  }
+  saveExternalSyncSnapshot();
+  return removed;
+}
 
 // 🔄 item（アイテム所持管理）/emote（エモート所持率管理）/wings（羽トラッカー）を別タブで
 // 操作した直後、このタブをリロードしなくても最新の所持状態を反映できるようにする手動更新
 // ボタン用。_externalOwnCacheはこのタブ自身のtoggleNode()等の書き込み時にしか無効化されず、
 // 他タブでの変更までは検知できないため、ユーザーが任意のタイミングで明示的に破棄・再読み込み
 // できるようにする。
-function refreshExternalSync() {
-  invalidateExternalOwnCache();
+// 別タブでの変更はstorageイベントやタブへの復帰時にも自動で取り込む（silent=trueでトースト無し）。
+function refreshExternalSync(silent) {
+  _externalOwnCache = null; // ここでは写しを更新しない（reconcileExternalRemovals()が前回の写しと比べるため）
+  reconcileExternalRemovals();
   renderGrid(); // renderStats()もここから呼ばれる
-  if (currentDetailGuid) renderDetail(currentDetailGuid);
-  showToast(t('toast.syncRefreshed'));
+  if (currentDetailGuid && document.getElementById('detailOverlay').classList.contains('open')) renderDetail(currentDetailGuid);
+  if (!silent) showToast(t('toast.syncRefreshed'));
 }
+let externalSyncTimer = null;
+function refreshExternalSyncSoon() {
+  clearTimeout(externalSyncTimer);
+  externalSyncTimer = setTimeout(() => refreshExternalSync(true), 300);
+}
+const EXT_SYNC_WATCH_KEYS_RAW = ['emoteOwned_v1', 'wingTracker_v1', 'permWingTracker_v1', 'wishOwnCurrency', UNLOCK_KEY_RAW];
+window.addEventListener('storage', (e) => {
+  if (!e.key) return;
+  const watched = EXT_SYNC_WATCH_KEYS_RAW.some(k => e.key === nsKey(k))
+    || ITEM_CATS_FOR_TREE.some(cat => e.key === nsKey('gameItems_' + cat.key));
+  if (watched) refreshExternalSyncSoon();
+});
+// storageイベントはバックグラウンドのタブ（特にiOS）で届かないことがあるため、復帰時にも取り込む
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') refreshExternalSyncSoon(); });
+window.addEventListener('pageshow', (e) => { if (e.persisted) refreshExternalSyncSoon(); });
 
 // ツリーは根から順番にしか解放できないため、「祝福」ノードから見て
 // その先（根から遠い側）にあるWing Buff（羽ロック）ノードの一覧を
@@ -6405,6 +6481,7 @@ pfInjectModal();
 settingsInjectModal();
 pfRenderBar();
 initSeasonFilter();
+reconcileExternalRemovals(); // 🔄 精霊ツリーを閉じている間にitem/emote/wings側で外された所持を反映する
 migrateRegularCapeTier2Link(); // 🩹 恒常精霊ティア2ケープのitem紐づけ修正に伴う、既存の解放済みデータの移行（1回のみ）
 renderGrid();
 initRevisitBadge(); // 🕊️ ダッシュボードを開かなくても再訪連携バッジを表示できるよう先読み
